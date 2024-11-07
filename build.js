@@ -3,10 +3,15 @@ const path = require('path');
 
 async function build() {
   try {
-    // Create dist directory
+    console.log('🏗️ Starting build process...');
+
+    // Clean dist directory if it exists
+    console.log('🧹 Cleaning dist directory...');
+    await fs.rm('dist', { recursive: true, force: true });
     await fs.mkdir('dist', { recursive: true });
     
     // Read content directories
+    console.log('📚 Reading content...');
     const posts = await fs.readdir('site/content/posts');
     const pages = await fs.readdir('site/content/pages');
     
@@ -21,28 +26,27 @@ async function build() {
       ...posts.map(post => `/posts/${post.replace('.md', '')}`),
     ];
 
+    console.log('🔨 Generating HTML for routes:', routes);
     // Generate HTML for each route
     for (const route of routes) {
       const html = await generateHTML(sourceHTML, route);
       const fileName = route === '/' ? 'index.html' : `${route}/index.html`;
       
-      // Create directory if needed
       await fs.mkdir(path.join('dist', path.dirname(fileName)), { recursive: true });
       await fs.writeFile(path.join('dist', fileName), html);
     }
 
     // Copy assets and content
+    console.log('📂 Copying assets and content...');
     await copyAssets();
 
-    // Create .nojekyll file to prevent GitHub Pages from using Jekyll
+    // Create .nojekyll file
     await fs.writeFile('dist/.nojekyll', '');
 
-    // Create a simple README in dist
-    await fs.writeFile('dist/README.md', '# MarkVault\nThis is the built version of MarkVault. Please see the main branch for source code.');
-
-    console.log('Build completed successfully!');
+    console.log('✅ Build completed successfully!');
+    console.log('📦 Output directory: ./dist');
   } catch (error) {
-    console.error('Build failed:', error);
+    console.error('❌ Build failed:', error);
     process.exit(1);
   }
 }
