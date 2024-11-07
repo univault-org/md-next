@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MarkVault Starter</title>
 
+      <script>
+        window.BASE_URL = window.location.hostname === "localhost" 
+          ? "" 
+          : "/MarkVault";
+      </script>
     <!-- React and ReactDOM -->
     <script
       crossorigin
@@ -113,7 +118,6 @@
 
     <!-- Add this right after Tailwind config -->
     <script>
-      // Check and set initial theme
       if (
         localStorage.theme === "dark" ||
         (!("theme" in localStorage) &&
@@ -124,7 +128,27 @@
         document.documentElement.classList.remove("dark");
       }
     </script>
-  </head>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // For local development
+    window.BASE_URL = window.location.hostname === "localhost" 
+      ? "" 
+      : "/MarkVault";
+
+    console.log("BASE_URL Configuration:");
+    console.log("- Hostname:", window.location.hostname);
+    console.log("- BASE_URL:", window.BASE_URL);
+    console.log("- Full URL:", window.location.href);
+  });
+</script>
+  
+    <script>
+      window.BASE_URL = '/MarkVault';
+      window.initialRoute = '/';
+    </script>
+    </head>
+    
   <body>
     <div id="root"></div>
     <script type="text/babel">
@@ -893,7 +917,7 @@
         const { posts, isLoading } = React.useContext(GlobalContext);
         const [postData, setPostData] = React.useState([]);
         const [error, setError] = React.useState(null);
-
+        console.log("base url", window.BASE_URL);
         React.useEffect(() => {
           if (!isLoading) {
             Promise.all(
@@ -908,8 +932,13 @@
                     title: metadata.title || file.replace(".md", ""),
                     date: metadata.date || "Unknown date",
                     excerpt: metadata.excerpt || "",
-                    // Use book.jpg for the first post
-                    image: index === 0 ? "./assets/images/book.jpg" : null,
+                    // Update image path with BASE_URL
+                    image:
+                      index === 0
+                        ? `${window.BASE_URL}/assets/images/book.jpg`
+                        : metadata.image
+                        ? `${window.BASE_URL}/${metadata.image}`
+                        : null,
                   };
                 } catch (err) {
                   setError("Failed to load posts");
@@ -1038,6 +1067,11 @@
         React.useEffect(() => {
           fetchMarkdown("posts", `${slug}.md`)
             .then(({ content, metadata }) => {
+              // Update image path with BASE_URL
+              const imagePath = metadata.image
+                ? `${window.BASE_URL}/${metadata.image}`
+                : `${window.BASE_URL}/assets/images/book.jpg`;
+
               setPost({
                 content,
                 title: metadata.title || slug,
@@ -1045,7 +1079,7 @@
                 author: metadata.author || "Anonymous",
                 readingTime: calculateReadingTime(content),
                 excerpt: metadata.excerpt,
-                image: metadata.image || "./assets/images/book.jpg",
+                image: imagePath, // Use the updated path
               });
               setIsLoading(false);
             })
