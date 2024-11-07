@@ -1,6 +1,14 @@
-# MarkVault and MarkVault Site Starter
+# MarkVault Starter
 
-A minimalist, markdown-powered platform designed for long-term content preservation. Built with vanilla React and zero build configuration.
+A lightweight starter template for building knowledge bases, websites, and blogs with pure React and Markdown. Zero build configuration, no dependencies to install - just clone and start writing. Perfect for developers who want a simple, maintainable way to preserve and share their knowledge.
+
+## Why MarkVault?
+
+- 🎯 **Purpose-Built**: Designed specifically for knowledge bases and technical blogs
+- 🛠 **Developer-Friendly**: Uses familiar tools - React, Markdown, and simple HTML/JS
+- 📦 **No Dependencies**: No npm, no build tools, no package management
+- 💡 **Learn & Build**: Great starting point to understand React without build complexity
+- 🔒 **Future-Proof**: Simple tech stack ensures long-term maintainability
 
 ## Features
 
@@ -17,12 +25,12 @@ A minimalist, markdown-powered platform designed for long-term content preservat
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/markvault-starter.git
+git clone https://github.com/univault-org/MarkVault.git
 ```
 
 2. Navigate to the site directory:
 ```bash
-cd markvault-starter/site
+cd MarkVault/site
 ```
 
 3. Serve the directory with any static server:
