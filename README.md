@@ -1,6 +1,6 @@
 # MarkVault Starter
 
-A lightweight starter template for building knowledge bases, websites, and blogs with pure React and Markdown. Zero build configuration, no dependencies to install - just clone and start writing. Perfect for developers who want a simple, maintainable way to preserve and share their knowledge.
+A lightweight starter template for building knowledge bases, websites, and blogs with pure React and Markdown.
 
 ## Why MarkVault?
 
