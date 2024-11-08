@@ -5,10 +5,10 @@ async function build() {
   try {
     console.log('🏗️ Starting build process...');
 
-    // Clean dist directory if it exists
-    console.log('🧹 Cleaning dist directory...');
-    await fs.rm('dist', { recursive: true, force: true });
-    await fs.mkdir('dist', { recursive: true });
+    // Clean docs directory if it exists
+    console.log('🧹 Cleaning docs directory...');
+    await fs.rm('docs', { recursive: true, force: true });
+    await fs.mkdir('docs', { recursive: true });
     
     // Read content directories
     console.log('📚 Reading content...');
@@ -32,8 +32,8 @@ async function build() {
       const html = await generateHTML(sourceHTML, route);
       const fileName = route === '/' ? 'index.html' : `${route}/index.html`;
       
-      await fs.mkdir(path.join('dist', path.dirname(fileName)), { recursive: true });
-      await fs.writeFile(path.join('dist', fileName), html);
+      await fs.mkdir(path.join('docs', path.dirname(fileName)), { recursive: true });
+      await fs.writeFile(path.join('docs', fileName), html);
     }
 
     // Copy assets and content
@@ -41,10 +41,10 @@ async function build() {
     await copyAssets();
 
     // Create .nojekyll file
-    await fs.writeFile('dist/.nojekyll', '');
+    await fs.writeFile('docs/.nojekyll', '');
 
     console.log('✅ Build completed successfully!');
-    console.log('📦 Output directory: ./dist');
+    console.log('📦 Output directory: ./docs');
   } catch (error) {
     console.error('❌ Build failed:', error);
     process.exit(1);
@@ -68,15 +68,15 @@ async function generateHTML(sourceHTML, route) {
 async function copyAssets() {
   try {
     // Create necessary directories
-    await fs.mkdir('dist/content', { recursive: true });
-    await fs.mkdir('dist/assets', { recursive: true });
+    await fs.mkdir('docs/content', { recursive: true });
+    await fs.mkdir('docs/assets', { recursive: true });
 
     // Copy content directory
-    await fs.cp('site/content', 'dist/content', { recursive: true });
+    await fs.cp('site/content', 'docs/content', { recursive: true });
     
     // Copy assets if they exist
     if (await fs.access('site/assets').catch(() => false)) {
-      await fs.cp('site/assets', 'dist/assets', { recursive: true });
+      await fs.cp('site/assets', 'docs/assets', { recursive: true });
     }
 
     console.log('Assets copied successfully');

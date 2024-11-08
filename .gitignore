@@ -4,6 +4,7 @@ pnpm-lock.yaml
 
 # Build output
 dist/
+docs/
 
 # OS files
 .DS_Store
