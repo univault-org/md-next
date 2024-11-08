@@ -1,56 +1,63 @@
 # MarkVault Starter
 
-A lightweight starter template for building knowledge bases, websites, and blogs with pure React and Markdown.
+A lightweight starter template for building knowledge bases, websites, and blogs with pure React and Markdown. See it in action: [Live Demo](https://univault-org.github.io/MarkVault/)
 
 ## Why MarkVault?
 
 - 🎯 **Purpose-Built**: Designed specifically for knowledge bases and technical blogs
 - 🛠 **Developer-Friendly**: Uses familiar tools - React, Markdown, and simple HTML/JS
-- 📦 **No Dependencies**: No npm, no build tools, no package management
-- 💡 **Learn & Build**: Great starting point to understand React without build complexity
 - 🔒 **Future-Proof**: Simple tech stack ensures long-term maintainability
-
-## Features
-
-- 📝 **Markdown-First**: Native support for markdown content with frontmatter
-- 🌓 **Dark Mode**: Seamless light/dark theme switching
-- ⚡ **Zero Build**: No npm, no build step, just pure HTML/JS
-- 📱 **Responsive**: Mobile-first design approach
-- 🎨 **Modern UI**: Clean, minimal interface with Tailwind CSS
-- 🔍 **SEO Ready**: Semantic HTML and metadata support
-- 📊 **Content Types**: Support for posts, pages, and custom content
-- 🚀 **Fast Loading**: Minimal dependencies, maximum performance
 
 ## Quick Start
 
-1. Clone the repository:
+1. Use this template:
 ```bash
 git clone https://github.com/univault-org/MarkVault.git
+cd MarkVault
 ```
 
-2. Navigate to the site directory:
+2. Create a new repository on GitHub
+
+3. Update your remote:
 ```bash
-cd MarkVault/site
+git remote set-url origin https://github.com/YOUR_USERNAME/YOUR_REPO.git
 ```
 
-3. Serve the directory with any static server:
+4. Deploy to GitHub Pages:
 ```bash
-# Using Python
-python -m http.server 8000
+# Create and switch to deploy branch
+git checkout -b deploy/gh-pages
 
-# Using PHP
-php -S localhost:8000
-
-# Using Node.js
-npx serve
-
-# Using VS Code
-Use the "Live Server" extension and right-click on index.html to "Open with Live Server"
+# Push to GitHub
+git push -u origin deploy/gh-pages
 ```
 
-4. Open `http://localhost:8000` in your browser (port may vary depending on your server)
+5. Enable GitHub Pages:
+- Go to your repository settings
+- Navigate to "Pages"
+- Under "Build and deployment":
+  - Source: Deploy from a branch
+  - Branch: deploy/gh-pages
+  - Folder: / (docs)
+- Click Save
 
-> **Note**: Make sure you're serving from the `site` directory, not the project root, as this contains the `index.html` file.
+Your site will be available at: `https://YOUR_USERNAME.github.io/YOUR_REPO/`
+
+## Local Development
+
+1. Install dependencies (optional, for development):
+```bash
+pnpm install
+```
+
+2. Start development server:
+```bash
+pnpm dev
+# or use any static server:
+npx serve site
+```
+
+3. Open `http://localhost:3000` in your browser
 
 ## Project Structure
 
@@ -61,7 +68,6 @@ markvault/
 │   └── content/      # Markdown content
 │       ├── posts/    # Blog posts
 │       └── pages/    # Static pages
-├── editor/           # Content editor files
 └── README.md         # This file
 ```
 
@@ -94,6 +100,23 @@ lastUpdated: 2024-01-20
 
 Your page content here...
 ```
+
+## Deployment Updates
+
+After making changes:
+```bash
+# Switch to deploy branch
+git checkout deploy/gh-pages
+
+# Add and commit changes
+git add .
+git commit -m "update: your changes description"
+
+# Push to GitHub
+git push origin deploy/gh-pages
+```
+
+Your changes will be live in a few minutes at your GitHub Pages URL.
 
 ## Customization
 
