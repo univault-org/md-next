@@ -5,10 +5,12 @@ const nextConfig = {
   images: {
     unoptimized: true, // Required for static export
   },
-  // Disable server-side features
+  // Disable any server-side features
   experimental: {
     appDir: false,
-  }
+  },
+  // Ensure trailing slashes for GitHub Pages
+  trailingSlash: true,
 }
 
 module.exports = nextConfig
