@@ -56,7 +56,7 @@ We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) f
 
 ## License
 
-MIT License - feel free to use this for your own projects!
+[MIT License](LICENSE) - feel free to use this for your own projects!
 
 ## About Univault
 
