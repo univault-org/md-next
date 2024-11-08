@@ -5,11 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MarkVault Starter</title>
 
-      <script>
-        window.BASE_URL = window.location.hostname === "localhost" 
-          ? "" 
-          : "/MarkVault";
-      </script>
+    <script>
+      window.BASE_URL =
+        window.location.hostname === "localhost" ? "" : "/MarkVault";
+    </script>
     <!-- React and ReactDOM -->
     <script
       crossorigin
@@ -38,15 +37,6 @@
       import remarkGfm from "https://esm.sh/remark-gfm@4.0.0";
 
       // Make them available globally
-      window.ReactMarkdown = ReactMarkdown;
-      window.remarkGfm = remarkGfm;
-    </script>
-
-    <!-- Add this script to make ReactMarkdown globally available -->
-    <script type="module">
-      import ReactMarkdown from "https://esm.sh/react-markdown@9.0.1";
-      import remarkGfm from "https://esm.sh/remark-gfm@4.0.0";
-
       window.ReactMarkdown = ReactMarkdown;
       window.remarkGfm = remarkGfm;
     </script>
@@ -128,33 +118,8 @@
         document.documentElement.classList.remove("dark");
       }
     </script>
+  </head>
 
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    // For local development
-    window.BASE_URL = window.location.hostname === "localhost" 
-      ? "" 
-      : "/MarkVault";
-
-    console.log("BASE_URL Configuration:");
-    console.log("- Hostname:", window.location.hostname);
-    console.log("- BASE_URL:", window.BASE_URL);
-    console.log("- Full URL:", window.location.href);
-  });
-</script>
-  
-    <script>
-      window.BASE_URL = '/MarkVault';
-      window.initialRoute = '/';
-    </script>
-    
-    <script>
-      window.BASE_URL = '/MarkVault';
-      window.initialRoute = '/';
-    </script>
-    </head>
-    
-    
   <body>
     <div id="root"></div>
     <script type="text/babel">
@@ -173,22 +138,28 @@
        */
       async function fetchMarkdown(type, fileName) {
         try {
+          console.group(`📄 Fetching markdown: ${type}/${fileName}`);
+
           const cleanFileName = fileName.replace(/^\/+/, "");
-          const response = await fetch(`./content/${type}/${cleanFileName}`);
+          const url = `${window.BASE_URL}/content/${type}/${cleanFileName}`;
+
+          console.log("🔗 Attempting fetch from:", url);
+          const response = await fetch(url);
 
           if (!response.ok) {
-            console.error(`HTTP error! status: ${response.status}`);
+            console.error(`❌ HTTP error! status: ${response.status}`);
             throw new Error(`Failed to fetch ${fileName} (${response.status})`);
           }
 
           const text = await response.text();
-          console.log("Fetched content:", text.substring(0, 100)); // Debug log
+          console.log("📥 Content preview:", text.substring(0, 100));
 
           // Parse frontmatter and content
           const parts = text.split("---\n");
           if (parts.length < 3) {
+            console.log("⚠️ No frontmatter found, returning raw content");
             return {
-              content: text, // Raw markdown text instead of marked.parse
+              content: text,
               metadata: {},
             };
           }
@@ -196,12 +167,17 @@
           const [, frontmatter, ...contentParts] = parts;
           const metadata = parseFrontmatter(frontmatter);
 
+          console.log("✅ Successfully parsed markdown");
+          console.log("📋 Metadata:", metadata);
+          console.groupEnd();
+
           return {
-            content: contentParts.join("---\n"), // Raw markdown text
+            content: contentParts.join("---\n"),
             metadata,
           };
         } catch (error) {
-          console.error(`Error fetching markdown:`, error);
+          console.error(`❌ Error fetching markdown:`, error);
+          console.groupEnd();
           throw error;
         }
       }
@@ -923,7 +899,6 @@
         const { posts, isLoading } = React.useContext(GlobalContext);
         const [postData, setPostData] = React.useState([]);
         const [error, setError] = React.useState(null);
-        console.log("base url", window.BASE_URL);
         React.useEffect(() => {
           if (!isLoading) {
             Promise.all(
@@ -1304,6 +1279,11 @@
        */
       function App() {
         const path = useRouter();
+
+        console.group("🚀 App Mount");
+        console.log("Current path:", path);
+        console.log("BASE_URL:", window.BASE_URL);
+        console.groupEnd();
 
         return (
           <GlobalProvider>
