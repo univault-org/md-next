@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect, useRef, useCallback } from "react";
-import Image from "next/image";
+import OptimizedImage from '@/components/utils/OptimizedImage'
 import DeclarationLayout from "@/components/layout/DeclarationLayout";
 import Ownership from "./ownership";
 import Preamble from "./preamble";
@@ -84,11 +84,6 @@ export default function Declaration({ slidesData }) {
     }
   };
 
-  const handlePause = () => {
-    // Add pause functionality if needed
-    console.log("Pause clicked");
-  };
-
   const toggleAutoplay = () => {
     setIsPlaying((prev) => !prev);
   };
@@ -120,7 +115,7 @@ export default function Declaration({ slidesData }) {
     >
       {/* Background Image with Gradient Overlay */}
       <div className="fixed inset-0 -z-10 h-screen mt-20">
-        <Image
+        <OptimizedImage
           src="/images/declaration.jpg"
           alt="Declaration Background"
           fill

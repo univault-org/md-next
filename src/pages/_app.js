@@ -5,7 +5,6 @@ import Head from 'next/head'
 import Navigation from '../components/layout/Navigation' 
 import Footer from '../components/layout/Footer' 
 import { useRouter } from 'next/router'
-
 // Initialize IBM Plex Mono
 const ibmPlexMono = IBM_Plex_Mono({
   subsets: ['latin'],
