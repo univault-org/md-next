@@ -52,12 +52,20 @@ jobs:
 
       - name: Copy public assets
         run: |
-          cp -r public/* out/
+          # Create md-next directory in out
+          mkdir -p out/md-next
+          
+          # Copy all public assets to md-next directory
+          cp -r public/* out/md-next/
+          
+          # Copy specific directories if they exist
           if [ -d "public/fonts" ]; then
-            cp -r public/fonts out/
+            mkdir -p out/md-next/fonts
+            cp -r public/fonts/* out/md-next/fonts/
           fi
           if [ -d "public/images" ]; then
-            cp -r public/images out/
+            mkdir -p out/md-next/images
+            cp -r public/images/* out/md-next/images/
           fi
 
       - name: Setup Pages
