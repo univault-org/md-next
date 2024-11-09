@@ -15,6 +15,7 @@ export default function Navigation() {
     { href: "/", label: "Home" },
     { href: "/about", label: "About" },
     { href: "/declaration", label: "Declaration" },
+    { href: "/updates", label: "News & Updates" },
   ];
 
   return (
