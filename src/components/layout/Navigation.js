@@ -75,7 +75,7 @@ export default function Navigation() {
                   x="44"
                   y="26"
                   className="
-                  text-2xl font-bold fill-neutral-900 dark:fill-white
+                  text-3xl font-bold fill-neutral-900 dark:fill-white
                   transition-all duration-500
                   group-hover:fill-primary-500
                 "
@@ -93,7 +93,7 @@ export default function Navigation() {
                 key={href}
                 href={href}
                 className={`
-                  px-3 py-2 rounded-md text-sm font-medium transition-colors
+                  px-3 py-2 rounded-md font-medium transition-colors
                   ${
                     router.pathname === href
                       ? "text-primary-600 dark:text-primary-400 bg-primary-50 dark:bg-primary-900/20"
@@ -101,7 +101,7 @@ export default function Navigation() {
                   }
                 `}
               >
-                {label}
+               {label}
               </Link>
             ))}
 
