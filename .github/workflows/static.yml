@@ -47,6 +47,18 @@ jobs:
 
       - name: Build
         run: pnpm build
+        env:
+          NEXT_PUBLIC_BASE_PATH: /md-next
+
+      - name: Copy public assets
+        run: |
+          cp -r public/* out/
+          if [ -d "public/fonts" ]; then
+            cp -r public/fonts out/
+          fi
+          if [ -d "public/images" ]; then
+            cp -r public/images out/
+          fi
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
