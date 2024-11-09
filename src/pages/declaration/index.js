@@ -115,7 +115,7 @@ export default function Declaration({ slidesData }) {
     >
       {/* Background Image with Gradient Overlay */}
       <div className="fixed inset-0 -z-10 h-screen mt-20">
-        <Image
+        <OptimizedImage
           src="/images/declaration.jpg"
           alt="Declaration Background"
           fill
