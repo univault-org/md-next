@@ -4,6 +4,7 @@ import { ThemeProvider } from 'next-themes'
 import Head from 'next/head'
 import Navigation from '../components/layout/Navigation' 
 import Footer from '../components/layout/Footer' 
+import { useRouter } from 'next/router'
 
 // Initialize IBM Plex Mono
 const ibmPlexMono = IBM_Plex_Mono({
@@ -13,6 +14,9 @@ const ibmPlexMono = IBM_Plex_Mono({
 })
 
 export default function App({ Component, pageProps }) {
+  const router = useRouter()
+  const isDeclarationRoute = router.pathname.startsWith('/declaration')
+
   return (
     <ThemeProvider attribute="class">
       <Head>
@@ -42,7 +46,7 @@ export default function App({ Component, pageProps }) {
         <main className="flex-grow">
           <Component {...pageProps} />
         </main>
-        <Footer />
+        {!isDeclarationRoute && <Footer />}
       </div>
     </ThemeProvider>
   )

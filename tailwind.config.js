@@ -48,6 +48,15 @@ module.exports = {
           800: "#1f2937",
           900: "#111827",
         },
+        declaration: {
+            light: '#4A3B24', // Lighter sepia for dark mode
+            DEFAULT: '#35281A', // Base sepia color
+            dark: '#2B2014',   // Darker sepia for light mode
+            muted: {
+              light: 'rgba(74, 59, 36, 0.7)',  // Transparent light
+              dark: 'rgba(43, 32, 20, 0.7)'    // Transparent dark
+            }
+          },
       },
       fontFamily: {
         'sans': ['WeThePeople', ...defaultTheme.fontFamily.sans], // Add WeThePeople as primary font

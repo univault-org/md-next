@@ -1,36 +1,178 @@
-import { getMDXContent } from '@/lib/api'
-import { MDXRemote } from 'next-mdx-remote'
-import DeclarationLayout from '@/components/layout/DeclarationLayout'
+import { motion, AnimatePresence } from "framer-motion";
+import { useState, useEffect, useRef, useCallback } from "react";
+import Image from "next/image";
+import DeclarationLayout from "@/components/layout/DeclarationLayout";
+import Ownership from "./ownership";
+import Preamble from "./preamble";
+import Privacy from "./privacy";
+import Security from "./security";
+import AccessRight from "./access-right";
+import { getMDXContent } from "@/lib/api";
 
-export default function Declaration({ source, frontmatter }) {
+const SLIDES = [
+  { Component: Preamble, path: "declaration/preamble.md" },
+  { Component: Ownership, path: "declaration/ownership.md" },
+  { Component: Privacy, path: "declaration/privacy.md" },
+  { Component: Security, path: "declaration/security.md" },
+  { Component: AccessRight, path: "declaration/access-right.md" },
+];
+
+const slideVariants = {
+  enterFromRight: {
+    x: "100%",
+    filter: "blur(8px)",
+    opacity: 0,
+  },
+  enterFromLeft: {
+    x: "-100%",
+    filter: "blur(8px)",
+    opacity: 0,
+  },
+  center: {
+    x: 0,
+    filter: "blur(0px)",
+    opacity: 1,
+    transition: {
+      x: { duration: 0.3, ease: "easeOut" },
+      filter: { duration: 0.5, delay: 0.2 },
+      opacity: { duration: 0.3 },
+    },
+  },
+  exitToLeft: {
+    x: "-100%",
+    filter: "blur(8px)",
+    opacity: 0,
+    transition: {
+      duration: 0.3,
+      ease: "easeIn",
+    },
+  },
+  exitToRight: {
+    x: "100%",
+    filter: "blur(8px)",
+    opacity: 0,
+    transition: {
+      duration: 0.3,
+      ease: "easeIn",
+    },
+  },
+};
+
+export default function Declaration({ slidesData }) {
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [direction, setDirection] = useState(0);
+  const [isPlaying, setIsPlaying] = useState(true); 
+  const autoplayRef = useRef(null);
+
+  const AUTOPLAY_DELAY = 15000; // 15 seconds per slide
+
+  const handleNext = useCallback(() => {
+    if (currentSlide < SLIDES.length - 1) {
+      setDirection(1);
+      setCurrentSlide((prev) => prev + 1);
+    } else {
+      // Loop back to first slide
+      setDirection(1);
+      setCurrentSlide(0);
+    }
+  }, [currentSlide]);
+
+  const handlePrev = () => {
+    if (currentSlide > 0) {
+      setDirection(-1);
+      setCurrentSlide((prev) => prev - 1);
+    }
+  };
+
+  const handlePause = () => {
+    // Add pause functionality if needed
+    console.log("Pause clicked");
+  };
+
+  const toggleAutoplay = () => {
+    setIsPlaying((prev) => !prev);
+  };
+
+  // Get current slide data
+  const { Component } = SLIDES[currentSlide];
+  const { source, frontmatter } = slidesData?.[currentSlide] || {};
+
+  // Autoplay effect
+  useEffect(() => {
+    if (isPlaying) {
+      autoplayRef.current = setInterval(handleNext, AUTOPLAY_DELAY);
+    }
+    return () => {
+      if (autoplayRef.current) {
+        clearInterval(autoplayRef.current);
+      }
+    };
+  }, [isPlaying, handleNext]);
+
   return (
-    <DeclarationLayout>
-      <div className="prose dark:prose-invert max-w-none">
-        <header className="text-center mb-12">
-          <h1 className="text-4xl font-bold mb-4">{frontmatter.title}</h1>
-          <p className="text-xl text-neutral-600 dark:text-neutral-400">
-            {frontmatter.subtitle}
-          </p>
-        </header>
-        
-        <MDXRemote {...source} />
-        
-        <footer className="mt-12 text-center text-neutral-600 dark:text-neutral-400">
-          <p className="italic">{frontmatter.author}</p>
-          <p>Univault.org</p>
-        </footer>
+    <DeclarationLayout
+      currentSlide={currentSlide}
+      totalSlides={SLIDES.length}
+      onNext={handleNext}
+      onPrev={handlePrev}
+      onPause={toggleAutoplay}
+      isPlaying={isPlaying}
+    >
+      {/* Background Image with Gradient Overlay */}
+      <div className="fixed inset-0 -z-10 h-screen mt-20">
+        <Image
+          src="/images/declaration.jpg"
+          alt="Declaration Background"
+          fill
+          className="object-cover object-center"
+          priority
+          quality={100}
+          sizes="100vw"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-neutral-900/70 via-neutral-900/50 to-neutral-900/70" />
+      </div>
+
+      <div className="fixed inset-0 top-16 overflow-hidden">
+        <AnimatePresence mode="wait" custom={direction}>
+          <motion.div
+            key={currentSlide}
+            custom={direction}
+            initial={direction > 0 ? "enterFromRight" : "enterFromLeft"}
+            animate="center"
+            exit={direction > 0 ? "exitToLeft" : "exitToRight"}
+            variants={slideVariants}
+            className="absolute inset-0"
+          >
+            <Component source={source} frontmatter={frontmatter} />
+          </motion.div>
+        </AnimatePresence>
       </div>
     </DeclarationLayout>
-  )
+  );
 }
 
 export async function getStaticProps() {
-  const { source, frontmatter } = await getMDXContent('declaration/preamble.md')
-  
-  return {
-    props: {
-      source,
-      frontmatter
-    }
+  try {
+    // Load all slide content
+    const slidesData = await Promise.all(
+      SLIDES.map(async ({ path }) => {
+        const data = await getMDXContent(path);
+        console.log(`Loaded data for ${path}:`, data);
+        return data;
+      })
+    );
+
+    return {
+      props: {
+        slidesData,
+      },
+    };
+  } catch (error) {
+    console.error("Error loading slides:", error);
+    return {
+      props: {
+        slidesData: [],
+      },
+    };
   }
 }
