@@ -1,21 +1,18 @@
 import Image from 'next/image'
 
 const imageLoader = ({ src, width, quality }) => {
-  // Add /md-next prefix only in production
+  // Remove any existing /md-next prefix to avoid duplication
+  const cleanSrc = src.replace('/md-next', '')
   const basePath = process.env.NODE_ENV === 'production' ? '/md-next' : ''
-  return `${basePath}${src}?w=${width}&q=${quality || 75}`
+  return `${basePath}${cleanSrc}?w=${width}&q=${quality || 75}`
 }
 
 export default function OptimizedImage({ src, ...props }) {
-  // For static source reference (like fill images that don't use loader)
-  const imageSrc = process.env.NODE_ENV === 'production' 
-    ? `/md-next${src}`
-    : src
-
+  // No need to modify src here since loader will handle the path
   return (
     <Image 
       loader={imageLoader}
-      src={imageSrc}
+      src={src}
       {...props}
     />
   )
