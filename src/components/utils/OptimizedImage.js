@@ -9,11 +9,10 @@ const imageLoader = ({ src, width, quality }) => {
 
 export default function OptimizedImage({ src, ...props }) {
   // No need to modify src here since loader will handle the path
-  const newSrc = `/md-next/${src}`
   return (
     <Image 
       loader={imageLoader}
-      src={newSrc}
+      src={src}
       {...props}
     />
   )
