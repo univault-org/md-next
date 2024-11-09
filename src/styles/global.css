@@ -11,6 +11,35 @@
     font-display: swap;
   }
 
+  @font-face {
+    font-family: "WeThePeople";
+    src: url("/fonts/WeThePeople.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@layer components {
+  .we-the-people {
+    font-family: "WeThePeople", serif;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    letter-spacing: 0.05em;
+    line-height: 1.5;
+  }
+
+  .declaration-header {
+    @apply 
+      we-the-people 
+      text-7xl md:text-8xl 
+      text-center 
+      text-[#8B4513] 
+      py-24 
+      px-8;
+  }
+}
+
 @layer base {
   /* Core */
   body {

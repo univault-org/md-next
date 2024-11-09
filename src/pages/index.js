@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Head from "next/head";
 import Link from "next/link";
-import { getMDXContent } from "../lib/api";
+import { getMDXContent } from "@/lib/api";
 import {
   BiLayer, // For organization - stacked layers
   BiGift, // For legacy/inheritance - gift/passing on
@@ -30,6 +30,16 @@ export default function Home({ content, metadata }) {
     },
   ];
 
+  // Add null checks for content
+  const visionItems = content?.vision || [];
+  const researchAreas = content?.research || [];
+  const pageMetadata = {
+    headline: metadata?.headline || "UNIVERSAL PERSONAL DATA VAULT",
+    subheadline: metadata?.subheadline || "Empowering Individual Data Sovereignty",
+    title: metadata?.title || "Univault - Personal Data Sovereignty",
+    description: metadata?.description || "Universal Personal Data Vault - Empowering individuals"
+  };
+
   return (
     <>
       <Head>
@@ -37,8 +47,8 @@ export default function Home({ content, metadata }) {
         <meta name="description" content={metadata.description} />
       </Head>
 
-      {/* Hero Section */}
-      <section className="relative h-[500px] -mt-8 mb-16 bg-gradient-to-br from-neutral-50 to-neutral-100 dark:from-neutral-800 dark:to-neutral-900">
+       {/* Hero Section */}
+       <section className="relative h-[500px] -mt-8 mb-16 bg-gradient-to-br from-neutral-50 to-neutral-100 dark:from-neutral-800 dark:to-neutral-900">
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute inset-0 bg-[linear-gradient(to_right,#8882_1px,transparent_1px),linear-gradient(to_bottom,#8882_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_110%)]"></div>
         </div>
@@ -46,10 +56,10 @@ export default function Home({ content, metadata }) {
           <div className="h-full flex flex-col justify-center items-center text-center">
             <div className="space-y-6 max-w-3xl">
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-neutral-800 to-neutral-600 dark:from-neutral-100 dark:to-neutral-300">
-                {metadata.headline}
+                {pageMetadata.headline}
               </h1>
               <p className="text-2xl md:text-3xl text-neutral-600 dark:text-neutral-300">
-                {metadata.subheadline}
+                {pageMetadata.subheadline}
               </p>
               <div className="flex gap-4 justify-center pt-4">
                 <Link
@@ -102,58 +112,77 @@ export default function Home({ content, metadata }) {
       </section>
 
       {/* Vision Section */}
-      <section className="max-w-4xl mx-auto px-4 py-16">
-        <div className="rounded-lg bg-white dark:bg-neutral-800 shadow-sm p-8">
-          <h2 className="text-2xl font-bold mb-8 text-neutral-800 dark:text-neutral-100">
-            Our Vision
+      {visionItems.length > 0 && (
+        <section className="max-w-4xl mx-auto px-4 py-16">
+          <div className="rounded-lg bg-white dark:bg-neutral-800 shadow-sm p-8">
+            <h2 className="text-2xl font-bold mb-8 text-neutral-800 dark:text-neutral-100">
+              Our Vision
+            </h2>
+            <div className="grid sm:grid-cols-2 gap-6">
+              {visionItems.map((item, index) => (
+                <div
+                  key={`vision-${index}`}
+                  className="flex items-start space-x-3"
+                >
+                  <span className="text-primary-500">✨</span>
+                  <span className="text-neutral-600 dark:text-neutral-400">
+                    {item}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* Research Areas */}
+      {researchAreas.length > 0 && (
+        <section className="max-w-4xl mx-auto px-4 py-16">
+          <h2 className="text-3xl font-bold text-center mb-12 text-neutral-800 dark:text-neutral-100">
+            Research Focus
           </h2>
-          <div className="grid sm:grid-cols-2 gap-6">
-            {content.vision.map((item, index) => (
+          <div className="grid md:grid-cols-3 gap-8">
+            {researchAreas.map((area) => (
               <div
-                key={`vision-${index}`}
-                className="flex items-start space-x-3"
+                key={area.title}
+                className="text-center p-6 rounded-lg bg-white dark:bg-neutral-800 shadow-sm"
               >
-                <span className="text-primary-500">✨</span>
-                <span className="text-neutral-600 dark:text-neutral-400">
-                  {item}
-                </span>
+                <div className="w-12 h-12 mx-auto mb-4 text-primary-500 flex items-center justify-center">
+                  {area.icon}
+                </div>
+                <h3 className="text-xl font-semibold mb-2 text-neutral-800 dark:text-neutral-100">
+                  {area.title}
+                </h3>
+                <p className="text-neutral-600 dark:text-neutral-400">
+                  {area.description}
+                </p>
               </div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* Research Areas */}
-      <section className="max-w-4xl mx-auto px-4 py-16">
-        <h2 className="text-3xl font-bold text-center mb-12 text-neutral-800 dark:text-neutral-100">
-          Research Focus
-        </h2>
-        <div className="grid md:grid-cols-3 gap-8">
-          {content.research.map((area) => (
-            <div
-              key={area.title}
-              className="text-center p-6 rounded-lg bg-white dark:bg-neutral-800 shadow-sm"
-            >
-              <div className="w-12 h-12 mx-auto mb-4 text-primary-500 flex items-center justify-center">
-                {area.icon}
-              </div>
-              <h3 className="text-xl font-semibold mb-2 text-neutral-800 dark:text-neutral-100">
-                {area.title}
-              </h3>
-              <p className="text-neutral-600 dark:text-neutral-400">
-                {area.description}
-              </p>
-            </div>
-          ))}
-        </div>
-      </section>
+        </section>
+      )}
     </>
   );
 }
 
 export async function getStaticProps() {
-  const { content, metadata } = await getMDXContent("home.md");
-  return {
-    props: { content, metadata },
-  };
+  try {
+    const { content, metadata } = await getMDXContent("pages/home.md");
+    // or just 'home.md' depending on how getMDXContent is configured
+
+    return {
+      props: {
+        content: content || null,
+        metadata: metadata || {},
+      },
+    };
+  } catch (error) {
+    console.error("Error loading home content:", error);
+    return {
+      props: {
+        content: null,
+        metadata: {},
+      },
+    };
+  }
 }

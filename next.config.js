@@ -1,15 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',  // Enable static exports
-  basePath: '/md-next', // GitHub Pages repository name
+  output: 'export',
+  basePath: process.env.NODE_ENV === 'production' ? '/md-next' : '',
   images: {
-    unoptimized: true, // Required for static export
+    unoptimized: true,
   },
-  // Disable any server-side features
-  experimental: {
-    appDir: false,
-  },
-  // Ensure trailing slashes for GitHub Pages
   trailingSlash: true,
 }
 

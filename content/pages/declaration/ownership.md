@@ -11,25 +11,8 @@ category: "declaration"
 
 # Article 2: Ownership
 
-## Core Principle
-Owning personal data means having the right to fully control it, much like control over one's own body.
-
-## Fundamental Rights
-
-### Right to Control
-- Retain personal data
-- Use data as desired
-- Share data with others
-- Delete data when chosen
-
-### Right to Transfer
-Personal data can be passed on to others and its value can be utilized.
-
-### Right to Manage
-In essence, this data belongs to the individual to:
-- Manage
-- Protect
-- Decide how it is used
+## Declaration
+Owning personal data means having the right to fully control it, much like control over one’s own body. There is the right to retain it, use it as desired, share it, or even delete it if so chosen. Personal data can be passed on to others and its value can be utilized. In essence, this data belongs to the individual to manage, protect, and decide how it is used.
 
 ---
 
