@@ -430,7 +430,7 @@ export default function MainQuestion({ source, frontmatter }) {
       animate={{ opacity: 1 }}
       className={`min-h-screen flex flex-col items-center justify-center
         bg-gray-50 dark:bg-neutral-900
-        ${isExpanded ? "h-screen overflow-hidden" : ""}`} // Lock main container when expanded
+        ${isExpanded ? "h-screen overflow-hidden" : "mt-[6rem] md:mt-0 h-screen overflow-hidden"}`} // Lock main container when expanded
     >
       <div className="w-full max-w-5xl">
         <motion.div
@@ -736,7 +736,7 @@ export default function MainQuestion({ source, frontmatter }) {
     transition-all duration-200 shadow-lg z-10
     ${
       isExpanded
-        ? "fixed bottom-20 md:bottom-8 right-4 md:right-8 z-60 bg-primary-500 hover:bg-primary-600 text-white"
+        ? "fixed bottom-0 md:bottom-8 right-4 md:right-8 z-60 bg-primary-500 hover:bg-primary-600 text-white"
         : "absolute bottom-4 left-1/2 -translate-x-1/2 " +
           "bg-gray-100 hover:bg-gray-200 text-gray-700 " +
           "dark:bg-white/10 dark:hover:bg-white/20 dark:text-white"
