@@ -28,18 +28,18 @@ export default function MainQuestion({ source, frontmatter }) {
   const steps = [
     { id: 1, title: "ChatGPT's Perspective" },
     { id: 2, title: "Claude's Perspective" },
-    { id: 3, title: "Claude's View" },
-    { id: 4, title: "Comparison" },
-    { id: 5, title: "Synthesis" },
+    { id: 3, title: "Why This Matters" },
+    { id: 4, title: "Our Research Focus" },
+    { id: 5, title: "Join Our Journey" },
   ];
 
   // Handle escape key to close expanded view
   useEffect(() => {
     if (!activeAnswer) {
-        setActiveAnswer("chatgpt");
-        setCurrentStep(0);
-        setCurrentSlide(0);
-      }
+      setActiveAnswer("chatgpt");
+      setCurrentStep(0);
+      setCurrentSlide(0);
+    }
     const handleEsc = (event) => {
       if (event.key === "Escape") {
         setIsExpanded(false);
@@ -56,20 +56,22 @@ export default function MainQuestion({ source, frontmatter }) {
       document.documentElement.style.overflow = "hidden";
       document.body.style.height = "100vh";
       document.body.style.touchAction = "none"; // Prevent mobile scrolling
-  
+
       // Enable scroll on content container
       if (contentRef.current) {
         contentRef.current.style.overflowY = "auto";
         contentRef.current.style.height = "calc(100vh - 7rem)"; // Account for header
         contentRef.current.style.touchAction = "pan-y"; // Enable vertical touch scrolling
-  
+
         // Handle scroll events for progress bar
         const handleScroll = () => {
           const container = contentRef.current;
-          const progress = container.scrollTop / (container.scrollHeight - container.clientHeight);
+          const progress =
+            container.scrollTop /
+            (container.scrollHeight - container.clientHeight);
           setScrollProgress(Math.min(Math.max(progress, 0), 1));
         };
-  
+
         contentRef.current.addEventListener("scroll", handleScroll);
         return () => {
           if (contentRef.current) {
@@ -88,7 +90,7 @@ export default function MainQuestion({ source, frontmatter }) {
       document.documentElement.style.overflow = "";
       document.body.style.height = "";
       document.body.style.touchAction = "";
-      
+
       if (contentRef.current) {
         contentRef.current.style.overflowY = "hidden";
         contentRef.current.style.height = "auto";
@@ -124,11 +126,20 @@ export default function MainQuestion({ source, frontmatter }) {
   const answers = {
     chatgpt: {
       summary:
-        "Inner peace and enlightenment - a state that enables all other fulfillments to naturally follow.",
+       `"Inner peace and enlightenment - a state that enables all other fulfillments to naturally follow."`,
+      context: {
+        title: "The Most Essential Question",
+        subtitle: "We began our exploration by asking two leading AI models, trained on vast public datasets, to answer this question. Let's start with ChatGPT's response.",
+        description:
+          "In a world of endless questions, we asked AI models to identify the most fundamental human question:",
+        question:
+          "What is the ultimate wish for a person—one wish that, if granted, would fulfill all others?",
+        why_ai:
+          "AI models, trained on humanity's collective knowledge, offer unique insights into patterns of human wisdom across cultures and time.",
+      },
       content: {
         title: "The Ultimate Human Wish: A Path to Complete Fulfillment",
-        introduction:
-          "The concept of an 'ultimate wish' that could fulfill all others leads us to examine the fundamental nature of human satisfaction and contentment. Through careful analysis, we find that inner peace and enlightenment emerge as powerful candidates for such a wish, as they create the foundation from which all other forms of fulfillment can naturally arise.",
+      introduction: "The concept of an 'ultimate wish' that could fulfill all others leads us to examine the fundamental nature of human satisfaction and contentment.",
         sections: [
           {
             title: "The Nature of Inner Peace",
@@ -194,7 +205,7 @@ export default function MainQuestion({ source, frontmatter }) {
       timestamp: "March 2024",
     },
     claude: {
-      summary: "To fully understand and realize one's true nature.",
+      summary: `"To fully understand and realize one's true nature."`,
       content: {
         title: "The Ultimate Wish: Understanding Our True Nature",
         introduction:
@@ -262,6 +273,155 @@ export default function MainQuestion({ source, frontmatter }) {
       source: "Claude-3 Sonnet",
       timestamp: "March 2024",
     },
+    purpose: {
+      summary: "Why we start with fundamental questions in the age of AI?",
+      content: {
+        title: "From AI Insights to Our Technology Research and Development",
+        introduction:
+          "In an age where AI can answer almost any question instantly, we face a crucial challenge: are we asking the right questions?",
+        sections: [
+          {
+            title: "The Paradox of Infinite Answers",
+            description:
+              "With powerful AI models, we can get answers to countless questions - but this creates new challenges:",
+            points: [
+              "Information overload can distract us from essential questions",
+              "Easy answers might prevent deeper contemplation",
+              "We risk pursuing superficial knowledge over fundamental understanding",
+              "Time and cognitive resources can be scattered across non-essential queries",
+            ],
+          },
+          {
+            title: "The Value of Essential Questions",
+            description:
+              "Why focusing on fundamental questions matters more than ever:",
+            points: [
+              "Core questions help us navigate the complexity of modern life",
+              "Understanding our true nature becomes crucial as technology advances",
+              "Essential questions lead to meaningful progress in both personal and collective development",
+              "AI can be a powerful tool when guided by the right questions",
+            ],
+          },
+        ],
+      },
+      source: "Research Framework 2024",
+    },
+    methodology: {
+      summary: "Our Research Approach",
+      content: {
+        title: "Bridging AI Insights with Human Experience",
+        introduction:
+          "The remarkable alignment between ChatGPT and Claude's perspectives on human fulfillment isn't coincidental. It reflects a convergence of wisdom that guides our research methodology.",
+        sections: [
+          {
+            title: "The Power of Convergent Insights",
+            description: "Why the alignment between AI models matters:",
+            points: [
+              "When different AI models trained on human knowledge reach similar conclusions, it suggests universal patterns",
+              "These patterns often align with wisdom traditions across cultures and time",
+              "This convergence helps validate both ancient insights and modern approaches",
+              "It suggests practical paths forward that honor both tradition and innovation",
+            ],
+          },
+          {
+            title: "Our Research Framework",
+            description: "How we systematically explore essential questions:",
+            points: [
+              "Begin with fundamental questions about human nature and fulfillment",
+              "Use multiple AI models to analyze historical and contemporary perspectives",
+              "Identify patterns where AI insights align with human wisdom",
+              "Focus on areas where understanding leads to practical applications",
+            ],
+          },
+          {
+            title: "From Theory to Practice",
+            description: "How we translate insights into solutions:",
+            points: [
+              "Analyze where AI and human wisdom point to similar solutions",
+              "Identify technological approaches that support natural human development",
+              "Focus on solutions that enhance rather than replace human capabilities",
+              "Develop tools that bridge philosophical understanding with daily life",
+            ],
+          },
+          {
+            title: "Personal Data as a Bridge",
+            description: "Why our research led us to focus on personal data:",
+            points: [
+              "Personal data represents a tangible record of human experience",
+              "It offers a practical way to apply AI insights to individual growth",
+              "Proper data sovereignty aligns with human autonomy and dignity",
+              "It creates a concrete path from understanding to implementation",
+            ],
+          },
+        ],
+        conclusion:
+          "Our research methodology bridges the gap between timeless wisdom and modern technology, leading us to practical solutions that honor both. This approach has guided us to focus on personal data as a key to implementing these insights in daily life.",
+        philosophical_note:
+          "Just as ancient wisdom traditions emphasized self-knowledge, our research suggests that personal data, properly understood and utilized, can serve as a modern path to similar insights.",
+      },
+      source: "Research Framework 2024",
+    },
+
+    invitation: {
+      summary: "From Essential Questions to Practical Solutions",
+      content: {
+        title: "From Understanding to Action",
+        introduction:
+          "While asking the most essential question is crucial, it's just the beginning. The next step is exploring practical solutions, and we have a core hypothesis that guides our research.",
+        sections: [
+          {
+            title:
+              "Our Hypothesis: Personal Data Plays a Key Role in Answering the Most Essential Questions",
+            description:
+              "We believe personal data mirrors an individual's evolving self-awareness and development over time.",
+            points: [
+              "Personalized AI models, built on personal data, can provide valuable insights for self-understanding and growth.",
+              "Personalized AI models trained on personal data to assist users for self-understanding",
+              "Protecting personal data enables people to express themselves genuinely and without compromise.",
+              "Empowering individuals with control over their own data is key to achieving personal and societal autonomy.",
+            ],
+          },
+          {
+            title: "Our Three-Part Solution",
+            description:
+              "We're designing and propose a comprehensive ecosystem for personal data:",
+            points: [
+              "JoySpace.wiki - A example platform for natural and joyful personal data generation through daily activities",
+              "Contribute to open-source technologies that promote transparency and empower personal data sovereignty. We believe transparency is essential to giving individuals true control over their data.",
+              "eBequest - A framework designed to help individuals pass on their digital assets to future generations, ensuring that their digital legacy is preserved and respected.",
+            ],
+          },
+          {
+            title: "Join Us in This Journey",
+            description: "We invite you to get involved in three key ways:",
+            points: [
+              "Try JoySpace.wiki, explore the platform and share how you'd create and help others 'Joyganize' their digital space.",
+              "Contribute to our open source projects",
+              "Share your thoughts on how we can build a more meaningful and secure system for digital inheritance."
+            ],
+          },
+        ],
+        conclusion:
+          "Understanding the most essential question has led us to develop practical tools for personal data sovereignty. Through JoySpace.wiki, our open source technologies, and the eBequest initiative, we're creating concrete paths for individuals to generate, protect, and pass on their personal data. We invite you to explore these tools, provide feedback, and help us refine these solutions.",
+        call_to_action: {
+          primary: "Explore JoySpace.wiki",
+          secondary: [
+            "Review our open source projects",
+            "Learn about eBequest",
+            "Join our research community",
+          ],
+          links: {
+            joyspace: "/joyspace",
+            github: "/github",
+            ebequest: "/ebequest",
+            community: "/community",
+          },
+        },
+      },
+      source: "Research Framework 2024",
+      philosophical_note:
+        "By connecting our most essential questions with practical tools for personal data sovereignty, we're building bridges between timeless wisdom and future technology.",
+    },
   };
 
   return (
@@ -270,7 +430,7 @@ export default function MainQuestion({ source, frontmatter }) {
       animate={{ opacity: 1 }}
       className={`min-h-screen flex flex-col items-center justify-center
         bg-gray-50 dark:bg-neutral-900
-        ${isExpanded ? 'h-screen overflow-hidden' : ''}`} // Lock main container when expanded
+        ${isExpanded ? "h-screen overflow-hidden" : ""}`} // Lock main container when expanded
     >
       <div className="w-full max-w-5xl">
         <motion.div
@@ -291,9 +451,7 @@ export default function MainQuestion({ source, frontmatter }) {
             <div className="flex flex-col items-center gap-4">
               {/* Step Title */}
               <p className="text-gray-600 dark:text-white/60 text-sm font-medium">
-                {activeAnswer
-                  ? `${steps[activeAnswer === "chatgpt" ? 0 : 1].title}`
-                  : ""}
+                {activeAnswer && steps[currentStep].title}
               </p>
 
               {/* Step Dots */}
@@ -301,9 +459,26 @@ export default function MainQuestion({ source, frontmatter }) {
                 {steps.map((step, index) => (
                   <motion.button
                     key={step.id}
-                    onClick={() =>
-                      setActiveAnswer(index === 0 ? "chatgpt" : "claude")
-                    }
+                    onClick={() => {
+                      switch (index) {
+                        case 0:
+                          setActiveAnswer("chatgpt");
+                          break;
+                        case 1:
+                          setActiveAnswer("claude");
+                          break;
+                        case 2:
+                          setActiveAnswer("purpose");
+                          break;
+                        case 3:
+                          setActiveAnswer("methodology");
+                          break;
+                        case 4:
+                          setActiveAnswer("invitation");
+                          break;
+                      }
+                      setCurrentStep(index);
+                    }}
                     className="group relative"
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.95 }}
@@ -314,11 +489,10 @@ export default function MainQuestion({ source, frontmatter }) {
         w-8 h-8 rounded-lg flex items-center justify-center
         border transition-all duration-200
         ${
-          (index === 0 && activeAnswer === "chatgpt") ||
-          (index === 1 && activeAnswer === "claude")
-            ? "bg-primary-500 border-primary-400 text-white" // Active state (same for both themes)
-            : "bg-white hover:bg-gray-50 border-gray-200 text-gray-600 " + // Light mode
-              "dark:bg-neutral-800 dark:hover:bg-neutral-700 dark:border-neutral-600 dark:text-gray-300" // Dark mode
+          currentStep === index
+            ? "bg-primary-500 border-primary-400 text-white"
+            : "bg-white hover:bg-gray-50 border-gray-200 text-gray-600 " +
+              "dark:bg-neutral-800 dark:hover:bg-neutral-700 dark:border-neutral-600 dark:text-gray-300"
         }
       `}
                     >
@@ -329,13 +503,13 @@ export default function MainQuestion({ source, frontmatter }) {
                     {index < steps.length - 1 && (
                       <div
                         className={`
-          absolute top-1/2 -right-3 w-3 h-px
-          ${
-            index === 0 && activeAnswer === "chatgpt"
-              ? "bg-primary-500" // Active state (same for both themes)
-              : "bg-gray-200 dark:bg-neutral-600" // Inactive state
-          }
-        `}
+    absolute top-1/2 -right-3 w-3 h-px
+    ${
+      index < currentStep
+        ? "bg-primary-500" // Completed state
+        : "bg-gray-200 dark:bg-neutral-600" // Inactive state
+    }
+  `}
                       />
                     )}
 
@@ -452,8 +626,25 @@ export default function MainQuestion({ source, frontmatter }) {
 
                         {/* Content Header with adjusted spacing */}
                         <div
-                          className={`mb-6 ${isFullscreen ? "pt-16" : "pl-[3rem]"}`}
+                          className={`mb-6 mt-10 md:mt-1  ${
+                            isFullscreen ? "pt-16" : "pl-[2rem] md:pl-[3rem]"
+                          }`}
                         >
+                          {/* Show context title only for first step */}
+                          {activeAnswer === "chatgpt" && (
+                            <motion.div
+                              initial={{ opacity: 0, y: -10 }}
+                              animate={{ opacity: 1, y: 0 }}
+                              className="mb-6"
+                            >
+                              <h2 className="text-3xl lg:text-4xl font-serif text-gray-800 dark:text-white/90 mb-2">
+                                {answers.chatgpt.context.title}
+                              </h2>
+                              <p className="text-lg text-gray-600 dark:text-white/60">
+                                {answers.chatgpt.context.subtitle}
+                              </p>
+                            </motion.div>
+                          )}
                           <h3 className="text-2xl lg:text-3xl font-serif text-gray-800 dark:text-white/90 mb-2">
                             {answers[activeAnswer].summary}
                           </h3>
@@ -480,9 +671,16 @@ export default function MainQuestion({ source, frontmatter }) {
     `}
                         >
                           {/* Introduction */}
-                          <p className="text-xl text-gray-700 dark:text-white/80">
-                            {answers[activeAnswer].content.introduction}
-                          </p>
+                          <div className="text-xl text-gray-700 dark:text-white/80">
+                            {typeof answers[activeAnswer].content
+                              .introduction === "string" ? (
+                              <p>
+                                {answers[activeAnswer].content.introduction}
+                              </p>
+                            ) : (
+                              answers[activeAnswer].content.introduction
+                            )}
+                          </div>
 
                           {/* Sections */}
                           {isExpanded &&
@@ -538,7 +736,7 @@ export default function MainQuestion({ source, frontmatter }) {
     transition-all duration-200 shadow-lg z-10
     ${
       isExpanded
-        ? "fixed bottom-8 right-8 z-60 bg-primary-500 hover:bg-primary-600 text-white"
+        ? "fixed bottom-20 md:bottom-8 right-4 md:right-8 z-60 bg-primary-500 hover:bg-primary-600 text-white"
         : "absolute bottom-4 left-1/2 -translate-x-1/2 " +
           "bg-gray-100 hover:bg-gray-200 text-gray-700 " +
           "dark:bg-white/10 dark:hover:bg-white/20 dark:text-white"

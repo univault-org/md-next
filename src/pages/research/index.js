@@ -1,7 +1,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect, useRef, useCallback } from "react";
 import OptimizedImage from '@/components/utils/OptimizedImage'
-import DeclarationLayout from "@/components/layout/DeclarationLayout";
+import ResearchLayout from "@/components/layout/ResearchLayout";
 import MainQuestion from "./main-question";
 import { getMDXContent } from "@/lib/api";
 
@@ -51,7 +51,7 @@ const slideVariants = {
   },
 };
 
-export default function Declaration({ slidesData }) {
+export default function Research({ slidesData }) {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [direction, setDirection] = useState(0);
   const [isPlaying, setIsPlaying] = useState(true); 
@@ -98,7 +98,7 @@ export default function Declaration({ slidesData }) {
   }, [isPlaying, handleNext]);
 
   return (
-    <DeclarationLayout
+    <ResearchLayout
       currentSlide={currentSlide}
       totalSlides={SLIDES.length}
       onNext={handleNext}
@@ -122,7 +122,7 @@ export default function Declaration({ slidesData }) {
           </motion.div>
         </AnimatePresence>
       </div>
-    </DeclarationLayout>
+    </ResearchLayout>
   );
 }
 
