@@ -58,7 +58,7 @@ export default function Home({ content, metadata }) {
   const visionItems = content?.vision || [];
 //   const researchAreas = content?.research || [];
   const pageMetadata = {
-    headline: metadata?.headline || "UNIVERSAL PERSONAL DATA VAULT",
+    headline: metadata?.headline || "Universal Personal Data Vault",
     subheadline:
       metadata?.subheadline || "Empowering Individual Data Sovereignty",
     title: metadata?.title || "Univault - Personal Data Sovereignty",

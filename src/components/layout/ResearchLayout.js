@@ -2,7 +2,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 
 export default function ResearchLayout({
-    children,
+  children,
   currentSlide,
   totalSlides,
   onNext,
@@ -76,53 +76,62 @@ export default function ResearchLayout({
         </motion.div>
 
         {/* Slide Navigation Buttons */}
-        <div className="fixed bottom-8 left-0 right-0 z-50">
-        <div className="max-w-xl mx-auto px-4 flex justify-center items-center gap-8">
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              disabled={currentSlide === 0}
-              onClick={onPrev}
-              className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 
+        {false && (
+          <div className="fixed bottom-8 left-0 right-0 z-50">
+            <div className="max-w-xl mx-auto px-4 flex justify-center items-center gap-8">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                disabled={currentSlide === 0}
+                onClick={onPrev}
+                className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 
                 text-white/80 flex items-center justify-center hover:bg-white/20 transition-colors
                 font-bold tracking-tighter text-xl"
-            >
-               ≪𝗥
-            </motion.button>
+              >
+                ≪𝗥
+              </motion.button>
 
-            <motion.button
-              onClick={onPause}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className={`w-12 h-12 rounded-full backdrop-blur-sm border transition-all duration-300
-                ${isPlaying 
-                  ? 'bg-primary-500/30 border-primary-400 text-primary-200 hover:bg-primary-500/40' 
-                  : 'bg-white/10 border-white/20 text-white/80 hover:bg-white/20'
+              <motion.button
+                onClick={onPause}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className={`w-12 h-12 rounded-full backdrop-blur-sm border transition-all duration-300
+                ${
+                  isPlaying
+                    ? "bg-primary-500/30 border-primary-400 text-primary-200 hover:bg-primary-500/40"
+                    : "bg-white/10 border-white/20 text-white/80 hover:bg-white/20"
                 }
                 flex items-center justify-center font-bold text-xl`}
-            >
-                <span className={`inline-flex items-center justify-center 
-                ${isPlaying 
-                  ? '' // Adjust for pause symbol
-                  : 'ml-0.5 -mt-0.5' // Adjust for play symbol
-                }`}>
-                {isPlaying ? '❚❚' : '▶'}
-              </span>
-            </motion.button>
+              >
+                <span
+                  className={`inline-flex items-center justify-center 
+                ${
+                  isPlaying
+                    ? "" // Adjust for pause symbol
+                    : "ml-0.5 -mt-0.5" // Adjust for play symbol
+                }`}
+                >
+                  {isPlaying ? "❚❚" : "▶"}
+                </span>
+              </motion.button>
 
-            <motion.button
-              onClick={onNext}
-              disabled={currentSlide === totalSlides - 1}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 
+              <motion.button
+                onClick={onNext}
+                disabled={currentSlide === totalSlides - 1}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="w-12 h-12 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 
                 text-white/80 flex items-center justify-center hover:bg-white/20 transition-colors
                 font-bold tracking-tighter text-xl"
-            >
-               𝗙<span className="rotate-180 inline-block -ml-[0.45rem] mt-[0.25rem]">≪</span>
-            </motion.button>
+              >
+                𝗙
+                <span className="rotate-180 inline-block -ml-[0.45rem] mt-[0.25rem]">
+                  ≪
+                </span>
+              </motion.button>
+            </div>
           </div>
-        </div>
+        )}
       </main>
     </div>
   );
