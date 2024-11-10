@@ -1,6 +1,6 @@
 ---
 title: Returning to the Root - Architecting a New Model for Digital Preservation
-date: 2024-03-20
+date: 2024-10-05
 author: Phil T
 excerpt: Exploring how we can return to the original vision of the internet as a decentralized library of knowledge through markdown-based content preservation.
 image: https://images.unsplash.com/photo-1481627834876-b7833e8f5570?auto=format&fit=crop&q=80
