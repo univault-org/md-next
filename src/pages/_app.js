@@ -23,6 +23,7 @@ export default function App({ Component, pageProps }) {
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         
         {/* Default SEO */}
         <meta name="description" content={pageProps.description || "Univault - Personal Data Sovereignty in the AI Era"} />
