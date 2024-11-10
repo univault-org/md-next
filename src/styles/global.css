@@ -46,7 +46,7 @@
     @apply
       text-main
       bg-main
-      font-['Spectral-SemiBold']
+      font-['Spectral-Regular']
       text-lg md:text-xl; /* Increased from text-base to text-lg/text-xl */
   }
   /* Forms */
@@ -112,7 +112,10 @@
     @apply
       border-red-500 dark:border-red-400
   }
-  button, .button {
+  button, .button, 
+  a[role="button"],
+  [type="button"],
+  [type="submit"] {
     @apply
       cursor-pointer
       hover:no-underline
@@ -125,7 +128,16 @@
       disabled:cursor-not-allowed
       disabled:text-dim
       disabled:bg-gray-100 dark:disabled:bg-gray-900
-      disabled:border-gray-200 disabled:dark:border-gray-700
+      disabled:border-gray-200 disabled:dark:border-gray-700;
+    /* Add these iOS-specific properties */
+    touch-action: manipulation;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
   }
   button.subtle, .button.subtle {
     @apply
@@ -239,5 +251,27 @@
       md:bg-[repeating-linear-gradient(to_bottom,#eee,#eee_1px,transparent_1px,transparent_1.25rem)]
       dark:bg-[repeating-linear-gradient(to_bottom,#222,#222_1px,transparent_1px,transparent_1.1875rem)]
       dark:md:bg-[repeating-linear-gradient(to_bottom,#222,#222_1px,transparent_1px,transparent_1.25rem)]
+  }
+
+  /* Add at the top of @layer base */
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Add for fixed elements */
+  .fixed {
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+
+  /* Fix sticky hover states on mobile */
+  @media (hover: none) {
+    button:hover,
+    .button:hover,
+    a[role="button"]:hover {
+      opacity: 1;
+    }
   }
 }
