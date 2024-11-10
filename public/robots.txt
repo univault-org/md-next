@@ -1,0 +1,26 @@
+# Allow all search engines
+User-agent: *
+
+# Allow access to most pages
+Allow: /
+Allow: /research/
+Allow: /declaration/
+Allow: /about/
+Allow: /updates/
+
+# Prevent indexing of utility pages and drafts
+Disallow: /api/
+Disallow: /_next/
+Disallow: /*preview
+Disallow: /*draft
+Disallow: /admin/
+Disallow: /login/
+Disallow: /404
+
+# Prevent crawling of search pages and filters
+Disallow: /*?*query=
+Disallow: /*?*filter=
+Disallow: /*?*sort=
+
+# Sitemap location
+Sitemap: https://univault.org/sitemap.xml 
