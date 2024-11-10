@@ -107,7 +107,7 @@ export default function Declaration({ slidesData }) {
       isPlaying={isPlaying}
     >
 
-      <div className="fixed inset-0 top-16 overflow-hidden">
+      <div className="fixed inset-0 top-4 overflow-hidden">
         <AnimatePresence mode="wait" custom={direction}>
           <motion.div
             key={currentSlide}
