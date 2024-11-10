@@ -125,11 +125,11 @@ export default function MainQuestion({ source, frontmatter }) {
 
   const answers = {
     chatgpt: {
-      summary:
-       `"Inner peace and enlightenment - a state that enables all other fulfillments to naturally follow."`,
+      summary: `"Inner peace and enlightenment - a state that enables all other fulfillments to naturally follow."`,
       context: {
         title: "The Most Essential Question",
-        subtitle: "We began our exploration by asking two leading AI models, trained on vast public datasets, to answer this question. Let's start with ChatGPT's response.",
+        subtitle:
+          "We began our exploration by asking two leading AI models, trained on vast public datasets, to answer this question. Let's start with ChatGPT's response.",
         description:
           "In a world of endless questions, we asked AI models to identify the most fundamental human question:",
         question:
@@ -139,7 +139,8 @@ export default function MainQuestion({ source, frontmatter }) {
       },
       content: {
         title: "The Ultimate Human Wish: A Path to Complete Fulfillment",
-      introduction: "The concept of an 'ultimate wish' that could fulfill all others leads us to examine the fundamental nature of human satisfaction and contentment.",
+        introduction:
+          "The concept of an 'ultimate wish' that could fulfill all others leads us to examine the fundamental nature of human satisfaction and contentment.",
         sections: [
           {
             title: "The Nature of Inner Peace",
@@ -397,7 +398,7 @@ export default function MainQuestion({ source, frontmatter }) {
             points: [
               "Try JoySpace.wiki, explore the platform and share how you'd create and help others 'Joyganize' their digital space.",
               "Contribute to our open source projects",
-              "Share your thoughts on how we can build a more meaningful and secure system for digital inheritance."
+              "Share your thoughts on how we can build a more meaningful and secure system for digital inheritance.",
             ],
           },
         ],
@@ -430,7 +431,11 @@ export default function MainQuestion({ source, frontmatter }) {
       animate={{ opacity: 1 }}
       className={`min-h-screen flex flex-col items-center justify-center
         bg-gray-50 dark:bg-neutral-900
-        ${isExpanded ? "h-screen overflow-hidden" : "mt-[6rem] md:mt-0 h-screen overflow-hidden"}`} // Lock main container when expanded
+        ${
+          isExpanded
+            ? "h-screen overflow-hidden"
+            : "mt-[6rem] md:mt-0 h-screen overflow-hidden"
+        }`} // Lock main container when expanded
     >
       <div className="w-full max-w-5xl">
         <motion.div
@@ -590,37 +595,39 @@ export default function MainQuestion({ source, frontmatter }) {
                       >
                         {/* Controls for Expanded View Buttons */}
                         {isExpanded && (
-                          <div className="fixed top-4 right-4 flex items-center gap-2 z-50">
-                            {/* Fullscreen Toggle */}
-                            <button
-                              onClick={toggleFullscreen}
-                              className="p-2 rounded-full 
-                  bg-gray-100 hover:bg-gray-200 text-gray-600
-                  dark:bg-white/10 dark:hover:bg-white/20 dark:text-white/80
-                  transition-colors duration-200"
-                            >
-                              {isFullscreen ? (
-                                <RiFullscreenExitLine className="w-6 h-6" />
-                              ) : (
-                                <RiFullscreenLine className="w-6 h-6" />
-                              )}
-                            </button>
+                          <div className="fixed inset-0 pointer-events-none">
+                            <div className="absolute top-4 right-4 flex items-center gap-2 pointer-events-auto">
+                              {/* Fullscreen Toggle */}
+                              <button
+                                onClick={toggleFullscreen}
+                                className="p-2 rounded-full 
+          bg-gray-100 hover:bg-gray-200 text-gray-600
+          dark:bg-white/10 dark:hover:bg-white/20 dark:text-white/80
+          transition-colors duration-200"
+                              >
+                                {isFullscreen ? (
+                                  <RiFullscreenExitLine className="w-6 h-6" />
+                                ) : (
+                                  <RiFullscreenLine className="w-6 h-6" />
+                                )}
+                              </button>
 
-                            {/* Close Button */}
-                            <button
-                              onClick={() => {
-                                if (isFullscreen) {
-                                  document.exitFullscreen();
-                                }
-                                setIsExpanded(false);
-                              }}
-                              className="p-2 rounded-full 
-                  bg-gray-100 hover:bg-gray-200 text-gray-600
-                  dark:bg-white/10 dark:hover:bg-white/20 dark:text-white/80
-                  transition-colors duration-200"
-                            >
-                              <RiCloseLine className="w-6 h-6" />
-                            </button>
+                              {/* Close Button */}
+                              <button
+                                onClick={() => {
+                                  if (isFullscreen) {
+                                    document.exitFullscreen();
+                                  }
+                                  setIsExpanded(false);
+                                }}
+                                className="p-2 rounded-full 
+          bg-gray-100 hover:bg-gray-200 text-gray-600
+          dark:bg-white/10 dark:hover:bg-white/20 dark:text-white/80
+          transition-colors duration-200"
+                              >
+                                <RiCloseLine className="w-6 h-6" />
+                              </button>
+                            </div>
                           </div>
                         )}
 
@@ -736,7 +743,7 @@ export default function MainQuestion({ source, frontmatter }) {
     transition-all duration-200 shadow-lg z-10
     ${
       isExpanded
-        ? "fixed bottom-0 md:bottom-8 right-4 md:right-8 z-60 bg-primary-500 hover:bg-primary-600 text-white"
+        ? "fixed bottom-10 md:bottom-8 right-4 md:right-8 z-60 bg-primary-500 hover:bg-primary-600 text-white"
         : "absolute bottom-4 left-1/2 -translate-x-1/2 " +
           "bg-gray-100 hover:bg-gray-200 text-gray-700 " +
           "dark:bg-white/10 dark:hover:bg-white/20 dark:text-white"
@@ -746,7 +753,6 @@ export default function MainQuestion({ source, frontmatter }) {
                           {isExpanded ? (
                             <>
                               <RiArrowUpLine className="w-5 h-5" />
-                              Close
                             </>
                           ) : (
                             <>
