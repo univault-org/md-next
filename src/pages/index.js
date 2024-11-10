@@ -75,7 +75,7 @@ export default function Home({ content, metadata }) {
       </Head>
 
       {/* Hero Section */}
-      <section className="relative h-[500px] -mt-8 mb-16 bg-gradient-to-br from-neutral-50 to-neutral-100 dark:from-neutral-800 dark:to-neutral-900">
+      <section className="relative h-[350px] md:h-[500px] -mt-8 mb-16 bg-gradient-to-br from-neutral-50 to-neutral-100 dark:from-neutral-800 dark:to-neutral-900">
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute inset-0 bg-[linear-gradient(to_right,#8882_1px,transparent_1px),linear-gradient(to_bottom,#8882_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_110%)]"></div>
         </div>
@@ -110,7 +110,7 @@ export default function Home({ content, metadata }) {
       </section>
 
       {/* Services Section */}
-      <section className="max-w-5xl mx-auto px-4 py-16">
+      <section className="max-w-5xl mx-auto px-4 py-8 md:py-16">
         <h2 className="text-3xl font-bold text-center mb-4 text-neutral-800 dark:text-neutral-100">
           Empowering Digital Lives
         </h2>
