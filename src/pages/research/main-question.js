@@ -16,7 +16,7 @@ import {
 
 export default function MainQuestion({ source, frontmatter }) {
   const [isPlaying, setIsPlaying] = useState(false);
-  const [activeAnswer, setActiveAnswer] = useState(null);
+  const [activeAnswer, setActiveAnswer] = useState("chatgpt");
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isExpanded, setIsExpanded] = useState(false);
   const [isFullscreen, setIsFullscreen] = useState(false);
@@ -35,6 +35,11 @@ export default function MainQuestion({ source, frontmatter }) {
 
   // Handle escape key to close expanded view
   useEffect(() => {
+    if (!activeAnswer) {
+        setActiveAnswer("chatgpt");
+        setCurrentStep(0);
+        setCurrentSlide(0);
+      }
     const handleEsc = (event) => {
       if (event.key === "Escape") {
         setIsExpanded(false);
@@ -398,7 +403,7 @@ export default function MainQuestion({ source, frontmatter }) {
                       ref={contentRef}
                       className={`transition-all duration-300 ${
                         isExpanded
-                          ? "h-[calc(100vh-7rem)] overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 dark:scrollbar-thumb-gray-700"
+                          ? "h-[calc(100vh-2rem)] overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 dark:scrollbar-thumb-gray-700"
                           : "max-w-4xl mx-auto p-6"
                       }`}
                     >
@@ -409,9 +414,9 @@ export default function MainQuestion({ source, frontmatter }) {
             ${isExpanded ? "px-6 lg:px-12 py-8 pb-[10rem]" : ""}
           `}
                       >
-                        {/* Controls for Expanded View */}
+                        {/* Controls for Expanded View Buttons */}
                         {isExpanded && (
-                          <div className="fixed top-0 right-4 flex items-center gap-2 z-50">
+                          <div className="fixed top-4 right-4 flex items-center gap-2 z-50">
                             {/* Fullscreen Toggle */}
                             <button
                               onClick={toggleFullscreen}
@@ -447,7 +452,7 @@ export default function MainQuestion({ source, frontmatter }) {
 
                         {/* Content Header with adjusted spacing */}
                         <div
-                          className={`mb-6 ${isFullscreen ? "pt-16" : "pl-10"}`}
+                          className={`mb-6 ${isFullscreen ? "pt-16" : "pl-[3rem]"}`}
                         >
                           <h3 className="text-2xl lg:text-3xl font-serif text-gray-800 dark:text-white/90 mb-2">
                             {answers[activeAnswer].summary}
