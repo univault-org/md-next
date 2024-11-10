@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect, useRef, useCallback } from "react";
-import OptimizedImage from '@/components/utils/OptimizedImage'
+import OptimizedImage from "@/components/utils/OptimizedImage";
 import DeclarationLayout from "@/components/layout/DeclarationLayout";
 import Ownership from "./ownership";
 import Preamble from "./preamble";
@@ -61,7 +61,7 @@ const slideVariants = {
 export default function Declaration({ slidesData }) {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [direction, setDirection] = useState(0);
-  const [isPlaying, setIsPlaying] = useState(true); 
+  const [isPlaying, setIsPlaying] = useState(true);
   const autoplayRef = useRef(null);
 
   const AUTOPLAY_DELAY = 15000; // 15 seconds per slide
@@ -114,17 +114,18 @@ export default function Declaration({ slidesData }) {
       isPlaying={isPlaying}
     >
       {/* Background Image with Gradient Overlay */}
+
       <div className="fixed inset-0 -z-10 h-screen mt-20">
         <OptimizedImage
           src="/images/declaration.jpg"
           alt="Declaration Background"
           fill
-          className="object-cover object-center"
+          className="object-cover object-center brightness-50" // Added brightness reduction
           priority
           quality={100}
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-neutral-900/70 via-neutral-900/50 to-neutral-900/70" />
+        <div className="absolute inset-0 bg-gradient-to-b from-neutral-900/80 via-neutral-900/70 to-neutral-900/80" />
       </div>
 
       <div className="fixed inset-0 top-16 overflow-hidden">
