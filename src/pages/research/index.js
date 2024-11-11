@@ -579,7 +579,7 @@ export default function MainQuestion({ source, frontmatter }) {
           transition-all duration-200 shadow-lg
           ${
             isExpanded
-              ? "fixed bottom-[5rem] right-4 bg-primary-500 hover:bg-primary-600 text-white"
+              ? "fixed bottom-20 right-4 bg-primary-500 hover:bg-primary-600 text-white"
               : "absolute -bottom-6 left-1/2 -translate-x-1/2 z-[60] cursor-pointer " +
                 "bg-gray-100 hover:bg-gray-200 text-gray-700 " +
                 "dark:bg-white/10 dark:hover:bg-white/20 dark:text-white"
