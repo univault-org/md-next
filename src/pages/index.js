@@ -60,11 +60,11 @@ export default function Home({ content, metadata }) {
   const pageMetadata = {
     headline: metadata?.headline || "Universal Personal Data Vault",
     subheadline:
-      metadata?.subheadline || "Empowering Individual Data Sovereignty",
-    title: metadata?.title || "Univault - Personal Data Sovereignty",
+      metadata?.subheadline || "Empowering Data Sovereignty and Digital Asset Inheritance",
+    title: metadata?.title || "Univault - Empowering Data Sovereignty and Digital Asset Inheritance for the AI Age",
     description:
       metadata?.description ||
-      "Universal Personal Data Vault - Empowering individuals",
+      "Universal Personal Data Vault - Empowering Data Sovereignty and Digital Asset Inheritance for the AI Age",
   };
 
   return (

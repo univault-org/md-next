@@ -12,7 +12,7 @@ export default function Footer() {
               Univault
             </h3>
             <p className="text-neutral-600 dark:text-neutral-400">
-              Preserving digital identity for generations to come
+              Pioneering personal data sovereignty and digital asset inheritance
             </p>
           </div>
 

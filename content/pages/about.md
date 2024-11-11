@@ -1,6 +1,6 @@
 ---
 title: "About Univault"
-subtitle: "Pioneering Digital Identity Sovereignty"
+subtitle: " Pioneering personal data sovereignty and digital asset inheritance for the AI age"
 description: "We're building the foundation for personal data sovereignty in the AI era"
 date: "2024"
 lastUpdated: "2024-02-20"
