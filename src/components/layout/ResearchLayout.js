@@ -11,11 +11,7 @@ export default function ResearchLayout({
   isPlaying,
 }) {
   const sections = [
-    { name: "Preamble", href: "./preamble" },
-    { name: "Ownership", href: "./ownership" },
-    { name: "Privacy", href: "./privacy" },
-    { name: "Security", href: "./security" },
-    { name: "Access Right", href: "./access-right" },
+    { name: "Key Questions", href: "./key-question" },
   ];
 
   return (
@@ -57,9 +53,9 @@ export default function ResearchLayout({
         </div>
       </nav>
       {/* Main content - Simplified structure */}
-      <main className="relative min-h-screen overflow-y-auto">
+      <main className="relative min-h-screen overflow-y-auto -z-10">
         <motion.div
-          className="h-screen flex items-center justify-center pt-16" // Changed -mt-24 to pt-16
+          className="min-h-screen flex items-center justify-center pt-16" // Changed -mt-24 to pt-16
           initial={{ opacity: 0, y: 20, filter: "blur(8px)" }}
           animate={{
             opacity: 1,
