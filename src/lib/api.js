@@ -7,6 +7,61 @@ const contentDirectory = path.join(process.cwd(), 'content')
 const postsDirectory = path.join(contentDirectory, 'posts')
 const pagesDirectory = path.join(contentDirectory, 'pages')
 
+// Helper function to validate and format image path
+function processImagePath(imagePath) {
+  if (!imagePath) return null;
+  
+  // Check if it's an external URL
+  if (imagePath.startsWith('http://') || imagePath.startsWith('https://')) {
+    return imagePath;
+  }
+  
+  // Handle local images from public folder
+  if (imagePath.startsWith('/')) {
+    // Remove leading slash if present to normalize path
+    const normalizedPath = imagePath.startsWith('/') ? imagePath : `/${imagePath}`;
+    
+    // Verify if file exists in public folder
+    const publicPath = path.join(process.cwd(), 'public', normalizedPath);
+    if (fs.existsSync(publicPath)) {
+      return normalizedPath;
+    } else {
+      console.warn(`Warning: Image file not found in public directory: ${normalizedPath}`);
+      return null;
+    }
+  }
+  
+  // If path doesn't start with '/' or 'http', assume it's relative to public folder
+  const normalizedPath = `/${imagePath}`;
+  const publicPath = path.join(process.cwd(), 'public', normalizedPath);
+  if (fs.existsSync(publicPath)) {
+    return normalizedPath;
+  }
+  
+  console.warn(`Warning: Image file not found: ${imagePath}`);
+  return null;
+}
+
+// Helper function to handle date formatting consistently
+function formatDate(dateString) {
+  if (!dateString) return null;
+  
+  try {
+    // Create date object and force UTC to avoid timezone issues
+    const date = new Date(dateString);
+    if (isNaN(date.getTime())) {
+      console.warn(`Warning: Invalid date format: ${dateString}`);
+      return null;
+    }
+    
+    // Format in UTC to avoid timezone shifts
+    return date.toISOString().split('T')[0];
+  } catch (error) {
+    console.warn(`Error processing date: ${dateString}`, error);
+    return null;
+  }
+}
+
 // Get MDX content for pages
 export async function getMDXContent(filePath) {
   const fullPath = path.join(pagesDirectory, filePath)
@@ -38,8 +93,11 @@ export function getAllPosts() {
         const fileContents = fs.readFileSync(fullPath, 'utf8')
         const { data: frontmatter } = matter(fileContents)
 
-        // Ensure date is serializable
-        const date = frontmatter.date ? new Date(frontmatter.date).toISOString() : null
+        // Use the new date formatting function
+        const date = formatDate(frontmatter.date);
+
+        // Process image path
+        const processedImage = processImagePath(frontmatter.image)
 
         return {
           slug,
@@ -47,7 +105,7 @@ export function getAllPosts() {
           date,
           excerpt: frontmatter.excerpt || '',
           author: frontmatter.author || '',
-          image: frontmatter.image || null,
+          image: processedImage,
           tags: frontmatter.tags || []
         }
       })
@@ -62,18 +120,31 @@ export function getAllPosts() {
 
 // Get a single post by slug
 export async function getPostBySlug(slug) {
-  const fullPath = path.join(postsDirectory, `${slug}.md`)
-  const fileContents = fs.readFileSync(fullPath, 'utf8')
-  
-  const { data: frontmatter, content } = matter(fileContents)
-  const source = await serialize(content)
+  try {
+    const fullPath = path.join(postsDirectory, `${slug}.md`)
+    const fileContents = fs.readFileSync(fullPath, 'utf8')
+    
+    const { data: frontmatter, content } = matter(fileContents)
+    const source = await serialize(content)
 
-  return {
-    source,
-    frontmatter: {
-      ...frontmatter,
-      slug,
+    // Process image path
+    const processedImage = processImagePath(frontmatter.image)
+    
+    // Format the date consistently
+    const date = formatDate(frontmatter.date);
+
+    return {
+      source,
+      frontmatter: {
+        ...frontmatter,
+        slug,
+        date,
+        image: processedImage
+      }
     }
+  } catch (error) {
+    console.error(`Error getting post by slug ${slug}:`, error)
+    return null
   }
 }
 
