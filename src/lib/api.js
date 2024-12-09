@@ -64,12 +64,19 @@ function formatDate(dateString) {
   }
 }
 
-// Update serialize configuration for MDX content
+// Update serialize configuration to handle images
 async function serializeContent(content, options = {}) {
   return serialize(content, {
     mdxOptions: {
       remarkPlugins: [remarkMath],
-      rehypePlugins: [[rehypeKatex, { strict: false }]],
+      rehypePlugins: [
+        [rehypeKatex, { strict: false }],
+        // Add image processing if needed
+      ],
+    },
+    scope: {
+      // Add image processing utilities
+      processImagePath: (src) => processImagePath(src),
     },
     ...options
   })
@@ -131,18 +138,23 @@ export function getAllPosts() {
   }
 }
 
-// Get a single post by slug
+// Update getPostBySlug to handle inline images
 export async function getPostBySlug(slug) {
   try {
     const fullPath = path.join(postsDirectory, `${slug}.md`)
     const fileContents = fs.readFileSync(fullPath, 'utf8')
     
-    // Replace LaTeX delimiters before parsing
+    // Process content for math and images
     const processedContent = fileContents
       .replace(/\\\[/g, '$$')
       .replace(/\\\]/g, '$$')
       .replace(/\\\(/g, '$')
-      .replace(/\\\)/g, '$');
+      .replace(/\\\)/g, '$')
+      // Process markdown image paths
+      .replace(/!\[(.*?)\]\((.*?)\)/g, (match, alt, src) => {
+        const processedSrc = processImagePath(src)
+        return `![${alt}](${processedSrc || src})`
+      });
     
     const { data: frontmatter, content } = matter(processedContent)
     const source = await serializeContent(content, {
@@ -150,11 +162,9 @@ export async function getPostBySlug(slug) {
       parseFrontmatter: true
     })
 
-    // Process image path
+    // Process frontmatter image
     const processedImage = processImagePath(frontmatter.image)
-    
-    // Format the date consistently
-    const date = formatDate(frontmatter.date);
+    const date = formatDate(frontmatter.date)
 
     return {
       source,
