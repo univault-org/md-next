@@ -1,12 +1,13 @@
-import React from 'react'
-import Head from 'next/head'
-import Link from 'next/link'
-import { MDXRemote } from 'next-mdx-remote'
-import { getPostBySlug, getAllPosts } from '@/lib/api'
-import { format } from 'date-fns'
-import { BiArrowBack, BiTime, BiUser, BiTag } from 'react-icons/bi'
-import { useEffect, useState } from 'react'
-import { useRouter } from 'next/router'
+import React from "react";
+import Head from "next/head";
+import Link from "next/link";
+import { MDXRemote } from "next-mdx-remote";
+import { getPostBySlug, getAllPosts } from "@/lib/api";
+import { format } from "date-fns";
+import { BiArrowBack, BiTime, BiUser, BiTag } from "react-icons/bi";
+import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
+import { parseISO } from "date-fns";
 
 // Error Fallback Component
 function ErrorFallback({ error, resetErrorBoundary }) {
@@ -22,20 +23,20 @@ function ErrorFallback({ error, resetErrorBoundary }) {
         Return to Updates
       </Link>
     </div>
-  )
+  );
 }
 
 // Custom Error Hook
 function useErrorHandler() {
-  const [error, setError] = useState(null)
-  
+  const [error, setError] = useState(null);
+
   useEffect(() => {
     if (error) {
-      console.error('Post Error:', error)
+      console.error("Post Error:", error);
     }
-  }, [error])
+  }, [error]);
 
-  return [error, setError]
+  return [error, setError];
 }
 
 // Custom components for MDX
@@ -44,19 +45,23 @@ const components = {
   h2: (props) => <h2 {...props} className="text-4xl font-bold mt-10 mb-5" />,
   h3: (props) => <h3 {...props} className="text-3xl font-bold mt-8 mb-4" />,
   p: (props) => {
-    const isImageOnly = React.Children.count(props.children) === 1 && 
-      React.isValidElement(props.children) && 
-      props.children.type === 'img'
+    const isImageOnly =
+      React.Children.count(props.children) === 1 &&
+      React.isValidElement(props.children) &&
+      props.children.type === "img";
 
     if (isImageOnly) {
-      return <div className="my-12">{props.children}</div>
+      return <div className="my-12">{props.children}</div>;
     }
 
-    return <p {...props} className="mb-6 text-xl leading-relaxed text-neutral-700 dark:text-neutral-300" />
+    return (
+      <p
+        {...props}
+        className="mb-6 text-xl leading-relaxed text-neutral-700 dark:text-neutral-300"
+      />
+    );
   },
-  img: (props) => (
-    <img {...props} className="rounded-xl w-full" />
-  ),
+  img: (props) => <img {...props} className="rounded-xl w-full" />,
   ul: (props) => (
     <ul {...props} className="my-6 space-y-3 list-disc pl-8">
       {props.children}
@@ -68,32 +73,49 @@ const components = {
     </ol>
   ),
   li: (props) => (
-    <li {...props} className="text-xl leading-relaxed pl-2 text-neutral-700 dark:text-neutral-300">
+    <li
+      {...props}
+      className="text-xl leading-relaxed pl-2 text-neutral-700 dark:text-neutral-300"
+    >
       {props.children}
     </li>
   ),
   blockquote: (props) => (
-    <blockquote 
-      {...props} 
+    <blockquote
+      {...props}
       className="border-l-6 border-primary-500 pl-6 my-8 italic text-2xl text-neutral-600 dark:text-neutral-300"
     />
   ),
   table: (props) => (
     <div className="overflow-x-auto my-12">
-      <table {...props} className="min-w-full divide-y divide-neutral-200 dark:divide-neutral-700" />
+      <table
+        {...props}
+        className="min-w-full divide-y divide-neutral-200 dark:divide-neutral-700"
+      />
     </div>
   ),
   th: (props) => (
-    <th {...props} className="px-6 py-4 text-left text-lg font-semibold text-neutral-900 dark:text-neutral-100 bg-neutral-50 dark:bg-neutral-800" />
+    <th
+      {...props}
+      className="px-6 py-4 text-left text-lg font-semibold text-neutral-900 dark:text-neutral-100 bg-neutral-50 dark:bg-neutral-800"
+    />
   ),
   td: (props) => (
-    <td {...props} className="px-6 py-4 text-lg text-neutral-600 dark:text-neutral-300" />
+    <td
+      {...props}
+      className="px-6 py-4 text-lg text-neutral-600 dark:text-neutral-300"
+    />
   ),
-}
+};
 
 export default function Post({ post }) {
-  const router = useRouter()
-  const [error, setError] = useErrorHandler()
+  const router = useRouter();
+  const [error, setError] = useErrorHandler();
+
+  // Create title string once
+  const pageTitle = post?.frontmatter?.title
+    ? `${post.frontmatter.title} - Univault`
+    : "Univault";
 
   // Handle loading state
   if (router.isFallback) {
@@ -106,7 +128,7 @@ export default function Post({ post }) {
           </p>
         </div>
       </div>
-    )
+    );
   }
 
   // Handle 404
@@ -128,22 +150,24 @@ export default function Post({ post }) {
           </Link>
         </div>
       </div>
-    )
+    );
   }
 
   // Handle error state
   if (error) {
-    return <ErrorFallback error={error} resetErrorBoundary={() => setError(null)} />
+    return (
+      <ErrorFallback error={error} resetErrorBoundary={() => setError(null)} />
+    );
   }
 
   try {
     return (
       <>
         <Head>
-          <title>{post?.frontmatter?.title || 'Post'} - Univault</title>
-          <meta 
-            name="description" 
-            content={post?.frontmatter?.excerpt || 'Read our latest updates'} 
+          <title>{pageTitle}</title>
+          <meta
+            name="description"
+            content={post?.frontmatter?.excerpt || "Read our latest updates"}
           />
         </Head>
 
@@ -168,7 +192,10 @@ export default function Post({ post }) {
                     <div className="flex items-center gap-2">
                       <BiTime className="w-5 h-5" />
                       <time dateTime={post?.frontmatter?.date}>
-                        {format(new Date(post?.frontmatter?.date), 'MMMM d, yyyy')}
+                        {format(
+                          parseISO(post?.frontmatter?.date), // Use parseISO instead of new Date()
+                          "MMMM d, yyyy"
+                        )}
                       </time>
                     </div>
                   )}
@@ -187,7 +214,7 @@ export default function Post({ post }) {
         {/* Content */}
         <article className="max-w-5xl mx-auto px-6 py-20">
           {/* Back to Updates */}
-          <Link 
+          <Link
             href="/updates"
             className="inline-flex items-center gap-2 text-neutral-600 dark:text-neutral-400 hover:text-primary-500 dark:hover:text-primary-400 mb-8"
           >
@@ -228,50 +255,50 @@ export default function Post({ post }) {
           </footer>
         </article>
       </>
-    )
+    );
   } catch (err) {
-    setError(err)
-    return null
+    setError(err);
+    return null;
   }
 }
 
 export async function getStaticProps({ params }) {
   try {
-    const post = await getPostBySlug(params.slug)
+    const post = await getPostBySlug(params.slug);
     if (!post) {
       return {
         notFound: true,
-      }
+      };
     }
     return {
       props: {
-        post: JSON.parse(JSON.stringify(post))
-      }
-    }
+        post: JSON.parse(JSON.stringify(post)),
+      },
+    };
   } catch (error) {
-    console.error('Error in getStaticProps:', error)
+    console.error("Error in getStaticProps:", error);
     return {
-      notFound: true
-    }
+      notFound: true,
+    };
   }
 }
 
 export async function getStaticPaths() {
   try {
-    const posts = getAllPosts()
+    const posts = getAllPosts();
     return {
       paths: posts.map((post) => ({
         params: {
-          slug: post.slug
-        }
+          slug: post.slug,
+        },
       })),
-      fallback: false
-    }
+      fallback: false,
+    };
   } catch (error) {
-    console.error('Error in getStaticPaths:', error)
+    console.error("Error in getStaticPaths:", error);
     return {
       paths: [],
-      fallback: false
-    }
+      fallback: false,
+    };
   }
 }

@@ -1,15 +1,16 @@
-import Head from 'next/head'
-import Link from 'next/link'
-import { getAllPosts } from '@/lib/api'
+import Head from "next/head";
+import Link from "next/link";
+import { getAllPosts } from "@/lib/api";
+import { parseISO, format } from 'date-fns' 
 
 export default function Updates({ posts }) {
   return (
     <>
       <Head>
         <title>News & Updates - Univault</title>
-        <meta 
-          name="description" 
-          content="Latest news, research updates, and announcements from Univault" 
+        <meta
+          name="description"
+          content="Latest news, research updates, and announcements from Univault"
         />
       </Head>
 
@@ -50,11 +51,7 @@ export default function Updates({ posts }) {
                 <div className="space-y-2">
                   <div className="flex items-center gap-2">
                     <p className="text-sm text-neutral-500 dark:text-neutral-400">
-                      {new Date(post.date).toLocaleDateString('en-US', {
-                        year: 'numeric',
-                        month: 'long',
-                        day: 'numeric'
-                      })}
+                      {format(parseISO(post.date), "MMMM d, yyyy")}
                     </p>
                     {post.author && (
                       <>
@@ -90,15 +87,15 @@ export default function Updates({ posts }) {
         </div>
       </section>
     </>
-  )
+  );
 }
 
 export async function getStaticProps() {
-  const posts = getAllPosts()
+  const posts = getAllPosts();
 
   return {
-    props: { 
-      posts: posts || [] 
+    props: {
+      posts: posts || [],
     },
-  }
+  };
 }
