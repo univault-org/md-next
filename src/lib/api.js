@@ -2,6 +2,8 @@ import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
 import { serialize } from 'next-mdx-remote/serialize'
+import remarkMath from 'remark-math'
+import rehypeKatex from 'rehype-katex'
 
 const contentDirectory = path.join(process.cwd(), 'content')
 const postsDirectory = path.join(contentDirectory, 'posts')
@@ -62,13 +64,24 @@ function formatDate(dateString) {
   }
 }
 
+// Update serialize configuration for MDX content
+async function serializeContent(content, options = {}) {
+  return serialize(content, {
+    mdxOptions: {
+      remarkPlugins: [remarkMath],
+      rehypePlugins: [[rehypeKatex, { strict: false }]],
+    },
+    ...options
+  })
+}
+
 // Get MDX content for pages
 export async function getMDXContent(filePath) {
   const fullPath = path.join(pagesDirectory, filePath)
   const fileContents = fs.readFileSync(fullPath, 'utf8')
   
   const { data: frontmatter, content } = matter(fileContents)
-  const source = await serialize(content)
+  const source = await serializeContent(content)
 
   return {
     source,
@@ -124,8 +137,18 @@ export async function getPostBySlug(slug) {
     const fullPath = path.join(postsDirectory, `${slug}.md`)
     const fileContents = fs.readFileSync(fullPath, 'utf8')
     
-    const { data: frontmatter, content } = matter(fileContents)
-    const source = await serialize(content)
+    // Replace LaTeX delimiters before parsing
+    const processedContent = fileContents
+      .replace(/\\\[/g, '$$')
+      .replace(/\\\]/g, '$$')
+      .replace(/\\\(/g, '$')
+      .replace(/\\\)/g, '$');
+    
+    const { data: frontmatter, content } = matter(processedContent)
+    const source = await serializeContent(content, {
+      scope: frontmatter,
+      parseFrontmatter: true
+    })
 
     // Process image path
     const processedImage = processImagePath(frontmatter.image)
@@ -174,7 +197,8 @@ export async function getProcessedContent(filePath) {
   const fileContents = fs.readFileSync(fullPath, 'utf8')
   
   const { data: metadata, content } = matter(fileContents)
-
+  
+  // Add math processing for processed content if needed
   const processedContent = {
     introduction: content.split('\n\n')[1],
     challenges: content.match(/- (.*)/g)?.map(item => item.replace('- ', '')) || [],

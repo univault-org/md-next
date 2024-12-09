@@ -8,6 +8,7 @@ import { BiArrowBack, BiTime, BiUser, BiTag } from "react-icons/bi";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { parseISO } from "date-fns";
+import 'katex/dist/katex.min.css';
 
 // Error Fallback Component
 function ErrorFallback({ error, resetErrorBoundary }) {
@@ -50,8 +51,21 @@ const components = {
       React.isValidElement(props.children) &&
       props.children.type === "img";
 
+    const hasMath = 
+      typeof props.children === 'string' && 
+      (props.children.includes('$$') || props.children.includes('$'));
+
     if (isImageOnly) {
       return <div className="my-12">{props.children}</div>;
+    }
+
+    if (hasMath) {
+      return (
+        <div
+          className="mb-6 text-xl leading-relaxed text-neutral-700 dark:text-neutral-300"
+          dangerouslySetInnerHTML={{ __html: props.children }}
+        />
+      );
     }
 
     return (
@@ -105,6 +119,14 @@ const components = {
       {...props}
       className="px-6 py-4 text-lg text-neutral-600 dark:text-neutral-300"
     />
+  ),
+  math: ({ children }) => (
+    <div className="my-4 overflow-x-auto">
+      <div dangerouslySetInnerHTML={{ __html: children }} />
+    </div>
+  ),
+  inlineMath: ({ children }) => (
+    <span dangerouslySetInnerHTML={{ __html: children }} />
   ),
 };
 
@@ -270,6 +292,17 @@ export async function getStaticProps({ params }) {
         notFound: true,
       };
     }
+
+    // Add special handling for math content
+    if (post.source && post.source.compiledSource) {
+      // Ensure math expressions are properly escaped
+      post.source.compiledSource = post.source.compiledSource
+        .replace(/\\\[/g, '$$')
+        .replace(/\\\]/g, '$$')
+        .replace(/\\\(/g, '$')
+        .replace(/\\\)/g, '$');
+    }
+
     return {
       props: {
         post: JSON.parse(JSON.stringify(post)),
