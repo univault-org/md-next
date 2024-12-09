@@ -66,19 +66,25 @@ function formatDate(dateString) {
 
 // Update serialize configuration to handle images
 async function serializeContent(content, options = {}) {
-  return serialize(content, {
+  // Process image paths before serialization
+  const processedContent = content.replace(
+    /!\[(.*?)\]\((.*?)\)/g,
+    (match, alt, src) => {
+      const processedSrc = processImagePath(src)
+      return `![${alt}](${processedSrc || src})`
+    }
+  )
+
+  return serialize(processedContent, {
     mdxOptions: {
       remarkPlugins: [remarkMath],
-      rehypePlugins: [
-        [rehypeKatex, { strict: false }],
-        // Add image processing if needed
-      ],
+      rehypePlugins: [[rehypeKatex, { strict: false }]],
     },
+    // Remove function from scope
     scope: {
-      // Add image processing utilities
-      processImagePath: (src) => processImagePath(src),
-    },
-    ...options
+      ...options.scope,
+      // Don't include processImagePath in scope
+    }
   })
 }
 
@@ -144,19 +150,15 @@ export async function getPostBySlug(slug) {
     const fullPath = path.join(postsDirectory, `${slug}.md`)
     const fileContents = fs.readFileSync(fullPath, 'utf8')
     
-    // Process content for math and images
     const processedContent = fileContents
       .replace(/\\\[/g, '$$')
       .replace(/\\\]/g, '$$')
       .replace(/\\\(/g, '$')
       .replace(/\\\)/g, '$')
-      // Process markdown image paths
-      .replace(/!\[(.*?)\]\((.*?)\)/g, (match, alt, src) => {
-        const processedSrc = processImagePath(src)
-        return `![${alt}](${processedSrc || src})`
-      });
     
     const { data: frontmatter, content } = matter(processedContent)
+    
+    // Process all images before serialization
     const source = await serializeContent(content, {
       scope: frontmatter,
       parseFrontmatter: true
@@ -167,7 +169,11 @@ export async function getPostBySlug(slug) {
     const date = formatDate(frontmatter.date)
 
     return {
-      source,
+      source: {
+        ...source,
+        // Ensure no functions are included in the returned data
+        scope: {} 
+      },
       frontmatter: {
         ...frontmatter,
         slug,
