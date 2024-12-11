@@ -1,7 +1,7 @@
 ---
 title: "The Memory Dance: How Nature and Computers Remember"
 series: "Understanding Phase-based Computing (Article 2)"
-date: "2024-03-27"
+date: "2024-12-10"
 author: "Univault Technologies Research Team"
 image: "https://images.unsplash.com/photo-1507413245164-6160d8298b31?auto=format&fit=crop&q=80"
 excerpt: "From the binary switches in your smartphone to the endless ripples in a pond, explore how information storage shapes our computing future."
