@@ -1,6 +1,6 @@
 ---
 title: "Duality: The Two Most Profound Equations in Human History"
-date: 2024-12-15
+date: 2024-12-11
 author: "Univault Technologies Research"
 excerpt: "An exploration of how E=mc² and ψ=Ae^iφ represent the fundamental duality of existence - the powers of destruction and creation, death and life, in our universe."
 image: "https://images.unsplash.com/photo-1444703686981-a3abbc4d4fe3?auto=format&fit=crop&q=80"
