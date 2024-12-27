@@ -9,6 +9,8 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { parseISO } from "date-fns";
 import 'katex/dist/katex.min.css';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { atomDark } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 
 // Error Fallback Component
 function ErrorFallback({ error, resetErrorBoundary }) {
@@ -40,7 +42,7 @@ function useErrorHandler() {
   return [error, setError];
 }
 
-// Custom components for MDX
+// Enhanced custom components for MDX
 const components = {
   h1: (props) => <h1 {...props} className="text-5xl font-bold mt-12 mb-6" />,
   h2: (props) => <h2 {...props} className="text-4xl font-bold mt-10 mb-5" />,
@@ -75,6 +77,60 @@ const components = {
       />
     );
   },
+  
+  // Enhanced code block components
+  pre: (props) => <div className="my-8 overflow-hidden" {...props} />,
+  
+  code: ({ className, children, ...props }) => {
+    const match = /language-(\w+)/.exec(className || '');
+    const lang = match ? match[1] : '';
+    const isOm = lang === 'om';
+    const fileName = className?.includes(':') ? className.split(':')[1] : null;
+
+    return (
+      <div className="relative group rounded-xl overflow-hidden">
+        {/* File name header if present */}
+        {fileName && (
+          <div className="bg-neutral-800 px-4 py-2 text-neutral-400 text-sm font-mono border-b border-neutral-700">
+            {fileName}
+          </div>
+        )}
+        
+        {/* Language badge */}
+        <div className="absolute right-4 top-4 px-2 py-1 text-sm font-mono text-neutral-400 bg-neutral-800/75 rounded-md backdrop-blur-sm">
+          {isOm ? 'Om' : lang || 'text'}
+        </div>
+
+        <SyntaxHighlighter
+          language={isOm ? 'javascript' : (lang || 'text')}
+          style={atomDark}
+          customStyle={{
+            background: isOm ? '#1a1b26' : '#282c34',
+            padding: '1.5rem',
+            margin: 0,
+            borderRadius: fileName ? '0' : '0.75rem',
+            fontSize: '0.95rem',
+            lineHeight: '1.5',
+          }}
+          className="font-mono scrollbar-thin scrollbar-thumb-neutral-600 scrollbar-track-neutral-800"
+          showLineNumbers={true}
+          wrapLines={true}
+          {...props}
+        >
+          {children}
+        </SyntaxHighlighter>
+      </div>
+    );
+  },
+
+  // Enhanced inline code
+  inlineCode: (props) => (
+    <code
+      {...props}
+      className="px-2 py-1 font-mono text-sm bg-neutral-100 dark:bg-neutral-800 rounded text-primary-600 dark:text-primary-400"
+    />
+  ),
+
   img: (props) => <img {...props} className="rounded-xl w-full" />,
   ul: (props) => (
     <ul {...props} className="my-6 space-y-3 list-disc pl-8">

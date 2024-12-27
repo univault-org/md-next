@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="waveGradient" x1="0%" y1="50%" x2="100%" y2="50%">
+      <stop offset="0%" style="stop-color:#4F46E5;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#7C3AED;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Outer circle -->
+  <circle 
+    cx="60" 
+    cy="60" 
+    r="56" 
+    fill="none" 
+    stroke="url(#waveGradient)" 
+    stroke-width="4"
+  />
+
+  <!-- Left wave (~) - moved left -->
+  <path 
+    d="M15 60 Q25 50, 35 60 Q45 70, 50 60" 
+    fill="none" 
+    stroke="url(#waveGradient)" 
+    stroke-width="4" 
+    stroke-linecap="round"
+  />
+
+  <!-- Central pipe (|) -->
+  <rect 
+    x="58" 
+    y="30" 
+    width="4" 
+    height="60" 
+    fill="#4F46E5" 
+    rx="2"
+  />
+
+  <!-- Right wave (~) - moved right -->
+  <path 
+    d="M70 60 Q75 50, 85 60 Q95 70, 105 60" 
+    fill="none" 
+    stroke="url(#waveGradient)" 
+    stroke-width="4" 
+    stroke-linecap="round"
+  />
+</svg>
