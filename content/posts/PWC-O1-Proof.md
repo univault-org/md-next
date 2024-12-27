@@ -1,6 +1,6 @@
 ---
 title: "The Burden of Proof: From Steam Engines to Wave Computing"
-date: 2024-12-18
+date: 2024-12-26
 author: "Univault Technologies Research"
 excerpt: "A journey through history's most transformative proofs, from Galileo's planetary motion to Watt's steam engine, leading to our mathematical validation of O(1) wave-based computation."
 image: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&q=80"
