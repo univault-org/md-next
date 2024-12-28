@@ -112,7 +112,7 @@ This duality between visual and textual representation might be exactly what Om 
 
 We'd love to hear your thoughts on this dual approach or if you prefer one design exclusively:
 
-- Join our Discord: [discord.gg/om-lang](https://discord.gg/om-lang)
+- Join our Discord: [discord.gg/fUPMPT8hVj](https://discord.gg/fUPMPT8hVj)
 - GitHub Discussion: [github.com/om-lang/design/discussions/1](https://github.com/univault-org/om-lang/design/discussions/1)
 
 This kind of organic evolution and community discussion is exactly how we envision Om growing - through the harmony of different perspectives coming together to create something greater than the sum of its parts.
@@ -995,5 +995,9 @@ To get started:
 2. Join our Discord community
 3. Check open issues on GitHub
 4. Share your use cases and ideas
+
+- Discord: [Join Om Lang Community](https://discord.gg/fUPMPT8hVj)
+- GitHub: [github.com/univault-org/om-lang](https://github.com/univault-org/om-lang)
+- Discussions: [github.com/univault-org/om-lang/design/discussions](https://github.com/univault-org/om-lang/design/discussions)
 
 > **Note:** As Om is in the proposal stage, we especially welcome feedback on the core language design and implementation strategies.
