@@ -12,7 +12,7 @@ export default function Footer() {
               Univault
             </h3>
             <p className="text-neutral-600 dark:text-neutral-400">
-              Pioneering personal data sovereignty and digital asset inheritance
+              Advancing Personal AI training, research, and global ecosystem development
             </p>
           </div>
 
@@ -24,10 +24,18 @@ export default function Footer() {
             <ul className="space-y-2">
               <li>
                 <Link 
-                  href="/about"
+                  href="/paiTraining"
                   className="text-neutral-600 dark:text-neutral-400 hover:text-primary-600 dark:hover:text-primary-400"
                 >
-                  About
+                  PAI Academy
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  href="/paiTraining/resources"
+                  className="text-neutral-600 dark:text-neutral-400 hover:text-primary-600 dark:hover:text-primary-400"
+                >
+                  Learning Resources
                 </Link>
               </li>
               <li>
@@ -35,7 +43,15 @@ export default function Footer() {
                   href="/projects/PAI-World-Capital"
                   className="text-neutral-600 dark:text-neutral-400 hover:text-primary-600 dark:hover:text-primary-400"
                 >
-                  PAI World's Capital
+                  PAI World Capital
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  href="/research"
+                  className="text-neutral-600 dark:text-neutral-400 hover:text-primary-600 dark:hover:text-primary-400"
+                >
+                  Research
                 </Link>
               </li>
             </ul>
@@ -47,6 +63,15 @@ export default function Footer() {
               Connect
             </h3>
             <div className="space-y-2">
+              <a
+                href="mailto:pai-capital@univault.org"
+                className="text-neutral-600 dark:text-neutral-400 hover:text-primary-600 dark:hover:text-primary-400 flex items-center space-x-2"
+              >
+                <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                </svg>
+                <span>PAI Capital</span>
+              </a>
               <a
                 href="https://github.com/Univault-org"
                 target="_blank"

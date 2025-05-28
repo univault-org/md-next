@@ -15,21 +15,21 @@ import {
 export default function Home({ content, metadata }) {
   const services = [
     {
-      title: "Digital Organization",
+      title: "PAI Training Academy",
       description:
-        "Experience our 'Joyganize' approach to digital life. Transform how you manage files and memories with intuitive tools that make digital organization both enjoyable and efficient.",
+        "Master the art of Personal AI training through our comprehensive academy. Learn to train, optimize, and deploy PAI systems on personal devices with expert guidance from industry leaders and cutting-edge curriculum.",
       icon: <BiLayer className="text-3xl" />,
     },
     {
-      title: "DA Legacy Planning",
+      title: "PAI World Capital Initiative",
       description:
-        "Plan your Digital Asset (DA) future with eBequest. Our dedicated service helps preserve, protect, and pass on your digital assets to chosen inheritors, ensuring your digital legacy endures meaningfully.",
+        "Join the global competition for cities to become the Personal AI World's Capital. We partner with forward-thinking cities to create PAI-powered ecosystems, generating revenue through PAI transactions while funding education and urban development.",
       icon: <BiGift className="text-3xl" />,
     },
     {
-      title: "AI Data Sovereignty",
+      title: "Personal AI Network",
       description:
-        "Stay in control of your digital identity. Our technology enables AI to learn and serve you better while keeping your data private and sovereign, creating truly personalized experiences.",
+        "Experience true AI sovereignty where your PAI runs on your personal devices. Earn rewards by sharing computational resources while maintaining complete control over your data and AI training processes.",
       icon: <BiShield className="text-3xl" />,
     },
   ];
@@ -37,18 +37,18 @@ export default function Home({ content, metadata }) {
 
   const researchAreas = [
     {
-      title: "Quantum-Safe Privacy",
-      description: "Developing post-quantum cryptographic solutions to ensure long-term data protection in the age of quantum computing.",
+      title: "Harmonic Encoder & Networks",
+      description: "Revolutionary technologies enabling Personal AIs to train and operate efficiently on personal devices. When billions of these devices connect, they create a powerful distributed architecture for the next wave of PAI applications and services.",
       icon: <BiAtom className="text-3xl" />,
     },
     {
-        title: "Satellite Data Protocol",
-        description: "Developing SRPT protocol for efficient global transfer of large AI models and datasets via satellite networks, enabling large-scale vectorized data transfer.",
+        title: "Phase-based Wave Computing",
+        description: "The bridge between Personal AI and human intuitive functions. This research enables PAI to mimic the human right brain, augmenting decision-making capabilities through bio-field processing and neural wave synchronization.",
         icon: <BiSignal5 className="text-3xl" />,
       },
       {
-        title: "Digital Identity",
-        description: "Pioneering ultrasonic fingerprinting technology that processes sound waves for secure, contactless biometric authentication, improving how we verify digital identities.",
+        title: "Emergence Collective Intelligence",
+        description: "When Harmonic PAIs network and evolve together, they create new intelligence fields. Our EMC research aims to shed light on the nature of human collective consciousness and distributed intelligence emergence.",
         icon: <BiFingerprint className="text-3xl" />,
       }
   ];
@@ -93,14 +93,14 @@ export default function Home({ content, metadata }) {
                   href="/paiTraining"
                   className="inline-flex items-center px-6 py-3 rounded-lg bg-primary-500 hover:bg-primary-600 text-white font-medium transition-colors"
                 >
-                  Programs & Certifications
+                  Join PAI Academy
                   <i className="bi bi-arrow-right ml-2"></i>
                 </Link>
                 <Link
-                  href="/paiTraining/resources"
+                  href="/projects/PAI-World-Capital"
                   className="inline-flex items-center px-6 py-3 rounded-lg bg-neutral-100 hover:bg-neutral-200 dark:bg-neutral-700 dark:hover:bg-neutral-600 text-neutral-700 dark:text-neutral-100 font-medium transition-colors"
                 >
-                  Explore Learning Resources
+                  PAI World Capital
                   <i className="bi bi-info-circle ml-2"></i>
                 </Link>
               </div>
@@ -112,11 +112,10 @@ export default function Home({ content, metadata }) {
       {/* Services Section */}
       <section className="max-w-5xl mx-auto px-4 py-8 md:py-16">
         <h2 className="text-3xl font-bold text-center mb-4 text-neutral-800 dark:text-neutral-100">
-          Empowering Digital Lives
+          Personal AI Ecosystem
         </h2>
         <p className="text-center mb-12 text-2xl md:text-2xl text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto">
-          We provide comprehensive solutions for managing your digital presence,
-          from daily organization to long-term legacy planning.
+          Comprehensive solutions for training, deploying, and networking Personal AI systems that run on your devices while maintaining complete data sovereignty.
         </p>
         <div className="grid md:grid-cols-3 gap-4">
           {services.map((service) => (

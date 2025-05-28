@@ -292,7 +292,7 @@ export default function LearningResources() {
                     </div>
                     <button
                       onClick={() => setShowAIAssistant(false)}
-                      className="p-2 hover:bg-white/20 rounded-lg transition-colors"
+                      className="p-2 bg-white/20 hover:bg-white/40 rounded-lg transition-colors"
                     >
                       <BiX className="text-xl" />
                     </button>
