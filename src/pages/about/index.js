@@ -64,7 +64,7 @@ export default function About({ source, frontmatter = {} }) {
               Who We Are
             </h2>
             <p className="text-2xl text-neutral-600 dark:text-neutral-400 mb-6">
-              We are a collective of consciousness researchers, AI technologists, and visionary developers working 
+              Guided by <a href="/northStar"><span className="text-primary-500">Our North Star</span></a>, we are a collective of consciousness researchers, AI technologists, and visionary developers working 
               to create the world's first Personal AI ecosystem. Our team is united by the belief that AI should 
               enhance human consciousness rather than replace human agency.
             </p>

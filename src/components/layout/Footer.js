@@ -48,10 +48,10 @@ export default function Footer() {
               </li>
               <li>
                 <Link 
-                  href="/research"
+                  href="/northStar"
                   className="text-neutral-600 dark:text-neutral-400 hover:text-primary-600 dark:hover:text-primary-400"
                 >
-                  Research
+                  Our North Star
                 </Link>
               </li>
             </ul>
