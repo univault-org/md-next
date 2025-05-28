@@ -32,10 +32,10 @@ export default function Footer() {
               </li>
               <li>
                 <Link 
-                  href="/declaration"
+                  href="/projects/PAI-World-Capital"
                   className="text-neutral-600 dark:text-neutral-400 hover:text-primary-600 dark:hover:text-primary-400"
                 >
-                  Declaration
+                  PAI World's Capital
                 </Link>
               </li>
             </ul>

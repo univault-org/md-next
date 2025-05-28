@@ -58,7 +58,7 @@ export default function Home({ content, metadata }) {
   const visionItems = content?.vision || [];
 //   const researchAreas = content?.research || [];
   const pageMetadata = {
-    headline: metadata?.headline || "Universal Personal Data Vault",
+    headline: metadata?.headline || "Universal Data Vault & Personal AI",
     subheadline:
       metadata?.subheadline || "Empowering Data Sovereignty and Digital Asset Inheritance",
     title: metadata?.title || "Univault - Empowering Data Sovereignty and Digital Asset Inheritance for the AI Age",
@@ -220,8 +220,8 @@ export default function Home({ content, metadata }) {
 
 export async function getStaticProps() {
   try {
-    const { content, metadata } = await getMDXContent("pages/home.md");
-    // or just 'home.md' depending on how getMDXContent is configured
+    const { content, metadata } = await getMDXContent("home.md");
+    // Changed from "pages/home.md" to just "home.md" since pagesDirectory already includes "pages"
 
     return {
       props: {

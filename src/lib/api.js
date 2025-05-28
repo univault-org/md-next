@@ -8,6 +8,7 @@ import rehypeKatex from 'rehype-katex'
 const contentDirectory = path.join(process.cwd(), 'content')
 const postsDirectory = path.join(contentDirectory, 'posts')
 const pagesDirectory = path.join(contentDirectory, 'pages')
+const paiTrainingDirectory = path.join(process.cwd(), 'PAI_Training')
 
 // Helper function to validate and format image path
 function processImagePath(imagePath) {
@@ -229,5 +230,54 @@ export async function getProcessedContent(filePath) {
   return {
     content: processedContent,
     metadata
+  }
+}
+
+// Get PAI Training content by slug
+export async function getPAITrainingBySlug(slug) {
+  try {
+    const fullPath = path.join(paiTrainingDirectory, `${slug}.md`)
+    
+    if (!fs.existsSync(fullPath)) {
+      console.warn(`PAI Training content not found: ${slug}`)
+      return null
+    }
+    
+    const fileContents = fs.readFileSync(fullPath, 'utf8')
+    
+    const processedContent = fileContents
+      .replace(/\\\[/g, '$$')
+      .replace(/\\\]/g, '$$')
+      .replace(/\\\(/g, '$')
+      .replace(/\\\)/g, '$')
+    
+    const { data: frontmatter, content } = matter(processedContent)
+    
+    // Process all images before serialization
+    const source = await serializeContent(content, {
+      scope: frontmatter,
+      parseFrontmatter: true
+    })
+
+    // Process frontmatter image
+    const processedImage = processImagePath(frontmatter.image)
+    const date = formatDate(frontmatter.date)
+
+    return {
+      source: {
+        ...source,
+        // Ensure no functions are included in the returned data
+        scope: {} 
+      },
+      frontmatter: {
+        ...frontmatter,
+        slug,
+        date,
+        image: processedImage
+      }
+    }
+  } catch (error) {
+    console.error(`Error getting PAI Training content by slug ${slug}:`, error)
+    return null
   }
 }

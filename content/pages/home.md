@@ -1,7 +1,7 @@
 ---
 title: "Univault - Personal Data Sovereignty"
 description: "Universal Personal Data Vault - Empowering individuals with complete control over their digital identity"
-headline: "UNIVERSAL PERSONAL DATA VAULT"
+headline: "UNIVERSAL PERSONAL DATA VAULT & PAI"
 subheadline: "Pioneering Data Sovereignty and Digital Asset Inheritance for the AI Age"
 ---
 

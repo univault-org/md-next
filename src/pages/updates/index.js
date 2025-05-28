@@ -51,7 +51,7 @@ export default function Updates({ posts }) {
                 <div className="space-y-2">
                   <div className="flex items-center gap-2">
                     <p className="text-sm text-neutral-500 dark:text-neutral-400">
-                      {format(parseISO(post.date), "MMMM d, yyyy")}
+                      {post.date ? format(parseISO(post.date), "MMMM d, yyyy") : "No date"}
                     </p>
                     {post.author && (
                       <>
