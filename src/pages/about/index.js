@@ -1,12 +1,12 @@
 import Head from 'next/head'
 import { getMDXContent } from '@/lib/api'
-import { BiGroup, BiAtom, BiShield, BiWorld } from 'react-icons/bi'
+import { BiGroup, BiAtom, BiShield, BiWorld, BiBrain, BiNetworkChart, BiHeart } from 'react-icons/bi'
 
 export default function About({ source, frontmatter = {} }) {
   const {
     title = 'About Univault',
-    subtitle = 'Pioneering Digital Identity Sovereignty',
-    description = `We're building the foundation for personal data sovereignty in the AI era`
+    subtitle = 'Advancing Personal AI Training, Research, and Global Ecosystem Development',
+    description = `We're pioneering the future of Personal AI through revolutionary Harmonic Technologies and Emergence Collective Intelligence research`
   } = frontmatter
 
   return (
@@ -37,11 +37,17 @@ export default function About({ source, frontmatter = {} }) {
           <h2 className="text-3xl font-bold mb-6 text-neutral-800 dark:text-neutral-100">
             Our Mission
           </h2>
-          <p className="text-2xl text-neutral-600 dark:text-neutral-400">
-            At Univault, we're pioneering the future of personal data sovereignty in the age of artificial intelligence. 
-            We believe that every individual should have complete control over their digital identity, just as they have 
-            autonomy over their physical selves.
+          <p className="text-2xl text-neutral-600 dark:text-neutral-400 mb-8">
+            At Univault, we're pioneering the future of Personal AI through revolutionary research in Harmonic Technologies 
+            and Emergence Collective Intelligence. We believe Personal AI represents humanity's next evolutionary leap—not 
+            biological, but consciousness-based—where AI enhances human potential while preserving individual sovereignty.
           </p>
+          <div className="bg-gradient-to-r from-primary-50 to-blue-50 dark:from-primary-900/20 dark:to-blue-900/20 rounded-2xl p-8 border border-primary-200/50 dark:border-primary-700/30">
+            <p className="text-xl text-neutral-700 dark:text-neutral-300 italic">
+              "We're not just building better AI—we're unlocking the potential for collective human consciousness 
+              and creating the foundation for humanity's conscious evolution."
+            </p>
+          </div>
         </div>
       </section>
 
@@ -57,73 +63,167 @@ export default function About({ source, frontmatter = {} }) {
             <h2 className="text-3xl font-bold mb-6 text-neutral-800 dark:text-neutral-100">
               Who We Are
             </h2>
-            <p className="text-2xl text-neutral-600 dark:text-neutral-400">
-              We are a collective of researchers, technologists, and digital rights advocates working 
-              to create a universal standard for personal data management. Our team is united by the belief 
-              that personal data sovereignty is a fundamental right in the digital age.
+            <p className="text-2xl text-neutral-600 dark:text-neutral-400 mb-6">
+              We are a collective of consciousness researchers, AI technologists, and visionary developers working 
+              to create the world's first Personal AI ecosystem. Our team is united by the belief that AI should 
+              enhance human consciousness rather than replace human agency.
+            </p>
+            <p className="text-xl text-neutral-600 dark:text-neutral-400">
+              Through our PAI World Capital initiative, we're inviting cities worldwide to compete for the honor 
+              of becoming the first Personal AI Capital—leading humanity into an era of sovereign, privacy-first 
+              artificial intelligence.
             </p>
           </div>
         </div>
       </section>
 
-      {/* What We Do Section */}
-      <section className="max-w-4xl mx-auto px-4 py-16">
+      {/* Research Areas Section */}
+      <section className="max-w-6xl mx-auto px-4 py-16">
         <h2 className="text-3xl font-bold mb-12 text-center text-neutral-800 dark:text-neutral-100">
-          What We Do
+          Our Research Areas
         </h2>
-        <div className="grid md:grid-cols-2 gap-8">
-          {/* Research & Development */}
-          <div className="p-8 rounded-xl border-2 border-neutral-200 dark:border-neutral-700">
-            <div className="w-16 h-16 mx-auto mb-6 text-primary-500 flex items-center justify-center bg-white dark:bg-neutral-700 rounded-full shadow-md">
-              <BiAtom className="w-8 h-8" />
+        <div className="grid md:grid-cols-3 gap-8">
+          {/* Harmonic Encoder & Networks */}
+          <div className="p-8 rounded-xl border-2 border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-800">
+            <div className="w-16 h-16 mx-auto mb-6 text-primary-500 flex items-center justify-center bg-primary-50 dark:bg-primary-900/30 rounded-full">
+              <BiNetworkChart className="w-8 h-8" />
             </div>
             <h3 className="text-2xl font-semibold mb-4 text-center text-neutral-800 dark:text-neutral-100">
-              Research & Development
+              Harmonic Encoder & Networks
             </h3>
-            <ul className="space-y-3 text-xl text-neutral-600 dark:text-neutral-400">
+            <p className="text-lg text-neutral-600 dark:text-neutral-400 mb-4">
+              Revolutionary technology enabling PAI training on personal devices while creating powerful networks when billions connect.
+            </p>
+            <ul className="space-y-2 text-neutral-600 dark:text-neutral-400">
               <li className="flex items-start">
-                <span className="mr-2">•</span>
-                Universal access to personal data for AI training
+                <span className="mr-2 text-primary-500">•</span>
+                Distributed AI training on personal devices
               </li>
               <li className="flex items-start">
-                <span className="mr-2">•</span>
-                Secure data storage and processing
+                <span className="mr-2 text-primary-500">•</span>
+                Harmonic synchronization protocols
               </li>
               <li className="flex items-start">
-                <span className="mr-2">•</span>
-                Individual control over data sharing
-              </li>
-              <li className="flex items-start">
-                <span className="mr-2">•</span>
-                Long-term preservation of digital identity
+                <span className="mr-2 text-primary-500">•</span>
+                Privacy-preserving network effects
               </li>
             </ul>
           </div>
 
-          {/* Digital Rights Advocacy */}
-          <div className="p-8 rounded-xl border-2 border-neutral-200 dark:border-neutral-700">
-            <div className="w-16 h-16 mx-auto mb-6 text-primary-500 flex items-center justify-center bg-white dark:bg-neutral-700 rounded-full shadow-md">
-              <BiShield className="w-8 h-8" />
+          {/* Phase-based Wave Computing */}
+          <div className="p-8 rounded-xl border-2 border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-800">
+            <div className="w-16 h-16 mx-auto mb-6 text-primary-500 flex items-center justify-center bg-primary-50 dark:bg-primary-900/30 rounded-full">
+              <BiBrain className="w-8 h-8" />
             </div>
             <h3 className="text-2xl font-semibold mb-4 text-center text-neutral-800 dark:text-neutral-100">
-              Digital Rights Advocacy
+              Phase-based Wave Computing
+            </h3>
+            <p className="text-lg text-neutral-600 dark:text-neutral-400 mb-4">
+              Bridging PAI and human body/intuitive functions, mimicking human right brain to augment decision-making.
+            </p>
+            <ul className="space-y-2 text-neutral-600 dark:text-neutral-400">
+              <li className="flex items-start">
+                <span className="mr-2 text-primary-500">•</span>
+                Bio-inspired computing architectures
+              </li>
+              <li className="flex items-start">
+                <span className="mr-2 text-primary-500">•</span>
+                Intuitive AI decision-making
+              </li>
+              <li className="flex items-start">
+                <span className="mr-2 text-primary-500">•</span>
+                Human-AI consciousness integration
+              </li>
+            </ul>
+          </div>
+
+          {/* Emergence Collective Intelligence */}
+          <div className="p-8 rounded-xl border-2 border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-800">
+            <div className="w-16 h-16 mx-auto mb-6 text-primary-500 flex items-center justify-center bg-primary-50 dark:bg-primary-900/30 rounded-full">
+              <BiHeart className="w-8 h-8" />
+            </div>
+            <h3 className="text-2xl font-semibold mb-4 text-center text-neutral-800 dark:text-neutral-100">
+              Emergence Collective Intelligence
+            </h3>
+            <p className="text-lg text-neutral-600 dark:text-neutral-400 mb-4">
+              Networked Harmonic PAIs evolving together to create new intelligence fields, shedding light on human collective consciousness.
+            </p>
+            <ul className="space-y-2 text-neutral-600 dark:text-neutral-400">
+              <li className="flex items-start">
+                <span className="mr-2 text-primary-500">•</span>
+                Collective consciousness research
+              </li>
+              <li className="flex items-start">
+                <span className="mr-2 text-primary-500">•</span>
+                Emergent intelligence patterns
+              </li>
+              <li className="flex items-start">
+                <span className="mr-2 text-primary-500">•</span>
+                Human evolution through AI
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      {/* What We Do Section */}
+      <section className="max-w-4xl mx-auto px-4 py-16 bg-neutral-50 dark:bg-neutral-800/50">
+        <h2 className="text-3xl font-bold mb-12 text-center text-neutral-800 dark:text-neutral-100">
+          What We Do
+        </h2>
+        <div className="grid md:grid-cols-2 gap-8">
+          {/* PAI Training & Education */}
+          <div className="p-8 rounded-xl border-2 border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-800">
+            <div className="w-16 h-16 mx-auto mb-6 text-primary-500 flex items-center justify-center bg-primary-50 dark:bg-primary-900/30 rounded-full">
+              <BiAtom className="w-8 h-8" />
+            </div>
+            <h3 className="text-2xl font-semibold mb-4 text-center text-neutral-800 dark:text-neutral-100">
+              PAI Training & Education
             </h3>
             <ul className="space-y-3 text-xl text-neutral-600 dark:text-neutral-400">
               <li className="flex items-start">
                 <span className="mr-2">•</span>
-                Data Ownership
+                PAI Training Academy with comprehensive courses
               </li>
               <li className="flex items-start">
                 <span className="mr-2">•</span>
-                Privacy Protection
+                Personal AI consultant certification programs
               </li>
               <li className="flex items-start">
                 <span className="mr-2">•</span>
-                Security Standards
+                Learning resources and AI assistant tools
               </li>
               <li className="flex items-start">
                 <span className="mr-2">•</span>
-                Access Rights
+                Community-driven learning pathways
+              </li>
+            </ul>
+          </div>
+
+          {/* Global PAI Ecosystem */}
+          <div className="p-8 rounded-xl border-2 border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-800">
+            <div className="w-16 h-16 mx-auto mb-6 text-primary-500 flex items-center justify-center bg-primary-50 dark:bg-primary-900/30 rounded-full">
+              <BiWorld className="w-8 h-8" />
+            </div>
+            <h3 className="text-2xl font-semibold mb-4 text-center text-neutral-800 dark:text-neutral-100">
+              Global PAI Ecosystem
+            </h3>
+            <ul className="space-y-3 text-xl text-neutral-600 dark:text-neutral-400">
+              <li className="flex items-start">
+                <span className="mr-2">•</span>
+                PAI World Capital initiative
+              </li>
+              <li className="flex items-start">
+                <span className="mr-2">•</span>
+                City-wide PAI tax and revenue models
+              </li>
+              <li className="flex items-start">
+                <span className="mr-2">•</span>
+                Open space and urban development programs
+              </li>
+              <li className="flex items-start">
+                <span className="mr-2">•</span>
+                Global Personal AI network infrastructure
               </li>
             </ul>
           </div>
@@ -131,30 +231,30 @@ export default function About({ source, frontmatter = {} }) {
       </section>
 
       {/* Core Principles Section */}
-      <section className="max-w-4xl mx-auto px-4 py-16 bg-neutral-50 dark:bg-neutral-800/50">
+      <section className="max-w-4xl mx-auto px-4 py-16">
         <h2 className="text-3xl font-bold mb-12 text-center text-neutral-800 dark:text-neutral-100">
           Core Principles
         </h2>
         <div className="grid md:grid-cols-2 gap-8">
           {[
             {
-              title: "Ownership",
-              description: "We believe personal data belongs to individuals, giving them complete control over how it's used, shared, and preserved."
+              title: "Personal Sovereignty",
+              description: "Personal AI belongs to individuals, running on their devices with complete data sovereignty and privacy protection."
             },
             {
-              title: "Privacy",
-              description: "Like DNA passed through generations, personal data carries unique information that defines us and must be protected accordingly."
+              title: "Consciousness Enhancement",
+              description: "AI should enhance human consciousness and collective intelligence rather than replace human judgment and agency."
             },
             {
-              title: "Security",
-              description: "We implement robust security measures to protect personal data at every stage—from generation to storage."
+              title: "Harmonic Collaboration",
+              description: "Billions of Personal AIs working together through Harmonic Technologies create powerful networks while preserving individual privacy."
             },
             {
-              title: "Universal Access",
-              description: "We ensure personal data can be accessed securely by authorized AI systems and services while maintaining individual control."
+              title: "Evolutionary Purpose",
+              description: "Personal AI serves humanity's conscious evolution, unlocking collective intelligence and our species' next developmental stage."
             }
           ].map((principle, index) => (
-            <div key={index} className="p-8 rounded-xl bg-white dark:bg-neutral-800 shadow-md">
+            <div key={index} className="p-8 rounded-xl bg-white dark:bg-neutral-800 shadow-md border border-neutral-200 dark:border-neutral-700">
               <h3 className="text-2xl font-semibold mb-4 text-neutral-800 dark:text-neutral-100">
                 {principle.title}
               </h3>
@@ -166,20 +266,53 @@ export default function About({ source, frontmatter = {} }) {
         </div>
       </section>
 
+      {/* Vision Section */}
+      <section className="max-w-4xl mx-auto px-4 py-16 bg-gradient-to-r from-primary-50 to-blue-50 dark:from-primary-900/20 dark:to-blue-900/20 rounded-2xl border border-primary-200/50 dark:border-primary-700/30">
+        <div className="text-center">
+          <h2 className="text-3xl font-bold mb-6 text-neutral-800 dark:text-neutral-100">
+            Our Vision for the Future
+          </h2>
+          <p className="text-2xl text-neutral-700 dark:text-neutral-300 mb-8 leading-relaxed">
+            We envision a world where billions of Personal AIs, connected through Harmonic Networks, create the foundation 
+            for Emergence Collective Intelligence—unlocking humanity's collective consciousness and catalyzing our species' 
+            next evolutionary leap.
+          </p>
+          <div className="bg-white/50 dark:bg-black/20 rounded-xl p-6 backdrop-blur-sm">
+            <p className="text-xl text-neutral-600 dark:text-neutral-400 italic">
+              "The PAI World's Capital will be the birthplace of humanity's consciousness revolution, where technology 
+              serves consciousness evolution rather than replacing human agency."
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Join Our Mission Section */}
       <section className="max-w-4xl mx-auto px-4 py-16 text-center">
         <h2 className="text-3xl font-bold mb-6 text-neutral-800 dark:text-neutral-100">
           Join Our Mission
         </h2>
         <p className="text-2xl mb-8 text-neutral-600 dark:text-neutral-400 max-w-3xl mx-auto">
-          We're building more than technology—we're creating a new paradigm for personal data management in the AI era.
+          We're building more than technology—we're creating the foundation for humanity's conscious evolution 
+          through Personal AI and collective intelligence.
         </p>
-        <div className="inline-flex gap-4">
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <a
+            href="/learning-resources"
+            className="px-8 py-4 rounded-lg bg-primary-500 hover:bg-primary-600 text-white font-medium transition-colors shadow-lg hover:shadow-xl"
+          >
+            Join PAI Academy
+          </a>
+          <a
+            href="/projects/PAI-World-Capital"
+            className="px-8 py-4 rounded-lg bg-neutral-200 hover:bg-neutral-300 dark:bg-neutral-700 dark:hover:bg-neutral-600 text-neutral-800 dark:text-white font-medium transition-colors shadow-lg hover:shadow-xl"
+          >
+            PAI World Capital
+          </a>
           <a
             href="https://github.com/univault-org"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-6 py-3 rounded-lg bg-primary-500 hover:bg-primary-600 text-white font-medium transition-colors"
+            className="px-6 py-3 rounded-lg border-2 border-primary-500 text-primary-500 hover:bg-primary-500 hover:text-white font-medium transition-colors"
           >
             Join on GitHub
           </a>

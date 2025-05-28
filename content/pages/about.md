@@ -1,6 +1,6 @@
 ---
 title: "About Univault"
-subtitle: " Pioneering personal data sovereignty and digital asset inheritance for the AI age"
+subtitle: "We're pioneering the future of Personal AI through revolutionary Harmonic Technologies and Emergence Collective Intelligence research"
 description: "We're building the foundation for personal data sovereignty in the AI era"
 date: "2024"
 lastUpdated: "2024-02-20"
