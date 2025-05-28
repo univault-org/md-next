@@ -58,9 +58,9 @@ export default function Home({ content, metadata }) {
   const visionItems = content?.vision || [];
 //   const researchAreas = content?.research || [];
   const pageMetadata = {
-    headline: metadata?.headline || "Universal Data Vault & Personal AI",
+    headline: metadata?.headline || "Building the Future of Personal AI",
     subheadline:
-      metadata?.subheadline || "Empowering Data Sovereignty and Digital Asset Inheritance",
+      metadata?.subheadline || "PAI Research & Professional Development for Consultants and Trainers, Partnering with the PAI World Capital, and Advancing Human-Centered AI Technology",
     title: metadata?.title || "Univault - Empowering Data Sovereignty and Digital Asset Inheritance for the AI Age",
     description:
       metadata?.description ||
@@ -90,17 +90,17 @@ export default function Home({ content, metadata }) {
               </p>
               <div className="flex gap-4 justify-center pt-4">
                 <Link
-                  href="/research"
+                  href="/paiTraining"
                   className="inline-flex items-center px-6 py-3 rounded-lg bg-primary-500 hover:bg-primary-600 text-white font-medium transition-colors"
                 >
-                  Explore Research
+                  Explore Programs & Certifications
                   <i className="bi bi-arrow-right ml-2"></i>
                 </Link>
                 <Link
-                  href="/about"
+                  href="/updates"
                   className="inline-flex items-center px-6 py-3 rounded-lg bg-neutral-100 hover:bg-neutral-200 dark:bg-neutral-700 dark:hover:bg-neutral-600 text-neutral-700 dark:text-neutral-100 font-medium transition-colors"
                 >
-                  Learn More
+                  Read News & Updates
                   <i className="bi bi-info-circle ml-2"></i>
                 </Link>
               </div>
