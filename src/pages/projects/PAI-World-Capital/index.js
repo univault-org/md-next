@@ -695,76 +695,154 @@ export default function PAICapitalPresentation() {
                     </button>
                   )}
 
-                  {/* Content Header */}
-                  <div className="mb-8">
-                    <h3 className="text-2xl lg:text-3xl font-bold text-gray-800 dark:text-white/90 mb-4">
-                      {currentSlideData.content.title}
-                    </h3>
-                    <p className="text-lg text-gray-700 dark:text-white/80">
-                      {currentSlideData.content.introduction}
-                    </p>
-                  </div>
+                  {isExpanded ? (
+                    /* Expanded Layout with Hero Image */
+                    <div className="space-y-8">
+                      {/* Hero Section with Image */}
+                      <div className="relative">
+                        {/* Hero Image */}
+                        {currentSlideData.media && (
+                          <div className="relative h-[50vh] min-h-[400px] rounded-2xl overflow-hidden shadow-2xl mb-8">
+                            <img
+                              src={currentSlideData.media.url}
+                              alt={currentSlideData.media.alt}
+                              className="w-full h-full object-cover"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+                            
+                            {/* Overlay Content */}
+                            <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
+                              <h1 className="text-4xl lg:text-5xl font-bold mb-4">
+                                {currentSlideData.title}
+                              </h1>
+                              <p className="text-xl lg:text-2xl opacity-90 mb-2">
+                                {currentSlideData.subtitle}
+                              </p>
+                              <p className="text-lg italic opacity-80">
+                                {currentSlideData.summary}
+                              </p>
+                            </div>
+                          </div>
+                        )}
 
-                  {/* Detailed Content */}
-                  <div className={`
-                    prose prose-lg lg:prose-xl max-w-none
-                    prose-headings:text-gray-800 dark:prose-headings:text-white/90
-                    prose-p:text-gray-700 dark:prose-p:text-white/80
-                    prose-li:text-gray-600 dark:prose-li:text-white/70
-                    ${!isExpanded ? "max-h-[300px] overflow-hidden relative" : ""}
-                  `}>
-                    
-                    {/* Sections */}
-                    {currentSlideData.content.sections.map((section, index) => (
-                      <section key={index} className="mb-8">
-                        <h4 className="text-xl font-semibold mb-3 text-gray-800 dark:text-white/90">
-                          {section.title}
-                        </h4>
-                        <p className="mb-4 text-gray-700 dark:text-white/80">
-                          {section.description}
-                        </p>
-                        <ul className="space-y-2">
-                          {section.points.map((point, idx) => (
-                            <li key={idx} className="text-gray-600 dark:text-white/70 flex items-start">
-                              <RiStarLine className="w-5 h-5 text-primary-500 mr-2 mt-0.5 flex-shrink-0" />
-                              {point}
-                            </li>
-                          ))}
-                        </ul>
-                      </section>
-                    ))}
+                        {/* Content Header */}
+                        <div className="mb-8">
+                          <h2 className="text-3xl lg:text-4xl font-bold text-gray-800 dark:text-white/90 mb-6">
+                            {currentSlideData.content.title}
+                          </h2>
+                          <p className="text-xl text-gray-700 dark:text-white/80 leading-relaxed">
+                            {currentSlideData.content.introduction}
+                          </p>
+                        </div>
+                      </div>
 
-                    {/* Conclusion */}
-                    {isExpanded && (
-                      <div className="mt-8 pt-6 border-t border-gray-200 dark:border-white/10">
-                        <p className="text-lg font-medium text-gray-800 dark:text-white/90 italic">
+                      {/* Content Sections */}
+                      <div className="grid gap-8">
+                        {currentSlideData.content.sections.map((section, index) => (
+                          <motion.section 
+                            key={index} 
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: index * 0.1 }}
+                            className="bg-white/50 dark:bg-white/5 backdrop-blur-sm rounded-xl p-8 border border-gray-200/50 dark:border-white/10"
+                          >
+                            <h3 className="text-2xl font-bold mb-4 text-gray-800 dark:text-white/90 flex items-center">
+                              <div className="w-2 h-8 bg-primary-500 rounded-full mr-4"></div>
+                              {section.title}
+                            </h3>
+                            <p className="text-lg mb-6 text-gray-700 dark:text-white/80 leading-relaxed">
+                              {section.description}
+                            </p>
+                            <div className="grid gap-4">
+                              {section.points.map((point, idx) => (
+                                <div key={idx} className="flex items-start group">
+                                  <div className="flex-shrink-0 w-6 h-6 rounded-full bg-primary-100 dark:bg-primary-900/30 flex items-center justify-center mr-4 mt-1 group-hover:bg-primary-200 dark:group-hover:bg-primary-800/50 transition-colors">
+                                    <RiStarLine className="w-3 h-3 text-primary-600 dark:text-primary-400" />
+                                  </div>
+                                  <p className="text-gray-700 dark:text-white/80 leading-relaxed">
+                                    {point}
+                                  </p>
+                                </div>
+                              ))}
+                            </div>
+                          </motion.section>
+                        ))}
+                      </div>
+
+                      {/* Conclusion */}
+                      <div className="bg-gradient-to-r from-primary-50 to-blue-50 dark:from-primary-900/20 dark:to-blue-900/20 rounded-2xl p-8 border border-primary-200/50 dark:border-primary-700/30">
+                        <h3 className="text-2xl font-bold mb-4 text-gray-800 dark:text-white/90">
+                          Key Takeaway
+                        </h3>
+                        <p className="text-lg text-gray-800 dark:text-white/90 leading-relaxed italic">
                           {currentSlideData.content.conclusion}
                         </p>
                         
                         {/* Call to Action */}
                         {currentSlideData.content.callToAction && (
                           <div className="mt-8 text-center">
-                            <button className="px-8 py-4 bg-primary-500 hover:bg-primary-600 text-white font-semibold rounded-lg transition-colors duration-200 mr-4">
+                            <button className="px-8 py-4 bg-primary-500 hover:bg-primary-600 text-white font-semibold rounded-lg transition-colors duration-200 mr-4 shadow-lg hover:shadow-xl">
                               {currentSlideData.content.callToAction.primary}
                             </button>
-                            <button className="px-6 py-3 bg-gray-200 hover:bg-gray-300 dark:bg-neutral-700 dark:hover:bg-neutral-600 text-gray-800 dark:text-white font-medium rounded-lg transition-colors duration-200">
+                            <button className="px-6 py-3 bg-gray-200 hover:bg-gray-300 dark:bg-neutral-700 dark:hover:bg-neutral-600 text-gray-800 dark:text-white font-medium rounded-lg transition-colors duration-200 shadow-md hover:shadow-lg">
                               {currentSlideData.content.callToAction.secondary}
                             </button>
                             {currentSlideData.content.callToAction.contact && (
                               <p className="mt-4 text-gray-600 dark:text-white/60">
-                                Contact: <a href={`mailto:${currentSlideData.content.callToAction.contact}`} className="text-primary-500 hover:text-primary-600">{currentSlideData.content.callToAction.contact}</a>
+                                Contact: <a href={`mailto:${currentSlideData.content.callToAction.contact}`} className="text-primary-500 hover:text-primary-600 font-medium">{currentSlideData.content.callToAction.contact}</a>
                               </p>
                             )}
                           </div>
                         )}
                       </div>
-                    )}
+                    </div>
+                  ) : (
+                    /* Collapsed Layout */
+                    <>
+                      {/* Content Header */}
+                      <div className="mb-8">
+                        <h3 className="text-2xl lg:text-3xl font-bold text-gray-800 dark:text-white/90 mb-4">
+                          {currentSlideData.content.title}
+                        </h3>
+                        <p className="text-lg text-gray-700 dark:text-white/80">
+                          {currentSlideData.content.introduction}
+                        </p>
+                      </div>
 
-                    {/* Gradient Overlay for non-expanded view */}
-                    {!isExpanded && (
-                      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/30 to-white/90 dark:via-black/30 dark:to-black/90 pointer-events-none" />
-                    )}
-                  </div>
+                      {/* Detailed Content */}
+                      <div className={`
+                        prose prose-lg lg:prose-xl max-w-none
+                        prose-headings:text-gray-800 dark:prose-headings:text-white/90
+                        prose-p:text-gray-700 dark:prose-p:text-white/80
+                        prose-li:text-gray-600 dark:prose-li:text-white/70
+                        max-h-[300px] overflow-hidden relative
+                      `}>
+                        
+                        {/* Sections */}
+                        {currentSlideData.content.sections.map((section, index) => (
+                          <section key={index} className="mb-8">
+                            <h4 className="text-xl font-semibold mb-3 text-gray-800 dark:text-white/90">
+                              {section.title}
+                            </h4>
+                            <p className="mb-4 text-gray-700 dark:text-white/80">
+                              {section.description}
+                            </p>
+                            <ul className="space-y-2">
+                              {section.points.map((point, idx) => (
+                                <li key={idx} className="text-gray-600 dark:text-white/70 flex items-start">
+                                  <RiStarLine className="w-5 h-5 text-primary-500 mr-2 mt-0.5 flex-shrink-0" />
+                                  {point}
+                                </li>
+                              ))}
+                            </ul>
+                          </section>
+                        ))}
+
+                        {/* Gradient Overlay for non-expanded view */}
+                        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/30 to-white/90 dark:via-black/30 dark:to-black/90 pointer-events-none" />
+                      </div>
+                    </>
+                  )}
 
                   {/* Expand Button */}
                   <button
