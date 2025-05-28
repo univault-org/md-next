@@ -69,7 +69,7 @@ export default function About({ source, frontmatter = {} }) {
               enhance human consciousness rather than replace human agency.
             </p>
             <p className="text-xl text-neutral-600 dark:text-neutral-400">
-              Through our PAI World Capital initiative, we're inviting cities worldwide to compete for the honor 
+              Through our PAI World's Capital initiative, we're inviting cities worldwide to compete for the honor 
               of becoming the first Personal AI Capital—leading humanity into an era of sovereign, privacy-first 
               artificial intelligence.
             </p>
@@ -211,7 +211,7 @@ export default function About({ source, frontmatter = {} }) {
             <ul className="space-y-3 text-xl text-neutral-600 dark:text-neutral-400">
               <li className="flex items-start">
                 <span className="mr-2">•</span>
-                PAI World Capital initiative
+                PAI World's Capital initiative
               </li>
               <li className="flex items-start">
                 <span className="mr-2">•</span>
@@ -306,7 +306,7 @@ export default function About({ source, frontmatter = {} }) {
             href="/projects/PAI-World-Capital"
             className="px-8 py-4 rounded-lg bg-neutral-200 hover:bg-neutral-300 dark:bg-neutral-700 dark:hover:bg-neutral-600 text-neutral-800 dark:text-white font-medium transition-colors shadow-lg hover:shadow-xl"
           >
-            PAI World Capital
+            PAI World's Capital
           </a>
           <a
             href="https://github.com/univault-org"

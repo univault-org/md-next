@@ -21,7 +21,7 @@ export default function Home({ content, metadata }) {
       icon: <BiLayer className="text-3xl" />,
     },
     {
-      title: "PAI World Capital Initiative",
+      title: "PAI World's Capital Initiative",
       description:
         "Join the global competition for cities to become the Personal AI World's Capital. We partner with forward-thinking cities to create PAI-powered ecosystems, generating revenue through PAI transactions while funding education and urban development.",
       icon: <BiGift className="text-3xl" />,
@@ -60,7 +60,7 @@ export default function Home({ content, metadata }) {
   const pageMetadata = {
     headline: metadata?.headline || "Building the Future of Personal AI",
     subheadline:
-      metadata?.subheadline || "PAI Research & Professional Development for Consultants and Trainers, Partnering with the PAI World Capital, and Advancing Human-Centered AI Technology",
+      metadata?.subheadline || "PAI Research & Professional Development for Consultants and Trainers, Partnering with the PAI World's Capital, and Advancing Human-Centered AI Technology",
     title: metadata?.title || "Univault - Empowering Data Sovereignty and Digital Asset Inheritance for the AI Age",
     description:
       metadata?.description ||
@@ -100,7 +100,7 @@ export default function Home({ content, metadata }) {
                   href="/projects/PAI-World-Capital"
                   className="inline-flex items-center px-6 py-3 rounded-lg bg-neutral-100 hover:bg-neutral-200 dark:bg-neutral-700 dark:hover:bg-neutral-600 text-neutral-700 dark:text-neutral-100 font-medium transition-colors"
                 >
-                  PAI World Capital
+                  PAI World's Capital
                   <i className="bi bi-info-circle ml-2"></i>
                 </Link>
               </div>
