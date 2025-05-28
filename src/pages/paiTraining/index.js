@@ -266,7 +266,7 @@ export default function PAITraining({ posts }) {
                 Start Your Training Journey
               </Link>
               <Link
-                href="#trainer-resources"
+                href="/paiTraining/resources"
                 className="inline-flex items-center px-8 py-4 rounded-xl bg-white dark:bg-neutral-800 hover:bg-neutral-50 dark:hover:bg-neutral-700 text-neutral-700 dark:text-neutral-100 font-semibold transition-all duration-300 border-2 border-neutral-200 dark:border-neutral-600 hover:border-primary-300 dark:hover:border-primary-500"
               >
                 <BiBook className="mr-2" />
@@ -332,7 +332,7 @@ export default function PAITraining({ posts }) {
             </div>
 
             {/* Difficulty Filter */}
-            <div className="relative">
+            <div className="relative ml-2">
               <BiFilter className="absolute left-3 top-1/2 transform -translate-y-1/2 text-neutral-400 text-xl" />
               <select
                 value={selectedDifficulty}
@@ -626,7 +626,7 @@ export default function PAITraining({ posts }) {
           {/* View All Button */}
           <div className="text-center mt-12">
             <Link
-              href="/research"
+              href="/paiTraining/resources"
               className="inline-flex items-center px-8 py-4 rounded-xl bg-primary-500 hover:bg-primary-600 text-white font-semibold transition-all duration-300 transform hover:scale-105"
             >
               <BiBook className="mr-2" />

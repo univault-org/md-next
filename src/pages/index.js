@@ -93,14 +93,14 @@ export default function Home({ content, metadata }) {
                   href="/paiTraining"
                   className="inline-flex items-center px-6 py-3 rounded-lg bg-primary-500 hover:bg-primary-600 text-white font-medium transition-colors"
                 >
-                  Explore Programs & Certifications
+                  Programs & Certifications
                   <i className="bi bi-arrow-right ml-2"></i>
                 </Link>
                 <Link
-                  href="/updates"
+                  href="/paiTraining/resources"
                   className="inline-flex items-center px-6 py-3 rounded-lg bg-neutral-100 hover:bg-neutral-200 dark:bg-neutral-700 dark:hover:bg-neutral-600 text-neutral-700 dark:text-neutral-100 font-medium transition-colors"
                 >
-                  Read News & Updates
+                  Explore Learning Resources
                   <i className="bi bi-info-circle ml-2"></i>
                 </Link>
               </div>
