@@ -523,6 +523,234 @@ export default function PAITraining({ posts }) {
         )}
       </section>
 
+      {/* Programming Languages Curriculum Section */}
+      <section className="bg-gradient-to-br from-blue-50 via-purple-50 to-emerald-50 dark:from-blue-900/20 dark:via-purple-900/20 dark:to-emerald-900/20 py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-neutral-800 dark:text-neutral-100">
+              Programming Languages for PAI Development
+            </h2>
+            <p className="text-xl text-neutral-600 dark:text-neutral-400 max-w-3xl mx-auto mb-8">
+              Master the essential programming trio: C++, Python, and JavaScript/Node.js for building high-performance, scalable Personal AI systems
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-3 gap-8 mb-12">
+            {/* C++ Card */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              viewport={{ once: true }}
+              className="group bg-white dark:bg-neutral-800 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-neutral-200 dark:border-neutral-700 hover:border-blue-300 dark:hover:border-blue-500"
+            >
+              <div className="h-2 bg-gradient-to-r from-blue-500 to-indigo-600"></div>
+              <div className="p-6">
+                <div className="text-center mb-6">
+                  <div className="text-5xl mb-4">🚀</div>
+                  <h3 className="text-2xl font-bold text-neutral-800 dark:text-neutral-100 mb-2">C++</h3>
+                  <p className="text-lg font-semibold bg-gradient-to-r from-blue-500 to-indigo-600 bg-clip-text text-transparent">
+                    The Performance Core
+                  </p>
+                </div>
+                <p className="text-neutral-600 dark:text-neutral-400 mb-6 text-center">
+                  High-performance computing and real-time processing for PAI systems
+                </p>
+                <ul className="space-y-2 mb-6">
+                  <li className="flex items-start gap-2 text-sm text-neutral-600 dark:text-neutral-400">
+                    <BiCheckCircle className="text-blue-500 mt-0.5 flex-shrink-0" />
+                    Memory management and optimization
+                  </li>
+                  <li className="flex items-start gap-2 text-sm text-neutral-600 dark:text-neutral-400">
+                    <BiCheckCircle className="text-blue-500 mt-0.5 flex-shrink-0" />
+                    Hardware integration (GPU, AI chips)
+                  </li>
+                  <li className="flex items-start gap-2 text-sm text-neutral-600 dark:text-neutral-400">
+                    <BiCheckCircle className="text-blue-500 mt-0.5 flex-shrink-0" />
+                    Real-time inference engines
+                  </li>
+                  <li className="flex items-start gap-2 text-sm text-neutral-600 dark:text-neutral-400">
+                    <BiCheckCircle className="text-blue-500 mt-0.5 flex-shrink-0" />
+                    Harmonic computing implementations
+                  </li>
+                </ul>
+                <div className="grid grid-cols-3 gap-4 text-center text-sm">
+                  <div>
+                    <div className="font-bold text-blue-500">12</div>
+                    <div className="text-neutral-500">Weeks</div>
+                  </div>
+                  <div>
+                    <div className="font-bold text-blue-500">4</div>
+                    <div className="text-neutral-500">Projects</div>
+                  </div>
+                  <div>
+                    <div className="font-semibold text-neutral-600 dark:text-neutral-400">Advanced</div>
+                    <div className="text-neutral-500">Level</div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Python Card */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="group bg-white dark:bg-neutral-800 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-neutral-200 dark:border-neutral-700 hover:border-green-300 dark:hover:border-green-500"
+            >
+              <div className="h-2 bg-gradient-to-r from-green-500 to-emerald-600"></div>
+              <div className="p-6">
+                <div className="text-center mb-6">
+                  <div className="text-5xl mb-4">🐍</div>
+                  <h3 className="text-2xl font-bold text-neutral-800 dark:text-neutral-100 mb-2">Python</h3>
+                  <p className="text-lg font-semibold bg-gradient-to-r from-green-500 to-emerald-600 bg-clip-text text-transparent">
+                    The AI Workhorse
+                  </p>
+                </div>
+                <p className="text-neutral-600 dark:text-neutral-400 mb-6 text-center">
+                  Rapid development and machine learning for PAI applications
+                </p>
+                <ul className="space-y-2 mb-6">
+                  <li className="flex items-start gap-2 text-sm text-neutral-600 dark:text-neutral-400">
+                    <BiCheckCircle className="text-green-500 mt-0.5 flex-shrink-0" />
+                    Data processing and analysis
+                  </li>
+                  <li className="flex items-start gap-2 text-sm text-neutral-600 dark:text-neutral-400">
+                    <BiCheckCircle className="text-green-500 mt-0.5 flex-shrink-0" />
+                    Neural network training
+                  </li>
+                  <li className="flex items-start gap-2 text-sm text-neutral-600 dark:text-neutral-400">
+                    <BiCheckCircle className="text-green-500 mt-0.5 flex-shrink-0" />
+                    Prototyping and experimentation
+                  </li>
+                  <li className="flex items-start gap-2 text-sm text-neutral-600 dark:text-neutral-400">
+                    <BiCheckCircle className="text-green-500 mt-0.5 flex-shrink-0" />
+                    Integration and orchestration
+                  </li>
+                </ul>
+                <div className="grid grid-cols-3 gap-4 text-center text-sm">
+                  <div>
+                    <div className="font-bold text-green-500">12</div>
+                    <div className="text-neutral-500">Weeks</div>
+                  </div>
+                  <div>
+                    <div className="font-bold text-green-500">4</div>
+                    <div className="text-neutral-500">Projects</div>
+                  </div>
+                  <div>
+                    <div className="font-semibold text-neutral-600 dark:text-neutral-400">Intermediate</div>
+                    <div className="text-neutral-500">Level</div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* JavaScript/Node.js Card */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              viewport={{ once: true }}
+              className="group bg-white dark:bg-neutral-800 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-neutral-200 dark:border-neutral-700 hover:border-yellow-300 dark:hover:border-yellow-500"
+            >
+              <div className="h-2 bg-gradient-to-r from-yellow-500 to-orange-600"></div>
+              <div className="p-6">
+                <div className="text-center mb-6">
+                  <div className="text-5xl mb-4">🌐</div>
+                  <h3 className="text-2xl font-bold text-neutral-800 dark:text-neutral-100 mb-2">JavaScript/Node.js</h3>
+                  <p className="text-lg font-semibold bg-gradient-to-r from-yellow-500 to-orange-600 bg-clip-text text-transparent">
+                    The Universal Interface
+                  </p>
+                </div>
+                <p className="text-neutral-600 dark:text-neutral-400 mb-6 text-center">
+                  Web interfaces and edge deployment for PAI systems
+                </p>
+                <ul className="space-y-2 mb-6">
+                  <li className="flex items-start gap-2 text-sm text-neutral-600 dark:text-neutral-400">
+                    <BiCheckCircle className="text-yellow-500 mt-0.5 flex-shrink-0" />
+                    Real-time dashboards and monitoring
+                  </li>
+                  <li className="flex items-start gap-2 text-sm text-neutral-600 dark:text-neutral-400">
+                    <BiCheckCircle className="text-yellow-500 mt-0.5 flex-shrink-0" />
+                    Cross-platform applications
+                  </li>
+                  <li className="flex items-start gap-2 text-sm text-neutral-600 dark:text-neutral-400">
+                    <BiCheckCircle className="text-yellow-500 mt-0.5 flex-shrink-0" />
+                    Edge computing and IoT deployment
+                  </li>
+                  <li className="flex items-start gap-2 text-sm text-neutral-600 dark:text-neutral-400">
+                    <BiCheckCircle className="text-yellow-500 mt-0.5 flex-shrink-0" />
+                    User-friendly interfaces
+                  </li>
+                </ul>
+                <div className="grid grid-cols-3 gap-4 text-center text-sm">
+                  <div>
+                    <div className="font-bold text-yellow-500">12</div>
+                    <div className="text-neutral-500">Weeks</div>
+                  </div>
+                  <div>
+                    <div className="font-bold text-yellow-500">4</div>
+                    <div className="text-neutral-500">Projects</div>
+                  </div>
+                  <div>
+                    <div className="font-semibold text-neutral-600 dark:text-neutral-400">Intermediate</div>
+                    <div className="text-neutral-500">Level</div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Integration Approach */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            viewport={{ once: true }}
+            className="bg-white dark:bg-neutral-800 rounded-2xl shadow-lg p-8 mb-8"
+          >
+            <h3 className="text-2xl font-bold text-center text-neutral-800 dark:text-neutral-100 mb-6">
+              Integrated Learning Approach
+            </h3>
+            <div className="grid md:grid-cols-3 gap-6">
+              <div className="text-center">
+                <div className="w-12 h-12 mx-auto rounded-full bg-primary-100 dark:bg-primary-900/30 flex items-center justify-center text-primary-500 font-bold text-xl mb-4">1</div>
+                <h4 className="font-semibold text-neutral-800 dark:text-neutral-100 mb-2">Foundations (Weeks 1-4)</h4>
+                <p className="text-sm text-neutral-600 dark:text-neutral-400">Modern language features and best practices across all three languages</p>
+              </div>
+              <div className="text-center">
+                <div className="w-12 h-12 mx-auto rounded-full bg-primary-100 dark:bg-primary-900/30 flex items-center justify-center text-primary-500 font-bold text-xl mb-4">2</div>
+                <h4 className="font-semibold text-neutral-800 dark:text-neutral-100 mb-2">PAI Development (Weeks 5-8)</h4>
+                <p className="text-sm text-neutral-600 dark:text-neutral-400">Apply languages to specific PAI challenges and implementations</p>
+              </div>
+              <div className="text-center">
+                <div className="w-12 h-12 mx-auto rounded-full bg-primary-100 dark:bg-primary-900/30 flex items-center justify-center text-primary-500 font-bold text-xl mb-4">3</div>
+                <h4 className="font-semibold text-neutral-800 dark:text-neutral-100 mb-2">Integration (Weeks 9-12)</h4>
+                <p className="text-sm text-neutral-600 dark:text-neutral-400">Build complete PAI systems using all three languages together</p>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Call to Action */}
+          <div className="text-center">
+            <Link
+              href="/paiTraining/programming-languages"
+              className="inline-flex items-center px-8 py-4 rounded-xl bg-gradient-to-r from-primary-500 to-blue-600 hover:from-primary-600 hover:to-blue-700 text-white font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+            >
+              <BiCode className="mr-2" />
+              Explore Programming Curriculum
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* Trainer Resources Section */}
       <section id="trainer-resources" className="bg-neutral-50 dark:bg-neutral-900 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
