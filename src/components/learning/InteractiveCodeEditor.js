@@ -9,7 +9,6 @@ import {
   BiCode,
   BiTerminal,
   BiLightbulb,
-  BiCheckCircle,
   BiX,
   BiChevronDown,
   BiChevronUp,
@@ -147,7 +146,7 @@ const InteractiveCodeEditor = ({
           <div className="flex items-center space-x-2">
             {isCorrect && (
               <div className="flex items-center space-x-2 text-green-600 dark:text-green-400">
-                <BiCheckCircle />
+                <BiCheck />
                 <span className="text-sm font-medium">Correct!</span>
               </div>
             )}
@@ -219,7 +218,7 @@ const InteractiveCodeEditor = ({
                 onClick={() => setShowSolution(!showSolution)}
                 className="flex items-center space-x-2 px-4 py-2 bg-neutral-500 hover:bg-neutral-600 text-white rounded-lg font-medium transition-colors"
               >
-                <BiCheckCircle />
+                <BiCheck />
                 <span>Solution</span>
               </button>
             )}
@@ -329,7 +328,7 @@ const InteractiveCodeEditor = ({
           <div className="p-6">
             <div className="flex items-center justify-between mb-4">
               <div className="flex items-center space-x-2">
-                <BiCheckCircle className="text-green-600 dark:text-green-400" />
+                <BiCheck />
                 <h4 className="font-semibold text-neutral-800 dark:text-neutral-100">
                   Solution
                 </h4>

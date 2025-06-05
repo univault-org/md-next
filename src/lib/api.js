@@ -208,7 +208,136 @@ export function getPostsByTag(tag) {
   return posts.filter(post => post.tags && post.tags.includes(tag))
 }
 
-// Keep the original content processing function if needed
+// Generic function to get all content from a PAI Training subdirectory
+function getAllPAITrainingContent(subDirectory) {
+  const directory = path.join(paiTrainingDirectory, subDirectory)
+  try {
+    if (!fs.existsSync(directory)) {
+      console.warn(`Directory not found: ${directory}`);
+      return []
+    }
+
+    const slugs = fs.readdirSync(directory)
+      .filter((slug) => slug.endsWith('.md'))
+      .map((slug) => slug.replace(/\.md$/, ''))
+
+    const contentItems = slugs
+      .map((slug) => {
+        const fullPath = path.join(directory, `${slug}.md`)
+        const fileContents = fs.readFileSync(fullPath, 'utf8')
+        const { data: frontmatter } = matter(fileContents)
+
+        const date = formatDate(frontmatter.date);
+        const processedImage = processImagePath(frontmatter.image);
+
+        return {
+          slug,
+          title: frontmatter.title || '',
+          description: frontmatter.description || '',
+          author: frontmatter.author || '',
+          duration: frontmatter.duration || '',
+          difficulty: frontmatter.difficulty || '',
+          image: processedImage,
+          tags: frontmatter.tags || [],
+          type: frontmatter.type || '',
+          date,
+        }
+      })
+      .sort((item1, item2) => (item1.date > item2.date ? -1 : 1))
+
+    return contentItems
+  } catch (error) {
+    console.error(`Error getting content from ${subDirectory}:`, error)
+    return []
+  }
+}
+
+// Get all inspiration content
+export function getAllInspirationContent() {
+  return getAllPAITrainingContent('Inspiration');
+}
+
+// Get all resource content
+export function getAllResourceContent() {
+  return getAllPAITrainingContent('Resources');
+}
+
+// Generic function to get all slugs from a PAI Training subdirectory
+function getAllPAITrainingSlugs(subDirectory) {
+  const directory = path.join(paiTrainingDirectory, subDirectory);
+  try {
+    if (!fs.existsSync(directory)) {
+      console.warn(`Directory not found for slugs: ${directory}`);
+      return [];
+    }
+    return fs.readdirSync(directory)
+      .filter((slug) => slug.endsWith('.md'))
+      .map((slug) => slug.replace(/\.md$/, ''));
+  } catch (error) {
+    console.error(`Error getting slugs from ${subDirectory}:`, error);
+    return [];
+  }
+}
+
+export function getAllInspirationSlugs() {
+  return getAllPAITrainingSlugs('Inspiration');
+}
+
+export function getAllResourceSlugs() {
+  return getAllPAITrainingSlugs('Resources');
+}
+
+// Generic function to get content by slug from a PAI Training subdirectory
+async function getPAITrainingContentBySlug(subDirectory, slug) {
+  const fullPath = path.join(paiTrainingDirectory, subDirectory, `${slug}.md`);
+  try {
+    if (!fs.existsSync(fullPath)) {
+      console.warn(`Content not found: ${subDirectory}/${slug}.md`);
+      return null;
+    }
+    const fileContents = fs.readFileSync(fullPath, 'utf8');
+    const processedMdContent = fileContents
+      .replace(/\\\[/g, '$$')
+      .replace(/\\\]/g, '$$')
+      .replace(/\\\(/g, '$')
+      .replace(/\\\)/g, '$');
+
+    const { data: frontmatter, content } = matter(processedMdContent);
+    const source = await serializeContent(content, {
+      scope: frontmatter,
+      parseFrontmatter: true,
+    });
+
+    const processedImage = processImagePath(frontmatter.image);
+    const date = formatDate(frontmatter.date);
+
+    return {
+      source: {
+        ...source,
+        scope: {},
+      },
+      frontmatter: {
+        ...frontmatter,
+        slug,
+        date,
+        image: processedImage,
+      },
+    };
+  } catch (error) {
+    console.error(`Error getting content by slug ${subDirectory}/${slug}:`, error);
+    return null;
+  }
+}
+
+export async function getInspirationBySlug(slug) {
+  return getPAITrainingContentBySlug('Inspiration', slug);
+}
+
+export async function getResourceBySlug(slug) {
+  return getPAITrainingContentBySlug('Resources', slug);
+}
+
+// Function to process generic markdown content
 export async function getProcessedContent(filePath) {
   const fullPath = path.join(pagesDirectory, filePath)
   const fileContents = fs.readFileSync(fullPath, 'utf8')

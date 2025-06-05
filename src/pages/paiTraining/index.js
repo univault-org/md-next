@@ -10,40 +10,27 @@ import {
   BiPlay,
   BiTime,
   BiUser,
-  BiStar,
   BiChevronRight,
   BiSearch,
   BiFilter,
   BiBookmark,
-  BiCheckCircle,
-  BiCircle,
-  BiTrendingUp,
-  BiAward,
-  BiMessage,
   BiDownload,
+  BiMessage,
   BiShareAlt,
-  BiHeart,
-  BiShow,
   BiTarget,
-  BiRocket,
-  BiAtom,
-  BiSignal4,
-  BiChip,
-  BiMath,
-  BiDumbbell,
   BiTrophy,
   BiGroup,
   BiSupport,
-  BiCertification,
+  BiTrendingUp,
 } from "react-icons/bi";
-import { getAllPosts } from "@/lib/api";
+import { getAllPosts, getAllInspirationContent, getAllResourceContent } from "@/lib/api";
 
 const trainingPrograms = [
   {
     id: "foundations",
     title: "Mathematical Foundations Mastery",
     description: "Build the core mathematical muscles needed to train sophisticated AI systems",
-    icon: <BiMath className="text-2xl" />,
+    icon: <span className="text-2xl">📐</span>,
     difficulty: "Foundation",
     duration: "8 weeks",
     modules: 6,
@@ -57,7 +44,7 @@ const trainingPrograms = [
     id: "signal-processing",
     title: "Signal Processing & FFT Certification",
     description: "Master the art of reading and interpreting AI signals and biosignals",
-    icon: <BiSignal4 className="text-2xl" />,
+    icon: <span className="text-2xl">📡</span>,
     difficulty: "Intermediate",
     duration: "6 weeks",
     modules: 5,
@@ -71,7 +58,7 @@ const trainingPrograms = [
     id: "ai-training",
     title: "Neural Network Training Bootcamp",
     description: "Intensive hands-on training to build and optimize neural networks from scratch",
-    icon: <BiChip className="text-2xl" />,
+    icon: <span className="text-2xl">🧠</span>,
     difficulty: "Intermediate",
     duration: "10 weeks",
     modules: 8,
@@ -99,7 +86,7 @@ const trainingPrograms = [
     id: "personal-ai",
     title: "Personal AI Coaching Certification",
     description: "Complete certification program to train sovereign, privacy-first AI systems",
-    icon: <BiRocket className="text-2xl" />,
+    icon: <span className="text-2xl">🚀</span>,
     difficulty: "Advanced",
     duration: "12 weeks",
     modules: 10,
@@ -113,7 +100,7 @@ const trainingPrograms = [
     id: "quantum-computing",
     title: "Quantum AI Training Specialization",
     description: "Cutting-edge specialization in quantum algorithms and quantum AI training",
-    icon: <BiAtom className="text-2xl" />,
+    icon: <span className="text-2xl">⚛️</span>,
     difficulty: "Expert",
     duration: "10 weeks",
     modules: 7,
@@ -125,34 +112,9 @@ const trainingPrograms = [
   },
 ];
 
-const featuredResources = [
-  {
-    title: "The Personal AI Trainer's Mindset",
-    description: "Develop the philosophical foundation and ethical framework for training personal AI systems",
-    author: "Univault Training Academy",
-    duration: "45 min read",
-    difficulty: "Foundation",
-    image: "https://images.unsplash.com/photo-1444703686981-a3abbc4d4fe3?auto=format&fit=crop&q=80",
-    tags: ["mindset", "ethics", "philosophy", "foundation"],
-    type: "Training Guide",
-    slug: "foundation_math_understanding",
-  },
-  {
-    title: "Advanced Training Techniques: Convex Optimization",
-    description: "Master advanced optimization techniques that separate expert trainers from beginners",
-    author: "Univault Training Academy",
-    duration: "60 min read",
-    difficulty: "Advanced",
-    image: "https://images.unsplash.com/photo-1703532931878-ff141fabd25e?q=80&w=4458&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80",
-    tags: ["optimization", "advanced techniques", "mastery"],
-    type: "Masterclass",
-    slug: "wave_computing_and_optimization",
-  },
-];
-
 const trainerStats = [
   { label: "Certified AI Trainers", value: "2,847", icon: <BiUser /> },
-  { label: "Training Sessions Completed", value: "15,392", icon: <BiDumbbell /> },
+  { label: "Training Sessions Completed", value: "15,392", icon: <span>💪</span> },
   { label: "Training Hours Logged", value: "89,234", icon: <BiTime /> },
   { label: "Success Rate", value: "94%", icon: <BiTrophy /> },
 ];
@@ -164,7 +126,7 @@ const trainerLevels = [
   { level: "Expert", description: "Leading-edge specialization", color: "bg-red-100 text-red-700 dark:bg-red-900 dark:text-red-300" },
 ];
 
-export default function PAITraining({ posts }) {
+export default function PAITraining({ posts, inspirationContent, resourceContent }) {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedDifficulty, setSelectedDifficulty] = useState("All");
   const [selectedProgram, setSelectedProgram] = useState(null);
@@ -189,6 +151,8 @@ export default function PAITraining({ posts }) {
     }
     setBookmarkedPrograms(newBookmarks);
   };
+
+  const allFeaturedContent = [...inspirationContent, ...resourceContent].sort((a, b) => new Date(b.date) - new Date(a.date));
 
   return (
     <>
@@ -215,7 +179,7 @@ export default function PAITraining({ posts }) {
               transition={{ duration: 0.6 }}
             >
               <div className="inline-flex items-center px-4 py-2 rounded-full bg-primary-100 dark:bg-primary-900/20 text-primary-700 dark:text-primary-300 text-sm font-medium mb-6">
-                <BiDumbbell className="mr-2" />
+                <span className="mr-2">💪</span>
                 Personal AI Trainer Academy
               </div>
               <h1 className="text-4xl md:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-neutral-800 via-primary-600 to-neutral-800 dark:from-neutral-100 dark:via-primary-400 dark:to-neutral-100 mb-6">
@@ -262,7 +226,7 @@ export default function PAITraining({ posts }) {
                 href="#training-programs"
                 className="inline-flex items-center px-8 py-4 rounded-xl bg-primary-500 hover:bg-primary-600 text-white font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
               >
-                <BiDumbbell className="mr-2" />
+                <span className="mr-2">💪</span>
                 Start Your Training Journey
               </Link>
               <Link
@@ -418,7 +382,7 @@ export default function PAITraining({ posts }) {
                 {/* Trainer Level Badge */}
                 <div className="mb-3">
                   <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary-100 text-primary-700 dark:bg-primary-900/20 dark:text-primary-300">
-                    <BiCertification className="mr-1" />
+                    <span className="mr-1">💪</span>
                     {program.trainerLevel}
                   </span>
                 </div>
@@ -493,7 +457,7 @@ export default function PAITraining({ posts }) {
                       </>
                     ) : (
                       <>
-                        <BiDumbbell className="mr-2" />
+                        <span className="mr-2">💪</span>
                         Start Training
                       </>
                     )}
@@ -563,21 +527,21 @@ export default function PAITraining({ posts }) {
                   High-performance computing and real-time processing for PAI systems
                 </p>
                 <ul className="space-y-2 mb-6">
-                  <li className="flex items-start gap-2 text-sm text-neutral-600 dark:text-neutral-400">
-                    <BiCheckCircle className="text-blue-500 mt-0.5 flex-shrink-0" />
-                    Memory management and optimization
+                  <li className="flex items-start space-x-3">
+                    <span className="text-blue-500 mt-0.5 flex-shrink-0">✓</span>
+                    <span className="text-neutral-700 dark:text-neutral-300">Memory management and optimization</span>
                   </li>
-                  <li className="flex items-start gap-2 text-sm text-neutral-600 dark:text-neutral-400">
-                    <BiCheckCircle className="text-blue-500 mt-0.5 flex-shrink-0" />
-                    Hardware integration (GPU, AI chips)
+                  <li className="flex items-start space-x-3">
+                    <span className="text-blue-500 mt-0.5 flex-shrink-0">✓</span>
+                    <span className="text-neutral-700 dark:text-neutral-300">Hardware integration (GPU, AI chips)</span>
                   </li>
-                  <li className="flex items-start gap-2 text-sm text-neutral-600 dark:text-neutral-400">
-                    <BiCheckCircle className="text-blue-500 mt-0.5 flex-shrink-0" />
-                    Real-time inference engines
+                  <li className="flex items-start space-x-3">
+                    <span className="text-blue-500 mt-0.5 flex-shrink-0">✓</span>
+                    <span className="text-neutral-700 dark:text-neutral-300">Real-time inference engines</span>
                   </li>
-                  <li className="flex items-start gap-2 text-sm text-neutral-600 dark:text-neutral-400">
-                    <BiCheckCircle className="text-blue-500 mt-0.5 flex-shrink-0" />
-                    Harmonic computing implementations
+                  <li className="flex items-start space-x-3">
+                    <span className="text-blue-500 mt-0.5 flex-shrink-0">✓</span>
+                    <span className="text-neutral-700 dark:text-neutral-300">Harmonic computing implementations</span>
                   </li>
                 </ul>
                 <div className="grid grid-cols-3 gap-4 text-center text-sm">
@@ -618,21 +582,21 @@ export default function PAITraining({ posts }) {
                   Rapid development and machine learning for PAI applications
                 </p>
                 <ul className="space-y-2 mb-6">
-                  <li className="flex items-start gap-2 text-sm text-neutral-600 dark:text-neutral-400">
-                    <BiCheckCircle className="text-green-500 mt-0.5 flex-shrink-0" />
-                    Data processing and analysis
+                  <li className="flex items-start space-x-3">
+                    <span className="text-green-500 mt-0.5 flex-shrink-0">✓</span>
+                    <span className="text-neutral-700 dark:text-neutral-300">Data processing and analysis</span>
                   </li>
-                  <li className="flex items-start gap-2 text-sm text-neutral-600 dark:text-neutral-400">
-                    <BiCheckCircle className="text-green-500 mt-0.5 flex-shrink-0" />
-                    Neural network training
+                  <li className="flex items-start space-x-3">
+                    <span className="text-green-500 mt-0.5 flex-shrink-0">✓</span>
+                    <span className="text-neutral-700 dark:text-neutral-300">Neural network training</span>
                   </li>
-                  <li className="flex items-start gap-2 text-sm text-neutral-600 dark:text-neutral-400">
-                    <BiCheckCircle className="text-green-500 mt-0.5 flex-shrink-0" />
-                    Prototyping and experimentation
+                  <li className="flex items-start space-x-3">
+                    <span className="text-green-500 mt-0.5 flex-shrink-0">✓</span>
+                    <span className="text-neutral-700 dark:text-neutral-300">Prototyping and experimentation</span>
                   </li>
-                  <li className="flex items-start gap-2 text-sm text-neutral-600 dark:text-neutral-400">
-                    <BiCheckCircle className="text-green-500 mt-0.5 flex-shrink-0" />
-                    Integration and orchestration
+                  <li className="flex items-start space-x-3">
+                    <span className="text-green-500 mt-0.5 flex-shrink-0">✓</span>
+                    <span className="text-neutral-700 dark:text-neutral-300">Integration and orchestration</span>
                   </li>
                 </ul>
                 <div className="grid grid-cols-3 gap-4 text-center text-sm">
@@ -673,21 +637,21 @@ export default function PAITraining({ posts }) {
                   Web interfaces and edge deployment for PAI systems
                 </p>
                 <ul className="space-y-2 mb-6">
-                  <li className="flex items-start gap-2 text-sm text-neutral-600 dark:text-neutral-400">
-                    <BiCheckCircle className="text-yellow-500 mt-0.5 flex-shrink-0" />
-                    Real-time dashboards and monitoring
+                  <li className="flex items-start space-x-3">
+                    <span className="text-yellow-500 mt-0.5 flex-shrink-0">✓</span>
+                    <span className="text-neutral-700 dark:text-neutral-300">Real-time dashboards and monitoring</span>
                   </li>
-                  <li className="flex items-start gap-2 text-sm text-neutral-600 dark:text-neutral-400">
-                    <BiCheckCircle className="text-yellow-500 mt-0.5 flex-shrink-0" />
-                    Cross-platform applications
+                  <li className="flex items-start space-x-3">
+                    <span className="text-yellow-500 mt-0.5 flex-shrink-0">✓</span>
+                    <span className="text-neutral-700 dark:text-neutral-300">Cross-platform applications</span>
                   </li>
-                  <li className="flex items-start gap-2 text-sm text-neutral-600 dark:text-neutral-400">
-                    <BiCheckCircle className="text-yellow-500 mt-0.5 flex-shrink-0" />
-                    Edge computing and IoT deployment
+                  <li className="flex items-start space-x-3">
+                    <span className="text-yellow-500 mt-0.5 flex-shrink-0">✓</span>
+                    <span className="text-neutral-700 dark:text-neutral-300">Edge computing and IoT deployment</span>
                   </li>
-                  <li className="flex items-start gap-2 text-sm text-neutral-600 dark:text-neutral-400">
-                    <BiCheckCircle className="text-yellow-500 mt-0.5 flex-shrink-0" />
-                    User-friendly interfaces
+                  <li className="flex items-start space-x-3">
+                    <span className="text-yellow-500 mt-0.5 flex-shrink-0">✓</span>
+                    <span className="text-neutral-700 dark:text-neutral-300">User-friendly interfaces</span>
                   </li>
                 </ul>
                 <div className="grid grid-cols-3 gap-4 text-center text-sm">
@@ -770,7 +734,7 @@ export default function PAITraining({ posts }) {
           </motion.div>
 
           <div className="grid md:grid-cols-2 gap-8">
-            {featuredResources.map((resource, index) => (
+            {allFeaturedContent.map((resource, index) => (
               <motion.div
                 key={resource.slug}
                 initial={{ opacity: 0, y: 20 }}
@@ -840,10 +804,10 @@ export default function PAITraining({ posts }) {
 
                   {/* Action */}
                   <Link
-                    href={`/research/posts/${resource.slug}`}
+                    href={`/paiTraining/${resource.type === 'Inspiration Article' ? 'Inspiration' : 'Resources'}/${resource.slug}`}
                     className="inline-flex items-center text-primary-500 hover:text-primary-600 font-medium transition-colors"
                   >
-                    Read Training Guide
+                    Read {resource.type === 'Inspiration Article' ? 'Article' : 'Guide'}
                     <BiChevronRight className="ml-1" />
                   </Link>
                 </div>
@@ -902,7 +866,7 @@ export default function PAITraining({ posts }) {
                           {selectedProgram.difficulty}
                         </span>
                         <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-primary-100 text-primary-700 dark:bg-primary-900/20 dark:text-primary-300">
-                          <BiCertification className="mr-1" />
+                          <span className="mr-1">💪</span>
                           {selectedProgram.trainerLevel}
                         </span>
                       </div>
@@ -948,8 +912,8 @@ export default function PAITraining({ posts }) {
                   <div className="grid grid-cols-2 gap-2">
                     {selectedProgram.topics.map((topic) => (
                       <div key={topic} className="flex items-center space-x-2">
-                        <BiCheckCircle className="text-primary-500 flex-shrink-0" />
-                        <span className="text-neutral-600 dark:text-neutral-400">{topic}</span>
+                        <span className="text-primary-500 flex-shrink-0">✓</span>
+                        <span className="text-neutral-700 dark:text-neutral-300">{topic}</span>
                       </div>
                     ))}
                   </div>
@@ -961,7 +925,7 @@ export default function PAITraining({ posts }) {
                     href={`/paiTraining/path/${selectedProgram.id}`}
                     className="flex-1 inline-flex items-center justify-center px-6 py-3 rounded-xl bg-primary-500 hover:bg-primary-600 text-white font-semibold transition-all duration-300"
                   >
-                    <BiDumbbell className="mr-2" />
+                    <span className="mr-2">💪</span>
                     Begin Training Program
                   </Link>
                   <button
@@ -987,10 +951,14 @@ export default function PAITraining({ posts }) {
 
 export async function getStaticProps() {
   const posts = getAllPosts();
+  const inspirationContent = getAllInspirationContent();
+  const resourceContent = getAllResourceContent();
   
   return {
     props: {
       posts,
+      inspirationContent,
+      resourceContent,
     },
   };
 } 

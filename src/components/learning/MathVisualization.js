@@ -1,18 +1,18 @@
 import { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import {
-  BiMath,
+  BiCalculator,
   BiPlay,
-  BiPause,
   BiRefresh,
+  BiDownload,
+  BiShare,
+  BiCode,
+  BiCheck,
+  BiLightbulb,
   BiZoomIn,
   BiZoomOut,
-  BiMove,
-  BiSlider,
-  BiCalculator,
-  BiLightbulb,
-  BiCheckCircle,
-  BiX,
+  BiFullscreen,
+  BiFullscreenExit,
 } from "react-icons/bi";
 
 const MathVisualization = ({
@@ -435,7 +435,6 @@ const MathVisualization = ({
       <div className="bg-neutral-100 dark:bg-neutral-900 px-6 py-4 border-b border-neutral-200 dark:border-neutral-700">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-3">
-            <BiMath className="text-primary-500 text-xl" />
             <div>
               <h3 className="text-lg font-semibold text-neutral-800 dark:text-neutral-100">
                 {title}
@@ -454,7 +453,7 @@ const MathVisualization = ({
               className="p-2 rounded-lg text-neutral-600 dark:text-neutral-400 hover:bg-neutral-200 dark:hover:bg-neutral-700 transition-colors"
               title="Toggle controls"
             >
-              <BiSlider />
+              <BiFullscreen />
             </button>
             <button
               onClick={() => setZoom(Math.min(3, zoom * 1.2))}

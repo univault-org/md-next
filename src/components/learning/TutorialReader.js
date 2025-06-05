@@ -4,7 +4,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import {
   BiBookOpen,
   BiTime,
-  BiCheckCircle,
   BiCircle,
   BiChevronLeft,
   BiChevronRight,
@@ -13,7 +12,6 @@ import {
   BiDownload,
   BiLightbulb,
   BiCode,
-  BiMath,
   BiPlay,
   BiPause,
   BiRefresh,
@@ -25,9 +23,7 @@ import {
   BiVolumeOff,
   BiCopy,
   BiCheck,
-  BiQuestionMark,
   BiChat,
-  BiStar,
   BiHeart,
   BiEye,
   BiTarget,
@@ -36,6 +32,10 @@ import {
   BiUser,
   BiCalendar,
   BiTag,
+  BiArrowBack,
+  BiClock,
+  BiTrophy,
+  BiShareAlt,
 } from "react-icons/bi";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { oneDark, oneLight } from "react-syntax-highlighter/dist/cjs/styles/prism";
@@ -189,7 +189,6 @@ const createMDXComponents = (theme, onCodeCopy, onConceptHighlight) => ({
           {...props}
         >
           <div className="flex items-center space-x-2 mb-4">
-            <BiMath className="text-primary-500 text-xl" />
             <span className="text-sm font-medium text-neutral-600 dark:text-neutral-400">
               Mathematical Expression
             </span>
@@ -312,7 +311,7 @@ const ProgressTracker = ({ sections, currentSection, onSectionClick }) => {
           >
             <div className="flex items-center space-x-3">
               {index < currentSection ? (
-                <BiCheckCircle className="text-green-500 text-xl" />
+                <BiCheck className="text-green-500 text-xl" />
               ) : index === currentSection ? (
                 <BiPlay className="text-primary-500 text-xl" />
               ) : (
@@ -601,7 +600,7 @@ export default function TutorialReader({
                 }`}
                 title="Learning Assistant"
               >
-                <BiQuestionMark />
+                <BiChat />
               </button>
             </div>
           </div>

@@ -2,20 +2,6 @@ import { useState, useRef } from "react";
 import Head from "next/head";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import {
-  BiBook,
-  BiVideo,
-  BiCode,
-  BiPlay,
-  BiTime,
-  BiUser,
-  BiStar,
-  BiChevronRight,
-  BiSearch,
-  BiMessage,
-  BiX,
-  BiSend,
-} from "react-icons/bi";
 
 // Featured Resources
 const featuredResources = [
@@ -140,7 +126,7 @@ const resourceCategories = [
     id: "courses",
     title: "Courses & Programs",
     description: "Structured learning paths and certification programs",
-    icon: <BiBook className="text-2xl" />,
+    icon: "📚",
     color: "from-blue-500 to-blue-600",
     count: 47,
   },
@@ -148,7 +134,7 @@ const resourceCategories = [
     id: "tutorials",
     title: "Interactive Tutorials", 
     description: "Step-by-step hands-on learning experiences",
-    icon: <BiCode className="text-2xl" />,
+    icon: "💻",
     color: "from-green-500 to-green-600",
     count: 156,
   },
@@ -156,7 +142,7 @@ const resourceCategories = [
     id: "videos",
     title: "Video Library",
     description: "Lectures, demonstrations, and expert interviews", 
-    icon: <BiVideo className="text-2xl" />,
+    icon: "📹",
     color: "from-purple-500 to-purple-600",
     count: 234,
   },
@@ -260,7 +246,7 @@ export default function LearningResources() {
                 onClick={() => setShowAIAssistant(!showAIAssistant)}
                 className="inline-flex items-center px-6 py-3 rounded-xl bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 text-white font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
               >
-                <BiMessage className="mr-2 text-xl" />
+                <span className="mr-2">🤖</span>
                 Ask AI Learning Assistant
               </motion.button>
             </motion.div>
@@ -283,7 +269,7 @@ export default function LearningResources() {
                   <div className="flex items-center justify-between">
                     <div className="flex items-center space-x-3">
                       <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
-                        <BiMessage className="text-xl" />
+                        <span className="text-xl">🤖</span>
                       </div>
                       <div>
                         <h3 className="font-semibold">AI Learning Assistant</h3>
@@ -294,7 +280,7 @@ export default function LearningResources() {
                       onClick={() => setShowAIAssistant(false)}
                       className="p-2 bg-white/20 hover:bg-white/40 rounded-lg transition-colors"
                     >
-                      <BiX className="text-xl" />
+                      <span className="text-xl">✕</span>
                     </button>
                   </div>
                 </div>
@@ -304,7 +290,7 @@ export default function LearningResources() {
                   {aiResponse && (
                     <div className="mb-4 p-4 bg-primary-50 dark:bg-primary-900/20 rounded-xl">
                       <div className="flex items-start space-x-3">
-                        <BiMessage className="text-primary-500 mt-1" />
+                        <span className="text-primary-500 mt-1">🤖</span>
                         <p className="text-neutral-700 dark:text-neutral-300">{aiResponse}</p>
                       </div>
                     </div>
@@ -313,7 +299,7 @@ export default function LearningResources() {
                   {isAITyping && (
                     <div className="mb-4 p-4 bg-primary-50 dark:bg-primary-900/20 rounded-xl">
                       <div className="flex items-center space-x-3">
-                        <BiMessage className="text-primary-500" />
+                        <span className="text-primary-500">🤖</span>
                         <div className="flex space-x-1">
                           <div className="w-2 h-2 bg-primary-500 rounded-full animate-bounce"></div>
                           <div className="w-2 h-2 bg-primary-500 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
@@ -341,7 +327,7 @@ export default function LearningResources() {
                       disabled={!aiQuery.trim() || isAITyping}
                       className="px-4 py-2 bg-primary-500 hover:bg-primary-600 disabled:bg-neutral-300 dark:disabled:bg-neutral-600 text-white rounded-xl transition-colors"
                     >
-                      <BiSend />
+                      <span>📤</span>
                     </button>
                   </div>
                   
@@ -369,13 +355,13 @@ export default function LearningResources() {
             <div className="flex flex-col lg:flex-row gap-4">
               {/* Search */}
               <div className="flex-1 relative">
-                <BiSearch className="absolute -left-2 top-1/2 transform -translate-y-1/2 text-neutral-400 text-xl" />
+                <span className="absolute left-4 top-1/2 transform -translate-y-1/2 text-neutral-400 text-xl">🔍</span>
                 <input
                   type="text"
                   placeholder="Search courses, tutorials, research papers..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="w-full ml-4 mt-1 pl-12 pr-4 py-3 rounded-xl border border-neutral-200 dark:border-neutral-600 bg-neutral-50 dark:bg-neutral-700 text-neutral-800 dark:text-neutral-100 focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
+                  className="w-full pl-12 pr-4 py-3 rounded-xl border border-neutral-200 dark:border-neutral-600 bg-neutral-50 dark:bg-neutral-700 text-neutral-800 dark:text-neutral-100 focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
                 />
               </div>
 
@@ -441,7 +427,7 @@ export default function LearningResources() {
                 <div className="flex items-start justify-between mb-4">
                   <div className="flex items-center space-x-3">
                     <div className="p-3 rounded-xl bg-neutral-100 dark:bg-neutral-700 text-primary-500 group-hover:bg-primary-100 dark:group-hover:bg-primary-900/30 transition-colors">
-                      {category.icon}
+                      <span className="text-2xl">{category.icon}</span>
                     </div>
                     <div>
                       <h3 className="text-xl font-bold text-neutral-800 dark:text-neutral-100 group-hover:text-primary-500 transition-colors">
@@ -452,7 +438,7 @@ export default function LearningResources() {
                       </p>
                     </div>
                   </div>
-                  <BiChevronRight className="text-neutral-400 group-hover:text-primary-500 transition-colors" />
+                  <span className="text-neutral-400 group-hover:text-primary-500 transition-colors">→</span>
                 </div>
 
                 <p className="text-neutral-600 dark:text-neutral-400 mb-4">
@@ -498,15 +484,6 @@ export default function LearningResources() {
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-                  
-                  {/* Play Button for Videos */}
-                  {resource.type.includes('Video') && (
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="w-16 h-16 bg-white/90 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
-                        <BiPlay className="text-2xl text-primary-500 ml-1" />
-                      </div>
-                    </div>
-                  )}
                 </div>
 
                 {/* Resource Content */}
@@ -528,16 +505,16 @@ export default function LearningResources() {
                   <div className="flex items-center justify-between text-sm text-neutral-500 dark:text-neutral-400 mb-4">
                     <div className="flex items-center space-x-4">
                       <div className="flex items-center space-x-1">
-                        <BiUser />
+                        <span>👤</span>
                         <span>{resource.instructor}</span>
                       </div>
                       <div className="flex items-center space-x-1">
-                        <BiTime />
+                        <span>⏱️</span>
                         <span>{resource.duration}</span>
                       </div>
                     </div>
                     <div className="flex items-center space-x-1">
-                      <BiStar className="text-yellow-500" />
+                      <span>★</span>
                       <span>{resource.rating}</span>
                     </div>
                   </div>
@@ -564,6 +541,15 @@ export default function LearningResources() {
                       </span>
                     ))}
                   </div>
+
+                  {/* Play Button for Videos */}
+                  {resource.type.includes('Video') && (
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="w-16 h-16 bg-white/90 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <span className="text-2xl text-primary-500">▶️</span>
+                      </div>
+                    </div>
+                  )}
 
                   {/* Action Button */}
                   <button className="w-full px-4 py-3 bg-primary-500 hover:bg-primary-600 text-white font-semibold rounded-xl transition-colors">
@@ -616,11 +602,11 @@ export default function LearningResources() {
                   <div className="flex items-center justify-between mb-4">
                     <div className="flex items-center space-x-4 text-sm text-neutral-500 dark:text-neutral-400">
                       <div className="flex items-center space-x-1">
-                        <BiTime />
+                        <span>⏱️</span>
                         <span>{path.duration}</span>
                       </div>
                       <div className="flex items-center space-x-1">
-                        <BiBook />
+                        <span>📚</span>
                         <span>{path.courses} courses</span>
                       </div>
                     </div>
@@ -688,7 +674,7 @@ export default function LearningResources() {
               href="/paiTraining"
               className="inline-flex items-center px-6 py-3 rounded-xl bg-primary-500 hover:bg-primary-600 text-white font-semibold transition-all duration-300"
             >
-              <BiChevronRight className="mr-2 transform rotate-180" />
+              <span className="mr-2">←</span>
               Back to PAI Training
             </Link>
           </div>
