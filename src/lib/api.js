@@ -222,7 +222,7 @@ function getAllPAITrainingContent(subDirectory) {
     // Get direct markdown files in the subdirectory (excluding README files)
     const directFiles = fs.readdirSync(directory)
       .filter((item) => item.endsWith('.md') && !item.toLowerCase().startsWith('readme'))
-      .map((item) => item.replace(/\\.md$/, ''));
+      .map((item) => item.replace(/\.md$/, ''));
 
     // Process direct files
     const directContentItems = directFiles.map((slug) => {
@@ -267,7 +267,7 @@ function getAllPAITrainingContent(subDirectory) {
                 results.push(...subResults);
               } else if (item.endsWith('.md') && !item.toLowerCase().startsWith('readme')) {
                 // Exclude README files
-                const filename = item.replace(/\\.md$/, '');
+                const filename = item.replace(/\.md$/, '');
                 const slug = basePath ? `${langFolder}/${basePath}/${filename}` : `${langFolder}/${filename}`;
                 
                 try {
@@ -338,7 +338,7 @@ function getAllPAITrainingSlugs(subDirectory) {
     // Get direct markdown files in the subdirectory (excluding README files)
     const directFiles = fs.readdirSync(directory)
       .filter((item) => item.endsWith('.md') && !item.toLowerCase().startsWith('readme'))
-      .map((item) => item.replace(/\\.md$/, ''));
+      .map((item) => item.replace(/\.md$/, ''));
     
     slugs.push(...directFiles);
     
@@ -364,7 +364,7 @@ function getAllPAITrainingSlugs(subDirectory) {
                 results.push(...subResults);
               } else if (item.endsWith('.md') && !item.toLowerCase().startsWith('readme')) {
                 // Exclude README files
-                const filename = item.replace(/\\.md$/, '');
+                const filename = item.replace(/\.md$/, '');
                 const slug = basePath ? `${langFolder}/${basePath}/${filename}` : `${langFolder}/${filename}`;
                 results.push(slug);
               }
