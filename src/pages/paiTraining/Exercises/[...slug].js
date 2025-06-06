@@ -6,92 +6,31 @@ import { Highlight, themes } from 'prism-react-renderer';
 import { useTheme } from 'next-themes';
 import { useEffect, useState, useRef } from 'react';
 import WhiteboardButton from '@/components/WhiteboardButton';
+import CodeEditor from '@/components/learning/CodeEditor';
 
-// Interactive Code Editor Component
-const InteractiveCodeEditor = ({ template, language, onCodeChange, onRunCode }) => {
-  const [code, setCode] = useState(template || '');
-  const [isRunning, setIsRunning] = useState(false);
-  const [output, setOutput] = useState('');
-  const { theme: activeTheme } = useTheme();
-
-  const handleCodeChange = (newCode) => {
-    setCode(newCode);
-    onCodeChange?.(newCode);
-  };
-
-  const handleRunCode = async () => {
-    setIsRunning(true);
-    setOutput('Running code...');
-    
-    // Simulate code execution
-    setTimeout(() => {
-      setOutput('Code executed successfully!\n\nOutput:\nHello, PAI World!');
-      setIsRunning(false);
-      onRunCode?.(code);
-    }, 1500);
-  };
-
+// Enhanced Interactive Code Editor Component using our new CodeEditor
+const InteractiveCodeEditor = ({ 
+  template, 
+  language = 'javascript', 
+  expectedOutput,
+  hints = [],
+  onCodeChange, 
+  onRunCode,
+  ...props 
+}) => {
   return (
-    <div className="bg-white dark:bg-neutral-800 rounded-lg border border-neutral-200 dark:border-neutral-700 overflow-hidden">
-      <div className="flex items-center justify-between p-4 border-b border-neutral-200 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-900">
-        <div className="flex items-center space-x-2">
-          <span className="text-primary-500">💻</span>
-          <span className="font-medium text-neutral-700 dark:text-neutral-300">
-            Interactive {language} Editor
-          </span>
-        </div>
-        <div className="flex space-x-2">
-          <button
-            onClick={() => setCode(template)}
-            className="px-3 py-1 text-sm bg-neutral-200 dark:bg-neutral-700 hover:bg-neutral-300 dark:hover:bg-neutral-600 rounded transition-colors"
-          >
-            <span className="inline mr-1">🔄</span>
-            Reset
-          </button>
-          <button
-            onClick={handleRunCode}
-            disabled={isRunning}
-            className="px-4 py-1 text-sm bg-primary-500 hover:bg-primary-600 disabled:bg-primary-400 text-white rounded transition-colors"
-          >
-            {isRunning ? (
-              <>
-                <span className="inline mr-1">⏹️</span>
-                Running...
-              </>
-            ) : (
-              <>
-                <span className="inline mr-1">▶️</span>
-                Run Code
-              </>
-            )}
-          </button>
-        </div>
-      </div>
-      
-      <div className="grid md:grid-cols-2 gap-0">
-        {/* Code Input */}
-        <div className="border-r border-neutral-200 dark:border-neutral-700">
-          <div className="p-2 bg-neutral-100 dark:bg-neutral-800 text-sm font-medium text-neutral-600 dark:text-neutral-400">
-            Code Editor
-          </div>
-          <textarea
-            value={code}
-            onChange={(e) => handleCodeChange(e.target.value)}
-            className="w-full h-64 p-4 font-mono text-sm bg-white dark:bg-neutral-900 text-neutral-800 dark:text-neutral-200 resize-none focus:outline-none"
-            placeholder="Write your PAI code here..."
-          />
-        </div>
-        
-        {/* Output */}
-        <div>
-          <div className="p-2 bg-neutral-100 dark:bg-neutral-800 text-sm font-medium text-neutral-600 dark:text-neutral-400">
-            Output & Results
-          </div>
-          <div className="h-64 p-4 font-mono text-sm bg-neutral-50 dark:bg-neutral-900 text-neutral-700 dark:text-neutral-300 overflow-y-auto whitespace-pre-wrap">
-            {output || 'Click "Run Code" to see output...'}
-          </div>
-        </div>
-      </div>
+    <div className="my-8">
+      <CodeEditor
+        initialCode={template || `// ${language} code here\nconsole.log("Hello, PAI World!");`}
+        language={language}
+        expectedOutput={expectedOutput}
+        hints={hints}
+        onCodeChange={onCodeChange}
+        onCodeRun={onRunCode}
+        height="400px"
+        className="shadow-lg"
+        {...props}
+      />
     </div>
   );
 };
