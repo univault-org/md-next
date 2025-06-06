@@ -262,6 +262,21 @@ const CodeEditor = ({
   const editorRef = useRef(null)
   const outputRef = useRef(null)
 
+  // Calculate heights for balanced layout
+  const expectedOutputHeight = 120; // Fixed height for expected output section
+  const headerHeight = 42; // Height of section headers
+  const numericHeight = parseInt(height.replace('px', ''));
+  
+  // Calculate console height to balance with code editor
+  const consoleHeight = expectedOutput 
+    ? `${numericHeight - expectedOutputHeight}px`  // Subtract expected output height
+    : height; // Use full height if no expected output
+  
+  // Left panel (code editor) should match total right panel height
+  const codeEditorHeight = expectedOutput 
+    ? `${numericHeight + expectedOutputHeight}px`  // Add expected output height
+    : height; // Use normal height if no expected output
+
   useEffect(() => {
     if (autoRun && code.trim()) {
       handleRunCode()
@@ -374,6 +389,12 @@ const CodeEditor = ({
     if (output && !isSuccess) return 'text-red-500'
     return 'text-neutral-500'
   }
+
+  // Show expected output for all languages for consistency
+  const shouldShowExpectedOutput = expectedOutput || language === 'python';
+  const defaultExpectedOutput = language === 'python' && !expectedOutput
+    ? "Your output will appear here after running the code.\nCompare with the expected results to validate your solution."
+    : expectedOutput;
 
   return (
     <motion.div
@@ -517,13 +538,17 @@ const CodeEditor = ({
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
         {/* Code Editor */}
-        <div className="lg:border-r border-neutral-200 dark:border-neutral-700">
-          <div className="p-2 bg-neutral-50 dark:bg-neutral-800 text-sm font-medium text-neutral-600 dark:text-neutral-400 border-b border-neutral-200 dark:border-neutral-700">
-            Code Editor
+        <div className="lg:border-r border-neutral-200 dark:border-neutral-700 flex flex-col">
+          <div className="p-2 bg-neutral-50 dark:bg-neutral-800 text-sm font-medium text-neutral-600 dark:text-neutral-400 border-b border-neutral-200 dark:border-neutral-700 flex items-center justify-between min-h-[42px]">
+            <span>Code Editor</span>
+            <div className="opacity-0 pointer-events-none">
+              {/* Invisible spacer to match right side button height exactly */}
+              <div className="px-2 py-1 text-xs bg-neutral-200 dark:bg-neutral-700 rounded">Clear</div>
+            </div>
           </div>
-          <div className="relative">
+          <div className="relative flex-1">
             <MonacoEditor
-              height={height}
+              height={codeEditorHeight}
               language={language === 'cpp' ? 'cpp' : language}
               theme={editorTheme}
               value={code}
@@ -557,45 +582,78 @@ const CodeEditor = ({
           </div>
         </div>
 
-        {/* Console Output */}
+        {/* Right Panel: Console Output + Expected Output */}
         {showConsole && (
-          <div>
-            <div className="p-2 bg-neutral-50 dark:bg-neutral-800 text-sm font-medium text-neutral-600 dark:text-neutral-400 border-b border-neutral-200 dark:border-neutral-700 flex items-center justify-between">
-              <span>Console Output</span>
-              <button
-                onClick={handleClearOutput}
-                className="px-2 py-1 text-xs bg-neutral-200 dark:bg-neutral-700 hover:bg-neutral-300 dark:hover:bg-neutral-600 rounded transition-colors"
+          <div className="flex flex-col">
+            {/* Console Output Section */}
+            <div className="flex-1">
+              <div className="p-2 bg-neutral-50 dark:bg-neutral-800 text-sm font-medium text-neutral-600 dark:text-neutral-400 border-b border-neutral-200 dark:border-neutral-700 flex items-center justify-between min-h-[42px]">
+                <span>Console Output</span>
+                <button
+                  onClick={handleClearOutput}
+                  className="px-2 py-1 text-xs bg-neutral-200 dark:bg-neutral-700 hover:bg-neutral-300 dark:hover:bg-neutral-600 rounded transition-colors"
+                >
+                  Clear
+                </button>
+              </div>
+              
+              <div
+                ref={outputRef}
+                className="font-mono text-sm p-4 bg-neutral-900 text-green-400 overflow-auto"
+                style={{ height: consoleHeight }}
               >
-                Clear
-              </button>
-            </div>
-            
-            <div
-              ref={outputRef}
-              className="font-mono text-sm p-4 bg-neutral-900 text-green-400 overflow-auto"
-              style={{ height: height }}
-            >
-              {isRunning ? (
-                <div className="flex items-center space-x-2">
-                  <div className="animate-spin w-4 h-4 border-2 border-green-400 border-t-transparent rounded-full"></div>
-                  <span>Executing code...</span>
-                </div>
-              ) : output ? (
-                <pre className="whitespace-pre-wrap break-words">{output}</pre>
-              ) : (
-                <span className="text-neutral-500">Click "Run" to execute your code...</span>
-              )}
+                {isRunning ? (
+                  <div className="flex items-center space-x-2">
+                    <div className="animate-spin w-4 h-4 border-2 border-green-400 border-t-transparent rounded-full"></div>
+                    <span>Executing code...</span>
+                  </div>
+                ) : output ? (
+                  <pre className="whitespace-pre-wrap break-words">{output}</pre>
+                ) : (
+                  <span className="text-neutral-500">Click "Run" to execute your code...</span>
+                )}
+              </div>
             </div>
 
-            {/* Expected Output */}
-            {expectedOutput && (
-              <div className="p-3 bg-blue-50 dark:bg-blue-900/20 border-t border-neutral-200 dark:border-neutral-700">
-                <div className="text-sm font-medium text-blue-800 dark:text-blue-200 mb-1">
-                  Expected Output:
+            {/* Expected Output Section - Now shown for all languages */}
+            {shouldShowExpectedOutput && (
+              <div 
+                className="border-t border-neutral-200 dark:border-neutral-700"
+                style={{ height: `${expectedOutputHeight}px` }}
+              >
+                <div className="p-2 bg-neutral-50 dark:bg-neutral-800 text-sm font-medium text-neutral-600 dark:text-neutral-400 border-b border-neutral-200 dark:border-neutral-700 flex items-center justify-between min-h-[42px]">
+                  <span className="flex items-center space-x-2">
+                    <span>Expected Output</span>
+                    {language === 'python' && !expectedOutput && (
+                      <span className="px-2 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 text-xs rounded">
+                        Interactive
+                      </span>
+                    )}
+                  </span>
+                  {output && defaultExpectedOutput && (
+                    <div className="text-xs">
+                      {output.trim() === defaultExpectedOutput.trim() ? (
+                        <span className="text-green-600 dark:text-green-400 flex items-center space-x-1">
+                          <span>✅</span>
+                          <span>Match</span>
+                        </span>
+                      ) : (
+                        <span className="text-orange-600 dark:text-orange-400 flex items-center space-x-1">
+                          <span>⚠️</span>
+                          <span>Different</span>
+                        </span>
+                      )}
+                    </div>
+                  )}
                 </div>
-                <pre className="text-sm text-blue-700 dark:text-blue-300 whitespace-pre-wrap font-mono">
-                  {expectedOutput}
-                </pre>
+                <div 
+                  className="p-3 bg-blue-50 dark:bg-blue-900/20 overflow-auto"
+                  style={{ height: `${expectedOutputHeight - headerHeight}px` }}
+                >
+                  <pre className="text-sm text-blue-700 dark:text-blue-300 whitespace-pre-wrap font-mono">
+                    {defaultExpectedOutput}
+                  </pre>
+                </div>
               </div>
             )}
           </div>
