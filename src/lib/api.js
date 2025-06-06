@@ -219,10 +219,10 @@ function getAllPAITrainingContent(subDirectory) {
 
     let contentItems = [];
 
-    // Get direct markdown files in the subdirectory
+    // Get direct markdown files in the subdirectory (excluding README files)
     const directFiles = fs.readdirSync(directory)
-      .filter((item) => item.endsWith('.md'))
-      .map((item) => item.replace(/\.md$/, ''));
+      .filter((item) => item.endsWith('.md') && !item.toLowerCase().startsWith('readme'))
+      .map((item) => item.replace(/\\.md$/, ''));
 
     // Process direct files
     const directContentItems = directFiles.map((slug) => {
@@ -230,25 +230,18 @@ function getAllPAITrainingContent(subDirectory) {
       const fileContents = fs.readFileSync(fullPath, 'utf8')
       const { data: frontmatter } = matter(fileContents)
 
-      const date = formatDate(frontmatter.date);
       const processedImage = processImagePath(frontmatter.image);
+      const date = formatDate(frontmatter.date);
 
       return {
         slug,
-        title: frontmatter.title || '',
+        title: frontmatter.title || slug,
         description: frontmatter.description || '',
-        author: frontmatter.author || '',
-        duration: frontmatter.duration || '',
-        difficulty: frontmatter.difficulty || '',
         image: processedImage,
-        tags: frontmatter.tags || [],
-        type: frontmatter.type || '',
-        category: frontmatter.category || '',
-        series: frontmatter.series || '',
-        series_part: frontmatter.series_part || null,
         date,
+        ...frontmatter
       }
-    });
+    })
 
     contentItems.push(...directContentItems);
 
@@ -272,37 +265,31 @@ function getAllPAITrainingContent(subDirectory) {
                 // Recursively process subdirectories
                 const subResults = processDirectory(itemPath, basePath ? `${basePath}/${item}` : item);
                 results.push(...subResults);
-              } else if (item.endsWith('.md')) {
-                const filename = item.replace(/\.md$/, '');
+              } else if (item.endsWith('.md') && !item.toLowerCase().startsWith('readme')) {
+                // Exclude README files
+                const filename = item.replace(/\\.md$/, '');
                 const slug = basePath ? `${langFolder}/${basePath}/${filename}` : `${langFolder}/${filename}`;
                 
-                const fileContents = fs.readFileSync(itemPath, 'utf8');
-                const { data: frontmatter } = matter(fileContents);
-                
-                const date = formatDate(frontmatter.date);
-                const processedImage = processImagePath(frontmatter.image);
-                
-                results.push({
-                  slug,
-                  title: frontmatter.title || '',
-                  description: frontmatter.description || '',
-                  author: frontmatter.author || '',
-                  duration: frontmatter.duration || '',
-                  difficulty: frontmatter.difficulty || '',
-                  image: processedImage,
-                  tags: frontmatter.tags || [],
-                  type: frontmatter.type || '',
-                  category: frontmatter.category || langFolder,
-                  series: frontmatter.series || '',
-                  series_part: frontmatter.series_part || null,
-                  language: langFolder,
-                  exercise_type: frontmatter.exercise_type || '',
-                  difficulty_score: frontmatter.difficulty_score || 0,
-                  whiteboard_required: frontmatter.whiteboard_required || false,
-                  code_template_provided: frontmatter.code_template_provided || false,
-                  auto_grading: frontmatter.auto_grading || false,
-                  date,
-                });
+                try {
+                  const fileContents = fs.readFileSync(itemPath, 'utf8');
+                  const { data: frontmatter } = matter(fileContents);
+                  
+                  const processedImage = processImagePath(frontmatter.image);
+                  const date = formatDate(frontmatter.date);
+                  
+                  results.push({
+                    slug,
+                    title: frontmatter.title || filename,
+                    description: frontmatter.description || '',
+                    image: processedImage,
+                    date,
+                    language: langFolder,
+                    category: basePath || 'General',
+                    ...frontmatter
+                  });
+                } catch (error) {
+                  console.warn(`Error processing ${itemPath}:`, error);
+                }
               }
             }
             return results;
@@ -314,7 +301,6 @@ function getAllPAITrainingContent(subDirectory) {
       }
     }
 
-    // Sort all content by date
     return contentItems.sort((item1, item2) => (item1.date > item2.date ? -1 : 1));
 
   } catch (error) {
@@ -349,10 +335,10 @@ function getAllPAITrainingSlugs(subDirectory) {
     
     let slugs = [];
     
-    // Get direct markdown files in the subdirectory
+    // Get direct markdown files in the subdirectory (excluding README files)
     const directFiles = fs.readdirSync(directory)
-      .filter((item) => item.endsWith('.md'))
-      .map((item) => item.replace(/\.md$/, ''));
+      .filter((item) => item.endsWith('.md') && !item.toLowerCase().startsWith('readme'))
+      .map((item) => item.replace(/\\.md$/, ''));
     
     slugs.push(...directFiles);
     
@@ -376,8 +362,9 @@ function getAllPAITrainingSlugs(subDirectory) {
                 // Recursively process subdirectories
                 const subResults = processDirectory(itemPath, basePath ? `${basePath}/${item}` : item);
                 results.push(...subResults);
-              } else if (item.endsWith('.md')) {
-                const filename = item.replace(/\.md$/, '');
+              } else if (item.endsWith('.md') && !item.toLowerCase().startsWith('readme')) {
+                // Exclude README files
+                const filename = item.replace(/\\.md$/, '');
                 const slug = basePath ? `${langFolder}/${basePath}/${filename}` : `${langFolder}/${filename}`;
                 results.push(slug);
               }
