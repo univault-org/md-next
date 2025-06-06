@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { Highlight, themes } from 'prism-react-renderer';
 import { useTheme } from 'next-themes';
 import { useEffect, useState, useRef } from 'react';
+import WhiteboardButton from '@/components/WhiteboardButton';
 
 // Interactive Code Editor Component
 const InteractiveCodeEditor = ({ template, language, onCodeChange, onRunCode }) => {
@@ -160,288 +161,216 @@ const ExerciseProgress = ({
   );
 };
 
-// Interactive Whiteboard Component  
-const InteractiveWhiteboard = ({ isOpen, onToggle, exerciseContext }) => {
-  const canvasRef = useRef(null);
-  const [isDrawing, setIsDrawing] = useState(false);
-  const [tool, setTool] = useState('pen');
-  const [color, setColor] = useState('#3B82F6');
-
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-
-    const context = canvas.getContext('2d');
-    context.lineCap = 'round';
-    context.lineJoin = 'round';
-    context.lineWidth = 2;
-  }, []);
-
-  const startDrawing = (e) => {
-    setIsDrawing(true);
-    const canvas = canvasRef.current;
-    const rect = canvas.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    
-    const context = canvas.getContext('2d');
-    context.beginPath();
-    context.moveTo(x, y);
-  };
-
-  const draw = (e) => {
-    if (!isDrawing) return;
-    
-    const canvas = canvasRef.current;
-    const rect = canvas.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    
-    const context = canvas.getContext('2d');
-    context.strokeStyle = color;
-    context.lineTo(x, y);
-    context.stroke();
-  };
-
-  const stopDrawing = () => {
-    setIsDrawing(false);
-  };
-
-  const clearCanvas = () => {
-    const canvas = canvasRef.current;
-    const context = canvas.getContext('2d');
-    context.clearRect(0, 0, canvas.width, canvas.height);
-  };
-
-  if (!isOpen) return null;
-
-  return (
-    <div className="fixed inset-4 bg-white dark:bg-neutral-800 rounded-lg shadow-2xl border border-neutral-200 dark:border-neutral-700 z-50 flex flex-col">
-      <div className="flex items-center justify-between p-4 border-b border-neutral-200 dark:border-neutral-700">
-        <div className="flex items-center space-x-2">
-          <span>🎨</span>
-          <h3 className="font-semibold text-neutral-800 dark:text-neutral-100">Interactive Whiteboard</h3>
-          <span className="text-xs text-neutral-500 bg-neutral-100 dark:bg-neutral-700 px-2 py-1 rounded">
-            Design your PAI architecture
-          </span>
-        </div>
-        <div className="flex items-center space-x-2">
-          {/* Tools */}
-          <div className="flex space-x-2 mr-4">
-            <button
-              onClick={() => setTool('pen')}
-              className={`p-2 rounded ${tool === 'pen' ? 'bg-primary-500 text-white' : 'bg-neutral-200 dark:bg-neutral-700'}`}
-            >
-              ✏️
-            </button>
-            <button
-              onClick={() => setTool('eraser')}
-              className={`p-2 rounded ${tool === 'eraser' ? 'bg-primary-500 text-white' : 'bg-neutral-200 dark:bg-neutral-700'}`}
-            >
-              🗑️
-            </button>
-            
-            {/* Color Picker */}
-            <input
-              type="color"
-              value={color}
-              onChange={(e) => setColor(e.target.value)}
-              className="w-8 h-8 rounded border-none"
-            />
-          </div>
-          
-          <button
-            onClick={clearCanvas}
-            className="px-3 py-1 bg-neutral-200 dark:bg-neutral-700 hover:bg-neutral-300 dark:hover:bg-neutral-600 rounded text-sm transition-colors"
-          >
-            Clear
-          </button>
-          <button
-            onClick={onToggle}
-            className="text-neutral-500 hover:text-neutral-700 dark:hover:text-neutral-300 transition-colors"
-          >
-            ✕
-          </button>
-        </div>
-      </div>
-      
-      <div className="flex-1 p-4">
-        <canvas
-          ref={canvasRef}
-          width={800}
-          height={500}
-          onMouseDown={startDrawing}
-          onMouseMove={draw}
-          onMouseUp={stopDrawing}
-          className="w-full h-full border border-neutral-300 dark:border-neutral-600 rounded cursor-crosshair bg-white"
-        />
-      </div>
-      
-      <div className="p-4 border-t border-neutral-200 dark:border-neutral-700 bg-neutral-50 dark:bg-neutral-900">
-        <p className="text-sm text-neutral-600 dark:text-neutral-400">
-          💡 Draw your PAI system architecture. Consider: interfaces, data flow, duck typing patterns, and component relationships.
-        </p>
-      </div>
-    </div>
-  );
-};
-
-// Exercise Assessment Component
+// Exercise Assessment Component  
 const ExerciseAssessment = ({ 
   exerciseData, 
   userCode, 
   completionStatus,
   onSubmitAssessment 
 }) => {
-  const [selfAssessment, setSelfAssessment] = useState({
-    understanding: 0,
-    confidence: 0,
-    difficulty: 0,
-    timeSpent: 0
-  });
-  
+  const [selectedAnswers, setSelectedAnswers] = useState({});
   const [feedback, setFeedback] = useState('');
-
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  
   const handleSubmit = () => {
-    onSubmitAssessment?.({
-      ...selfAssessment,
-      feedback,
-      timestamp: Date.now()
-    });
+    setIsSubmitting(true);
+    
+    // Simulate assessment processing
+    setTimeout(() => {
+      const assessment = {
+        answers: selectedAnswers,
+        feedback: feedback,
+        completionTime: Date.now(),
+        code: userCode
+      };
+      
+      onSubmitAssessment(assessment);
+      setIsSubmitting(false);
+    }, 1000);
   };
 
+  const assessmentQuestions = [
+    {
+      id: 1,
+      question: "How confident do you feel about the concepts covered?",
+      options: ["Very confident", "Somewhat confident", "Need more practice", "Confused"]
+    },
+    {
+      id: 2,
+      question: "Which part was most challenging?",
+      options: ["Theory understanding", "Code implementation", "Debugging", "Connecting concepts"]
+    },
+    {
+      id: 3,
+      question: "How would you rate the exercise difficulty?",
+      options: ["Too easy", "Just right", "Challenging but fair", "Too difficult"]
+    }
+  ];
+
   return (
-    <div className="bg-white dark:bg-neutral-800 rounded-lg border border-neutral-200 dark:border-neutral-700 p-6">
+    <div className="bg-white dark:bg-neutral-800 rounded-lg p-6 border border-neutral-200 dark:border-neutral-700">
       <h3 className="font-semibold text-neutral-800 dark:text-neutral-100 mb-4 flex items-center">
-        <span className="mr-2 text-primary-500">📊</span>
+        <span className="mr-2 text-primary-500">📝</span>
         Exercise Assessment
       </h3>
       
-      <div className="space-y-4">
-        {/* Self-Assessment Sliders */}
-        <div>
-          <label className="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-2">
-            Understanding Level (1-10)
-          </label>
-          <input
-            type="range"
-            min="1"
-            max="10"
-            value={selfAssessment.understanding}
-            onChange={(e) => setSelfAssessment(prev => ({
-              ...prev,
-              understanding: parseInt(e.target.value)
-            }))}
-            className="w-full"
-          />
-          <div className="flex justify-between text-xs text-neutral-500 mt-1">
-            <span>Confused</span>
-            <span>Current: {selfAssessment.understanding}</span>
-            <span>Mastered</span>
+      <div className="space-y-6">
+        {assessmentQuestions.map((question) => (
+          <div key={question.id}>
+            <p className="font-medium text-neutral-700 dark:text-neutral-300 mb-3">
+              {question.question}
+            </p>
+            <div className="space-y-2">
+              {question.options.map((option, index) => (
+                <label 
+                  key={index}
+                  className="flex items-center space-x-3 cursor-pointer hover:bg-neutral-50 dark:hover:bg-neutral-700 p-2 rounded"
+                >
+                  <input
+                    type="radio"
+                    name={`question-${question.id}`}
+                    value={option}
+                    onChange={(e) => setSelectedAnswers(prev => ({
+                      ...prev,
+                      [question.id]: e.target.value
+                    }))}
+                    className="text-primary-500"
+                  />
+                  <span className="text-neutral-600 dark:text-neutral-400">{option}</span>
+                </label>
+              ))}
+            </div>
           </div>
-        </div>
+        ))}
         
         <div>
-          <label className="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-2">
-            Confidence Level (1-10)
-          </label>
-          <input
-            type="range"
-            min="1"
-            max="10"
-            value={selfAssessment.confidence}
-            onChange={(e) => setSelfAssessment(prev => ({
-              ...prev,
-              confidence: parseInt(e.target.value)
-            }))}
-            className="w-full"
-          />
-          <div className="flex justify-between text-xs text-neutral-500 mt-1">
-            <span>Not Confident</span>
-            <span>Current: {selfAssessment.confidence}</span>
-            <span>Very Confident</span>
-          </div>
-        </div>
-        
-        {/* Feedback */}
-        <div>
-          <label className="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-2">
-            What did you learn? Any challenges?
+          <label className="block font-medium text-neutral-700 dark:text-neutral-300 mb-3">
+            Additional feedback or questions:
           </label>
           <textarea
             value={feedback}
             onChange={(e) => setFeedback(e.target.value)}
             placeholder="Share your thoughts about this exercise..."
-            className="w-full p-3 border border-neutral-300 dark:border-neutral-600 rounded-lg bg-white dark:bg-neutral-900 text-neutral-800 dark:text-neutral-200"
-            rows={3}
+            className="w-full p-3 border border-neutral-300 dark:border-neutral-600 rounded-lg bg-white dark:bg-neutral-900 text-neutral-800 dark:text-neutral-200 resize-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+            rows="4"
           />
         </div>
         
-        {/* Submit Button */}
         <button
           onClick={handleSubmit}
-          className="w-full py-2 bg-primary-500 hover:bg-primary-600 text-white rounded-lg transition-colors"
+          disabled={isSubmitting}
+          className="w-full px-4 py-2 bg-primary-500 hover:bg-primary-600 disabled:bg-primary-400 text-white rounded-lg transition-colors font-medium"
         >
-          Submit Assessment
+          {isSubmitting ? 'Submitting...' : 'Submit Assessment'}
         </button>
       </div>
     </div>
   );
 };
 
-// Enhanced Code Block with Interactive Features
+// Enhanced Code Block Component
 const EnhancedCodeBlock = ({ children, language, isTemplate = false, onFillIn }) => {
   const { theme: activeTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
+  const [copied, setCopied] = useState(false);
 
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  const copyToClipboard = async (text) => {
+    try {
+      if (!text || typeof text !== 'string') {
+        console.warn('No valid text to copy');
+        return;
+      }
+      
+      if (navigator.clipboard && window.isSecureContext) {
+        await navigator.clipboard.writeText(text);
+      } else {
+        // Fallback for older browsers or non-HTTPS contexts
+        const textArea = document.createElement('textarea');
+        textArea.value = text;
+        textArea.style.position = 'fixed';
+        textArea.style.left = '-999999px';
+        textArea.style.top = '-999999px';
+        document.body.appendChild(textArea);
+        textArea.focus();
+        textArea.select();
+        document.execCommand('copy');
+        textArea.remove();
+      }
+      
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch (err) {
+      console.error('Failed to copy text: ', err);
+    }
+  };
 
-  // Safe access to children props with fallbacks
-  const codeProps = children?.props || {};
-  const codeLanguage = language || 
-                      (codeProps.className || '').replace('language-', '') || 
-                      'plaintext';
-  const codeString = (codeProps.children || children || '').toString().trim();
+  // Handle case where children might be an object with props (MDX structure)
+  const getCodeString = () => {
+    if (typeof children === 'string') {
+      return children;
+    }
+    if (children?.props?.children) {
+      return children.props.children;
+    }
+    if (children && typeof children === 'object' && children.toString) {
+      return children.toString();
+    }
+    return String(children || '');
+  };
 
-  const prismTheme = activeTheme === 'dark' ? themes.oneDark : themes.oneLight;
-  
-  if (!mounted) {
+  // Get language with fallback
+  const getLanguage = () => {
+    if (language) return language;
+    if (children?.props?.className) {
+      const match = children.props.className.match(/language-(\w+)/);
+      return match ? match[1] : 'text';
+    }
+    return 'text';
+  };
+
+  const codeString = getCodeString().trim();
+  const codeLanguage = getLanguage();
+
+  if (!codeString) {
     return (
-      <pre className={`language-${codeLanguage} p-4 rounded-lg bg-neutral-100 dark:bg-neutral-800 overflow-x-auto shadow-md my-6 text-sm`}>
-        <code className={`language-${codeLanguage}`}>{codeString}</code>
-      </pre>
+      <div className="bg-neutral-100 dark:bg-neutral-800 rounded-lg p-4">
+        <span className="text-neutral-500">No code to display</span>
+      </div>
     );
   }
 
   return (
-    <div className="relative">
-      {isTemplate && (
-        <div className="absolute top-2 right-2 z-10">
-          <span className="px-2 py-1 bg-primary-500 text-white text-xs rounded">
-            📝 Fill in the blanks
-          </span>
-        </div>
-      )}
+    <div className="relative group">
+      <div className="absolute top-4 right-4 flex space-x-2 opacity-0 group-hover:opacity-100 transition-opacity z-10">
+        {isTemplate && (
+          <button
+            onClick={() => onFillIn?.(codeString)}
+            className="px-2 py-1 bg-primary-500 hover:bg-primary-600 text-white text-xs rounded transition-colors"
+          >
+            Fill Template
+          </button>
+        )}
+        <button
+          onClick={() => copyToClipboard(codeString)}
+          className="px-2 py-1 bg-neutral-600 hover:bg-neutral-700 text-white text-xs rounded transition-colors"
+        >
+          {copied ? '✓ Copied' : '📋 Copy'}
+        </button>
+      </div>
       
       <Highlight
-        theme={prismTheme}
+        theme={activeTheme === 'dark' ? themes.vsDark : themes.vsLight}
         code={codeString}
         language={codeLanguage}
       >
-        {({ className: blockClassName, style, tokens, getLineProps, getTokenProps }) => (
-          <pre 
-            className={`${blockClassName} p-4 rounded-lg overflow-x-auto shadow-md my-6 text-sm relative`}
-            style={{...style, display: 'block'}} 
-          >
+        {({ className, style, tokens, getLineProps, getTokenProps }) => (
+          <pre className={`${className} overflow-x-auto p-4 rounded-lg text-sm`} style={style}>
             {tokens.map((line, i) => (
-              <div key={i} {...getLineProps({ line, key: i }) }>
-                <span className="text-neutral-500 mr-4 select-none text-xs">
-                  {String(i + 1).padStart(3, ' ')}
+              <div key={i} {...getLineProps({ line })}>
+                <span className="mr-4 text-neutral-500 select-none">
+                  {String(i + 1).padStart(2, ' ')}
                 </span>
                 {line.map((token, key) => (
-                  <span key={key} {...getTokenProps({ token, key }) } />
+                  <span key={key} {...getTokenProps({ token })} />
                 ))}
               </div>
             ))}
@@ -454,7 +383,6 @@ const EnhancedCodeBlock = ({ children, language, isTemplate = false, onFillIn })
 
 // Main Exercise Page Component
 export default function ExercisePage({ source, frontmatter }) {
-  const [whiteboardOpen, setWhiteboardOpen] = useState(false);
   const [currentStep, setCurrentStep] = useState(1);
   const [completedExercises, setCompletedExercises] = useState(0);
   const [timeSpent, setTimeSpent] = useState(0);
@@ -473,7 +401,27 @@ export default function ExercisePage({ source, frontmatter }) {
   const metaDescription = frontmatter.description || `Interactive PAI exercise: ${frontmatter.title}`;
 
   const mdxComponents = {
-    code: (props) => <EnhancedCodeBlock {...props} />,
+    code: (props) => {
+      // Handle inline code vs code blocks
+      if (props.className) {
+        // This is a code block with language info
+        const match = props.className.match(/language-(\w+)/);
+        const language = match ? match[1] : 'text';
+        return <EnhancedCodeBlock {...props} language={language} />;
+      }
+      // This is inline code
+      return <code {...props} className="bg-neutral-100 dark:bg-neutral-800 px-1 py-0.5 rounded text-sm" />;
+    },
+    pre: (props) => {
+      // Handle pre tags that wrap code blocks
+      const codeElement = props.children;
+      if (codeElement?.props?.className) {
+        const match = codeElement.props.className.match(/language-(\w+)/);
+        const language = match ? match[1] : 'text';
+        return <EnhancedCodeBlock {...codeElement.props} language={language} />;
+      }
+      return <EnhancedCodeBlock {...props} language="text" />;
+    },
     InteractiveCodeEditor,
     ExerciseProgress: () => (
       <ExerciseProgress
@@ -530,6 +478,11 @@ export default function ExercisePage({ source, frontmatter }) {
                     <span className="mr-1">⏱️</span>
                     {frontmatter.duration}
                   </span>
+                  {frontmatter.whiteboard_required && (
+                    <span className="px-3 py-1 bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300 text-sm font-medium rounded-lg">
+                      🎨 Whiteboard Required
+                    </span>
+                  )}
                 </div>
                 
                 <h1 className="text-3xl font-bold text-neutral-900 dark:text-neutral-50">
@@ -542,14 +495,6 @@ export default function ExercisePage({ source, frontmatter }) {
               
               {/* Action Buttons */}
               <div className="flex space-x-3">
-                {frontmatter.whiteboard_required && (
-                  <button
-                    onClick={() => setWhiteboardOpen(true)}
-                    className="px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-lg transition-colors"
-                  >
-                    🎨 Open Whiteboard
-                  </button>
-                )}
                 <button className="px-4 py-2 bg-primary-500 hover:bg-primary-600 text-white rounded-lg transition-colors">
                   💾 Save Progress
                 </button>
@@ -637,12 +582,8 @@ export default function ExercisePage({ source, frontmatter }) {
           </div>
         </div>
         
-        {/* Interactive Whiteboard */}
-        <InteractiveWhiteboard
-          isOpen={whiteboardOpen}
-          onToggle={() => setWhiteboardOpen(!whiteboardOpen)}
-          exerciseContext={frontmatter}
-        />
+        {/* Floating Whiteboard Button */}
+        <WhiteboardButton whiteboardRequired={frontmatter.whiteboard_required} />
       </div>
     </>
   );

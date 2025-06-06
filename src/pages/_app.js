@@ -15,7 +15,28 @@ const ibmPlexMono = IBM_Plex_Mono({
 export default function App({ Component, pageProps }) {
   const router = useRouter()
   const isDeclarationRoute = router.pathname.startsWith('/declaration')
+  const isWhiteboardRoute = router.pathname === '/whiteboard'
   const canonicalUrl = `https://univault.org${router.asPath}`
+
+  // For whiteboard, render without layout
+  if (isWhiteboardRoute) {
+    return (
+      <ThemeProvider attribute="class">
+        <Head>
+          {/* Basic Meta */}
+          <meta charSet="utf-8" />
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <link rel="canonical" href={canonicalUrl} />
+          <link rel="icon" href="/favicon.ico" />
+          <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+          <meta name="theme-color" content="#6366F1" />
+        </Head>
+        <div className={`${ibmPlexMono.variable}`}>
+          <Component {...pageProps} />
+        </div>
+      </ThemeProvider>
+    )
+  }
 
   return (
     <ThemeProvider attribute="class">
