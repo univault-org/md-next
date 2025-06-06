@@ -2,28 +2,7 @@ import { useState, useEffect } from "react";
 import Head from "next/head";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import {
-  BiBook,
-  BiCalculator,
-  BiCode,
-  BiLightbulb,
-  BiPlay,
-  BiTime,
-  BiUser,
-  BiChevronRight,
-  BiSearch,
-  BiFilter,
-  BiBookmark,
-  BiDownload,
-  BiMessage,
-  BiShareAlt,
-  BiTarget,
-  BiTrophy,
-  BiGroup,
-  BiSupport,
-  BiTrendingUp,
-} from "react-icons/bi";
-import { getAllPosts, getAllInspirationContent, getAllResourceContent } from "@/lib/api";
+import { getAllPosts, getAllInspirationContent, getAllResourceContent, getAllExerciseContent } from "@/lib/api";
 
 const trainingPrograms = [
   {
@@ -113,10 +92,10 @@ const trainingPrograms = [
 ];
 
 const trainerStats = [
-  { label: "Certified AI Trainers", value: "2,847", icon: <BiUser /> },
+  { label: "Certified AI Trainers", value: "2,847", icon: <span>👤</span> },
   { label: "Training Sessions Completed", value: "15,392", icon: <span>💪</span> },
-  { label: "Training Hours Logged", value: "89,234", icon: <BiTime /> },
-  { label: "Success Rate", value: "94%", icon: <BiTrophy /> },
+  { label: "Training Hours Logged", value: "89,234", icon: <span>⏱️</span> },
+  { label: "Success Rate", value: "94%", icon: <span>🏆</span> },
 ];
 
 const trainerLevels = [
@@ -126,7 +105,7 @@ const trainerLevels = [
   { level: "Expert", description: "Leading-edge specialization", color: "bg-red-100 text-red-700 dark:bg-red-900 dark:text-red-300" },
 ];
 
-export default function PAITraining({ posts, inspirationContent, resourceContent }) {
+export default function PAITraining({ posts, inspirationContent, resourceContent, exerciseContent }) {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedDifficulty, setSelectedDifficulty] = useState("All");
   const [selectedProgram, setSelectedProgram] = useState(null);
@@ -152,7 +131,7 @@ export default function PAITraining({ posts, inspirationContent, resourceContent
     setBookmarkedPrograms(newBookmarks);
   };
 
-  const allFeaturedContent = [...inspirationContent, ...resourceContent].sort((a, b) => new Date(b.date) - new Date(a.date));
+  const allFeaturedContent = [...inspirationContent, ...resourceContent, ...exerciseContent].sort((a, b) => new Date(b.date) - new Date(a.date));
 
   return (
     <>
@@ -233,7 +212,7 @@ export default function PAITraining({ posts, inspirationContent, resourceContent
                 href="/paiTraining/resources"
                 className="inline-flex items-center px-8 py-4 rounded-xl bg-white dark:bg-neutral-800 hover:bg-neutral-50 dark:hover:bg-neutral-700 text-neutral-700 dark:text-neutral-100 font-semibold transition-all duration-300 border-2 border-neutral-200 dark:border-neutral-600 hover:border-primary-300 dark:hover:border-primary-500"
               >
-                <BiBook className="mr-2" />
+                <span className="mr-2">📚</span>
                 Explore Training Resources
               </Link>
             </motion.div>
@@ -285,7 +264,7 @@ export default function PAITraining({ posts, inspirationContent, resourceContent
           <div className="flex flex-col md:flex-row gap-4">
             {/* Search */}
             <div className="flex-1 relative">
-              <BiSearch className="absolute -left-2 top-1/2 transform -translate-y-1/2 text-neutral-400 text-xl" />
+              <span className="absolute -left-2 top-1/2 transform -translate-y-1/2 text-neutral-400 text-xl">🔍</span>
               <input
                 type="text"
                 placeholder="Search training programs, techniques, or specializations..."
@@ -297,7 +276,7 @@ export default function PAITraining({ posts, inspirationContent, resourceContent
 
             {/* Difficulty Filter */}
             <div className="relative ml-2">
-              <BiFilter className="absolute left-3 top-1/2 transform -translate-y-1/2 text-neutral-400 text-xl" />
+              <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-neutral-400 text-xl">🔧</span>
               <select
                 value={selectedDifficulty}
                 onChange={(e) => setSelectedDifficulty(e.target.value)}
@@ -375,7 +354,7 @@ export default function PAITraining({ posts, inspirationContent, resourceContent
                         : 'text-neutral-400 hover:text-primary-500 hover:bg-primary-50 dark:hover:bg-primary-900/20'
                     }`}
                   >
-                    <BiBookmark className="text-lg" />
+                    <span className="text-lg">🔖</span>
                   </button>
                 </div>
 
@@ -401,11 +380,11 @@ export default function PAITraining({ posts, inspirationContent, resourceContent
                 <div className="flex items-center justify-between text-sm text-neutral-500 dark:text-neutral-400 mb-4">
                   <div className="flex items-center space-x-4">
                     <div className="flex items-center space-x-1">
-                      <BiTime />
+                      <span>⏱️</span>
                       <span>{program.duration}</span>
                     </div>
                     <div className="flex items-center space-x-1">
-                      <BiBook />
+                      <span>📚</span>
                       <span>{program.modules} modules</span>
                     </div>
                   </div>
@@ -452,7 +431,7 @@ export default function PAITraining({ posts, inspirationContent, resourceContent
                   >
                     {program.progress > 0 ? (
                       <>
-                        <BiPlay className="mr-2" />
+                        <span>▶️</span>
                         Continue Training
                       </>
                     ) : (
@@ -476,7 +455,7 @@ export default function PAITraining({ posts, inspirationContent, resourceContent
 
         {filteredPrograms.length === 0 && (
           <div className="text-center py-12">
-            <BiSearch className="text-6xl text-neutral-300 dark:text-neutral-600 mx-auto mb-4" />
+            <span className="text-6xl text-neutral-300 dark:text-neutral-600 mx-auto mb-4 block">🔍</span>
             <h3 className="text-xl font-semibold text-neutral-600 dark:text-neutral-400 mb-2">
               No training programs found
             </h3>
@@ -708,7 +687,7 @@ export default function PAITraining({ posts, inspirationContent, resourceContent
               href="/paiTraining/programming-languages"
               className="inline-flex items-center px-8 py-4 rounded-xl bg-gradient-to-r from-primary-500 to-blue-600 hover:from-primary-600 hover:to-blue-700 text-white font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
             >
-              <BiCode className="mr-2" />
+              <span className="mr-2">💻</span>
               Explore Programming Curriculum
             </Link>
           </div>
@@ -716,7 +695,7 @@ export default function PAITraining({ posts, inspirationContent, resourceContent
       </section>
 
       {/* Trainer Resources Section */}
-      <section id="trainer-resources" className="bg-neutral-50 dark:bg-neutral-900 py-16">
+      <section id="trainer-resources" className="bg-white dark:bg-neutral-900 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -726,44 +705,37 @@ export default function PAITraining({ posts, inspirationContent, resourceContent
             className="text-center mb-12"
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-neutral-800 dark:text-neutral-100">
-              Trainer Resources & Inspiration
+              Trainer Resources
             </h2>
             <p className="text-xl text-neutral-600 dark:text-neutral-400 max-w-3xl mx-auto">
-              Deepen your expertise with advanced guides, case studies, and philosophical frameworks for Personal AI training
+              Comprehensive guides, inspiration articles, and hands-on exercises for Personal AI development
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-8">
-            {allFeaturedContent.map((resource, index) => (
+          {/* Resource Grid */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[...inspirationContent, ...resourceContent].slice(0, 6).map((resource, index) => (
               <motion.div
                 key={resource.slug}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
                 className="group bg-white dark:bg-neutral-800 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-neutral-200 dark:border-neutral-700 hover:border-primary-300 dark:hover:border-primary-500"
               >
-                {/* Image */}
-                <div className="relative h-48 overflow-hidden">
-                  <img
-                    src={resource.image}
-                    alt={resource.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                  <div className="absolute top-4 left-4">
-                    <span className="px-3 py-1 bg-white/90 dark:bg-neutral-800/90 backdrop-blur-sm rounded-full text-sm font-medium text-neutral-700 dark:text-neutral-300">
-                      {resource.type}
-                    </span>
-                  </div>
-                  <div className="absolute top-4 right-4">
-                    <span className={`px-3 py-1 backdrop-blur-sm rounded-full text-sm font-medium ${
-                      resource.difficulty === 'Foundation' ? 'bg-green-500/90 text-white' :
-                      resource.difficulty === 'Intermediate' ? 'bg-yellow-500/90 text-white' :
-                      resource.difficulty === 'Advanced' ? 'bg-orange-500/90 text-white' :
-                      'bg-red-500/90 text-white'
+                {/* Header */}
+                <div className="p-6 bg-gradient-to-br from-primary-50 to-primary-100 dark:from-primary-900/20 dark:to-primary-800/20">
+                  <div className="flex items-center justify-between">
+                    <span className={`inline-block px-3 py-1 rounded-full text-sm font-medium ${
+                      resource.type === 'Inspiration Article' 
+                        ? 'bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300'
+                        : 'bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-300'
                     }`}>
-                      {resource.difficulty}
+                      {resource.type === 'Inspiration Article' ? '✨ Inspiration' : '📚 Guide'}
                     </span>
+                    <div className="text-primary-500">
+                      {resource.type === 'Inspiration Article' ? <span>💡</span> : <span>📚</span>}
+                    </div>
                   </div>
                 </div>
 
@@ -780,11 +752,11 @@ export default function PAITraining({ posts, inspirationContent, resourceContent
                   <div className="flex items-center justify-between text-sm text-neutral-500 dark:text-neutral-400 mb-4">
                     <div className="flex items-center space-x-4">
                       <div className="flex items-center space-x-1">
-                        <BiSupport />
+                        <span>👤</span>
                         <span>{resource.author}</span>
                       </div>
                       <div className="flex items-center space-x-1">
-                        <BiTime />
+                        <span>⏱️</span>
                         <span>{resource.duration}</span>
                       </div>
                     </div>
@@ -808,7 +780,7 @@ export default function PAITraining({ posts, inspirationContent, resourceContent
                     className="inline-flex items-center text-primary-500 hover:text-primary-600 font-medium transition-colors"
                   >
                     Read {resource.type === 'Inspiration Article' ? 'Article' : 'Guide'}
-                    <BiChevronRight className="ml-1" />
+                    <span className="ml-1">→</span>
                   </Link>
                 </div>
               </motion.div>
@@ -821,8 +793,283 @@ export default function PAITraining({ posts, inspirationContent, resourceContent
               href="/paiTraining/resources"
               className="inline-flex items-center px-8 py-4 rounded-xl bg-primary-500 hover:bg-primary-600 text-white font-semibold transition-all duration-300 transform hover:scale-105"
             >
-              <BiBook className="mr-2" />
+              <span className="mr-2">📚</span>
               Explore All Training Resources
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Exercises and Drills Section */}
+      <section className="bg-gradient-to-br from-purple-50 via-pink-50 to-orange-50 dark:from-purple-900/20 dark:via-pink-900/20 dark:to-orange-900/20 py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-neutral-800 dark:text-neutral-100">
+              Exercises and Drills
+            </h2>
+            <p className="text-xl text-neutral-600 dark:text-neutral-400 max-w-3xl mx-auto mb-8">
+              Interactive workbook-style exercises, coding drills, and hands-on labs for mastering PAI development skills
+            </p>
+            <div className="flex flex-wrap justify-center gap-4 text-sm">
+              <span className="inline-flex items-center px-4 py-2 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 rounded-full">
+                <span className="mr-2">💻</span>
+                Code Completion Drills
+              </span>
+              <span className="inline-flex items-center px-4 py-2 bg-pink-100 dark:bg-pink-900/30 text-pink-700 dark:text-pink-300 rounded-full">
+                <span className="mr-2">🎯</span>
+                Whiteboard Exercises
+              </span>
+              <span className="inline-flex items-center px-4 py-2 bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300 rounded-full">
+                <span className="mr-2">▶️</span>
+                Hands-on Labs
+              </span>
+              <span className="inline-flex items-center px-4 py-2 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full">
+                <span className="mr-2">🏆</span>
+                Project-Based Learning
+              </span>
+            </div>
+          </motion.div>
+
+          {/* Exercise Categories */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              viewport={{ once: true }}
+              className="bg-white dark:bg-neutral-800 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-neutral-200 dark:border-neutral-700 hover:border-purple-300 dark:hover:border-purple-500"
+            >
+              <div className="h-2 bg-gradient-to-r from-purple-500 to-pink-500"></div>
+              <div className="p-6">
+                <div className="text-center mb-4">
+                  <div className="text-4xl mb-3">🐍</div>
+                  <h3 className="text-xl font-bold text-neutral-800 dark:text-neutral-100 mb-2">Python Fundamentals</h3>
+                  <p className="text-sm text-neutral-600 dark:text-neutral-400">Duck typing, async patterns, and expressive design</p>
+                </div>
+                
+                <div className="space-y-2 mb-4">
+                  <div className="flex justify-between text-xs">
+                    <span className="text-neutral-500">Progress</span>
+                    <span className="text-neutral-500">2/5 exercises</span>
+                  </div>
+                  <div className="w-full bg-neutral-200 dark:bg-neutral-700 rounded-full h-2">
+                    <div className="bg-gradient-to-r from-purple-500 to-pink-500 h-2 rounded-full" style={{ width: '40%' }}></div>
+                  </div>
+                </div>
+
+                <div className="text-xs text-neutral-500 mb-4">
+                  Difficulty: <span className="text-orange-600 font-medium">Intermediate</span> • 
+                  Duration: <span className="font-medium">60-90 min each</span>
+                </div>
+
+                <Link
+                  href="/paiTraining/Exercises/Python/Fundamentals/duck_typing_mastery"
+                  className="inline-flex items-center text-purple-500 hover:text-purple-600 font-medium transition-colors"
+                >
+                  Start Duck Typing Exercise
+                  <span className="ml-1">→</span>
+                </Link>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="bg-white dark:bg-neutral-800 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-neutral-200 dark:border-neutral-700 hover:border-yellow-300 dark:hover:border-yellow-500"
+            >
+              <div className="h-2 bg-gradient-to-r from-yellow-500 to-orange-500"></div>
+              <div className="p-6">
+                <div className="text-center mb-4">
+                  <div className="text-4xl mb-3">⚡</div>
+                  <h3 className="text-xl font-bold text-neutral-800 dark:text-neutral-100 mb-2">JavaScript Async</h3>
+                  <p className="text-sm text-neutral-600 dark:text-neutral-400">Promise-based AI communication and real-time UIs</p>
+                </div>
+                
+                <div className="space-y-2 mb-4">
+                  <div className="flex justify-between text-xs">
+                    <span className="text-neutral-500">Progress</span>
+                    <span className="text-neutral-500">1/4 exercises</span>
+                  </div>
+                  <div className="w-full bg-neutral-200 dark:bg-neutral-700 rounded-full h-2">
+                    <div className="bg-gradient-to-r from-yellow-500 to-orange-500 h-2 rounded-full" style={{ width: '25%' }}></div>
+                  </div>
+                </div>
+
+                <div className="text-xs text-neutral-500 mb-4">
+                  Difficulty: <span className="text-orange-600 font-medium">Intermediate</span> • 
+                  Duration: <span className="font-medium">75-90 min each</span>
+                </div>
+
+                <Link
+                  href="/paiTraining/Exercises/JavaScript/Fundamentals/async_pai_interactions"
+                  className="inline-flex items-center text-yellow-600 hover:text-yellow-700 font-medium transition-colors"
+                >
+                  Start Async Exercise
+                  <span className="ml-1">→</span>
+                </Link>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              viewport={{ once: true }}
+              className="bg-white dark:bg-neutral-800 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-neutral-200 dark:border-neutral-700 hover:border-blue-300 dark:hover:border-blue-500"
+            >
+              <div className="h-2 bg-gradient-to-r from-blue-500 to-indigo-500"></div>
+              <div className="p-6">
+                <div className="text-center mb-4">
+                  <div className="text-4xl mb-3">🚀</div>
+                  <h3 className="text-xl font-bold text-neutral-800 dark:text-neutral-100 mb-2">C++ Performance</h3>
+                  <p className="text-sm text-neutral-600 dark:text-neutral-400">Memory optimization and real-time processing</p>
+                </div>
+                
+                <div className="space-y-2 mb-4">
+                  <div className="flex justify-between text-xs">
+                    <span className="text-neutral-500">Progress</span>
+                    <span className="text-neutral-500">0/6 exercises</span>
+                  </div>
+                  <div className="w-full bg-neutral-200 dark:bg-neutral-700 rounded-full h-2">
+                    <div className="bg-gradient-to-r from-blue-500 to-indigo-500 h-2 rounded-full" style={{ width: '0%' }}></div>
+                  </div>
+                </div>
+
+                <div className="text-xs text-neutral-500 mb-4">
+                  Difficulty: <span className="text-red-600 font-medium">Advanced</span> • 
+                  Duration: <span className="font-medium">90-120 min each</span>
+                </div>
+
+                <div className="inline-flex items-center text-neutral-400 font-medium">
+                  Coming Soon
+                  <span className="ml-1">⏱️</span>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Featured Exercises */}
+          <div className="grid md:grid-cols-2 gap-8 mb-12">
+            {exerciseContent.slice(0, 2).map((exercise, index) => (
+              <motion.div
+                key={exercise.slug}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="group bg-white dark:bg-neutral-800 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-neutral-200 dark:border-neutral-700 hover:border-primary-300 dark:hover:border-primary-500"
+              >
+                {/* Header */}
+                <div className="p-6 bg-gradient-to-br from-primary-50 to-primary-100 dark:from-primary-900/20 dark:to-primary-800/20">
+                  <div className="flex items-center justify-between">
+                    <span className={`inline-block px-3 py-1 rounded-full text-sm font-medium ${
+                      exercise.difficulty === 'Beginner' ? 'bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-300' :
+                      exercise.difficulty === 'Intermediate' ? 'bg-yellow-100 text-yellow-700 dark:bg-yellow-900/30 dark:text-yellow-300' :
+                      exercise.difficulty === 'Advanced' ? 'bg-orange-100 text-orange-700 dark:bg-orange-900/30 dark:text-orange-300' :
+                      'bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-300'
+                    }`}>
+                      {exercise.exercise_type} • {exercise.difficulty}
+                    </span>
+                    <div className="flex items-center space-x-2 text-primary-500">
+                      <span>💻</span>
+                      <span className="text-xs font-medium">{exercise.language}</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Content */}
+                <div className="p-6">
+                  <h3 className="text-xl font-bold text-neutral-800 dark:text-neutral-100 mb-2 group-hover:text-primary-500 transition-colors">
+                    {exercise.title}
+                  </h3>
+                  <p className="text-neutral-600 dark:text-neutral-400 mb-4 line-clamp-2">
+                    {exercise.description}
+                  </p>
+
+                  {/* Meta */}
+                  <div className="flex items-center justify-between text-sm text-neutral-500 dark:text-neutral-400 mb-4">
+                    <div className="flex items-center space-x-4">
+                      <div className="flex items-center space-x-1">
+                        <span>⏱️</span>
+                        <span>{exercise.duration}</span>
+                      </div>
+                      <div className="flex items-center space-x-1">
+                        <span>🎯</span>
+                        <span>Score: {exercise.difficulty_score}/10</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Features */}
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {exercise.whiteboard_required && (
+                      <span className="inline-flex items-center px-2 py-1 text-xs bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 rounded-lg">
+                        🎨 Whiteboard
+                      </span>
+                    )}
+                    {exercise.code_template_provided && (
+                      <span className="inline-flex items-center px-2 py-1 text-xs bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-lg">
+                        📝 Templates
+                      </span>
+                    )}
+                    {exercise.auto_grading && (
+                      <span className="inline-flex items-center px-2 py-1 text-xs bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 rounded-lg">
+                        ⚡ Auto-Graded
+                      </span>
+                    )}
+                  </div>
+
+                  {/* Action */}
+                  <Link
+                    href={`/paiTraining/Exercises/${exercise.slug}`}
+                    className="inline-flex items-center text-primary-500 hover:text-primary-600 font-medium transition-colors"
+                  >
+                    Start Exercise
+                    <span className="ml-1">▶️</span>
+                  </Link>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Exercise Stats */}
+          <div className="bg-white dark:bg-neutral-800 rounded-2xl shadow-lg p-8 mb-12">
+            <div className="grid md:grid-cols-4 gap-8 text-center">
+              <div>
+                <div className="text-3xl font-bold text-purple-500 mb-2">{exerciseContent.length}</div>
+                <div className="text-neutral-600 dark:text-neutral-400">Total Exercises</div>
+              </div>
+              <div>
+                <div className="text-3xl font-bold text-pink-500 mb-2">3</div>
+                <div className="text-neutral-600 dark:text-neutral-400">Programming Languages</div>
+              </div>
+              <div>
+                <div className="text-3xl font-bold text-orange-500 mb-2">4</div>
+                <div className="text-neutral-600 dark:text-neutral-400">Exercise Types</div>
+              </div>
+              <div>
+                <div className="text-3xl font-bold text-blue-500 mb-2">∞</div>
+                <div className="text-neutral-600 dark:text-neutral-400">Practice Opportunities</div>
+              </div>
+            </div>
+          </div>
+
+          {/* View All Button */}
+          <div className="text-center">
+            <Link
+              href="/paiTraining/exercises"
+              className="inline-flex items-center px-8 py-4 rounded-xl bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white font-semibold transition-all duration-300 transform hover:scale-105"
+            >
+              <span className="mr-2">🏆</span>
+              Explore All Exercises & Drills
             </Link>
           </div>
         </div>
@@ -876,7 +1123,7 @@ export default function PAITraining({ posts, inspirationContent, resourceContent
                     onClick={() => setSelectedProgram(null)}
                     className="p-2 rounded-lg text-neutral-400 hover:text-neutral-600 dark:hover:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-neutral-700 transition-colors"
                   >
-                    <BiChevronRight className="text-xl rotate-90" />
+                    <span className="text-xl rotate-90">→</span>
                   </button>
                 </div>
 
@@ -895,11 +1142,11 @@ export default function PAITraining({ posts, inspirationContent, resourceContent
                 {/* Meta Info */}
                 <div className="grid grid-cols-2 gap-4 mb-6">
                   <div className="flex items-center space-x-2 text-neutral-600 dark:text-neutral-400">
-                    <BiTime className="text-primary-500" />
+                    <span>⏱️</span>
                     <span>{selectedProgram.duration}</span>
                   </div>
                   <div className="flex items-center space-x-2 text-neutral-600 dark:text-neutral-400">
-                    <BiBook className="text-primary-500" />
+                    <span>📚</span>
                     <span>{selectedProgram.modules} training modules</span>
                   </div>
                 </div>
@@ -936,7 +1183,7 @@ export default function PAITraining({ posts, inspirationContent, resourceContent
                         : 'bg-neutral-100 dark:bg-neutral-700 text-neutral-700 dark:text-neutral-300 hover:bg-neutral-200 dark:hover:bg-neutral-600'
                     }`}
                   >
-                    <BiBookmark className="mr-2" />
+                    <span className="mr-2">🔖</span>
                     {bookmarkedPrograms.has(selectedProgram.id) ? 'Bookmarked' : 'Bookmark'}
                   </button>
                 </div>
@@ -953,12 +1200,14 @@ export async function getStaticProps() {
   const posts = getAllPosts();
   const inspirationContent = getAllInspirationContent();
   const resourceContent = getAllResourceContent();
+  const exerciseContent = getAllExerciseContent();
   
   return {
     props: {
       posts,
       inspirationContent,
       resourceContent,
+      exerciseContent,
     },
   };
 } 

@@ -252,45 +252,63 @@ function getAllPAITrainingContent(subDirectory) {
 
     contentItems.push(...directContentItems);
 
-    // If this is the Resources directory, also check for language-specific subfolders
-    if (subDirectory === 'Resources') {
+    // Check for language-specific subfolders for Resources AND Exercises
+    if (subDirectory === 'Resources' || subDirectory === 'Exercises') {
       const languageFolders = ['Python', 'CPlusPlus', 'JavaScript'];
       
       for (const langFolder of languageFolders) {
         const langDirectory = path.join(directory, langFolder);
         if (fs.existsSync(langDirectory) && fs.statSync(langDirectory).isDirectory()) {
-          const langFiles = fs.readdirSync(langDirectory)
-            .filter((item) => item.endsWith('.md'))
-            .map((item) => item.replace(/\.md$/, ''));
-          
-          // Process language-specific files
-          const langContentItems = langFiles.map((filename) => {
-            const slug = `${langFolder}/${filename}`;
-            const fullPath = path.join(langDirectory, `${filename}.md`)
-            const fileContents = fs.readFileSync(fullPath, 'utf8')
-            const { data: frontmatter } = matter(fileContents)
-
-            const date = formatDate(frontmatter.date);
-            const processedImage = processImagePath(frontmatter.image);
-
-            return {
-              slug,
-              title: frontmatter.title || '',
-              description: frontmatter.description || '',
-              author: frontmatter.author || '',
-              duration: frontmatter.duration || '',
-              difficulty: frontmatter.difficulty || '',
-              image: processedImage,
-              tags: frontmatter.tags || [],
-              type: frontmatter.type || '',
-              category: frontmatter.category || langFolder, // Use folder name as category
-              series: frontmatter.series || '',
-              series_part: frontmatter.series_part || null,
-              language: langFolder, // Add language identifier
-              date,
+          // Recursively process nested directories for exercises
+          const processDirectory = (dir, basePath = '') => {
+            const items = fs.readdirSync(dir);
+            let results = [];
+            
+            for (const item of items) {
+              const itemPath = path.join(dir, item);
+              const stat = fs.statSync(itemPath);
+              
+              if (stat.isDirectory()) {
+                // Recursively process subdirectories
+                const subResults = processDirectory(itemPath, basePath ? `${basePath}/${item}` : item);
+                results.push(...subResults);
+              } else if (item.endsWith('.md')) {
+                const filename = item.replace(/\.md$/, '');
+                const slug = basePath ? `${langFolder}/${basePath}/${filename}` : `${langFolder}/${filename}`;
+                
+                const fileContents = fs.readFileSync(itemPath, 'utf8');
+                const { data: frontmatter } = matter(fileContents);
+                
+                const date = formatDate(frontmatter.date);
+                const processedImage = processImagePath(frontmatter.image);
+                
+                results.push({
+                  slug,
+                  title: frontmatter.title || '',
+                  description: frontmatter.description || '',
+                  author: frontmatter.author || '',
+                  duration: frontmatter.duration || '',
+                  difficulty: frontmatter.difficulty || '',
+                  image: processedImage,
+                  tags: frontmatter.tags || [],
+                  type: frontmatter.type || '',
+                  category: frontmatter.category || langFolder,
+                  series: frontmatter.series || '',
+                  series_part: frontmatter.series_part || null,
+                  language: langFolder,
+                  exercise_type: frontmatter.exercise_type || '',
+                  difficulty_score: frontmatter.difficulty_score || 0,
+                  whiteboard_required: frontmatter.whiteboard_required || false,
+                  code_template_provided: frontmatter.code_template_provided || false,
+                  auto_grading: frontmatter.auto_grading || false,
+                  date,
+                });
+              }
             }
-          });
-
+            return results;
+          };
+          
+          const langContentItems = processDirectory(langDirectory);
           contentItems.push(...langContentItems);
         }
       }
@@ -315,6 +333,11 @@ export function getAllResourceContent() {
   return getAllPAITrainingContent('Resources');
 }
 
+// Get all exercise content
+export function getAllExerciseContent() {
+  return getAllPAITrainingContent('Exercises');
+}
+
 // Generic function to get all slugs from a PAI Training subdirectory
 function getAllPAITrainingSlugs(subDirectory) {
   const directory = path.join(paiTrainingDirectory, subDirectory);
@@ -333,18 +356,37 @@ function getAllPAITrainingSlugs(subDirectory) {
     
     slugs.push(...directFiles);
     
-    // If this is the Resources directory, also check for language-specific subfolders
-    if (subDirectory === 'Resources') {
+    // Check for language-specific subfolders for Resources AND Exercises
+    if (subDirectory === 'Resources' || subDirectory === 'Exercises') {
       const languageFolders = ['Python', 'CPlusPlus', 'JavaScript'];
       
       for (const langFolder of languageFolders) {
         const langDirectory = path.join(directory, langFolder);
         if (fs.existsSync(langDirectory) && fs.statSync(langDirectory).isDirectory()) {
-          const langFiles = fs.readdirSync(langDirectory)
-            .filter((item) => item.endsWith('.md'))
-            .map((item) => `${langFolder}/${item.replace(/\.md$/, '')}`);
+          // Recursively process nested directories for exercises
+          const processDirectory = (dir, basePath = '') => {
+            const items = fs.readdirSync(dir);
+            let results = [];
+            
+            for (const item of items) {
+              const itemPath = path.join(dir, item);
+              const stat = fs.statSync(itemPath);
+              
+              if (stat.isDirectory()) {
+                // Recursively process subdirectories
+                const subResults = processDirectory(itemPath, basePath ? `${basePath}/${item}` : item);
+                results.push(...subResults);
+              } else if (item.endsWith('.md')) {
+                const filename = item.replace(/\.md$/, '');
+                const slug = basePath ? `${langFolder}/${basePath}/${filename}` : `${langFolder}/${filename}`;
+                results.push(slug);
+              }
+            }
+            return results;
+          };
           
-          slugs.push(...langFiles);
+          const langSlugs = processDirectory(langDirectory);
+          slugs.push(...langSlugs);
         }
       }
     }
@@ -364,16 +406,20 @@ export function getAllResourceSlugs() {
   return getAllPAITrainingSlugs('Resources');
 }
 
+export function getAllExerciseSlugs() {
+  return getAllPAITrainingSlugs('Exercises');
+}
+
 // Generic function to get content by slug from a PAI Training subdirectory
 async function getPAITrainingContentBySlug(subDirectory, slug) {
   let fullPath;
   
-  // Check if slug contains a subfolder (e.g., "Python/some-article")
+  // Check if slug contains a subfolder (e.g., "Python/some-article" or "JavaScript/Fundamentals/async_pai_interactions")
   if (slug.includes('/')) {
     const parts = slug.split('/');
-    const subfolder = parts[0];
-    const filename = parts.slice(1).join('/');
-    fullPath = path.join(paiTrainingDirectory, subDirectory, subfolder, `${filename}.md`);
+    const subfolder = parts[0]; // Language folder (Python, JavaScript, etc.)
+    const nestedPath = parts.slice(1).join('/'); // Remaining path
+    fullPath = path.join(paiTrainingDirectory, subDirectory, subfolder, `${nestedPath}.md`);
   } else {
     // Direct file in the subdirectory
     fullPath = path.join(paiTrainingDirectory, subDirectory, `${slug}.md`);
@@ -424,6 +470,10 @@ export async function getInspirationBySlug(slug) {
 
 export async function getResourceBySlug(slug) {
   return getPAITrainingContentBySlug('Resources', slug);
+}
+
+export async function getExerciseBySlug(slug) {
+  return getPAITrainingContentBySlug('Exercises', slug);
 }
 
 // Function to process generic markdown content
