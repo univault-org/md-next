@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import { getMDXContent } from '@/lib/api'
-import { BiGroup, BiAtom, BiShield, BiWorld, BiBrain, BiNetworkChart, BiHeart } from 'react-icons/bi'
+import { BiGroup, BiShield, BiWorld, BiBrain, BiNetworkChart, BiHeart } from 'react-icons/bi'
 
 export default function About({ source, frontmatter = {} }) {
   const {
@@ -56,7 +56,7 @@ export default function About({ source, frontmatter = {} }) {
         <div className="flex flex-col md:flex-row items-center gap-8">
           <div className="md:w-1/3">
             <div className="w-24 h-24 mx-auto text-primary-500 flex items-center justify-center bg-white dark:bg-neutral-700 rounded-full shadow-md">
-              <BiGroup className="w-12 h-12" />
+              <span className="text-2xl">⚛️</span>
             </div>
           </div>
           <div className="md:w-2/3">
@@ -86,7 +86,7 @@ export default function About({ source, frontmatter = {} }) {
           {/* Harmonic Encoder & Networks */}
           <div className="p-8 rounded-xl border-2 border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-800">
             <div className="w-16 h-16 mx-auto mb-6 text-primary-500 flex items-center justify-center bg-primary-50 dark:bg-primary-900/30 rounded-full">
-              <BiNetworkChart className="w-8 h-8" />
+              <span className="text-2xl">⚛️</span>
             </div>
             <h3 className="text-2xl font-semibold mb-4 text-center text-neutral-800 dark:text-neutral-100">
               Harmonic Encoder & Networks
@@ -113,7 +113,7 @@ export default function About({ source, frontmatter = {} }) {
           {/* Phase-based Wave Computing */}
           <div className="p-8 rounded-xl border-2 border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-800">
             <div className="w-16 h-16 mx-auto mb-6 text-primary-500 flex items-center justify-center bg-primary-50 dark:bg-primary-900/30 rounded-full">
-              <BiBrain className="w-8 h-8" />
+              <span className="text-2xl">🧠</span>
             </div>
             <h3 className="text-2xl font-semibold mb-4 text-center text-neutral-800 dark:text-neutral-100">
               Phase-based Wave Computing
@@ -140,7 +140,7 @@ export default function About({ source, frontmatter = {} }) {
           {/* Emergence Collective Intelligence */}
           <div className="p-8 rounded-xl border-2 border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-800">
             <div className="w-16 h-16 mx-auto mb-6 text-primary-500 flex items-center justify-center bg-primary-50 dark:bg-primary-900/30 rounded-full">
-              <BiHeart className="w-8 h-8" />
+              <span className="text-2xl">❤️</span>
             </div>
             <h3 className="text-2xl font-semibold mb-4 text-center text-neutral-800 dark:text-neutral-100">
               Emergence Collective Intelligence
@@ -175,7 +175,7 @@ export default function About({ source, frontmatter = {} }) {
           {/* PAI Training & Education */}
           <div className="p-8 rounded-xl border-2 border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-800">
             <div className="w-16 h-16 mx-auto mb-6 text-primary-500 flex items-center justify-center bg-primary-50 dark:bg-primary-900/30 rounded-full">
-              <BiAtom className="w-8 h-8" />
+              <span className="text-2xl">⚛️</span>
             </div>
             <h3 className="text-2xl font-semibold mb-4 text-center text-neutral-800 dark:text-neutral-100">
               PAI Training & Education
@@ -203,7 +203,7 @@ export default function About({ source, frontmatter = {} }) {
           {/* Global PAI Ecosystem */}
           <div className="p-8 rounded-xl border-2 border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-800">
             <div className="w-16 h-16 mx-auto mb-6 text-primary-500 flex items-center justify-center bg-primary-50 dark:bg-primary-900/30 rounded-full">
-              <BiWorld className="w-8 h-8" />
+              <span className="text-2xl">🌍</span>
             </div>
             <h3 className="text-2xl font-semibold mb-4 text-center text-neutral-800 dark:text-neutral-100">
               Global PAI Ecosystem

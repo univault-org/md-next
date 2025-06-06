@@ -27,7 +27,6 @@ import {
   BiHeart,
   BiEye,
   BiTarget,
-  BiTrendingUp,
   BiAward,
   BiUser,
   BiCalendar,
@@ -36,6 +35,16 @@ import {
   BiClock,
   BiTrophy,
   BiShareAlt,
+  BiChevronDown,
+  BiVideo,
+  BiPeople,
+  BiCertificate,
+  BiStar,
+  BiSearch,
+  BiFilter,
+  BiMessage,
+  BiTargetLock,
+  BiShield
 } from "react-icons/bi";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { oneDark, oneLight } from "react-syntax-highlighter/dist/cjs/styles/prism";

@@ -15,12 +15,27 @@ import {
   BiTarget,
   BiLightbulb,
   BiCode,
-  BiMath,
   BiHeart,
-  BiTrendingUp,
   BiRocket,
   BiHome,
-  BiCheck
+  BiCheck,
+  BiBookOpen,
+  BiCalendar,
+  BiChevronDown,
+  BiChevronRight,
+  BiVideo,
+  BiPeople,
+  BiCertificate,
+  BiTrophy,
+  BiStar,
+  BiSearch,
+  BiFilter,
+  BiDownload,
+  BiShare,
+  BiBookmark,
+  BiMessage,
+  BiTargetLock,
+  BiShield
 } from "react-icons/bi";
 import TutorialReader from "@/components/learning/TutorialReader";
 import { getPAITrainingBySlug } from "@/lib/api";

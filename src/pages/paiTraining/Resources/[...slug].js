@@ -225,7 +225,7 @@ const SmartWhiteboard = ({ isOpen, onToggle }) => {
 
 // Reading Progress Component
 const ReadingProgress = ({ progress }) => (
-  <div className="sticky top-0 z-30 bg-white/90 dark:bg-neutral-900/90 backdrop-blur-sm border-b border-neutral-200 dark:border-neutral-700 transition-all duration-300">
+  <div className="fixed bottom-0 left-0 right-0 z-30 bg-white/95 dark:bg-neutral-900/95 backdrop-blur-sm border-t border-neutral-200 dark:border-neutral-700 transition-all duration-300">
     <div className="max-w-4xl mx-auto px-4 py-3">
       <div className="flex items-center justify-between text-sm text-neutral-600 dark:text-neutral-400">
         <span>Reading Progress</span>
@@ -376,7 +376,7 @@ export default function EnhancedResourceArticlePage({ source, frontmatter }) {
         </button>
       </div>
 
-      <div className="bg-neutral-50 dark:bg-neutral-900 min-h-screen">
+      <div className="bg-neutral-50 dark:bg-neutral-900 min-h-screen pb-20">
         <article ref={articleRef} className="max-w-4xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
           {/* Enhanced Header */}
           <header className="mb-12 border-b border-neutral-200 dark:border-neutral-700 pb-8 transition-all duration-300">
@@ -531,7 +531,9 @@ export default function EnhancedResourceArticlePage({ source, frontmatter }) {
 export async function getStaticPaths() {
   const slugs = getAllResourceSlugs();
   const paths = slugs.map((slug) => ({
-    params: { slug },
+    params: { 
+      slug: slug.includes('/') ? slug.split('/') : [slug]
+    },
   }));
   return {
     paths,
@@ -540,7 +542,11 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const articleData = await getResourceBySlug(params.slug);
+  // Handle catch-all route - slug is an array
+  const slugArray = params.slug;
+  const slug = Array.isArray(slugArray) ? slugArray.join('/') : slugArray;
+  
+  const articleData = await getResourceBySlug(slug);
   if (!articleData) {
     return {
       notFound: true,

@@ -72,7 +72,7 @@ const trainingPrograms = [
     id: "convex-optimization",
     title: "Decision Intelligence Mastery",
     description: "Advanced training in optimization techniques for intelligent decision-making",
-    icon: <BiTrendingUp className="text-2xl" />,
+    icon: <span className="text-2xl">📈</span>,
     difficulty: "Advanced",
     duration: "8 weeks",
     modules: 6,

@@ -217,35 +217,88 @@ function getAllPAITrainingContent(subDirectory) {
       return []
     }
 
-    const slugs = fs.readdirSync(directory)
-      .filter((slug) => slug.endsWith('.md'))
-      .map((slug) => slug.replace(/\.md$/, ''))
+    let contentItems = [];
 
-    const contentItems = slugs
-      .map((slug) => {
-        const fullPath = path.join(directory, `${slug}.md`)
-        const fileContents = fs.readFileSync(fullPath, 'utf8')
-        const { data: frontmatter } = matter(fileContents)
+    // Get direct markdown files in the subdirectory
+    const directFiles = fs.readdirSync(directory)
+      .filter((item) => item.endsWith('.md'))
+      .map((item) => item.replace(/\.md$/, ''));
 
-        const date = formatDate(frontmatter.date);
-        const processedImage = processImagePath(frontmatter.image);
+    // Process direct files
+    const directContentItems = directFiles.map((slug) => {
+      const fullPath = path.join(directory, `${slug}.md`)
+      const fileContents = fs.readFileSync(fullPath, 'utf8')
+      const { data: frontmatter } = matter(fileContents)
 
-        return {
-          slug,
-          title: frontmatter.title || '',
-          description: frontmatter.description || '',
-          author: frontmatter.author || '',
-          duration: frontmatter.duration || '',
-          difficulty: frontmatter.difficulty || '',
-          image: processedImage,
-          tags: frontmatter.tags || [],
-          type: frontmatter.type || '',
-          date,
+      const date = formatDate(frontmatter.date);
+      const processedImage = processImagePath(frontmatter.image);
+
+      return {
+        slug,
+        title: frontmatter.title || '',
+        description: frontmatter.description || '',
+        author: frontmatter.author || '',
+        duration: frontmatter.duration || '',
+        difficulty: frontmatter.difficulty || '',
+        image: processedImage,
+        tags: frontmatter.tags || [],
+        type: frontmatter.type || '',
+        category: frontmatter.category || '',
+        series: frontmatter.series || '',
+        series_part: frontmatter.series_part || null,
+        date,
+      }
+    });
+
+    contentItems.push(...directContentItems);
+
+    // If this is the Resources directory, also check for language-specific subfolders
+    if (subDirectory === 'Resources') {
+      const languageFolders = ['Python', 'CPlusPlus', 'JavaScript'];
+      
+      for (const langFolder of languageFolders) {
+        const langDirectory = path.join(directory, langFolder);
+        if (fs.existsSync(langDirectory) && fs.statSync(langDirectory).isDirectory()) {
+          const langFiles = fs.readdirSync(langDirectory)
+            .filter((item) => item.endsWith('.md'))
+            .map((item) => item.replace(/\.md$/, ''));
+          
+          // Process language-specific files
+          const langContentItems = langFiles.map((filename) => {
+            const slug = `${langFolder}/${filename}`;
+            const fullPath = path.join(langDirectory, `${filename}.md`)
+            const fileContents = fs.readFileSync(fullPath, 'utf8')
+            const { data: frontmatter } = matter(fileContents)
+
+            const date = formatDate(frontmatter.date);
+            const processedImage = processImagePath(frontmatter.image);
+
+            return {
+              slug,
+              title: frontmatter.title || '',
+              description: frontmatter.description || '',
+              author: frontmatter.author || '',
+              duration: frontmatter.duration || '',
+              difficulty: frontmatter.difficulty || '',
+              image: processedImage,
+              tags: frontmatter.tags || [],
+              type: frontmatter.type || '',
+              category: frontmatter.category || langFolder, // Use folder name as category
+              series: frontmatter.series || '',
+              series_part: frontmatter.series_part || null,
+              language: langFolder, // Add language identifier
+              date,
+            }
+          });
+
+          contentItems.push(...langContentItems);
         }
-      })
-      .sort((item1, item2) => (item1.date > item2.date ? -1 : 1))
+      }
+    }
 
-    return contentItems
+    // Sort all content by date
+    return contentItems.sort((item1, item2) => (item1.date > item2.date ? -1 : 1));
+
   } catch (error) {
     console.error(`Error getting content from ${subDirectory}:`, error)
     return []
@@ -270,9 +323,33 @@ function getAllPAITrainingSlugs(subDirectory) {
       console.warn(`Directory not found for slugs: ${directory}`);
       return [];
     }
-    return fs.readdirSync(directory)
-      .filter((slug) => slug.endsWith('.md'))
-      .map((slug) => slug.replace(/\.md$/, ''));
+    
+    let slugs = [];
+    
+    // Get direct markdown files in the subdirectory
+    const directFiles = fs.readdirSync(directory)
+      .filter((item) => item.endsWith('.md'))
+      .map((item) => item.replace(/\.md$/, ''));
+    
+    slugs.push(...directFiles);
+    
+    // If this is the Resources directory, also check for language-specific subfolders
+    if (subDirectory === 'Resources') {
+      const languageFolders = ['Python', 'CPlusPlus', 'JavaScript'];
+      
+      for (const langFolder of languageFolders) {
+        const langDirectory = path.join(directory, langFolder);
+        if (fs.existsSync(langDirectory) && fs.statSync(langDirectory).isDirectory()) {
+          const langFiles = fs.readdirSync(langDirectory)
+            .filter((item) => item.endsWith('.md'))
+            .map((item) => `${langFolder}/${item.replace(/\.md$/, '')}`);
+          
+          slugs.push(...langFiles);
+        }
+      }
+    }
+    
+    return slugs;
   } catch (error) {
     console.error(`Error getting slugs from ${subDirectory}:`, error);
     return [];
@@ -289,7 +366,19 @@ export function getAllResourceSlugs() {
 
 // Generic function to get content by slug from a PAI Training subdirectory
 async function getPAITrainingContentBySlug(subDirectory, slug) {
-  const fullPath = path.join(paiTrainingDirectory, subDirectory, `${slug}.md`);
+  let fullPath;
+  
+  // Check if slug contains a subfolder (e.g., "Python/some-article")
+  if (slug.includes('/')) {
+    const parts = slug.split('/');
+    const subfolder = parts[0];
+    const filename = parts.slice(1).join('/');
+    fullPath = path.join(paiTrainingDirectory, subDirectory, subfolder, `${filename}.md`);
+  } else {
+    // Direct file in the subdirectory
+    fullPath = path.join(paiTrainingDirectory, subDirectory, `${slug}.md`);
+  }
+  
   try {
     if (!fs.existsSync(fullPath)) {
       console.warn(`Content not found: ${subDirectory}/${slug}.md`);

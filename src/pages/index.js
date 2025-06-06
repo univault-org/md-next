@@ -6,10 +6,19 @@ import {
   BiLayer, // For organization - stacked layers
   BiGift, // For legacy/inheritance - gift/passing on
   BiShield, // For data protection/sovereignty
-  BiAtom,        // For quantum computing
   BiSignal5,       // For AI/ML
   BiFingerprint,
-  BiLinkExternal
+  BiLinkExternal,
+  BiRocket,       // For breakthrough innovations
+  BiLightbulb,    // For intelligence/insights
+  BiTrendingUp,   // For optimization
+  BiCog,          // For automation
+  BiWifi,         // For connectivity
+  BiLock,         // For privacy
+  BiTrophy,       // For achievements
+  BiHeart,        // For wellbeing
+  BiBookOpen,     // For learning
+  BiMessage       // For communication
 } from "react-icons/bi";
 
 export default function Home({ content, metadata }) {
@@ -39,7 +48,7 @@ export default function Home({ content, metadata }) {
     {
       title: "Harmonic Encoder & Networks",
       description: "Revolutionary technologies enabling Personal AIs to train and operate efficiently on personal devices. When billions of these devices connect, they create a powerful distributed architecture for the next wave of PAI applications and services.",
-      icon: <BiAtom className="text-3xl" />,
+      icon: <span className="text-3xl">⚛️</span>,
     },
     {
         title: "Phase-based Wave Computing",
