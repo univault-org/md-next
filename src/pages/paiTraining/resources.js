@@ -661,18 +661,270 @@ export default function LearningResources() {
           </div>
         </section>
 
-        {/* Coming Soon Section */}
+        {/* Interactive Exercises & Drills Section */}
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          <div className="text-center">
-            <h2 className="text-3xl font-bold mb-4 text-neutral-800 dark:text-neutral-100">
-              More Features Coming Soon
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-neutral-800 dark:text-neutral-100">
+              Interactive Exercises & Drills
             </h2>
-            <p className="text-lg text-neutral-600 dark:text-neutral-400 mb-8">
-              We're working on adding more interactive features, AI assistance, and comprehensive learning paths.
+            <p className="text-lg text-neutral-600 dark:text-neutral-400 max-w-3xl mx-auto">
+              Hands-on coding exercises with real execution capabilities. Practice C++, JavaScript, and Python with instant feedback and guided learning.
             </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+            {/* C++ Memory Management Exercise */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              viewport={{ once: true }}
+              className="group bg-white dark:bg-neutral-800 rounded-2xl overflow-hidden border border-neutral-200 dark:border-neutral-700 hover:border-primary-300 dark:hover:border-primary-500 transition-all duration-300 hover:shadow-xl"
+            >
+              {/* Header with Language Icon */}
+              <div className="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 p-6 border-b border-neutral-200 dark:border-neutral-700">
+                <div className="flex items-center justify-between mb-3">
+                  <div className="flex items-center space-x-2">
+                    <span className="text-2xl">🚀</span>
+                    <span className="font-semibold text-blue-600 dark:text-blue-400">C++</span>
+                  </div>
+                  <span className="px-2 py-1 bg-orange-100 text-orange-700 dark:bg-orange-900/30 dark:text-orange-300 text-xs font-medium rounded">
+                    Advanced
+                  </span>
+                </div>
+                <h3 className="text-xl font-bold text-neutral-800 dark:text-neutral-100 group-hover:text-primary-500 transition-colors">
+                  Memory Management Patterns
+                </h3>
+                <p className="text-sm text-neutral-600 dark:text-neutral-400 mt-2">
+                  Master RAII, smart pointers, and custom allocators used in high-performance systems like llama.cpp
+                </p>
+              </div>
+
+              <div className="p-6">
+                <div className="flex items-center justify-between text-sm text-neutral-500 dark:text-neutral-400 mb-4">
+                  <div className="flex items-center space-x-3">
+                    <span className="flex items-center space-x-1">
+                      <span>⏱️</span>
+                      <span>45-60 min</span>
+                    </span>
+                    <span className="flex items-center space-x-1">
+                      <span>💻</span>
+                      <span>3 Exercises</span>
+                    </span>
+                  </div>
+                </div>
+
+                <div className="flex flex-wrap gap-2 mb-4">
+                  <span className="px-2 py-1 text-xs bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded">RAII</span>
+                  <span className="px-2 py-1 text-xs bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 rounded">Smart Pointers</span>
+                  <span className="px-2 py-1 text-xs bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 rounded">Performance</span>
+                </div>
+
+                <div className="space-y-2 mb-6">
+                  <div className="flex items-center space-x-2 text-sm">
+                    <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                    <span className="text-neutral-600 dark:text-neutral-400">RAII Memory Mapper</span>
+                  </div>
+                  <div className="flex items-center space-x-2 text-sm">
+                    <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                    <span className="text-neutral-600 dark:text-neutral-400">Smart Pointer Tensor System</span>
+                  </div>
+                  <div className="flex items-center space-x-2 text-sm">
+                    <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                    <span className="text-neutral-600 dark:text-neutral-400">Memory Pool Allocator</span>
+                  </div>
+                </div>
+
+                <Link
+                  href="/paiTraining/Exercises/CPlusPlus/Advanced/memory_management_patterns"
+                  className="block w-full px-4 py-3 bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded-xl transition-colors text-center"
+                >
+                  Start C++ Exercise
+                </Link>
+              </div>
+            </motion.div>
+
+            {/* JavaScript Callback Patterns Exercise */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="group bg-white dark:bg-neutral-800 rounded-2xl overflow-hidden border border-neutral-200 dark:border-neutral-700 hover:border-primary-300 dark:hover:border-primary-500 transition-all duration-300 hover:shadow-xl"
+            >
+              {/* Header with Language Icon */}
+              <div className="bg-gradient-to-br from-yellow-50 to-orange-50 dark:from-yellow-900/20 dark:to-orange-900/20 p-6 border-b border-neutral-200 dark:border-neutral-700">
+                <div className="flex items-center justify-between mb-3">
+                  <div className="flex items-center space-x-2">
+                    <span className="text-2xl">⚡</span>
+                    <span className="font-semibold text-yellow-600 dark:text-yellow-400">JavaScript</span>
+                  </div>
+                  <span className="px-2 py-1 bg-orange-100 text-orange-700 dark:bg-orange-900/30 dark:text-orange-300 text-xs font-medium rounded">
+                    Advanced
+                  </span>
+                </div>
+                <h3 className="text-xl font-bold text-neutral-800 dark:text-neutral-100 group-hover:text-primary-500 transition-colors">
+                  Callback Patterns & Future Events
+                </h3>
+                <p className="text-sm text-neutral-600 dark:text-neutral-400 mt-2">
+                  Master event anticipation, async patterns, and resilient callback chains for robust applications
+                </p>
+              </div>
+
+              <div className="p-6">
+                <div className="flex items-center justify-between text-sm text-neutral-500 dark:text-neutral-400 mb-4">
+                  <div className="flex items-center space-x-3">
+                    <span className="flex items-center space-x-1">
+                      <span>⏱️</span>
+                      <span>45-60 min</span>
+                    </span>
+                    <span className="flex items-center space-x-1">
+                      <span>💻</span>
+                      <span>3 Exercises</span>
+                    </span>
+                  </div>
+                </div>
+
+                <div className="flex flex-wrap gap-2 mb-4">
+                  <span className="px-2 py-1 text-xs bg-yellow-100 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-300 rounded">Async</span>
+                  <span className="px-2 py-1 text-xs bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 rounded">Events</span>
+                  <span className="px-2 py-1 text-xs bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 rounded">Reactive</span>
+                </div>
+
+                <div className="space-y-2 mb-6">
+                  <div className="flex items-center space-x-2 text-sm">
+                    <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                    <span className="text-neutral-600 dark:text-neutral-400">Event Anticipation Patterns</span>
+                  </div>
+                  <div className="flex items-center space-x-2 text-sm">
+                    <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                    <span className="text-neutral-600 dark:text-neutral-400">Resilient Callback Chains</span>
+                  </div>
+                  <div className="flex items-center space-x-2 text-sm">
+                    <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                    <span className="text-neutral-600 dark:text-neutral-400">Event Stream Processing</span>
+                  </div>
+                </div>
+
+                <Link
+                  href="/paiTraining/Exercises/JavaScript/Advanced/callback_patterns_future_events"
+                  className="block w-full px-4 py-3 bg-yellow-500 hover:bg-yellow-600 text-white font-semibold rounded-xl transition-colors text-center"
+                >
+                  Start JavaScript Exercise
+                </Link>
+              </div>
+            </motion.div>
+
+            {/* All Exercises Link */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              viewport={{ once: true }}
+              className="group bg-gradient-to-br from-primary-50 to-purple-50 dark:from-primary-900/20 dark:to-purple-900/20 rounded-2xl overflow-hidden border border-primary-200 dark:border-primary-700 hover:border-primary-300 dark:hover:border-primary-500 transition-all duration-300 hover:shadow-xl flex flex-col justify-center items-center text-center p-8"
+            >
+              <div className="text-4xl mb-4">🎯</div>
+              <h3 className="text-xl font-bold text-neutral-800 dark:text-neutral-100 mb-3">
+                Explore All Exercises
+              </h3>
+              <p className="text-neutral-600 dark:text-neutral-400 mb-6">
+                Access our complete collection of interactive coding exercises across Python, JavaScript, and C++
+              </p>
+              
+              <div className="grid grid-cols-2 gap-4 w-full mb-6 text-sm">
+                <div className="bg-white dark:bg-neutral-800 rounded-lg p-3 border border-neutral-200 dark:border-neutral-700">
+                  <div className="font-semibold text-green-600 dark:text-green-400">🐍 Python</div>
+                  <div className="text-neutral-500 dark:text-neutral-400">7 exercises</div>
+                </div>
+                <div className="bg-white dark:bg-neutral-800 rounded-lg p-3 border border-neutral-200 dark:border-neutral-700">
+                  <div className="font-semibold text-yellow-600 dark:text-yellow-400">⚡ JavaScript</div>
+                  <div className="text-neutral-500 dark:text-neutral-400">2 exercises</div>
+                </div>
+                <div className="bg-white dark:bg-neutral-800 rounded-lg p-3 border border-neutral-200 dark:border-neutral-700">
+                  <div className="font-semibold text-blue-600 dark:text-blue-400">🚀 C++</div>
+                  <div className="text-neutral-500 dark:text-neutral-400">1 exercise</div>
+                </div>
+                <div className="bg-white dark:bg-neutral-800 rounded-lg p-3 border border-neutral-200 dark:border-neutral-700">
+                  <div className="font-semibold text-primary-600 dark:text-primary-400">✨ Total</div>
+                  <div className="text-neutral-500 dark:text-neutral-400">11 exercises</div>
+                </div>
+              </div>
+
+              <Link
+                href="/paiTraining/exercises"
+                className="inline-flex items-center px-6 py-3 bg-primary-500 hover:bg-primary-600 text-white font-semibold rounded-xl transition-all duration-300 group-hover:scale-105"
+              >
+                View All Exercises
+                <span className="ml-2">→</span>
+              </Link>
+            </motion.div>
+          </div>
+
+          {/* Features Highlight */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            viewport={{ once: true }}
+            className="bg-gradient-to-r from-primary-500/10 to-purple-500/10 dark:from-primary-900/20 dark:to-purple-900/20 rounded-2xl p-8 border border-primary-200 dark:border-primary-700"
+          >
+            <h3 className="text-2xl font-bold text-center mb-8 text-neutral-800 dark:text-neutral-100">
+              Interactive Code Execution Features
+            </h3>
+            
+            <div className="grid md:grid-cols-4 gap-6">
+              <div className="text-center">
+                <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-3">
+                  <span className="text-white text-xl">▶️</span>
+                </div>
+                <h4 className="font-semibold text-neutral-800 dark:text-neutral-100 mb-2">Real Execution</h4>
+                <p className="text-sm text-neutral-600 dark:text-neutral-400">
+                  Run JavaScript, Python, and C++ code with real output
+                </p>
+              </div>
+              
+              <div className="text-center">
+                <div className="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-3">
+                  <span className="text-white text-xl">💡</span>
+                </div>
+                <h4 className="font-semibold text-neutral-800 dark:text-neutral-100 mb-2">Smart Hints</h4>
+                <p className="text-sm text-neutral-600 dark:text-neutral-400">
+                  Progressive hints to guide your learning journey
+                </p>
+              </div>
+              
+              <div className="text-center">
+                <div className="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-3">
+                  <span className="text-white text-xl">✅</span>
+                </div>
+                <h4 className="font-semibold text-neutral-800 dark:text-neutral-100 mb-2">Auto Validation</h4>
+                <p className="text-sm text-neutral-600 dark:text-neutral-400">
+                  Automatic checking against expected outputs
+                </p>
+              </div>
+              
+              <div className="text-center">
+                <div className="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-3">
+                  <span className="text-white text-xl">🎨</span>
+                </div>
+                <h4 className="font-semibold text-neutral-800 dark:text-neutral-100 mb-2">Monaco Editor</h4>
+                <p className="text-sm text-neutral-600 dark:text-neutral-400">
+                  VS Code-quality editing experience
+                </p>
+              </div>
+            </div>
+          </motion.div>
+
+          <div className="text-center mt-12">
             <Link
               href="/paiTraining"
-              className="inline-flex items-center px-6 py-3 rounded-xl bg-primary-500 hover:bg-primary-600 text-white font-semibold transition-all duration-300"
+              className="inline-flex items-center px-6 py-3 rounded-xl bg-neutral-200 dark:bg-neutral-700 hover:bg-neutral-300 dark:hover:bg-neutral-600 text-neutral-800 dark:text-neutral-200 font-semibold transition-all duration-300"
             >
               <span className="mr-2">←</span>
               Back to PAI Training
