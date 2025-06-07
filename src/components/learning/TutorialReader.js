@@ -18,7 +18,7 @@ import {
   BiZoomIn,
   BiZoomOut,
   BiFullscreen,
-  BiFullscreenExit,
+  BiExitFullscreen,
   BiVolumeFull,
   BiVolumeOff,
   BiCopy,
@@ -597,7 +597,7 @@ export default function TutorialReader({
                 className="p-2 rounded-lg text-neutral-600 dark:text-neutral-400 hover:bg-neutral-100 dark:hover:bg-neutral-700 transition-colors"
                 title={isFullscreen ? "Exit fullscreen" : "Enter fullscreen"}
               >
-                {isFullscreen ? <BiFullscreenExit /> : <BiFullscreen />}
+                {isFullscreen ? <BiExitFullscreen /> : <BiFullscreen />}
               </button>
               
               <button
