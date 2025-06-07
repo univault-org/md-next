@@ -79,7 +79,15 @@ async function serializeContent(content, options = {}) {
   return serialize(processedContent, {
     mdxOptions: {
       remarkPlugins: [remarkMath],
-      rehypePlugins: [[rehypeKatex, { strict: false }]],
+      rehypePlugins: [[rehypeKatex, { 
+        strict: false,
+        trust: true,
+        macros: {
+          "\\eqref": "\\href{###1}{(\\text{#1})}",
+          "\\ref": "\\href{###1}{\\text{#1}}",
+          "\\label": "\\htmlId{#1}{}"
+        }
+      }]],
     },
     // Remove function from scope
     scope: {
@@ -319,6 +327,11 @@ export function getAllResourceContent() {
   return getAllPAITrainingContent('Resources');
 }
 
+// Get all theory content
+export function getAllTheoryContent() {
+  return getAllPAITrainingContent('Theory');
+}
+
 // Get all exercise content
 export function getAllExerciseContent() {
   return getAllPAITrainingContent('Exercises');
@@ -393,6 +406,10 @@ export function getAllResourceSlugs() {
   return getAllPAITrainingSlugs('Resources');
 }
 
+export function getAllTheorySlugs() {
+  return getAllPAITrainingSlugs('Theory');
+}
+
 export function getAllExerciseSlugs() {
   return getAllPAITrainingSlugs('Exercises');
 }
@@ -457,6 +474,10 @@ export async function getInspirationBySlug(slug) {
 
 export async function getResourceBySlug(slug) {
   return getPAITrainingContentBySlug('Resources', slug);
+}
+
+export async function getTheoryBySlug(slug) {
+  return getPAITrainingContentBySlug('Theory', slug);
 }
 
 export async function getExerciseBySlug(slug) {

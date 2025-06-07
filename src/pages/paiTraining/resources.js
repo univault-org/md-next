@@ -221,36 +221,183 @@ export default function LearningResources() {
       <div className="min-h-screen bg-gradient-to-br from-neutral-50 via-blue-50/30 to-purple-50/30 dark:from-neutral-900 dark:via-blue-900/10 dark:to-purple-900/10">
         
         {/* Hero Section */}
-        <section className="relative pt-20 pb-16 overflow-hidden">
-          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="relative overflow-hidden bg-gradient-to-br from-primary-50 via-white to-secondary-50 dark:from-primary-950 dark:via-neutral-900 dark:to-secondary-950">
+          <div className="absolute inset-0 bg-[url('/api/placeholder/1920/1080')] opacity-5 bg-cover bg-center"></div>
+          <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="text-center"
+              className="text-center max-w-4xl mx-auto"
             >
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-                <span className="bg-gradient-to-r from-gray-600 to-gray-900 bg-clip-text text-transparent">
-                  Learning Resources
+              <h1 className="text-4xl md:text-6xl font-bold mb-6">
+                <span className="bg-gradient-to-r from-primary-600 via-secondary-600 to-accent-600 bg-clip-text text-transparent">
+                  PAI Training Resources
                 </span>
               </h1>
-              <p className="text-xl md:text-2xl text-neutral-600 dark:text-neutral-300 mb-8 max-w-3xl mx-auto">
-                Discover comprehensive training materials and courses to master Personal AI training
+              <p className="text-xl text-neutral-600 dark:text-neutral-300 mb-8 leading-relaxed">
+                Comprehensive resources, tutorials, and research materials for developing 
+                your Personal AI understanding and implementation skills.
               </p>
-              
-              {/* AI Assistant Toggle */}
-              <motion.button
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-                onClick={() => setShowAIAssistant(!showAIAssistant)}
-                className="inline-flex items-center px-6 py-3 rounded-xl bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 text-white font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
-              >
-                <span className="mr-2">🤖</span>
-                Ask AI Learning Assistant
-              </motion.button>
+              <div className="flex flex-wrap justify-center gap-4">
+                <Link href="/northStar">
+                  <motion.div
+                    whileHover={{ scale: 1.05 }}
+                    className="bg-primary-500 hover:bg-primary-600 text-white px-6 py-3 rounded-xl font-semibold shadow-lg cursor-pointer transition-colors"
+                  >
+                    🌟 Start with the Core Question
+                  </motion.div>
+                </Link>
+                <Link href="#featured-foundation">
+                  <motion.div
+                    whileHover={{ scale: 1.05 }}
+                    className="bg-white dark:bg-neutral-800 border border-neutral-300 dark:border-neutral-600 text-neutral-700 dark:text-neutral-300 px-6 py-3 rounded-xl font-semibold shadow-lg cursor-pointer transition-colors hover:bg-neutral-50 dark:hover:bg-neutral-700"
+                  >
+                    📚 Foundation Articles
+                  </motion.div>
+                </Link>
+              </div>
             </motion.div>
           </div>
+        </section>
+
+        {/* Featured Foundation Article */}
+        <section id="featured-foundation" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-neutral-800 dark:text-neutral-100">
+              🌟 Featured Foundation Article
+            </h2>
+            <p className="text-lg text-neutral-600 dark:text-neutral-400 max-w-3xl mx-auto">
+              Essential reading that establishes the philosophical and practical foundation for Harmonic PAI development.
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="max-w-5xl mx-auto"
+          >
+            <Link href="/paiTraining/Resources/harmonic_pai_foundation">
+              <div className="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary-50 via-white to-secondary-50 dark:from-primary-900/20 dark:via-neutral-800 dark:to-secondary-900/20 border border-primary-200 dark:border-primary-700/50 shadow-xl hover:shadow-2xl transition-all duration-300 cursor-pointer">
+                {/* Background Pattern */}
+                <div className="absolute inset-0 bg-gradient-to-br from-primary-500/5 to-secondary-500/5 opacity-50"></div>
+                
+                {/* Floating Elements */}
+                <div className="absolute top-4 right-4 opacity-20 group-hover:opacity-30 transition-opacity">
+                  <div className="w-20 h-20 rounded-full bg-gradient-to-br from-primary-400 to-secondary-400 blur-xl"></div>
+                </div>
+                <div className="absolute bottom-4 left-4 opacity-20 group-hover:opacity-30 transition-opacity">
+                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-accent-400 to-primary-400 blur-xl"></div>
+                </div>
+
+                <div className="relative p-8 lg:p-12">
+                  <div className="flex items-start justify-between mb-6">
+                    <div className="flex-1">
+                      <div className="flex items-center gap-3 mb-4">
+                        <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-primary-100 text-primary-700 dark:bg-primary-900/30 dark:text-primary-300">
+                          🧠 Foundation
+                        </span>
+                        <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-secondary-100 text-secondary-700 dark:bg-secondary-900/30 dark:text-secondary-300">
+                          ⚡ Harmonic PAI
+                        </span>
+                        <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-accent-100 text-accent-700 dark:bg-accent-900/30 dark:text-accent-300">
+                          🔬 Philosophy
+                        </span>
+                      </div>
+                      
+                      <h3 className="text-2xl lg:text-3xl font-bold text-neutral-800 dark:text-neutral-100 mb-4 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
+                        The Foundation of Harmonic PAI: Transcending the Brain's Illusion Machine
+                      </h3>
+                      
+                      <p className="text-lg text-neutral-600 dark:text-neutral-400 mb-6 leading-relaxed">
+                        Exploring how Harmonic Personal AI augments human limitations by recognizing the brain as an illusion creator and connecting with the body's quantum intelligence. By Philip Tran.
+                      </p>
+
+                      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                        <div className="flex items-center gap-2 text-neutral-600 dark:text-neutral-400">
+                          <span className="text-primary-500">🎯</span>
+                          <span className="text-sm">Core Concepts</span>
+                        </div>
+                        <div className="flex items-center gap-2 text-neutral-600 dark:text-neutral-400">
+                          <span className="text-secondary-500">⏱️</span>
+                          <span className="text-sm">15-20 min read</span>
+                        </div>
+                        <div className="flex items-center gap-2 text-neutral-600 dark:text-neutral-400">
+                          <span className="text-accent-500">🔗</span>
+                          <span className="text-sm">Links to North Star</span>
+                        </div>
+                      </div>
+
+                      <div className="flex flex-wrap gap-2 mb-6">
+                        {["Brain as Illusion Creator", "Body as Quantum Computer", "Harmonic Integration", "Universal Intelligence"].map((concept, index) => (
+                          <span key={index} className="inline-flex items-center px-2 py-1 rounded-md text-xs font-medium bg-neutral-100 text-neutral-700 dark:bg-neutral-700 dark:text-neutral-300">
+                            {concept}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                    
+                    <div className="ml-6 flex-shrink-0">
+                      <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-primary-500 to-secondary-500 flex items-center justify-center text-white text-2xl shadow-lg group-hover:scale-110 transition-transform">
+                        🧬
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-4">
+                      <div className="flex items-center gap-2">
+                        <div className="w-8 h-8 rounded-full bg-gradient-to-br from-primary-400 to-secondary-400 flex items-center justify-center text-white text-sm font-bold">
+                          PT
+                        </div>
+                        <div>
+                          <div className="text-sm font-medium text-neutral-800 dark:text-neutral-200">Philip Tran</div>
+                          <div className="text-xs text-neutral-500 dark:text-neutral-400">Founder & Researcher</div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div className="flex items-center gap-2 text-primary-600 dark:text-primary-400 font-semibold group-hover:text-primary-700 dark:group-hover:text-primary-300 transition-colors">
+                      <span>Read Foundation Article</span>
+                      <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </Link>
+          </motion.div>
+
+          {/* Connection to North Star */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            viewport={{ once: true }}
+            className="mt-8 text-center"
+          >
+            <p className="text-neutral-600 dark:text-neutral-400 mb-4">
+              This foundation article directly connects to our exploration of the ultimate human question:
+            </p>
+            <Link href="/northStar">
+              <div className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-primary-500 to-secondary-500 text-white rounded-xl font-semibold hover:from-primary-600 hover:to-secondary-600 transition-all cursor-pointer shadow-lg hover:shadow-xl">
+                <span>🌟</span>
+                <span>Discover the Ultimate Human Question</span>
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </div>
+            </Link>
+          </motion.div>
         </section>
 
         {/* AI Assistant Panel */}
