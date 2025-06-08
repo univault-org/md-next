@@ -382,7 +382,7 @@ Through deep study of these natural consciousness networks, Philip is developing
 
 His work explores how technology can serve human transcendence rather than merely enhancing existing limitations, pioneering a new paradigm where AI becomes a bridge to expanded consciousness rather than a replacement for human intelligence. Through Harmonic PAI, Philip envisions a future where the boundary between human and artificial intelligence dissolves into collaborative consciousness networks that elevate both human potential and our understanding of awareness itself.
 
-As a Vietnamese American (Vietnamese name: Phương), Philip often reflects that his work in Harmonic PAI and Emergent Collective Intelligence serves merely to remind us of the miracle of the human body and how we collectively evolve as a group, as a society. In the tradition of his cultural heritage, he humbly echoes the sentiment of the great poet Nguyễn Du in the closing verses of Truyện Kiều, where the master considered his profound work simply as entertainment:
+As a Vietnamese American (Vietnamese name: Lưu Phương), Philip often reflects that his work in Harmonic PAI and Emergent Collective Intelligence serves merely to remind us of the miracle of the human body and how we collectively evolve as a group, as a society. In the tradition of his cultural heritage, he humbly echoes the sentiment of the great poet Nguyễn Du in the closing verses of Truyện Kiều, where the master considered his profound work simply as entertainment:
 
 *"Lời quê chắp nhặt dông dài,  
 Mua vui cũng được một vài trống canh."*

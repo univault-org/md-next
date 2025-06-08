@@ -6,50 +6,147 @@ import { Highlight, themes } from 'prism-react-renderer';
 import { useTheme } from 'next-themes';
 import { useEffect, useState, useRef } from 'react';
 import 'katex/dist/katex.min.css';
+import CodeEditor from '@/components/learning/CodeEditor';
 
-const CustomCodeBlock = ({ children }) => {
+// Enhanced Interactive Code Editor Component using our new CodeEditor (same as Exercises route)
+const InteractiveCodeEditor = ({ 
+  template, 
+  language = 'javascript', 
+  expectedOutput,
+  hints = [],
+  onCodeChange, 
+  onRunCode,
+  ...props 
+}) => {
+  return (
+    <div className="my-8">
+      <CodeEditor
+        initialCode={template || `# ${language} code here\nprint("Hello, PAI World!")`}
+        language={language}
+        expectedOutput={expectedOutput}
+        hints={hints}
+        onCodeChange={onCodeChange}
+        onCodeRun={onRunCode}
+        height="400px"
+        className="shadow-lg"
+        {...props}
+      />
+    </div>
+  );
+};
+
+// Enhanced Code Block Component (copied from working Exercises route)
+const EnhancedCodeBlock = ({ children, language, className }) => {
   const { theme: activeTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
+  const [copied, setCopied] = useState(false);
 
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+  const copyToClipboard = async (text) => {
+    try {
+      if (!text || typeof text !== 'string') {
+        console.warn('No valid text to copy');
+        return;
+      }
+      
+      if (navigator.clipboard && window.isSecureContext) {
+        await navigator.clipboard.writeText(text);
+      } else {
+        // Fallback for older browsers or non-HTTPS contexts
+        const textArea = document.createElement('textarea');
+        textArea.value = text;
+        textArea.style.position = 'fixed';
+        textArea.style.left = '-999999px';
+        textArea.style.top = '-999999px';
+        document.body.appendChild(textArea);
+        textArea.focus();
+        textArea.select();
+        document.execCommand('copy');
+        textArea.remove();
+      }
+      
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch (err) {
+      console.error('Failed to copy text: ', err);
+    }
+  };
 
-  const codeProps = children.props;
-  const language = (codeProps.className || '').replace('language-', '') || 'plaintext';
-  const codeString = codeProps.children.trim();
+  // Handle case where children might be an object with props (MDX structure)
+  const getCodeString = () => {
+    if (typeof children === 'string') {
+      return children;
+    }
+    if (children?.props?.children) {
+      const childContent = children.props.children;
+      if (typeof childContent === 'string') {
+        return childContent;
+      }
+      return String(childContent);
+    }
+    if (children && typeof children === 'object' && children.toString) {
+      return children.toString();
+    }
+    return String(children || '');
+  };
 
-  const prismTheme = activeTheme === 'dark' ? themes.oneDark : themes.oneLight;
-  
-  if (!mounted) {
+  // Get language with fallback
+  const getLanguage = () => {
+    if (language) return language;
+    if (className) {
+      const match = className.match(/language-(\w+)/);
+      return match ? match[1] : 'text';
+    }
+    if (children?.props?.className) {
+      const match = children.props.className.match(/language-(\w+)/);
+      return match ? match[1] : 'text';
+    }
+    return 'text';
+  };
+
+  // Safely get and trim the code string
+  const rawCodeString = getCodeString();
+  const codeString = typeof rawCodeString === 'string' ? rawCodeString.trim() : String(rawCodeString || '').trim();
+  const codeLanguage = getLanguage();
+
+  if (!codeString) {
     return (
-      <pre className={`language-${language} p-4 rounded-lg bg-neutral-100 dark:bg-neutral-800 overflow-x-auto shadow-md my-6 text-sm`}>
-        <code className={`language-${language}`}>{codeString}</code>
-      </pre>
+      <div className="bg-neutral-100 dark:bg-neutral-800 rounded-lg p-4">
+        <span className="text-neutral-500">No code to display</span>
+      </div>
     );
   }
 
   return (
-    <Highlight
-      theme={prismTheme}
-      code={codeString}
-      language={language}
-    >
-      {({ className: blockClassName, style, tokens, getLineProps, getTokenProps }) => (
-        <pre 
-          className={`${blockClassName} p-4 rounded-lg overflow-x-auto shadow-md my-6 text-sm`}
-          style={{...style, display: 'block'}} 
+    <div className="relative group my-6">
+      <div className="absolute top-4 right-4 flex space-x-2 opacity-0 group-hover:opacity-100 transition-opacity z-10">
+        <button
+          onClick={() => copyToClipboard(codeString)}
+          className="px-2 py-1 bg-neutral-600 hover:bg-neutral-700 text-white text-xs rounded transition-colors"
         >
-          {tokens.map((line, i) => (
-            <div key={i} {...getLineProps({ line, key: i }) }>
-              {line.map((token, key) => (
-                <span key={key} {...getTokenProps({ token, key }) } />
-              ))}
-            </div>
-          ))}
-        </pre>
-      )}
-    </Highlight>
+          {copied ? '✓ Copied' : '📋 Copy'}
+        </button>
+      </div>
+      
+      <Highlight
+        theme={activeTheme === 'dark' ? themes.vsDark : themes.vsLight}
+        code={codeString}
+        language={codeLanguage}
+      >
+        {({ className: blockClassName, style, tokens, getLineProps, getTokenProps }) => (
+          <pre className={`${blockClassName} overflow-x-auto p-4 rounded-lg text-sm`} style={style}>
+            {tokens.map((line, i) => (
+              <div key={i} {...getLineProps({ line })}>
+                <span className="mr-4 text-neutral-500 select-none">
+                  {String(i + 1).padStart(2, ' ')}
+                </span>
+                {line.map((token, key) => (
+                  <span key={key} {...getTokenProps({ token })} />
+                ))}
+              </div>
+            ))}
+          </pre>
+        )}
+      </Highlight>
+    </div>
   );
 };
 
@@ -98,7 +195,30 @@ const ReadingProgress = ({ progress }) => (
 );
 
 const createEnhancedMDXComponents = (onConceptClick) => ({
-  pre: CustomCodeBlock,
+  // Use the exact same approach as Exercises route - simple and working
+  code: (props) => {
+    // Handle inline code vs code blocks
+    if (props.className) {
+      // This is a code block with language info
+      const match = props.className.match(/language-(\w+)/);
+      const language = match ? match[1] : 'text';
+      return <EnhancedCodeBlock {...props} language={language} />;
+    }
+    // This is inline code
+    return <code {...props} className="bg-neutral-100 dark:bg-neutral-800 px-1 py-0.5 rounded text-sm" />;
+  },
+  pre: (props) => {
+    // Handle pre tags that wrap code blocks
+    const codeElement = props.children;
+    if (codeElement?.props?.className) {
+      const match = codeElement.props.className.match(/language-(\w+)/);
+      const language = match ? match[1] : 'text';
+      return <EnhancedCodeBlock {...codeElement.props} language={language} />;
+    }
+    return <EnhancedCodeBlock {...props} language="text" />;
+  },
+  // Add CodeEditor directly for when we want actual code execution (keep for future use)
+  CodeEditor,
   // Enhanced mathematical notation support
   InlineEquation: ({ children }) => (
     <span className="inline-block mx-1 px-2 py-1 bg-primary-50 dark:bg-primary-900/20 text-primary-700 dark:text-primary-300 rounded font-mono text-sm">
@@ -107,9 +227,7 @@ const createEnhancedMDXComponents = (onConceptClick) => ({
   ),
   // Math equation renderer using KaTeX (like updates route)
   math: ({ children }) => (
-    <div className="my-4 overflow-x-auto">
-      <div dangerouslySetInnerHTML={{ __html: children }} />
-    </div>
+    <span className="inline-block mx-1" dangerouslySetInnerHTML={{ __html: children }} />
   ),
   inlineMath: ({ children }) => (
     <span dangerouslySetInnerHTML={{ __html: children }} />
@@ -134,6 +252,18 @@ const createEnhancedMDXComponents = (onConceptClick) => ({
       <div className="text-primary-700 dark:text-primary-300">{children}</div>
     </div>
   ),
+  // Concept link component
+  ConceptLink: ({ concept, children }) => {
+    const handleConceptClick = onConceptClick || (() => {});
+    return (
+      <button
+        onClick={() => handleConceptClick(concept)}
+        className="inline text-primary-600 dark:text-primary-400 hover:text-primary-800 dark:hover:text-primary-200 underline underline-offset-2 cursor-pointer transition-colors"
+      >
+        {children}
+      </button>
+    );
+  }
 });
 
 export default function EnhancedTheoryArticlePage({ source, frontmatter }) {
@@ -294,8 +424,7 @@ export default function EnhancedTheoryArticlePage({ source, frontmatter }) {
                         prose-ul:list-disc prose-ul:ml-1 prose-ul:space-y-1 marker:text-primary-500
                         prose-ol:list-decimal prose-ol:ml-1 prose-ol:space-y-1 marker:text-primary-500
                         prose-code:text-primary-600 prose-code:dark:text-primary-400 prose-code:bg-neutral-100 prose-code:dark:bg-neutral-800 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded-md prose-code:font-mono prose-code:text-sm
-                        prose-hr:border-neutral-300 dark:prose-hr:border-neutral-700 prose-hr:my-12
-                        prose-pre:hidden"
+                        prose-hr:border-neutral-300 dark:prose-hr:border-neutral-700 prose-hr:my-12"
           >
             <MDXRemote {...source} components={components} />
           </div>
