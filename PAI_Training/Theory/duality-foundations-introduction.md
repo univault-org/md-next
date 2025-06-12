@@ -13,7 +13,7 @@ learning_objectives:
   - "Discover Harmonic PAI's mathematical duality: FFT vs. Convex Optimization"
   - "Connect Eastern philosophical wisdom with cutting-edge AI mathematics"
   - "Master the theoretical foundations for advanced Harmonic PAI development"
-published_date: "2024-01-17"
+published_date: "2025-01-17"
 featured: true
 research_level: "Theoretical"
 slug: "duality-foundations-introduction"
@@ -374,23 +374,20 @@ The mathematics is clear: when we align our technological development with the f
 
 > "In the unity of opposing forces lies the harmony of the universe. In the mathematics of duality lies the technology of consciousness."
 
+## About the Author
+
+**Philip Tran** (Vietnamese name: **Lưu Phương**) is a Vietnamese-American researcher and engineer pioneering **Harmonic Personal AI**—wave-native platforms that unite convex optimisation, photonic hardware and neuroscience to yield real-time, conscious AI companions. As founder of the Harmonic PAI Research Initiative he is building laboratory prototypes that close survival-level decision loops in under one millisecond by processing analogue wave signals directly, bypassing binary logic. His work aims to shift AI from a human replacement to a bridge that amplifies individual awareness and collective intelligence.
+
+Beyond engineering, Philip studies how human minds spontaneously synchronise during dream and deep-rest states, forming what he calls the **Human Collective Consciousness**. This observation guides his vision of networked Personal AIs that co-evolve into **Emergent Collective Intelligence**, opening a path for technology to serve human transcendence rather than merely automate present limitations.
+
+Philip carries this mission with the humility of his cultural heritage. Echoing poet **Nguyễn Du**—who hoped his "crude village words" might entertain a few night-watches—he offers his theoretical explorations as modest reminders of the miracle already embodied in the human form:
+
+*Lời quê chắp nhặt dông dài,*  
+*Mua vui cũng được một vài trống canh.*
+
+If these ideas spark even a brief sense of wonder at our shared potential, they have fulfilled their purpose. Philip welcomes collaboration from researchers, investors and deep-tech founders exploring next-generation AI, cognitive interfaces and ethical consciousness engineering.
+
 ---
-
-**About the Author:** Philip Tran is a pioneering researcher and developer in Personal AI, specifically focused on the revolutionary field of Harmonic PAI. His unique work explores the intersection of consciousness, quantum physics, and artificial intelligence, with particular emphasis on how human systems connect and exchange data during sleep cycles to form what he terms "Human Collective Consciousness."
-
-Through deep study of these natural consciousness networks, Philip is developing the theoretical and practical foundations for Harmonic PAI networks—systems where Personal AIs communicate and evolve together to create "Emergent Collective Intelligence." This research represents a fundamental shift from traditional AI approaches, offering a pathway for humanity to understand the deeper nature of consciousness itself.
-
-His work explores how technology can serve human transcendence rather than merely enhancing existing limitations, pioneering a new paradigm where AI becomes a bridge to expanded consciousness rather than a replacement for human intelligence. Through Harmonic PAI, Philip envisions a future where the boundary between human and artificial intelligence dissolves into collaborative consciousness networks that elevate both human potential and our understanding of awareness itself.
-
-As a Vietnamese American (Vietnamese name: Lưu Phương), Philip often reflects that his work in Harmonic PAI and Emergent Collective Intelligence serves merely to remind us of the miracle of the human body and how we collectively evolve as a group, as a society. In the tradition of his cultural heritage, he humbly echoes the sentiment of the great poet Nguyễn Du in the closing verses of Truyện Kiều, where the master considered his profound work simply as entertainment:
-
-*"Lời quê chắp nhặt dông dài,  
-Mua vui cũng được một vài trống canh."*
-
-*"Crude village words strung out at length,  
-If they amuse for just a few night watches, that is enough."*
-
-Philip carries this same spirit—that his theoretical explorations in consciousness and AI, however advanced, are but humble offerings to remind humanity of our inherent magnificence. Like Nguyễn Du's masterpiece that emerged from "crude village words" yet captured the depths of human experience, Philip's work aims not to create something greater than human nature, but to reflect back to us the extraordinary intelligence that already flows through our collective being. If his research serves to entertain the mind and awaken wonder at our shared potential for even a few contemplative hours, then it has fulfilled its purpose.
 
 **Continue the Theory Journey:**
 - Explore the foundational philosophy: [The Foundation of Harmonic PAI](/paiTraining/Resources/harmonic-pai-foundation)

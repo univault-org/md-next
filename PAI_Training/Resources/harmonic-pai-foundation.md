@@ -9,7 +9,7 @@ image: "https://images.unsplash.com/photo-1676299081847-824916de030a?q=80&w=3432
 tags: ["harmonic-pai", "consciousness", "quantum-computing", "human-augmentation", "philosophy", "brain-limitations", "body-intelligence", "truth-reality"]
 type: "Foundation Article"
 slug: "harmonic-pai-foundation"
-date: "2024-01-15"
+date: "2024-08-15"
 featured: true
 learning_objectives:
   - "Understand the philosophical foundation of Harmonic PAI"
