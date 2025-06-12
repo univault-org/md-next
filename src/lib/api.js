@@ -219,43 +219,48 @@ export function getPostsByTag(tag) {
 // Generic function to get all content from a PAI Training subdirectory
 function getAllPAITrainingContent(subDirectory) {
   const directory = path.join(paiTrainingDirectory, subDirectory)
+  
   try {
     if (!fs.existsSync(directory)) {
-      console.warn(`Directory not found: ${directory}`);
       return []
     }
 
-    let contentItems = [];
+    let contentItems = []
 
-    // Get direct markdown files in the subdirectory (excluding README files)
+    // Get direct markdown files in the subdirectory
     const directFiles = fs.readdirSync(directory)
-      .filter((item) => item.endsWith('.md') && !item.toLowerCase().startsWith('readme'))
-      .map((item) => item.replace(/\.md$/, ''));
+      .filter((item) => {
+        const itemPath = path.join(directory, item);
+        return fs.statSync(itemPath).isFile() && item.endsWith('.md') && !item.toLowerCase().startsWith('readme');
+      });
 
-    // Process direct files
-    const directContentItems = directFiles.map((slug) => {
-      const fullPath = path.join(directory, `${slug}.md`)
-      const fileContents = fs.readFileSync(fullPath, 'utf8')
-      const { data: frontmatter } = matter(fileContents)
-
-      const processedImage = processImagePath(frontmatter.image);
-      const date = formatDate(frontmatter.date);
-
-      return {
-        slug,
-        title: frontmatter.title || slug,
-        description: frontmatter.description || '',
-        image: processedImage,
-        date,
-        ...frontmatter
+    for (const file of directFiles) {
+      try {
+        const filePath = path.join(directory, file);
+        const fileContents = fs.readFileSync(filePath, 'utf8');
+        const { data: frontmatter } = matter(fileContents);
+        
+        const filename = file.replace(/\.md$/, '');
+        const processedImage = processImagePath(frontmatter.image);
+        const date = formatDate(frontmatter.date);
+        
+        contentItems.push({
+          slug: filename,
+          title: frontmatter.title || filename,
+          description: frontmatter.description || '',
+          image: processedImage,
+          date,
+          category: 'General',
+          ...frontmatter
+        });
+      } catch (error) {
+        console.warn(`Error processing direct file ${file}:`, error);
       }
-    })
+    }
 
-    contentItems.push(...directContentItems);
-
-    // Check for language-specific subfolders for Resources AND Exercises
-    if (subDirectory === 'Resources' || subDirectory === 'Exercises') {
-      const languageFolders = ['Python', 'CPlusPlus', 'JavaScript'];
+    // Check for language-specific subfolders for Resources, Exercises, AND Programming_Language
+    if (subDirectory === 'Resources' || subDirectory === 'Exercises' || subDirectory === 'Programming_Language') {
+      const languageFolders = ['Python', 'CPlusPlus', 'JavaScript', 'JavaScript_Node'];
       
       for (const langFolder of languageFolders) {
         const langDirectory = path.join(directory, langFolder);
@@ -340,24 +345,29 @@ export function getAllExerciseContent() {
 // Generic function to get all slugs from a PAI Training subdirectory
 function getAllPAITrainingSlugs(subDirectory) {
   const directory = path.join(paiTrainingDirectory, subDirectory);
+  
   try {
     if (!fs.existsSync(directory)) {
-      console.warn(`Directory not found for slugs: ${directory}`);
       return [];
     }
-    
+
     let slugs = [];
-    
-    // Get direct markdown files in the subdirectory (excluding README files)
-    const directFiles = fs.readdirSync(directory)
-      .filter((item) => item.endsWith('.md') && !item.toLowerCase().startsWith('readme'))
-      .map((item) => item.replace(/\.md$/, ''));
-    
-    slugs.push(...directFiles);
-    
-    // Check for language-specific subfolders for Resources AND Exercises
-    if (subDirectory === 'Resources' || subDirectory === 'Exercises') {
-      const languageFolders = ['Python', 'CPlusPlus', 'JavaScript'];
+
+    // Get direct files in the subdirectory
+    const items = fs.readdirSync(directory);
+    for (const item of items) {
+      const itemPath = path.join(directory, item);
+      const stat = fs.statSync(itemPath);
+      
+      if (stat.isFile() && item.endsWith('.md') && !item.toLowerCase().startsWith('readme')) {
+        const filename = item.replace(/\.md$/, '');
+        slugs.push(filename);
+      }
+    }
+
+    // Check for language-specific subfolders for Resources, Exercises, AND Programming_Language
+    if (subDirectory === 'Resources' || subDirectory === 'Exercises' || subDirectory === 'Programming_Language') {
+      const languageFolders = ['Python', 'CPlusPlus', 'JavaScript', 'JavaScript_Node'];
       
       for (const langFolder of languageFolders) {
         const langDirectory = path.join(directory, langFolder);
@@ -555,5 +565,70 @@ export async function getPAITrainingBySlug(slug) {
   } catch (error) {
     console.error(`Error getting PAI Training content by slug ${slug}:`, error)
     return null
+  }
+}
+
+// Get all Programming Language content
+export function getAllProgrammingLanguageContent() {
+  return getAllPAITrainingContent('Programming_Language');
+}
+
+// Get Programming Language content by slug
+export async function getProgrammingLanguageBySlug(slug) {
+  return getPAITrainingContentBySlug('Programming_Language', slug);
+}
+
+// Get all Programming Language slugs
+export function getAllProgrammingLanguageSlugs() {
+  return getAllPAITrainingSlugs('Programming_Language');
+}
+
+// Get content for a specific programming language
+export function getProgrammingLanguageContentByLanguage(language) {
+  try {
+    const directory = path.join(paiTrainingDirectory, 'Programming_Language', language);
+    
+    if (!fs.existsSync(directory)) {
+      return [];
+    }
+
+    const items = fs.readdirSync(directory);
+    const contentItems = [];
+
+    for (const item of items) {
+      const itemPath = path.join(directory, item);
+      const stat = fs.statSync(itemPath);
+      
+      if (stat.isFile() && item.endsWith('.md') && !item.toLowerCase().startsWith('readme')) {
+        try {
+          const fileContents = fs.readFileSync(itemPath, 'utf8');
+          const { data: frontmatter } = matter(fileContents);
+          
+          const filename = item.replace(/\.md$/, '');
+          const processedImage = processImagePath(frontmatter.image);
+          const date = formatDate(frontmatter.date);
+          
+          contentItems.push({
+            slug: `${language}/${filename}`,
+            title: frontmatter.title || filename,
+            description: frontmatter.description || '',
+            image: processedImage,
+            date,
+            language,
+            difficulty: frontmatter.difficulty || 'Intermediate',
+            tags: frontmatter.tags || [],
+            learning_objectives: frontmatter.learning_objectives || [],
+            ...frontmatter
+          });
+        } catch (error) {
+          console.warn(`Error processing ${itemPath}:`, error);
+        }
+      }
+    }
+
+    return contentItems.sort((item1, item2) => (item1.date > item2.date ? -1 : 1));
+  } catch (error) {
+    console.error(`Error getting content for language ${language}:`, error);
+    return [];
   }
 }

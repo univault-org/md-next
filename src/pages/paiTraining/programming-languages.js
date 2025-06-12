@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
+import { getAllProgrammingLanguageContent, getProgrammingLanguageContentByLanguage } from '@/lib/api';
 import {
   RiCodeLine,
   RiSpeedLine,
@@ -122,7 +123,7 @@ const weeklyStructure = [
   { week: 6, cpp: 'Cache Optimization', python: 'Data Visualization', js: 'React Dashboards', project: 'Monitoring UI' }
 ];
 
-export default function ProgrammingLanguages() {
+export default function ProgrammingLanguages({ programmingContent, javascriptContent }) {
   const [selectedLanguage, setSelectedLanguage] = useState(null);
   const [activePhase, setActivePhase] = useState(0);
 
@@ -253,6 +254,119 @@ export default function ProgrammingLanguages() {
             </div>
           </div>
         </section>
+
+        {/* JavaScript Articles Section */}
+        {javascriptContent && javascriptContent.length > 0 && (
+          <section className="py-16 bg-white/50 dark:bg-neutral-800/50">
+            <div className="max-w-7xl mx-auto px-4">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="text-center mb-12"
+              >
+                <h2 className="text-4xl font-bold text-neutral-800 dark:text-neutral-100 mb-4">
+                  🌐 JavaScript/Node.js Articles
+                </h2>
+                <p className="text-xl text-neutral-600 dark:text-neutral-400">
+                  Deep dive into modern JavaScript patterns and architectures
+                </p>
+              </motion.div>
+
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {javascriptContent.map((article, index) => (
+                  <motion.div
+                    key={article.slug}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.1 }}
+                    className="group"
+                  >
+                    <Link href={`/paiTraining/Programming_Language/JavaScript_Node/${article.slug}`}>
+                      <div className="bg-white dark:bg-neutral-800 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-neutral-200 dark:border-neutral-700 hover:border-primary-300 dark:hover:border-primary-500 h-full">
+                        {/* Header */}
+                        <div className="bg-gradient-to-br from-yellow-50 to-orange-50 dark:from-yellow-900/20 dark:to-orange-900/20 p-6 border-b border-neutral-200 dark:border-neutral-700">
+                          <div className="flex items-center justify-between mb-3">
+                            <div className="flex items-center space-x-2">
+                              <span className="text-2xl">🌐</span>
+                              <span className="font-semibold text-yellow-600 dark:text-yellow-400">JavaScript</span>
+                            </div>
+                            {article.difficulty && (
+                              <span className="px-2 py-1 bg-orange-100 text-orange-700 dark:bg-orange-900/30 dark:text-orange-300 text-xs font-medium rounded">
+                                {article.difficulty}
+                              </span>
+                            )}
+                          </div>
+                          <h3 className="text-xl font-bold text-neutral-800 dark:text-neutral-100 group-hover:text-primary-500 transition-colors line-clamp-2">
+                            {article.title}
+                          </h3>
+                        </div>
+
+                        {/* Content */}
+                        <div className="p-6">
+                          <p className="text-neutral-600 dark:text-neutral-400 mb-4 line-clamp-3">
+                            {article.description}
+                          </p>
+
+                          {/* Learning Objectives Preview */}
+                          {article.learning_objectives && article.learning_objectives.length > 0 && (
+                            <div className="mb-4">
+                              <h4 className="text-sm font-semibold text-neutral-700 dark:text-neutral-300 mb-2">Learning Objectives:</h4>
+                              <ul className="text-sm text-neutral-600 dark:text-neutral-400 space-y-1">
+                                {article.learning_objectives.slice(0, 2).map((objective, idx) => (
+                                  <li key={idx} className="flex items-start">
+                                    <span className="text-primary-500 mr-2 mt-0.5">•</span>
+                                    <span className="line-clamp-1">{objective}</span>
+                                  </li>
+                                ))}
+                                {article.learning_objectives.length > 2 && (
+                                  <li className="text-primary-500 text-xs">
+                                    +{article.learning_objectives.length - 2} more objectives
+                                  </li>
+                                )}
+                              </ul>
+                            </div>
+                          )}
+
+                          {/* Tags */}
+                          {article.tags && article.tags.length > 0 && (
+                            <div className="flex flex-wrap gap-2 mb-4">
+                              {article.tags.slice(0, 3).map((tag) => (
+                                <span
+                                  key={tag}
+                                  className="px-2 py-1 text-xs font-medium bg-neutral-100 text-neutral-600 dark:bg-neutral-700 dark:text-neutral-400 rounded"
+                                >
+                                  {tag}
+                                </span>
+                              ))}
+                              {article.tags.length > 3 && (
+                                <span className="px-2 py-1 text-xs font-medium bg-primary-100 text-primary-600 dark:bg-primary-900/30 dark:text-primary-400 rounded">
+                                  +{article.tags.length - 3}
+                                </span>
+                              )}
+                            </div>
+                          )}
+
+                          {/* Footer */}
+                          <div className="flex items-center justify-between pt-4 border-t border-neutral-200 dark:border-neutral-700">
+                            <div className="flex items-center text-sm text-neutral-500 dark:text-neutral-400">
+                              {article.date && (
+                                <span>{new Date(article.date).toLocaleDateString()}</span>
+                              )}
+                            </div>
+                            <div className="flex items-center text-primary-600 dark:text-primary-400 font-medium group-hover:text-primary-700 dark:group-hover:text-primary-300 transition-colors">
+                              <span className="text-sm">Read Article</span>
+                              <RiArrowRightLine className="ml-1 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </Link>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
 
         {/* Learning Phases */}
         <section className="py-16 bg-white/50 dark:bg-neutral-800/50">
@@ -396,4 +510,29 @@ export default function ProgrammingLanguages() {
       </div>
     </>
   );
+}
+
+export async function getStaticProps() {
+  try {
+    // Get all programming language content
+    const programmingContent = getAllProgrammingLanguageContent();
+    
+    // Get JavaScript-specific content
+    const javascriptContent = getProgrammingLanguageContentByLanguage('JavaScript_Node');
+    
+    return {
+      props: {
+        programmingContent,
+        javascriptContent,
+      },
+    };
+  } catch (error) {
+    console.error('Error loading programming language content:', error);
+    return {
+      props: {
+        programmingContent: [],
+        javascriptContent: [],
+      },
+    };
+  }
 } 

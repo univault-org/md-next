@@ -285,7 +285,7 @@ export default function LearningResources() {
             viewport={{ once: true }}
             className="max-w-5xl mx-auto"
           >
-            <Link href="/paiTraining/Resources/harmonic_pai_foundation">
+            <Link href="/paiTraining/Resources/harmonic-pai-foundation">
               <div className="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary-50 via-white to-secondary-50 dark:from-primary-900/20 dark:via-neutral-800 dark:to-secondary-900/20 border border-primary-200 dark:border-primary-700/50 shadow-xl hover:shadow-2xl transition-all duration-300 cursor-pointer">
                 {/* Background Pattern */}
                 <div className="absolute inset-0 bg-gradient-to-br from-primary-500/5 to-secondary-500/5 opacity-50"></div>
@@ -893,6 +893,94 @@ export default function LearningResources() {
                   className="block w-full px-4 py-3 bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded-xl transition-colors text-center"
                 >
                   Start C++ Exercise
+                </Link>
+              </div>
+            </motion.div>
+
+            {/* JavaScript Articles Section */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.15 }}
+              viewport={{ once: true }}
+              className="group bg-white dark:bg-neutral-800 rounded-2xl overflow-hidden border border-neutral-200 dark:border-neutral-700 hover:border-yellow-300 dark:hover:border-yellow-500 transition-all duration-300 hover:shadow-xl"
+            >
+              {/* Header */}
+              <div className="bg-gradient-to-br from-yellow-50 to-orange-50 dark:from-yellow-900/20 dark:to-orange-900/20 p-6 border-b border-neutral-200 dark:border-neutral-700">
+                <div className="flex items-center justify-between mb-3">
+                  <div className="flex items-center space-x-2">
+                    <span className="text-2xl">📚</span>
+                    <span className="font-semibold text-yellow-600 dark:text-yellow-400">JavaScript Articles</span>
+                  </div>
+                  <span className="px-2 py-1 bg-yellow-100 text-yellow-700 dark:bg-yellow-900/30 dark:text-yellow-300 text-xs font-medium rounded">
+                    Featured
+                  </span>
+                </div>
+                <h3 className="text-xl font-bold text-neutral-800 dark:text-neutral-100 group-hover:text-yellow-500 transition-colors">
+                  Frontend Architecture & Performance
+                </h3>
+                <p className="text-sm text-neutral-600 dark:text-neutral-400 mt-2">
+                  Deep dive into modern JavaScript patterns, state management, and performance optimization
+                </p>
+              </div>
+
+              <div className="p-6">
+                <div className="space-y-3 mb-6">
+                  <Link href="/paiTraining/Programming_Language/JavaScript_Node/tanstack-query-architecture-deep-dive" className="block">
+                    <div className="flex items-start space-x-3 p-3 rounded-lg hover:bg-yellow-50 dark:hover:bg-yellow-900/20 transition-colors">
+                      <div className="w-2 h-2 bg-yellow-500 rounded-full mt-2 flex-shrink-0"></div>
+                      <div>
+                        <div className="font-medium text-neutral-800 dark:text-neutral-100 hover:text-yellow-600 dark:hover:text-yellow-400 transition-colors">
+                          TanStack Query Architecture Patterns
+                        </div>
+                        <div className="text-sm text-neutral-600 dark:text-neutral-400">
+                          Server state management and architectural solutions
+                        </div>
+                      </div>
+                    </div>
+                  </Link>
+                  
+                  <Link href="/paiTraining/Programming_Language/JavaScript_Node/frontend-memory-management-animation-patterns" className="block">
+                    <div className="flex items-start space-x-3 p-3 rounded-lg hover:bg-yellow-50 dark:hover:bg-yellow-900/20 transition-colors">
+                      <div className="w-2 h-2 bg-yellow-500 rounded-full mt-2 flex-shrink-0"></div>
+                      <div>
+                        <div className="font-medium text-neutral-800 dark:text-neutral-100 hover:text-yellow-600 dark:hover:text-yellow-400 transition-colors">
+                          Frontend Memory Management & Animations
+                        </div>
+                        <div className="text-sm text-neutral-600 dark:text-neutral-400">
+                          Performance optimization and memory leak prevention
+                        </div>
+                      </div>
+                    </div>
+                  </Link>
+                  
+                  <Link href="/paiTraining/Programming_Language/JavaScript_Node/tanstack-query-architecture-deep-dive-part2" className="block">
+                    <div className="flex items-start space-x-3 p-3 rounded-lg hover:bg-yellow-50 dark:hover:bg-yellow-900/20 transition-colors">
+                      <div className="w-2 h-2 bg-yellow-500 rounded-full mt-2 flex-shrink-0"></div>
+                      <div>
+                        <div className="font-medium text-neutral-800 dark:text-neutral-100 hover:text-yellow-600 dark:hover:text-yellow-400 transition-colors">
+                          Advanced TanStack Query Patterns
+                        </div>
+                        <div className="text-sm text-neutral-600 dark:text-neutral-400">
+                          Request deduplication and optimistic updates
+                        </div>
+                      </div>
+                    </div>
+                  </Link>
+                </div>
+
+                <div className="flex flex-wrap gap-2 mb-4">
+                  <span className="px-2 py-1 text-xs bg-yellow-100 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-300 rounded">Architecture</span>
+                  <span className="px-2 py-1 text-xs bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 rounded">Performance</span>
+                  <span className="px-2 py-1 text-xs bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 rounded">State Management</span>
+                  <span className="px-2 py-1 text-xs bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded">Memory</span>
+                </div>
+
+                <Link
+                  href="/paiTraining/programming-languages"
+                  className="block w-full px-4 py-3 bg-yellow-500 hover:bg-yellow-600 text-white font-semibold rounded-xl transition-colors text-center"
+                >
+                  View All Programming Articles
                 </Link>
               </div>
             </motion.div>

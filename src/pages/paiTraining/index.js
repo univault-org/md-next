@@ -633,6 +633,32 @@ export default function PAITraining({ posts, inspirationContent, resourceContent
                     <span className="text-neutral-700 dark:text-neutral-300">User-friendly interfaces</span>
                   </li>
                 </ul>
+                
+                {/* Featured JavaScript Articles */}
+                <div className="mb-6 p-4 bg-yellow-50 dark:bg-yellow-900/20 rounded-lg border border-yellow-200 dark:border-yellow-700">
+                  <h4 className="font-semibold text-yellow-800 dark:text-yellow-200 mb-3 flex items-center">
+                    <span className="mr-2">📚</span>
+                    Featured Articles
+                  </h4>
+                  <div className="space-y-2">
+                    <Link href="/paiTraining/Programming_Language/JavaScript_Node/tanstack-query-architecture-deep-dive" className="block">
+                      <div className="text-sm text-yellow-700 dark:text-yellow-300 hover:text-yellow-900 dark:hover:text-yellow-100 transition-colors">
+                        • TanStack Query Architecture Patterns
+                      </div>
+                    </Link>
+                    <Link href="/paiTraining/Programming_Language/JavaScript_Node/frontend-memory-management-animation-patterns" className="block">
+                      <div className="text-sm text-yellow-700 dark:text-yellow-300 hover:text-yellow-900 dark:hover:text-yellow-100 transition-colors">
+                        • Frontend Memory Management & Animations
+                      </div>
+                    </Link>
+                    <Link href="/paiTraining/Programming_Language/JavaScript_Node/tanstack-query-architecture-deep-dive-part2" className="block">
+                      <div className="text-sm text-yellow-700 dark:text-yellow-300 hover:text-yellow-900 dark:hover:text-yellow-100 transition-colors">
+                        • Advanced TanStack Query Patterns
+                      </div>
+                    </Link>
+                  </div>
+                </div>
+
                 <div className="grid grid-cols-3 gap-4 text-center text-sm">
                   <div>
                     <div className="font-bold text-yellow-500">12</div>
@@ -1054,7 +1080,7 @@ export default function PAITraining({ posts, inspirationContent, resourceContent
               <div className="p-6">
                 <div className="text-center mb-4">
                   <div className="text-4xl mb-3">⚡</div>
-                  <h3 className="text-xl font-bold text-neutral-800 dark:text-neutral-100 mb-2">JavaScript Async</h3>
+                  <h3 className="text-2xl font-bold text-neutral-800 dark:text-neutral-100 mb-2">JavaScript Async</h3>
                   <p className="text-sm text-neutral-600 dark:text-neutral-400">Promise-based AI communication and real-time UIs</p>
                 </div>
                 
@@ -1094,7 +1120,7 @@ export default function PAITraining({ posts, inspirationContent, resourceContent
               <div className="p-6">
                 <div className="text-center mb-4">
                   <div className="text-4xl mb-3">🚀</div>
-                  <h3 className="text-xl font-bold text-neutral-800 dark:text-neutral-100 mb-2">C++ Performance</h3>
+                  <h3 className="text-2xl font-bold text-neutral-800 dark:text-neutral-100 mb-2">C++ Performance</h3>
                   <p className="text-sm text-neutral-600 dark:text-neutral-400">Memory optimization and real-time processing</p>
                 </div>
                 
