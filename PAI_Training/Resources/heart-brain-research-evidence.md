@@ -81,7 +81,7 @@ This sequence demonstrates that **the heart "knows" before the brain "thinks."**
 
 ### The Iowa Gambling Task: Heart Predicts Before Brain Decides
 
-Dr. Antoine Bechara's groundbreaking research using the Iowa Gambling Task revealed:
+Dr. Antoine Bechara's foundational research using the Iowa Gambling Task revealed:
 
 - **Heart rate variability** changes occurred before participants consciously recognized which decks were advantageous
 - The heart's response preceded brain-based decision-making by **significant time intervals**

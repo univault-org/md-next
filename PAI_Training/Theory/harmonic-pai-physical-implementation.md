@@ -947,7 +947,7 @@ If these ideas spark even a brief sense of wonder at our shared potential, they 
 
 ## References and Further Reading
 
-[This groundbreaking implementation work builds upon our theoretical foundation "Survival Instinct and Convex Optimization: Mathematical Foundations for Conscious Superintelligence" and the extensive phase-wave computing research published in our Updates series. As this field develops rapidly, we will maintain updated references and collaborative opportunities through the Harmonic PAI Research Initiative.]
+[This foundational implementation work builds upon our theoretical foundation "Survival Instinct and Convex Optimization: Mathematical Foundations for Conscious Superintelligence" and the extensive phase-wave computing research published in our Updates series. As this field develops rapidly, we will maintain updated references and collaborative opportunities through the Harmonic PAI Research Initiative.]
 
 ## Acknowledgments
 

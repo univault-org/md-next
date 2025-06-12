@@ -39,13 +39,13 @@ Many students find advanced mathematics intimidating, especially when abstract n
   Think of a smooth valley in the countryside. The lowest point in this valley is the **global minimum**—the best (or "optimal") location.
   
 - **Multiple Valleys vs. One Smooth Valley:**  
-  - In a rugged landscape with many hills and valleys, you might get stuck in a small valley that isn’t the deepest.
+  - In a rugged landscape with many hills and valleys, you might get stuck in a small valley that isn't the deepest.
   - In a smooth, bowl-shaped valley, **any downhill path leads you to the same lowest point.**
 
 ### Connecting to Optimization
 
 - **Simple Analogy:**  
-  In a convex optimization problem, our “landscape” is like a smooth bowl. No matter where you start, you always end up at the same best solution.
+  In a convex optimization problem, our "landscape" is like a smooth bowl. No matter where you start, you always end up at the same best solution.
   
 - **Why It Matters:**  
   This property makes convex problems **easy and reliable** to solve—any local minimum is also the global minimum.
@@ -60,7 +60,7 @@ Many students find advanced mathematics intimidating, especially when abstract n
   A shape is convex if, for any two points inside the shape, the straight line connecting them lies entirely within the shape. For example, a circle or a bowl is convex.
 
 - **Real-World Example:**  
-  Think of mixing two colors. The result (a blend) is always between the two original colors, with no “surprises” outside that range. This is similar to how convex combinations work in math.
+  Think of mixing two colors. The result (a blend) is always between the two original colors, with no "surprises" outside that range. This is similar to how convex combinations work in math.
 
 ### Convex Functions
 
@@ -68,7 +68,7 @@ Many students find advanced mathematics intimidating, especially when abstract n
   A convex function looks like a bowl. For any two points on the curve, the line segment between them lies above the curve.
   
 - **Key Benefit:**  
-  With convex functions, you know that if you find a point where the function is as low as possible in a small area, it’s the lowest point overall.
+  With convex functions, you know that if you find a point where the function is as low as possible in a small area, it's the lowest point overall.
 
 ---
 
@@ -123,7 +123,7 @@ and \( 0 \leq x_i \leq 1 \) for each \( i \).
 
 # Part 5: A Practical Example – Sensor Innovation Licensing
 
-Imagine we have a groundbreaking wearable sensor used in healthcare:
+Imagine we have a foundational wearable sensor used in healthcare:
 
 - **Field of Use 1 (Healthcare):**  
   - **Revenue potential:** \( a_1 = \$200 \) million per year.

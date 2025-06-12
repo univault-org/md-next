@@ -73,7 +73,7 @@ The current design of the internet also presents significant security challenges
 
 ## Visualizing the Future of Data Transfer
 
-Imagine a high-stakes scenario: the President of the United States is preparing for a brief yet significant visit to China. Traditionally, this would mean arranging for Air Force One, laden with equipment and personnel, to undertake a long journey, ensuring everything is in place upon arrival. However, let's envision a groundbreaking alternative.
+Imagine a high-stakes scenario: the President of the United States is preparing for a brief yet significant visit to China. Traditionally, this would mean arranging for Air Force One, laden with equipment and personnel, to undertake a long journey, ensuring everything is in place upon arrival. However, let's envision a foundational alternative.
 
 In this futuristic scenario, instead of relying solely on conventional air travel, the logistics team utilizes a space rocket to transport all the necessary gear. As the rocket launches, it soars through the atmosphere and lands in China within just an hour. Meanwhile, while Air Force One is en route, the embassy team in China meticulously assembles the stage and prepares all equipment. By the time the President lands, everything is ready, waiting for him.
 

@@ -7,7 +7,7 @@ subheadline: "Pioneering Data Sovereignty and Digital Asset Inheritance for the 
 
 # Universal Personal Data Vault
 
-The Universal Personal Data Vault (Univault) is a groundbreaking research initiative focused on developing technology that puts individuals in control of their digital lives. We're building the foundation for a future where personal data remains truly personal.
+The Universal Personal Data Vault (Univault) is a foundational research initiative focused on developing technology that puts individuals in control of their digital lives. We're building the foundation for a future where personal data remains truly personal.
 
 ## Challenges
 - Privacy vulnerabilities
