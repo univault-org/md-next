@@ -219,15 +219,17 @@ const createEnhancedMDXComponents = (onConceptClick) => ({
   },
   // Add CodeEditor directly for when we want actual code execution (keep for future use)
   CodeEditor,
-  // Enhanced mathematical notation support
+  // Enhanced mathematical notation support - FIXED
   InlineEquation: ({ children }) => (
     <span className="inline-block mx-1 px-2 py-1 bg-primary-50 dark:bg-primary-900/20 text-primary-700 dark:text-primary-300 rounded font-mono text-sm">
       {children}
     </span>
   ),
-  // Math equation renderer using KaTeX (like updates route)
+  // Math equation renderer - FIXED to handle display math properly like updates route
   math: ({ children }) => (
-    <span className="inline-block mx-1" dangerouslySetInnerHTML={{ __html: children }} />
+    <div className="my-6 overflow-x-auto">
+      <div dangerouslySetInnerHTML={{ __html: children }} />
+    </div>
   ),
   inlineMath: ({ children }) => (
     <span dangerouslySetInnerHTML={{ __html: children }} />

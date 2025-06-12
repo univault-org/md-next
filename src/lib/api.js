@@ -65,16 +65,34 @@ function formatDate(dateString) {
   }
 }
 
-// Update serialize configuration to handle images
+// Update serialize configuration to handle images and math
 async function serializeContent(content, options = {}) {
-  // Process image paths before serialization
-  const processedContent = content.replace(
-    /!\[(.*?)\]\((.*?)\)/g,
-    (match, alt, src) => {
+  // Enhanced math processing to handle align environments
+  const processedContent = content
+    .replace(/!\[(.*?)\]\((.*?)\)/g, (match, alt, src) => {
       const processedSrc = processImagePath(src)
       return `![${alt}](${processedSrc || src})`
-    }
-  )
+    })
+    // Handle display math with align environments - convert to proper format for remark-math
+    .replace(/\$\$\\begin\{align\}([\s\S]*?)\\end\{align\}\$\$/g, (match, content) => {
+      // Clean up the content and format properly for KaTeX
+      const cleanContent = content
+        .replace(/\\\\/g, '\\\\')
+        .trim();
+      return `$$\\begin{align}${cleanContent}\\end{align}$$`;
+    })
+    // Handle other display math environments
+    .replace(/\$\$\\begin\{([^}]+)\}([\s\S]*?)\\end\{\1\}\$\$/g, (match, env, content) => {
+      const cleanContent = content
+        .replace(/\\\\/g, '\\\\')
+        .trim();
+      return `$$\\begin{${env}}${cleanContent}\\end{${env}}$$`;
+    })
+    // Handle standard LaTeX delimiters
+    .replace(/\\\[/g, '$$')
+    .replace(/\\\]/g, '$$')
+    .replace(/\\\(/g, '$')
+    .replace(/\\\)/g, '$');
 
   return serialize(processedContent, {
     mdxOptions: {
@@ -82,6 +100,7 @@ async function serializeContent(content, options = {}) {
       rehypePlugins: [[rehypeKatex, { 
         strict: false,
         trust: true,
+        throwOnError: false,
         macros: {
           "\\eqref": "\\href{###1}{(\\text{#1})}",
           "\\ref": "\\href{###1}{\\text{#1}}",
