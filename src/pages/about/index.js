@@ -4,9 +4,9 @@ import { BiGroup, BiAtom, BiShield, BiWorld } from 'react-icons/bi'
 
 export default function About({ source, frontmatter = {} }) {
   const {
-    title = 'About Univault',
-    subtitle = 'Pioneering Digital Identity Sovereignty',
-    description = `We're building the foundation for personal data sovereignty in the AI era`
+    title = 'About Univault Research Lab',
+    subtitle = 'Advancing Personal Data Sovereignty & Consciousness-Aware AI',
+    description = `Research lab developing technologies across multiple domains: consciousness research, data sovereignty, hardware-to-AI transformation, and secure protocols`
   } = frontmatter
 
   return (
@@ -37,11 +37,11 @@ export default function About({ source, frontmatter = {} }) {
           <h2 className="text-3xl font-bold mb-6 text-neutral-800 dark:text-neutral-100">
             Our Mission
           </h2>
-          <p className="text-2xl text-neutral-600 dark:text-neutral-400">
-            At Univault, we're pioneering the future of personal data sovereignty in the age of artificial intelligence. 
-            We believe that every individual should have complete control over their digital identity, just as they have 
-            autonomy over their physical selves.
-          </p>
+            <p className="text-2xl text-neutral-600 dark:text-neutral-400">
+              Univault Research Lab is a research initiative dedicated to advancing personal data sovereignty and 
+              consciousness-aware AI technologies. We research, develop, and publish technologies that put individuals 
+              in control of their digital lives while enabling breakthrough AI capabilities.
+            </p>
         </div>
       </section>
 
@@ -58,9 +58,9 @@ export default function About({ source, frontmatter = {} }) {
               Who We Are
             </h2>
             <p className="text-2xl text-neutral-600 dark:text-neutral-400">
-              We are a collective of researchers, technologists, and digital rights advocates working 
-              to create a universal standard for personal data management. Our team is united by the belief 
-              that personal data sovereignty is a fundamental right in the digital age.
+              We are a research lab focused on developing technologies across multiple domains: consciousness & AI research, 
+              data sovereignty research, and protocol & security research. Our research spans from foundational models like 
+              the General Learning Encoder (GLE) to practical applications in hardware-to-AI transformation.
             </p>
           </div>
         </div>
@@ -83,19 +83,19 @@ export default function About({ source, frontmatter = {} }) {
             <ul className="space-y-3 text-xl text-neutral-600 dark:text-neutral-400">
               <li className="flex items-start">
                 <span className="mr-2">•</span>
-                Universal access to personal data for AI training
+                Consciousness & AI Research (GLE, Breathing Auth, EEG Challenge)
               </li>
               <li className="flex items-start">
                 <span className="mr-2">•</span>
-                Secure data storage and processing
+                Data Sovereignty Research (Personal AI, Privacy Architecture)
               </li>
               <li className="flex items-start">
                 <span className="mr-2">•</span>
-                Individual control over data sharing
+                Protocol & Security Research (SRPT, Quantum-Safe Privacy)
               </li>
               <li className="flex items-start">
                 <span className="mr-2">•</span>
-                Long-term preservation of digital identity
+                Applications (Bagle.com, MirrorAI, RIIF)
               </li>
             </ul>
           </div>
@@ -106,24 +106,24 @@ export default function About({ source, frontmatter = {} }) {
               <BiShield className="w-8 h-8" />
             </div>
             <h3 className="text-2xl font-semibold mb-4 text-center text-neutral-800 dark:text-neutral-100">
-              Digital Rights Advocacy
+              Research Publications
             </h3>
             <ul className="space-y-3 text-xl text-neutral-600 dark:text-neutral-400">
               <li className="flex items-start">
                 <span className="mr-2">•</span>
-                Data Ownership
+                EEG Foundation Challenge 2025 - Verified benchmarks
               </li>
               <li className="flex items-start">
                 <span className="mr-2">•</span>
-                Privacy Protection
+                Breathing Authentication (Current Biology 2025)
               </li>
               <li className="flex items-start">
                 <span className="mr-2">•</span>
-                Security Standards
+                GLE Technology - Foundation model research
               </li>
               <li className="flex items-start">
                 <span className="mr-2">•</span>
-                Access Rights
+                Open-source repositories and findings
               </li>
             </ul>
           </div>
@@ -166,25 +166,6 @@ export default function About({ source, frontmatter = {} }) {
         </div>
       </section>
 
-      {/* Join Our Mission Section */}
-      <section className="max-w-4xl mx-auto px-4 py-16 text-center">
-        <h2 className="text-3xl font-bold mb-6 text-neutral-800 dark:text-neutral-100">
-          Join Our Mission
-        </h2>
-        <p className="text-2xl mb-8 text-neutral-600 dark:text-neutral-400 max-w-3xl mx-auto">
-          We're building more than technology—we're creating a new paradigm for personal data management in the AI era.
-        </p>
-        <div className="inline-flex gap-4">
-          <a
-            href="https://github.com/univault-org"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-6 py-3 rounded-lg bg-primary-500 hover:bg-primary-600 text-white font-medium transition-colors"
-          >
-            Join on GitHub
-          </a>
-        </div>
-      </section>
     </>
   )
 }

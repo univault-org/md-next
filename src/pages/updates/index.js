@@ -6,10 +6,10 @@ export default function Updates({ posts }) {
   return (
     <>
       <Head>
-        <title>News & Updates - Univault</title>
+        <title>Publications - Univault Research Lab</title>
         <meta 
           name="description" 
-          content="Latest news, research updates, and announcements from Univault" 
+          content="Research articles and findings from Univault Research Lab" 
         />
       </Head>
 
@@ -20,10 +20,10 @@ export default function Updates({ posts }) {
         </div>
         <div className="relative max-w-4xl mx-auto px-4">
           <h1 className="text-4xl md:text-5xl font-bold text-center mb-4 bg-clip-text text-transparent bg-gradient-to-r from-neutral-800 to-neutral-600 dark:from-neutral-100 dark:to-neutral-300">
-            News & Updates
+            Publications
           </h1>
           <p className="text-2xl md:text-3xl text-center text-neutral-600 dark:text-neutral-300">
-            Latest developments in personal data sovereignty
+            Research articles and findings from Univault Research Lab
           </p>
         </div>
       </section>
