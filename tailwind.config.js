@@ -59,7 +59,7 @@ module.exports = {
           },
       },
       fontFamily: {
-        'sans': ['WeThePeople', ...defaultTheme.fontFamily.sans], // Add WeThePeople as primary font
+        'sans': [...defaultTheme.fontFamily.sans],
         'mono': ['var(--font-ibm-plex-mono)', ...defaultTheme.fontFamily.mono],
       },
       animation: {

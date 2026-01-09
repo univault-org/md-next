@@ -22,7 +22,7 @@ export default function Security({ source, frontmatter }) {
             transition={{ delay: 0.3 }}
             className="py-6 sm:py-10 px-4 sm:px-8 border-b border-white/20 dark:border-white/10 flex items-center justify-center"
           >
-            <h1 className="we-the-people text-[2rem] sm:text-[3rem] md:text-[4.5rem] text-center text-white/90 dark:text-white/80 leading-tight">
+            <h1 className="text-[2rem] sm:text-[3rem] md:text-[4.5rem] text-center text-white/90 dark:text-white/80 leading-tight font-serif">
               We The Universal Citizens
             </h1>
           </motion.div>
