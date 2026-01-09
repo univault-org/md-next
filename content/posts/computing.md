@@ -3,7 +3,7 @@ title: "The Computer as Our Food - Reviving the Body Through Wave Computing"
 date: 2024-12-08
 author: "Univault Technologies"
 excerpt: "Humanity stands at the precipice of a paradigm shift, where computing transcends diagnostics and treatment to become an intrinsic part of biological nourishment."
-image: "images/future_computer.webp"
+image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80"
 tags: [
   "wave computing",
   "biotech",

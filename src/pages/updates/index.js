@@ -1,16 +1,15 @@
-import Head from "next/head";
-import Link from "next/link";
-import { getAllPosts } from "@/lib/api";
-import { parseISO, format } from 'date-fns' 
+import Head from 'next/head'
+import Link from 'next/link'
+import { getAllPosts } from '@/lib/api'
 
 export default function Updates({ posts }) {
   return (
     <>
       <Head>
-        <title>News & Updates - Univault</title>
-        <meta
-          name="description"
-          content="Latest news, research updates, and announcements from Univault"
+        <title>Publications - Univault Research Lab</title>
+        <meta 
+          name="description" 
+          content="Research articles and findings from Univault Research Lab" 
         />
       </Head>
 
@@ -21,10 +20,10 @@ export default function Updates({ posts }) {
         </div>
         <div className="relative max-w-4xl mx-auto px-4">
           <h1 className="text-4xl md:text-5xl font-bold text-center mb-4 bg-clip-text text-transparent bg-gradient-to-r from-neutral-800 to-neutral-600 dark:from-neutral-100 dark:to-neutral-300">
-            News & Updates
+            Publications
           </h1>
           <p className="text-2xl md:text-3xl text-center text-neutral-600 dark:text-neutral-300">
-            Latest developments in personal data sovereignty
+            Research articles and findings from Univault Research Lab
           </p>
         </div>
       </section>
@@ -51,7 +50,11 @@ export default function Updates({ posts }) {
                 <div className="space-y-2">
                   <div className="flex items-center gap-2">
                     <p className="text-sm text-neutral-500 dark:text-neutral-400">
-                      {post.date ? format(parseISO(post.date), "MMMM d, yyyy") : "No date"}
+                      {new Date(post.date).toLocaleDateString('en-US', {
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric'
+                      })}
                     </p>
                     {post.author && (
                       <>
@@ -87,15 +90,15 @@ export default function Updates({ posts }) {
         </div>
       </section>
     </>
-  );
+  )
 }
 
 export async function getStaticProps() {
-  const posts = getAllPosts();
+  const posts = getAllPosts()
 
   return {
-    props: {
-      posts: posts || [],
+    props: { 
+      posts: posts || [] 
     },
-  };
+  }
 }

@@ -1,13 +1,13 @@
 ---
-title: "Univault - Personal Data Sovereignty"
-description: "Universal Personal Data Vault - Empowering individuals with complete control over their digital identity"
-headline: "UNIVERSAL PERSONAL DATA VAULT & PAI"
-subheadline: "Pioneering Data Sovereignty and Digital Asset Inheritance for the AI Age"
+title: "Univault Research Lab - Advancing Personal Data Sovereignty & Consciousness-Aware AI"
+description: "Research lab developing technologies across multiple domains: consciousness research, data sovereignty, hardware-to-AI transformation, and secure protocols"
+headline: "Univault Research Lab"
+subheadline: "Advancing Personal Data Sovereignty & Consciousness-Aware AI"
 ---
 
-# Universal Personal Data Vault
+# Univault Research Lab
 
-The Universal Personal Data Vault (Univault) is a foundational research initiative focused on developing technology that puts individuals in control of their digital lives. We're building the foundation for a future where personal data remains truly personal.
+Univault Research Lab is a research initiative developing technologies that put individuals in control of their digital lives. We research, develop, and publish technologies across multiple domains: consciousness research, data sovereignty, hardware-to-AI transformation, and secure protocols.
 
 ## Challenges
 - Privacy vulnerabilities
@@ -38,23 +38,43 @@ The Universal Personal Data Vault (Univault) is a foundational research initiati
 - Your digital identity is truly yours
 - Data sharing is transparent and revocable
 
-## Research
-- title: Privacy Architecture
-  description: Developing robust privacy-preserving systems
-  icon: 🏗️
+## Research Areas
 
-- title: Data Standards
-  description: Creating universal data interchange formats
-  icon: 📋
+### Consciousness & AI Research
+- title: Complete AI Architecture
+  description: Dual-brain system (GPT + Harmonic Frequency - HF Models + Adapter) enabling consciousness-aware AI that understands brain signals directly
+  icon: 🧠
 
-- title: Secure Sharing
-  description: Building secure data sharing protocols
-  icon: 🔐
+- title: General Learning Encoder (GLE)
+  description: Pre-trained foundation model for frequency-domain processing, enabling subject-invariant EEG intelligence across multiple applications
+  icon: 🔬
 
-- title: AI Integration
-  description: Enabling personal AI assistants
+- title: Breathing Authentication
+  description: Research on breathing-based biometric identification with 96.8% accuracy, published in Current Biology (2025)
+  icon: 💨
+
+### Data Sovereignty Research
+- title: Personal AI Systems
+  description: Research on AI systems that understand individuals personally while maintaining data sovereignty and privacy
   icon: 🤖
 
-- title: Identity Systems
-  description: Implementing decentralized identity solutions
-  icon: 🆔
+- title: Privacy Architecture
+  description: Developing robust privacy-preserving systems for personal data management
+  icon: 🔒
+
+- title: Data Standards
+  description: Creating universal data interchange formats for personal data sovereignty
+  icon: 📋
+
+### Protocol & Security Research
+- title: Satellite Data Protocol (SRPT)
+  description: Developing SRPT protocol for efficient global transfer of large AI models and datasets via satellite networks
+  icon: 🛰️
+
+- title: Quantum-Safe Privacy
+  description: Developing post-quantum cryptographic solutions to ensure long-term data protection
+  icon: ⚛️
+
+- title: Secure Sharing Protocols
+  description: Building secure data sharing protocols that maintain individual control
+  icon: 🔐

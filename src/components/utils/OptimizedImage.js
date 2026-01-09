@@ -8,8 +8,7 @@ const imageLoader = ({ src, width, quality }) => {
 }
 
 export default function OptimizedImage({ src, ...props }) {
- const env = process.env.NODE_ENV;
- console.log("current environment:", env);
+const env = process.env.NODE_ENV;
   const newSrc = `/md-next/${src}`
   return (
     <Image 

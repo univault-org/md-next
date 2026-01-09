@@ -13,12 +13,9 @@ export default function Navigation() {
 
   const navItems = [
     { href: "/", label: "Home" },
-    // { href: "/research", label: "Research" },
-    { href: "/paiTraining", label: "PAI Training" },
-    // { href: "/projects/PAI-World-Capital", label: "PAI Capital" },
-    { href: "/declaration", label: "Declaration" },
+    { href: "/research", label: "Research" },
     { href: "/about", label: "About" },
-    { href: "/updates", label: "Updates" },
+    { href: "/updates", label: "Publications" },
   ];
 
   return (

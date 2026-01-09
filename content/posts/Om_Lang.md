@@ -3,7 +3,7 @@ title: "Om: A Wave-Native Programming Language for Bio-Field Computing"
 date: 2024-12-27
 author: "Philip Tran & Univault Technologies Research"
 excerpt: "Introducing Om, a revolutionary programming language that natively supports wave-based computation (~), DNA processing, and bio-field interactions. By embracing nature's computational paradigms, Om makes parallel processing and quantum-like operations intuitive and efficient."
-image: "images/cover-om-lang.png"
+image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&q=80"
 tags: [
   "wave computing",
   "Om language",
