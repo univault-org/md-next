@@ -285,7 +285,7 @@ export default function Research({ researchContent }) {
       {/* Demo Request Modal */}
       {showDemoForm && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-50">
-          <div className="bg-white dark:bg-neutral-800 rounded-xl shadow-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+          <div className="bg-white dark:bg-neutral-800 rounded-xl shadow-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto" style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}>
             <div className="p-6">
               <div className="flex items-center justify-between mb-6">
                 <h2 className="text-2xl font-bold text-neutral-800 dark:text-neutral-100">
@@ -335,7 +335,7 @@ export default function Research({ researchContent }) {
                   </button>
                 </div>
               ) : (
-                <form onSubmit={handleFormSubmit} className="space-y-4">
+                <form onSubmit={handleFormSubmit} className="space-y-4" style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}>
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-1 font-sans">
                       Name <span className="text-red-500">*</span>
