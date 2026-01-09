@@ -4,7 +4,7 @@ name: Deploy static content to Pages
 on:
   # Runs on pushes targeting the deployment branch
   push:
-    branches: ["main", "deploy/gh-pages"]
+    branches: ["deploy/gh-pages"]
 
   # Allows manual triggers
   workflow_dispatch:
