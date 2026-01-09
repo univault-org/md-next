@@ -337,7 +337,7 @@ export default function Research({ researchContent }) {
               ) : (
                 <form onSubmit={handleFormSubmit} className="space-y-4">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-1">
+                    <label htmlFor="name" className="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-1 font-sans">
                       Name <span className="text-red-500">*</span>
                     </label>
                     <input
@@ -347,13 +347,13 @@ export default function Research({ researchContent }) {
                       required
                       value={formData.name}
                       onChange={handleInputChange}
-                      className="block w-full rounded-md border-neutral-300 dark:border-neutral-600 shadow-sm focus:border-primary-500 focus:ring-primary-500 dark:bg-neutral-700 dark:text-white px-3 py-2"
+                      className="block w-full rounded-md border-neutral-300 dark:border-neutral-600 shadow-sm focus:border-primary-500 focus:ring-primary-500 dark:bg-neutral-700 dark:text-white px-3 py-2 font-sans"
                       placeholder="Your name"
                     />
                   </div>
 
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-1">
+                    <label htmlFor="email" className="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-1 font-sans">
                       Email <span className="text-red-500">*</span>
                     </label>
                     <input
@@ -363,13 +363,13 @@ export default function Research({ researchContent }) {
                       required
                       value={formData.email}
                       onChange={handleInputChange}
-                      className="block w-full rounded-md border-neutral-300 dark:border-neutral-600 shadow-sm focus:border-primary-500 focus:ring-primary-500 dark:bg-neutral-700 dark:text-white px-3 py-2"
+                      className="block w-full rounded-md border-neutral-300 dark:border-neutral-600 shadow-sm focus:border-primary-500 focus:ring-primary-500 dark:bg-neutral-700 dark:text-white px-3 py-2 font-sans"
                       placeholder="you@company.com"
                     />
                   </div>
 
                   <div>
-                    <label htmlFor="company" className="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-1">
+                    <label htmlFor="company" className="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-1 font-sans">
                       Company/Organization <span className="text-red-500">*</span>
                     </label>
                     <input
@@ -379,13 +379,13 @@ export default function Research({ researchContent }) {
                       required
                       value={formData.company}
                       onChange={handleInputChange}
-                      className="block w-full rounded-md border-neutral-300 dark:border-neutral-600 shadow-sm focus:border-primary-500 focus:ring-primary-500 dark:bg-neutral-700 dark:text-white px-3 py-2"
+                      className="block w-full rounded-md border-neutral-300 dark:border-neutral-600 shadow-sm focus:border-primary-500 focus:ring-primary-500 dark:bg-neutral-700 dark:text-white px-3 py-2 font-sans"
                       placeholder="Your company or organization"
                     />
                   </div>
 
                   <div>
-                    <label htmlFor="company_size" className="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-1">
+                    <label htmlFor="company_size" className="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-1 font-sans">
                       Company Size (optional)
                     </label>
                     <select
@@ -393,7 +393,7 @@ export default function Research({ researchContent }) {
                       name="company_size"
                       value={formData.company_size}
                       onChange={handleInputChange}
-                      className="block w-full rounded-md border-neutral-300 dark:border-neutral-600 shadow-sm focus:border-primary-500 focus:ring-primary-500 dark:bg-neutral-700 dark:text-white px-3 py-2"
+                      className="block w-full rounded-md border-neutral-300 dark:border-neutral-600 shadow-sm focus:border-primary-500 focus:ring-primary-500 dark:bg-neutral-700 dark:text-white px-3 py-2 font-sans"
                     >
                       <option value="">Select company size (optional)</option>
                       <option value="1-10">1-10 employees</option>
@@ -405,7 +405,7 @@ export default function Research({ researchContent }) {
                   </div>
 
                   <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-1">
+                    <label htmlFor="message" className="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-1 font-sans">
                       Message (optional)
                     </label>
                     <textarea
@@ -414,7 +414,7 @@ export default function Research({ researchContent }) {
                       rows={4}
                       value={formData.message}
                       onChange={handleInputChange}
-                      className="block w-full rounded-md border-neutral-300 dark:border-neutral-600 shadow-sm focus:border-primary-500 focus:ring-primary-500 dark:bg-neutral-700 dark:text-white px-3 py-2"
+                      className="block w-full rounded-md border-neutral-300 dark:border-neutral-600 shadow-sm focus:border-primary-500 focus:ring-primary-500 dark:bg-neutral-700 dark:text-white px-3 py-2 font-sans"
                       placeholder="Tell us about your research interests or collaboration opportunities..."
                     />
                   </div>
@@ -448,7 +448,7 @@ export default function Research({ researchContent }) {
               )}
             </div>
           </div>
-        </div>
+      </div>
       )}
     </>
   );
