@@ -105,8 +105,8 @@ export default function Home({ content, metadata }) {
       title: "RIIF",
       description: "Audio player platform for personalized content delivery powered by consciousness-aware AI.",
       url: "#",
-      icon: <BiSignal5 className="text-3xl" />,
-    },
+        icon: <BiSignal5 className="text-3xl" />,
+      },
   ];
 
 
@@ -292,13 +292,13 @@ export default function Home({ content, metadata }) {
                 <div
                   key={index}
                   className="text-center p-6 rounded-xl dark:bg-neutral-800 
-                    shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]
-                    dark:shadow-[0_2px_15px_-3px_rgba(0,0,0,0.2)] 
-                    border-2 border-neutral-200 dark:border-neutral-700
-                    hover:border-neutral-300 dark:hover:border-neutral-600
-                    transition-all duration-300"
-                >
-                  <div
+                shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]
+                dark:shadow-[0_2px_15px_-3px_rgba(0,0,0,0.2)] 
+                border-2 border-neutral-200 dark:border-neutral-700
+                hover:border-neutral-300 dark:hover:border-neutral-600
+                transition-all duration-300"
+            >
+              <div
                     className="w-16 h-16 mx-auto mb-4 text-primary-500 
                     flex items-center justify-center 
                     bg-white dark:bg-neutral-700 
@@ -397,7 +397,7 @@ export default function Home({ content, metadata }) {
               <div className="flex items-center justify-between mb-6">
                 <h2 className="text-2xl font-bold text-neutral-800 dark:text-neutral-100">
                   Request Demo
-                </h2>
+          </h2>
                 <button
                   onClick={() => {
                     setShowDemoForm(false);
@@ -444,7 +444,7 @@ export default function Home({ content, metadata }) {
               ) : (
                 <form onSubmit={handleFormSubmit} className="space-y-4">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-1">
+                    <label htmlFor="name" className="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-1 font-sans">
                       Name <span className="text-red-500">*</span>
                     </label>
                     <input
@@ -454,13 +454,13 @@ export default function Home({ content, metadata }) {
                       required
                       value={formData.name}
                       onChange={handleInputChange}
-                      className="block w-full rounded-md border-neutral-300 dark:border-neutral-600 shadow-sm focus:border-primary-500 focus:ring-primary-500 dark:bg-neutral-700 dark:text-white px-3 py-2"
+                      className="block w-full rounded-md border-neutral-300 dark:border-neutral-600 shadow-sm focus:border-primary-500 focus:ring-primary-500 dark:bg-neutral-700 dark:text-white px-3 py-2 font-sans"
                       placeholder="Your name"
                     />
                   </div>
 
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-1">
+                    <label htmlFor="email" className="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-1 font-sans">
                       Email <span className="text-red-500">*</span>
                     </label>
                     <input
@@ -470,13 +470,13 @@ export default function Home({ content, metadata }) {
                       required
                       value={formData.email}
                       onChange={handleInputChange}
-                      className="block w-full rounded-md border-neutral-300 dark:border-neutral-600 shadow-sm focus:border-primary-500 focus:ring-primary-500 dark:bg-neutral-700 dark:text-white px-3 py-2"
+                      className="block w-full rounded-md border-neutral-300 dark:border-neutral-600 shadow-sm focus:border-primary-500 focus:ring-primary-500 dark:bg-neutral-700 dark:text-white px-3 py-2 font-sans"
                       placeholder="you@company.com"
                     />
                   </div>
 
                   <div>
-                    <label htmlFor="company" className="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-1">
+                    <label htmlFor="company" className="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-1 font-sans">
                       Company/Organization <span className="text-red-500">*</span>
                     </label>
                     <input
@@ -486,13 +486,13 @@ export default function Home({ content, metadata }) {
                       required
                       value={formData.company}
                       onChange={handleInputChange}
-                      className="block w-full rounded-md border-neutral-300 dark:border-neutral-600 shadow-sm focus:border-primary-500 focus:ring-primary-500 dark:bg-neutral-700 dark:text-white px-3 py-2"
+                      className="block w-full rounded-md border-neutral-300 dark:border-neutral-600 shadow-sm focus:border-primary-500 focus:ring-primary-500 dark:bg-neutral-700 dark:text-white px-3 py-2 font-sans"
                       placeholder="Your company or organization"
                     />
                   </div>
 
                   <div>
-                    <label htmlFor="company_size" className="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-1">
+                    <label htmlFor="company_size" className="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-1 font-sans">
                       Company Size (optional)
                     </label>
                     <select
@@ -500,7 +500,7 @@ export default function Home({ content, metadata }) {
                       name="company_size"
                       value={formData.company_size}
                       onChange={handleInputChange}
-                      className="block w-full rounded-md border-neutral-300 dark:border-neutral-600 shadow-sm focus:border-primary-500 focus:ring-primary-500 dark:bg-neutral-700 dark:text-white px-3 py-2"
+                      className="block w-full rounded-md border-neutral-300 dark:border-neutral-600 shadow-sm focus:border-primary-500 focus:ring-primary-500 dark:bg-neutral-700 dark:text-white px-3 py-2 font-sans"
                     >
                       <option value="">Select company size (optional)</option>
                       <option value="1-10">1-10 employees</option>
@@ -512,7 +512,7 @@ export default function Home({ content, metadata }) {
                   </div>
 
                   <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-1">
+                    <label htmlFor="message" className="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-1 font-sans">
                       Message (optional)
                     </label>
                     <textarea
@@ -521,7 +521,7 @@ export default function Home({ content, metadata }) {
                       rows={4}
                       value={formData.message}
                       onChange={handleInputChange}
-                      className="block w-full rounded-md border-neutral-300 dark:border-neutral-600 shadow-sm focus:border-primary-500 focus:ring-primary-500 dark:bg-neutral-700 dark:text-white px-3 py-2"
+                      className="block w-full rounded-md border-neutral-300 dark:border-neutral-600 shadow-sm focus:border-primary-500 focus:ring-primary-500 dark:bg-neutral-700 dark:text-white px-3 py-2 font-sans"
                       placeholder="Tell us about your research interests or collaboration opportunities..."
                     />
                   </div>
@@ -553,7 +553,7 @@ export default function Home({ content, metadata }) {
                   </div>
                 </form>
               )}
-            </div>
+              </div>
           </div>
         </div>
       )}
