@@ -1,19 +1,13 @@
 import Head from 'next/head'
 import { getMDXContent } from '@/lib/api'
-import { BiGroup, BiAtom, BiShield, BiWorld } from 'react-icons/bi'
+import { BiTestTube, BiShield, BiHeart, BiWorld } from 'react-icons/bi'
 
 export default function About({ source, frontmatter = {} }) {
-  const {
-    title = 'About Univault Research Lab',
-    subtitle = 'Advancing Personal Data Sovereignty & Consciousness-Aware AI',
-    description = `Research lab developing technologies across multiple domains: consciousness research, data sovereignty, hardware-to-AI transformation, and secure protocols`
-  } = frontmatter
-
   return (
     <>
       <Head>
-        <title>{title}</title>
-        <meta name="description" content={description} />
+        <title>About Univault — The Tool and The Network</title>
+        <meta name="description" content="Univault builds BAGLE (the encoder) and ParagonDAO (the governance network). The lab equipment and the peer review board for the health economy." />
       </Head>
 
       {/* Hero Section */}
@@ -23,144 +17,145 @@ export default function About({ source, frontmatter = {} }) {
         </div>
         <div className="relative max-w-4xl mx-auto px-4">
           <h1 className="text-4xl md:text-5xl font-bold text-center mb-4 bg-clip-text text-transparent bg-gradient-to-r from-neutral-800 to-neutral-600 dark:from-neutral-100 dark:to-neutral-300">
-            {title}
+            About Univault
           </h1>
-          <p className="text-2xl md:text-3xl text-center text-neutral-600 dark:text-neutral-300">
-            {subtitle}
+          <p className="text-xl md:text-2xl text-center text-neutral-600 dark:text-neutral-300">
+            We build the tool and the network for the health economy.
           </p>
         </div>
       </section>
 
-      {/* Mission Section */}
+      {/* Why We Exist */}
       <section className="max-w-4xl mx-auto px-4 py-16">
         <div className="text-center max-w-3xl mx-auto">
           <h2 className="text-3xl font-bold mb-6 text-neutral-800 dark:text-neutral-100">
-            Our Mission
+            Why We Exist
           </h2>
-            <p className="text-2xl text-neutral-600 dark:text-neutral-400">
-              Univault Research Lab is a research initiative dedicated to advancing personal data sovereignty and 
-              consciousness-aware AI technologies. We research, develop, and publish technologies that put individuals 
-              in control of their digital lives while enabling breakthrough AI capabilities.
-            </p>
+          <p className="text-lg text-neutral-600 dark:text-neutral-400 mb-4">
+            Every health researcher has data that could help patients — but no way to turn it into a product without building an entire company.
+            Every patient has health signals their phone could read — but no models trained to interpret them.
+          </p>
+          <p className="text-lg text-neutral-600 dark:text-neutral-400">
+            Univault exists to close that gap. We built the universal encoder that turns any health signal into math,
+            and the governance network that ensures the math is accurate before patients depend on it.
+          </p>
         </div>
       </section>
 
-      {/* Who We Are Section */}
-      <section className="max-w-4xl mx-auto px-4 py-16 bg-neutral-50 dark:bg-neutral-800/50">
-        <div className="flex flex-col md:flex-row items-center gap-8">
-          <div className="md:w-1/3">
-            <div className="w-24 h-24 mx-auto text-primary-500 flex items-center justify-center bg-white dark:bg-neutral-700 rounded-full shadow-md">
-              <BiGroup className="w-12 h-12" />
-            </div>
-          </div>
-          <div className="md:w-2/3">
-            <h2 className="text-3xl font-bold mb-6 text-neutral-800 dark:text-neutral-100">
-              Who We Are
-            </h2>
-            <p className="text-2xl text-neutral-600 dark:text-neutral-400">
-              We are a research lab focused on developing technologies across multiple domains: consciousness & AI research, 
-              data sovereignty research, and protocol & security research. Our research spans from foundational models like 
-              the General Learning Encoder (GLE) to practical applications in hardware-to-AI transformation.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* What We Do Section */}
-      <section className="max-w-4xl mx-auto px-4 py-16">
+      {/* Two Products */}
+      <section className="max-w-4xl mx-auto px-4 py-16 bg-neutral-50 dark:bg-neutral-800/50 rounded-2xl">
         <h2 className="text-3xl font-bold mb-12 text-center text-neutral-800 dark:text-neutral-100">
-          What We Do
+          Two Products. One Architecture.
         </h2>
         <div className="grid md:grid-cols-2 gap-8">
-          {/* Research & Development */}
-          <div className="p-8 rounded-xl border-2 border-neutral-200 dark:border-neutral-700">
-            <div className="w-16 h-16 mx-auto mb-6 text-primary-500 flex items-center justify-center bg-white dark:bg-neutral-700 rounded-full shadow-md">
-              <BiAtom className="w-8 h-8" />
+          <div className="p-8 rounded-xl bg-white dark:bg-neutral-800 border-2 border-neutral-200 dark:border-neutral-700">
+            <div className="w-16 h-16 mx-auto mb-6 text-primary-500 flex items-center justify-center bg-primary-50 dark:bg-neutral-700 rounded-full shadow-md">
+              <BiTestTube className="w-8 h-8" />
             </div>
-            <h3 className="text-2xl font-semibold mb-4 text-center text-neutral-800 dark:text-neutral-100">
-              Research & Development
+            <h3 className="text-2xl font-semibold mb-2 text-center text-neutral-800 dark:text-neutral-100">
+              BAGLE
             </h3>
-            <ul className="space-y-3 text-xl text-neutral-600 dark:text-neutral-400">
-              <li className="flex items-start">
-                <span className="mr-2">•</span>
-                Consciousness & AI Research (GLE, Breathing Auth, EEG Challenge)
-              </li>
-              <li className="flex items-start">
-                <span className="mr-2">•</span>
-                Data Sovereignty Research (Personal AI, Privacy Architecture)
-              </li>
-              <li className="flex items-start">
-                <span className="mr-2">•</span>
-                Protocol & Security Research (SRPT, Quantum-Safe Privacy)
-              </li>
-              <li className="flex items-start">
-                <span className="mr-2">•</span>
-                Applications (Bagle.com, MirrorAI, RIIF)
-              </li>
-            </ul>
+            <p className="text-center text-lg font-medium text-primary-600 dark:text-primary-400 mb-4">
+              The Lab Equipment
+            </p>
+            <p className="text-neutral-600 dark:text-neutral-400">
+              Brain-AI General Learning Encoder. The universal health signal encoder powered by DCT-II frequency-domain processing.
+              Any signal in — breathing, cardiac, EEG, voice, molecular sensors — 128 coefficients out.
+              Builders train classifiers on those coefficients. The encoder does the hard math.
+              6 models published. API opens April 2026.
+            </p>
           </div>
 
-          {/* Digital Rights Advocacy */}
-          <div className="p-8 rounded-xl border-2 border-neutral-200 dark:border-neutral-700">
-            <div className="w-16 h-16 mx-auto mb-6 text-primary-500 flex items-center justify-center bg-white dark:bg-neutral-700 rounded-full shadow-md">
+          <div className="p-8 rounded-xl bg-white dark:bg-neutral-800 border-2 border-neutral-200 dark:border-neutral-700">
+            <div className="w-16 h-16 mx-auto mb-6 text-primary-500 flex items-center justify-center bg-primary-50 dark:bg-neutral-700 rounded-full shadow-md">
               <BiShield className="w-8 h-8" />
             </div>
-            <h3 className="text-2xl font-semibold mb-4 text-center text-neutral-800 dark:text-neutral-100">
-              Research Publications
+            <h3 className="text-2xl font-semibold mb-2 text-center text-neutral-800 dark:text-neutral-100">
+              ParagonDAO
             </h3>
-            <ul className="space-y-3 text-xl text-neutral-600 dark:text-neutral-400">
-              <li className="flex items-start">
-                <span className="mr-2">•</span>
-                EEG Foundation Challenge 2025 - Verified benchmarks
-              </li>
-              <li className="flex items-start">
-                <span className="mr-2">•</span>
-                Breathing Authentication (Current Biology 2025)
-              </li>
-              <li className="flex items-start">
-                <span className="mr-2">•</span>
-                GLE Technology - Foundation model research
-              </li>
-              <li className="flex items-start">
-                <span className="mr-2">•</span>
-                Open-source repositories and findings
-              </li>
-            </ul>
+            <p className="text-center text-lg font-medium text-primary-600 dark:text-primary-400 mb-4">
+              The Peer Review Board
+            </p>
+            <p className="text-neutral-600 dark:text-neutral-400">
+              The governance network that validates health models before patients rely on them.
+              Certifies builders. Ensures quality. Manages the security layer (HF-Auth continuous authentication).
+              10% of all network fees fund one mission: preventing loss of life.
+              Published whitepapers, open standard.
+            </p>
           </div>
+        </div>
+
+        <div className="mt-8 p-6 rounded-xl bg-primary-50 dark:bg-primary-900/20 border border-primary-200 dark:border-primary-800 text-center">
+          <p className="text-lg text-neutral-700 dark:text-neutral-300">
+            <strong>Why both?</strong> Because the tool without governance is dangerous — unvalidated health models loose in the world.
+            And the governance without the tool is just a committee with nothing to govern.
+          </p>
         </div>
       </section>
 
-      {/* Core Principles Section */}
-      <section className="max-w-4xl mx-auto px-4 py-16 bg-neutral-50 dark:bg-neutral-800/50">
+      {/* The Model */}
+      <section className="max-w-4xl mx-auto px-4 py-16">
         <h2 className="text-3xl font-bold mb-12 text-center text-neutral-800 dark:text-neutral-100">
-          Core Principles
+          The Builder Economy
         </h2>
         <div className="grid md:grid-cols-2 gap-8">
           {[
             {
-              title: "Ownership",
-              description: "We believe personal data belongs to individuals, giving them complete control over how it's used, shared, and preserved."
+              icon: <BiWorld className="w-8 h-8" />,
+              title: "Not One Company with 1,000 Employees",
+              description: "Thousands of founders building on one protocol. Each brings domain expertise in their health vertical. The encoder handles the math. ParagonDAO validates the quality."
             },
             {
-              title: "Privacy",
-              description: "Like DNA passed through generations, personal data carries unique information that defines us and must be protected accordingly."
-            },
-            {
-              title: "Security",
-              description: "We implement robust security measures to protect personal data at every stage—from generation to storage."
-            },
-            {
-              title: "Universal Access",
-              description: "We ensure personal data can be accessed securely by authorized AI systems and services while maintaining individual control."
+              icon: <BiHeart className="w-8 h-8" />,
+              title: "The Mission Fund",
+              description: "10% of all network fees fund crisis detection, community health screening, and free GLE access for crisis organizations. 988 suicide prevention. Community health workers. The reason the network exists."
             }
-          ].map((principle, index) => (
+          ].map((item, index) => (
             <div key={index} className="p-8 rounded-xl bg-white dark:bg-neutral-800 shadow-md">
-              <h3 className="text-2xl font-semibold mb-4 text-neutral-800 dark:text-neutral-100">
-                {principle.title}
+              <div className="w-12 h-12 mb-4 text-primary-500 flex items-center justify-center">
+                {item.icon}
+              </div>
+              <h3 className="text-xl font-semibold mb-4 text-neutral-800 dark:text-neutral-100">
+                {item.title}
               </h3>
-              <p className="text-xl text-neutral-600 dark:text-neutral-400">
-                {principle.description}
+              <p className="text-neutral-600 dark:text-neutral-400">
+                {item.description}
               </p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Research Foundation */}
+      <section className="max-w-4xl mx-auto px-4 py-16 bg-neutral-50 dark:bg-neutral-800/50 rounded-2xl">
+        <h2 className="text-3xl font-bold mb-6 text-center text-neutral-800 dark:text-neutral-100">
+          Research Foundation
+        </h2>
+        <p className="text-center mb-8 text-lg text-neutral-600 dark:text-neutral-400 max-w-3xl mx-auto">
+          Everything we build is grounded in published research and verified benchmarks.
+        </p>
+        <div className="grid md:grid-cols-3 gap-6">
+          {[
+            {
+              title: "GLE Encoder",
+              stat: "27.5% better",
+              desc: "than competition-winning solutions on subject-invariant health prediction tasks"
+            },
+            {
+              title: "Breathing Biometrics",
+              stat: "96.8% accuracy",
+              desc: "identification across 97 participants using nasal airflow patterns alone"
+            },
+            {
+              title: "Patent Portfolio",
+              stat: "2 provisionals filed",
+              desc: "GLE universal encoder + piezoelectric textile biosignal system with continuous authentication"
+            }
+          ].map((item, index) => (
+            <div key={index} className="text-center p-6 rounded-xl bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700">
+              <h4 className="font-semibold mb-2 text-neutral-800 dark:text-neutral-100">{item.title}</h4>
+              <p className="text-2xl font-bold text-primary-600 dark:text-primary-400 mb-2">{item.stat}</p>
+              <p className="text-sm text-neutral-600 dark:text-neutral-400">{item.desc}</p>
             </div>
           ))}
         </div>
