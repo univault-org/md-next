@@ -1,24 +1,17 @@
 import { useState } from "react";
 import Head from "next/head";
-import Link from "next/link";
 import { getMDXContent } from "@/lib/api";
 import {
-  BiLayer, // For organization - stacked layers
-  BiGift, // For legacy/inheritance - gift/passing on
-  BiShield, // For data protection/sovereignty
-  BiAtom,        // For quantum computing
-  BiSignal5,       // For AI/ML
-  BiFingerprint,
+  BiTestTube,
+  BiShield,
   BiLinkExternal,
-  BiChip, // For AI/brain
-  BiTestTube, // For research/GLE
-  BiCloud, // For breathing
-  BiLock,
-  BiFile, // For documents
-  BiBroadcast // For satellite/communication
+  BiCheckCircle,
+  BiBrain,
+  BiGroup,
+  BiDollar,
 } from "react-icons/bi";
 
-export default function Home({ content, metadata }) {
+export default function Home() {
   const [showDemoForm, setShowDemoForm] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
@@ -30,98 +23,6 @@ export default function Home({ content, metadata }) {
   const [formLoading, setFormLoading] = useState(false);
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [formError, setFormError] = useState('');
-  const researchAreas = [
-    {
-      category: "Consciousness & AI Research",
-      items: [
-        {
-          title: "Complete AI Architecture",
-          description: "Dual-brain system (GPT + Harmonic Frequency - HF Models + Adapter) enabling consciousness-aware AI that understands brain signals directly",
-          icon: <BiChip className="text-3xl" />,
-        },
-        {
-          title: "General Learning Encoder (GLE)",
-          description: "Pre-trained foundation model for frequency-domain processing, enabling subject-invariant EEG intelligence across multiple applications",
-          icon: <BiTestTube className="text-3xl" />,
-        },
-        {
-          title: "Breathing Authentication",
-          description: "Research on breathing-based biometric identification with 96.8% accuracy, published in Current Biology (2025)",
-          icon: <BiCloud className="text-3xl" />,
-        },
-      ]
-    },
-    {
-      category: "Data Sovereignty Research",
-      items: [
-        {
-          title: "Personal AI Systems",
-          description: "Research on AI systems that understand individuals personally while maintaining data sovereignty and privacy",
-          icon: <BiShield className="text-3xl" />,
-        },
-        {
-          title: "Privacy Architecture",
-          description: "Developing robust privacy-preserving systems for personal data management",
-          icon: <BiLock className="text-3xl" />,
-        },
-        {
-          title: "Data Standards",
-          description: "Creating universal data interchange formats for personal data sovereignty",
-          icon: <BiFile className="text-3xl" />,
-        },
-      ]
-    },
-    {
-      category: "Protocol & Security Research",
-      items: [
-        {
-          title: "Satellite Data Protocol (SRPT)",
-          description: "Developing SRPT protocol for efficient global transfer of large AI models and datasets via satellite networks",
-          icon: <BiBroadcast className="text-3xl" />,
-        },
-        {
-          title: "Quantum-Safe Privacy",
-          description: "Developing post-quantum cryptographic solutions to ensure long-term data protection",
-          icon: <BiAtom className="text-3xl" />,
-        },
-      ]
-    }
-  ];
-
-  const applications = [
-    {
-      title: "Bagle.com",
-      description: "Hardware-to-AI transformation platform powered by GLE. Transform your devices into complete AI infrastructure.",
-      url: "https://bagle.com",
-      icon: <BiTestTube className="text-3xl" />,
-    },
-    {
-      title: "MirrorAI",
-      description: "Complete AI applications enabling consciousness-aware AI for mental coaching and personal development.",
-      url: "#",
-      icon: <BiChip className="text-3xl" />,
-    },
-    {
-      title: "RIIF",
-      description: "Audio player platform for personalized content delivery powered by consciousness-aware AI.",
-      url: "#",
-        icon: <BiSignal5 className="text-3xl" />,
-      },
-  ];
-
-
-  // Add null checks for content
-  const visionItems = content?.vision || [];
-//   const researchAreas = content?.research || [];
-  const pageMetadata = {
-    headline: metadata?.headline || "Univault Research Lab",
-    subheadline:
-      metadata?.subheadline || "Advancing Personal Data Sovereignty & Consciousness-Aware AI",
-    title: metadata?.title || "Univault Research Lab - Advancing Personal Data Sovereignty & Consciousness-Aware AI",
-    description:
-      metadata?.description ||
-      "Research lab developing technologies across multiple domains: consciousness research, data sovereignty, hardware-to-AI transformation, and secure protocols",
-  };
 
   const handleInputChange = (e) => {
     setFormData({
@@ -173,8 +74,8 @@ export default function Home({ content, metadata }) {
   return (
     <>
       <Head>
-        <title>{metadata.title}</title>
-        <meta name="description" content={metadata.description} />
+        <title>Univault Research Lab — The Tool and The Network for the Health Economy</title>
+        <meta name="description" content="Univault builds BAGLE, the universal health signal encoder, and ParagonDAO, the governance network that validates health models. Your research becomes a product." />
       </Head>
 
       {/* Hero Section */}
@@ -186,39 +87,290 @@ export default function Home({ content, metadata }) {
           <div className="h-full flex flex-col justify-center items-center text-center">
             <div className="space-y-6 max-w-3xl">
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-neutral-800 to-neutral-600 dark:from-neutral-100 dark:to-neutral-300">
-                {pageMetadata.headline}
+                We Build the Tool and the Network for the Health Economy
               </h1>
-              <p className="text-2xl md:text-2xl text-neutral-600 dark:text-neutral-300">
-                {pageMetadata.subheadline}
+              <p className="text-xl md:text-2xl text-neutral-600 dark:text-neutral-300">
+                Any health signal in. 128 numbers out. Your model on the network.<br />
+                Your research becomes a product.
               </p>
               <div className="flex gap-4 justify-center pt-4">
-                <Link
-                  href="/research"
+                <a
+                  href="https://bagle.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center px-6 py-3 rounded-lg bg-primary-500 hover:bg-primary-600 text-white font-medium transition-colors"
                 >
-                  Explore Research
-                  <i className="bi bi-arrow-right ml-2"></i>
-                </Link>
-                <button
-                  onClick={() => setShowDemoForm(true)}
+                  See the Models
+                  <BiLinkExternal className="ml-2" />
+                </a>
+                <a
+                  href="https://paragondao.org/whitepaper"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center px-6 py-3 rounded-lg bg-neutral-100 hover:bg-neutral-200 dark:bg-neutral-700 dark:hover:bg-neutral-600 text-neutral-700 dark:text-neutral-100 font-medium transition-colors"
                 >
-                  Request Demo
-                  <i className="bi bi-info-circle ml-2"></i>
-                </button>
+                  Read the Whitepaper
+                  <BiLinkExternal className="ml-2" />
+                </a>
               </div>
             </div>
           </div>
         </div>
       </section>
 
+      {/* Why Two Products Section */}
+      <section className="max-w-5xl mx-auto px-4 py-16">
+        <h2 className="text-3xl font-bold text-center mb-4 text-neutral-800 dark:text-neutral-100">
+          Two Products. One Mission.
+        </h2>
+        <p className="text-center mb-12 text-lg text-neutral-600 dark:text-neutral-400 max-w-3xl mx-auto">
+          The tool without governance is dangerous — unvalidated health models loose in the world.
+          The governance without the tool is just a committee with nothing to govern.
+          We built both.
+        </p>
+
+        <div className="grid md:grid-cols-2 gap-8">
+          {/* BAGLE Card */}
+          <a
+            href="https://bagle.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="p-8 rounded-xl bg-white dark:bg-neutral-800
+              shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]
+              dark:shadow-[0_2px_15px_-3px_rgba(0,0,0,0.2)]
+              border-2 border-neutral-200 dark:border-neutral-700
+              hover:border-primary-500 dark:hover:border-primary-500
+              transition-all duration-300 cursor-pointer"
+          >
+            <div className="w-16 h-16 mx-auto mb-6 text-primary-500 flex items-center justify-center bg-primary-50 dark:bg-neutral-700 rounded-full shadow-md">
+              <BiTestTube className="text-3xl" />
+            </div>
+            <h3 className="text-2xl font-bold text-center mb-2 text-neutral-800 dark:text-neutral-100">
+              BAGLE <BiLinkExternal className="inline-block ml-1 text-sm text-neutral-400" />
+            </h3>
+            <p className="text-center text-lg font-medium text-primary-600 dark:text-primary-400 mb-4">
+              The Lab Equipment
+            </p>
+            <p className="text-neutral-600 dark:text-neutral-400 text-center mb-6">
+              The universal encoder. Send any health signal — breathing, heart rate, voice, EEG, biosensor output — and get back 128 numbers.
+              Train a classifier on those numbers. That&apos;s your model.
+            </p>
+            <ul className="space-y-2 text-sm text-neutral-600 dark:text-neutral-400">
+              <li className="flex items-start">
+                <BiCheckCircle className="text-primary-500 mt-0.5 mr-2 flex-shrink-0" />
+                6 published health models live now
+              </li>
+              <li className="flex items-start">
+                <BiCheckCircle className="text-primary-500 mt-0.5 mr-2 flex-shrink-0" />
+                27.5% better than competition benchmarks
+              </li>
+              <li className="flex items-start">
+                <BiCheckCircle className="text-primary-500 mt-0.5 mr-2 flex-shrink-0" />
+                API opens April 2026 — build Model #7
+              </li>
+            </ul>
+          </a>
+
+          {/* ParagonDAO Card */}
+          <a
+            href="https://paragondao.org"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="p-8 rounded-xl bg-white dark:bg-neutral-800
+              shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]
+              dark:shadow-[0_2px_15px_-3px_rgba(0,0,0,0.2)]
+              border-2 border-neutral-200 dark:border-neutral-700
+              hover:border-primary-500 dark:hover:border-primary-500
+              transition-all duration-300 cursor-pointer"
+          >
+            <div className="w-16 h-16 mx-auto mb-6 text-primary-500 flex items-center justify-center bg-primary-50 dark:bg-neutral-700 rounded-full shadow-md">
+              <BiShield className="text-3xl" />
+            </div>
+            <h3 className="text-2xl font-bold text-center mb-2 text-neutral-800 dark:text-neutral-100">
+              ParagonDAO <BiLinkExternal className="inline-block ml-1 text-sm text-neutral-400" />
+            </h3>
+            <p className="text-center text-lg font-medium text-primary-600 dark:text-primary-400 mb-4">
+              The Peer Review Board
+            </p>
+            <p className="text-neutral-600 dark:text-neutral-400 text-center mb-6">
+              The governance network. Validates models before patients rely on them. Certifies builders.
+              Ensures quality across every health application on the network.
+            </p>
+            <ul className="space-y-2 text-sm text-neutral-600 dark:text-neutral-400">
+              <li className="flex items-start">
+                <BiCheckCircle className="text-primary-500 mt-0.5 mr-2 flex-shrink-0" />
+                Published whitepaper: The Health Economy
+              </li>
+              <li className="flex items-start">
+                <BiCheckCircle className="text-primary-500 mt-0.5 mr-2 flex-shrink-0" />
+                HF-Auth continuous security layer
+              </li>
+              <li className="flex items-start">
+                <BiCheckCircle className="text-primary-500 mt-0.5 mr-2 flex-shrink-0" />
+                10% network fee funds the mission — preventing loss of life
+              </li>
+            </ul>
+          </a>
+        </div>
+      </section>
+
+      {/* Published Models — Proof It Works */}
+      <section className="max-w-6xl mx-auto px-4 py-16">
+        <h2 className="text-3xl font-bold text-center mb-4 text-neutral-800 dark:text-neutral-100">
+          Models Built on GLE
+        </h2>
+        <p className="text-center mb-12 text-lg text-neutral-600 dark:text-neutral-400 max-w-3xl mx-auto">
+          Each model was built the same way: health signal in, 128 coefficients out, classifier trained. These are the first. Yours is next.
+        </p>
+
+        <div className="grid md:grid-cols-3 lg:grid-cols-5 gap-4">
+          {[
+            {
+              title: "EEG Consciousness",
+              accuracy: "97.65%",
+              samples: "1,000+",
+              desc: "Real-time consciousness state classification from brain signals",
+              tags: ["Competition Benchmark", "Subject-Invariant"],
+              color: "from-violet-500 to-purple-600",
+              flagship: true,
+            },
+            {
+              title: "Type 2 Diabetes",
+              accuracy: "94.67%",
+              samples: "300",
+              desc: "Metabolomics-based screening using serum biomarkers",
+              tags: ["LOOCV Gold Standard"],
+              color: "from-blue-500 to-cyan-600",
+            },
+            {
+              title: "Parkinson's & Alzheimer's",
+              accuracy: "91.45%",
+              samples: "1,751",
+              desc: "Saliva-based Raman spectroscopy for neurodegenerative screening",
+              tags: ["5-Fold CV"],
+              color: "from-emerald-500 to-teal-600",
+            },
+            {
+              title: "COVID-19 Detection",
+              accuracy: "86.35%",
+              samples: "4,200+",
+              desc: "Real-time Raman-based detection from saliva. No reagents required",
+              tags: ["Multi-Seed Ensemble"],
+              color: "from-orange-500 to-red-600",
+            },
+            {
+              title: "Breathing Patterns",
+              accuracy: "88.97%",
+              samples: "2,693",
+              desc: "Audio-based breathing pattern classification with <0.5s latency",
+              tags: ["Real-Time"],
+              color: "from-sky-500 to-indigo-600",
+            },
+          ].map((model) => (
+            <a
+              key={model.title}
+              href="https://bagle.com/resources/clinical-validation/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="relative p-5 rounded-xl bg-white dark:bg-neutral-800
+                shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]
+                dark:shadow-[0_2px_15px_-3px_rgba(0,0,0,0.2)]
+                border border-neutral-200 dark:border-neutral-700
+                hover:border-primary-500 dark:hover:border-primary-500
+                hover:shadow-lg transition-all duration-300 cursor-pointer"
+            >
+              {model.flagship && (
+                <span className="absolute -top-2.5 left-1/2 -translate-x-1/2 text-xs font-bold px-2 py-0.5 rounded-full bg-primary-500 text-white whitespace-nowrap">
+                  FLAGSHIP
+                </span>
+              )}
+              <div className={`text-3xl font-bold text-center mb-1 bg-clip-text text-transparent bg-gradient-to-r ${model.color}`}>
+                {model.accuracy}
+              </div>
+              <p className="text-xs text-center text-neutral-500 dark:text-neutral-500 mb-3">
+                {model.samples} samples validated
+              </p>
+              <h4 className="font-semibold text-sm text-center mb-2 text-neutral-800 dark:text-neutral-100">
+                {model.title}
+              </h4>
+              <p className="text-xs text-neutral-500 dark:text-neutral-400 text-center mb-3">
+                {model.desc}
+              </p>
+              <div className="flex flex-wrap gap-1 justify-center">
+                {model.tags.map((tag) => (
+                  <span key={tag} className="text-[10px] px-1.5 py-0.5 rounded-full bg-neutral-100 dark:bg-neutral-700 text-neutral-600 dark:text-neutral-400">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </a>
+          ))}
+        </div>
+
+        <p className="text-center mt-8 text-neutral-500 dark:text-neutral-400">
+          <a href="https://bagle.com/resources/clinical-validation/" target="_blank" rel="noopener noreferrer" className="text-primary-500 hover:text-primary-600 font-medium">
+            View full validation details on BAGLE <BiLinkExternal className="inline-block ml-1" />
+          </a>
+        </p>
+      </section>
+
+      {/* How It Works — Builder Journey */}
+      <section className="max-w-5xl mx-auto px-4 py-16 bg-neutral-50 dark:bg-neutral-900 rounded-2xl">
+        <h2 className="text-3xl font-bold text-center mb-4 text-neutral-800 dark:text-neutral-100">
+          From Researcher to Founder
+        </h2>
+        <p className="text-center mb-12 text-lg text-neutral-600 dark:text-neutral-400 max-w-3xl mx-auto">
+          You bring the biology and the data. We bring the math. You keep 90% of every classification.
+        </p>
+
+        <div className="grid md:grid-cols-4 gap-6">
+          {[
+            {
+              step: "1",
+              icon: <BiTestTube className="text-2xl" />,
+              title: "Collect Signals",
+              desc: "Breathing recordings, biosensor readings, voice samples, molecular data — whatever you study."
+            },
+            {
+              step: "2",
+              icon: <BiBrain className="text-2xl" />,
+              title: "Encode",
+              desc: "Send signals to BAGLE API. Get back 128 numbers per signal. The hard math is done."
+            },
+            {
+              step: "3",
+              icon: <BiGroup className="text-2xl" />,
+              title: "Train & Validate",
+              desc: "Train a classifier on those 128 numbers. ParagonDAO validates accuracy before patients rely on it."
+            },
+            {
+              step: "4",
+              icon: <BiDollar className="text-2xl" />,
+              title: "Ship & Earn",
+              desc: "Your model becomes a screening tool anyone can use. A patient breathes into their phone — your model answers."
+            }
+          ].map((item) => (
+            <div key={item.step} className="text-center p-6 rounded-xl bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700">
+              <div className="w-10 h-10 mx-auto mb-3 bg-primary-500 text-white rounded-full flex items-center justify-center font-bold text-lg">
+                {item.step}
+              </div>
+              <div className="w-12 h-12 mx-auto mb-3 text-primary-500 flex items-center justify-center">
+                {item.icon}
+              </div>
+              <h4 className="font-semibold mb-2 text-neutral-800 dark:text-neutral-100">{item.title}</h4>
+              <p className="text-sm text-neutral-600 dark:text-neutral-400">{item.desc}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* Research Videos Section */}
       <section className="max-w-6xl mx-auto px-4 py-16">
         <h2 className="text-3xl font-bold text-center mb-4 text-neutral-800 dark:text-neutral-100">
-          Research Demonstrations
+          Research Behind the Encoder
         </h2>
-        <p className="text-center mb-12 text-xl text-neutral-600 dark:text-neutral-400 max-w-3xl mx-auto">
-          Watch our latest research findings and technology demonstrations
+        <p className="text-center mb-12 text-lg text-neutral-600 dark:text-neutral-400 max-w-3xl mx-auto">
+          The General Learning Encoder (GLE) is a foundation model for frequency-domain health intelligence
         </p>
         <div className="grid md:grid-cols-2 gap-8">
           {/* Video 1: Breathing Authentication */}
@@ -235,13 +387,11 @@ export default function Home({ content, metadata }) {
             </div>
             <div className="p-6">
               <h3 className="text-xl font-semibold mb-2 text-neutral-800 dark:text-neutral-100">
-                Breathing Authentication Research
+                Breathing as Biometric Identity
               </h3>
               <p className="text-neutral-600 dark:text-neutral-400 mb-4">
-                Revolutionary research from Current Biology (2025) reveals that breathing patterns are unique biometric identifiers—more accurate than voice recognition and perfectly suited for wearable devices.
-              </p>
-              <p className="text-sm text-neutral-500 dark:text-neutral-500">
-                <strong>Key Finding:</strong> 96.8% identification accuracy across 97 participants using nasal airflow patterns alone.
+                96.8% identification accuracy across 97 participants using nasal airflow patterns alone.
+                The same encoder that classifies disease also verifies identity — zero additional power.
               </p>
             </div>
           </div>
@@ -260,134 +410,46 @@ export default function Home({ content, metadata }) {
             </div>
             <div className="p-6">
               <h3 className="text-xl font-semibold mb-2 text-neutral-800 dark:text-neutral-100">
-                GLE Technology Overview
+                GLE: Universal Health Signal Encoder
               </h3>
-            <p className="text-neutral-600 dark:text-neutral-400 mb-4">
-              General Learning Encoder (GLE) serves as the foundation for subject-invariant pattern recognition, enabling models to work on new users immediately without calibration.
-            </p>
-            <p className="text-sm text-neutral-500 dark:text-neutral-500">
-              <strong>Key Finding:</strong> Verified against competition benchmarks: 27.5% better performance than winning solution on subject-invariant mental health prediction tasks.
-            </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Research Areas Section */}
-      <section className="max-w-6xl mx-auto px-4 py-16">
-        <h2 className="text-3xl font-bold text-center mb-4 text-neutral-800 dark:text-neutral-100">
-          Our Research Areas
-        </h2>
-        <p className="text-center mb-12 text-xl text-neutral-600 dark:text-neutral-400 max-w-3xl mx-auto">
-          We research, develop, and publish technologies across multiple domains
-        </p>
-        
-        {researchAreas.map((category, categoryIndex) => (
-          <div key={categoryIndex} className="mb-12">
-            <h3 className="text-2xl font-semibold mb-6 text-neutral-700 dark:text-neutral-300">
-              {category.category}
-            </h3>
-            <div className="grid md:grid-cols-3 gap-6">
-              {category.items.map((area, index) => (
-                <div
-                  key={index}
-                  className="text-center p-6 rounded-xl dark:bg-neutral-800 
-                shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]
-                dark:shadow-[0_2px_15px_-3px_rgba(0,0,0,0.2)] 
-                border-2 border-neutral-200 dark:border-neutral-700
-                hover:border-neutral-300 dark:hover:border-neutral-600
-                transition-all duration-300"
-            >
-              <div
-                    className="w-16 h-16 mx-auto mb-4 text-primary-500 
-                    flex items-center justify-center 
-                    bg-white dark:bg-neutral-700 
-                    rounded-full 
-                    shadow-md"
-                  >
-                    {area.icon}
-                  </div>
-                  <h4 className="text-lg font-semibold mb-2 text-neutral-800 dark:text-neutral-100">
-                    {area.title}
-                  </h4>
-                  <p className="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
-                    {area.description}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-        ))}
-      </section>
-
-      {/* Applications Section */}
-      <section className="max-w-5xl mx-auto px-4 py-16 bg-neutral-50 dark:bg-neutral-900 rounded-2xl">
-        <h2 className="text-3xl font-bold text-center mb-4 text-neutral-800 dark:text-neutral-100">
-          Applications of Our Research
-        </h2>
-        <p className="text-center mb-12 text-xl text-neutral-600 dark:text-neutral-400 max-w-3xl mx-auto">
-          Our research leads to practical applications and platforms
-        </p>
-        <div className="grid md:grid-cols-3 gap-6">
-          {applications.map((app) => (
-            <a
-              key={app.title}
-              href={app.url}
-              target={app.url.startsWith('http') ? "_blank" : undefined}
-              rel={app.url.startsWith('http') ? "noopener noreferrer" : undefined}
-              className="text-center p-6 rounded-xl dark:bg-neutral-800 
-                shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]
-                dark:shadow-[0_2px_15px_-3px_rgba(0,0,0,0.2)] 
-                border-2 border-neutral-200 dark:border-neutral-700
-                hover:border-primary-500 dark:hover:border-primary-500
-                transition-all duration-300 cursor-pointer"
-            >
-              <div
-                className="w-16 h-16 mx-auto mb-4 text-primary-500 
-                flex items-center justify-center 
-                bg-white dark:bg-neutral-700 
-                rounded-full 
-                shadow-md"
-              >
-                {app.icon}
-              </div>
-              <h3 className="text-xl font-semibold mb-2 text-neutral-800 dark:text-neutral-100">
-                {app.title}
-                {app.url.startsWith('http') && (
-                  <BiLinkExternal className="inline-block ml-2 text-sm" />
-                )}
-              </h3>
-              <p className="text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
-                {app.description}
+              <p className="text-neutral-600 dark:text-neutral-400 mb-4">
+                27.5% better than competition-winning solutions on subject-invariant health prediction.
+                Works on new users immediately — no calibration, no retraining.
               </p>
-            </a>
-          ))}
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* Vision Section */}
-      {visionItems.length > 0 && (
-        <section className="max-w-4xl mx-auto px-4 py-16">
-          <div className="rounded-lg bg-white dark:bg-neutral-800 shadow-sm p-8">
-            <h2 className="text-2xl font-bold mb-8 text-neutral-800 dark:text-neutral-100">
-              Our Vision
-            </h2>
-            <div className="grid sm:grid-cols-2 gap-6">
-              {visionItems.map((item, index) => (
-                <div
-                  key={`vision-${index}`}
-                  className="flex items-start space-x-3"
-                >
-                  <span className="text-primary-500">✨</span>
-                  <span className="text-neutral-600 dark:text-neutral-400">
-                    {item}
-                  </span>
-                </div>
-              ))}
-            </div>
+      {/* The Mission */}
+      <section className="max-w-4xl mx-auto px-4 py-16">
+        <div className="rounded-xl bg-primary-50 dark:bg-primary-900/20 border-2 border-primary-200 dark:border-primary-800 p-8 text-center">
+          <h2 className="text-2xl font-bold mb-4 text-neutral-800 dark:text-neutral-100">
+            The Mission
+          </h2>
+          <p className="text-lg text-neutral-700 dark:text-neutral-300 max-w-2xl mx-auto mb-6">
+            10% of all network fees fund one thing: <strong>preventing loss of life.</strong> 988 crisis detection, community health screening, free GLE access for crisis organizations.
+            The tool without the mission is just technology. The mission without the tool is just hope.
+          </p>
+          <div className="flex gap-4 justify-center">
+            <a
+              href="https://bagle.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center px-6 py-3 rounded-lg bg-primary-500 hover:bg-primary-600 text-white font-medium transition-colors"
+            >
+              Explore BAGLE
+              <BiLinkExternal className="ml-2" />
+            </a>
+            <button
+              onClick={() => setShowDemoForm(true)}
+              className="inline-flex items-center px-6 py-3 rounded-lg bg-white dark:bg-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-600 text-neutral-700 dark:text-neutral-100 font-medium transition-colors border border-neutral-300 dark:border-neutral-600"
+            >
+              Join the Founding Builder List
+            </button>
           </div>
-        </section>
-      )}
+        </div>
+      </section>
 
       {/* Demo Request Modal */}
       {showDemoForm && (
@@ -396,8 +458,8 @@ export default function Home({ content, metadata }) {
             <div className="p-6">
               <div className="flex items-center justify-between mb-6">
                 <h2 className="text-2xl font-bold text-neutral-800 dark:text-neutral-100">
-                  Request Demo
-          </h2>
+                  Join the Founding Builder List
+                </h2>
                 <button
                   onClick={() => {
                     setShowDemoForm(false);
@@ -412,6 +474,10 @@ export default function Home({ content, metadata }) {
                 </button>
               </div>
 
+              <p className="text-neutral-600 dark:text-neutral-400 mb-6">
+                The BAGLE API opens April 2026. Founding builders get early access, direct support, and their models featured on the network. Tell us what health signal you work with.
+              </p>
+
               {formSubmitted ? (
                 <div className="text-center py-8">
                   <div className="w-16 h-16 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -420,26 +486,11 @@ export default function Home({ content, metadata }) {
                     </svg>
                   </div>
                   <h3 className="text-xl font-semibold text-neutral-800 dark:text-neutral-100 mb-2">
-                    Thank You!
+                    Welcome to the founding cohort.
                   </h3>
                   <p className="text-neutral-600 dark:text-neutral-400 mb-4">
-                    We've received your demo request. Our team will review it and get back to you soon.
+                    We&apos;ll be in touch before the API opens. In the meantime, explore the 6 published models at bagle.com.
                   </p>
-                  <button
-                    onClick={() => {
-                      setFormSubmitted(false);
-                      setFormData({
-                        name: '',
-                        email: '',
-                        company: '',
-                        company_size: '',
-                        message: ''
-                      });
-                    }}
-                    className="text-primary-500 hover:text-primary-600 dark:text-primary-400 dark:hover:text-primary-300 font-medium"
-                  >
-                    Submit Another Request
-                  </button>
                 </div>
               ) : (
                 <form onSubmit={handleFormSubmit} className="space-y-4" style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}>
@@ -477,7 +528,7 @@ export default function Home({ content, metadata }) {
 
                   <div>
                     <label htmlFor="company" className="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-1 font-sans">
-                      Company/Organization <span className="text-red-500">*</span>
+                      Organization <span className="text-red-500">*</span>
                     </label>
                     <input
                       type="text"
@@ -487,42 +538,23 @@ export default function Home({ content, metadata }) {
                       value={formData.company}
                       onChange={handleInputChange}
                       className="block w-full rounded-md border-neutral-300 dark:border-neutral-600 shadow-sm focus:border-primary-500 focus:ring-primary-500 dark:bg-neutral-700 dark:text-white px-3 py-2 font-sans"
-                      placeholder="Your company or organization"
+                      placeholder="University, company, or lab"
                     />
                   </div>
 
                   <div>
-                    <label htmlFor="company_size" className="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-1 font-sans">
-                      Company Size (optional)
-                    </label>
-                    <select
-                      id="company_size"
-                      name="company_size"
-                      value={formData.company_size}
-                      onChange={handleInputChange}
-                      className="block w-full rounded-md border-neutral-300 dark:border-neutral-600 shadow-sm focus:border-primary-500 focus:ring-primary-500 dark:bg-neutral-700 dark:text-white px-3 py-2 font-sans"
-                    >
-                      <option value="">Select company size (optional)</option>
-                      <option value="1-10">1-10 employees</option>
-                      <option value="11-50">11-50 employees</option>
-                      <option value="51-200">51-200 employees</option>
-                      <option value="201-1000">201-1000 employees</option>
-                      <option value="1000+">1000+ employees</option>
-                    </select>
-                  </div>
-
-                  <div>
                     <label htmlFor="message" className="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-1 font-sans">
-                      Message (optional)
+                      What health signal do you work with? <span className="text-red-500">*</span>
                     </label>
                     <textarea
                       id="message"
                       name="message"
-                      rows={4}
+                      rows={3}
+                      required
                       value={formData.message}
                       onChange={handleInputChange}
                       className="block w-full rounded-md border-neutral-300 dark:border-neutral-600 shadow-sm focus:border-primary-500 focus:ring-primary-500 dark:bg-neutral-700 dark:text-white px-3 py-2 font-sans"
-                      placeholder="Tell us about your research interests or collaboration opportunities..."
+                      placeholder="e.g., respiratory biosignals, voice biomarkers, EEG, molecular sensor data, cardiac signals..."
                     />
                   </div>
 
@@ -548,12 +580,12 @@ export default function Home({ content, metadata }) {
                       disabled={formLoading}
                       className="flex-1 px-4 py-2 bg-primary-500 hover:bg-primary-600 text-white rounded-md font-medium transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                     >
-                      {formLoading ? 'Submitting...' : 'Submit Request'}
+                      {formLoading ? 'Submitting...' : 'Join Founding Builders'}
                     </button>
                   </div>
                 </form>
               )}
-              </div>
+            </div>
           </div>
         </div>
       )}
@@ -565,7 +597,6 @@ export default function Home({ content, metadata }) {
 export async function getStaticProps() {
   try {
     const { content, metadata } = await getMDXContent("pages/home.md");
-    // or just 'home.md' depending on how getMDXContent is configured
 
     return {
       props: {
