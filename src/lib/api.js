@@ -2,6 +2,7 @@ import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
 import { serialize } from 'next-mdx-remote/serialize'
+import remarkGfm from 'remark-gfm'
 
 const contentDirectory = path.join(process.cwd(), 'content')
 const postsDirectory = path.join(contentDirectory, 'posts')
@@ -13,7 +14,7 @@ export async function getMDXContent(filePath) {
   const fileContents = fs.readFileSync(fullPath, 'utf8')
   
   const { data: frontmatter, content } = matter(fileContents)
-  const source = await serialize(content)
+  const source = await serialize(content, { mdxOptions: { remarkPlugins: [remarkGfm] } })
 
   return {
     source,
@@ -66,7 +67,7 @@ export async function getPostBySlug(slug) {
   const fileContents = fs.readFileSync(fullPath, 'utf8')
   
   const { data: frontmatter, content } = matter(fileContents)
-  const source = await serialize(content)
+  const source = await serialize(content, { mdxOptions: { remarkPlugins: [remarkGfm] } })
 
   return {
     source,
