@@ -23,7 +23,7 @@ The International Classification of Diseases lists over 55,000 codes. But the nu
 
 Take one disease: diabetes. How many models does diabetes need?
 
-- Detect from **saliva Raman spectroscopy**
+- Detect from **serum metabolomics (LC-MS)**
 - Detect from **breathing patterns**
 - Detect from **voice biomarkers**
 - Detect from **continuous heart rate** via smartwatch

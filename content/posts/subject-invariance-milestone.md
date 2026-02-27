@@ -60,7 +60,7 @@ The score itself is important for the leaderboard. What matters more for the hea
 
 The GLE encoding pipeline follows the same architectural pattern across all modalities:
 
-1. **Raw biosignal** — from any sensor (EEG headband, saliva spectrometer, phone microphone, ECG patch)
+1. **Raw biosignal** — from any sensor (EEG headband, LC-MS spectrometer, saliva Raman device, phone microphone, ECG patch)
 2. **Band powers** — extract frequency-band energy (5 bands × 4 channels = 20 features for EEG; parameters tuned per modality)
 3. **Normalize** — zero-mean, unit-variance standardization
 4. **DCT-II** — Discrete Cosine Transform converts to 128 frequency coefficients (the same compression math used in JPEG, applied to biosignals)
@@ -119,9 +119,9 @@ Brain signals vary more from person to person than most other biosignals — sku
 
 The following models are at research validation stages and are not cleared for clinical diagnostic use:
 
-**Type 2 Diabetes (saliva Raman spectroscopy)** — The Raman spectrum of saliva contains molecular fingerprints. The fundamental molecular frequencies measured by Raman spectroscopy are physically invariant across individuals, though spectral profiles vary due to differences in saliva composition. A GLE encoder trained with adversarial subject normalization on Raman spectra is expected to generalize across new subjects, pending clinical validation. The physics strongly suggests it: molecular frequency patterns are more consistent across individuals than neural frequency patterns.
+**Type 2 Diabetes (serum metabolomics, LC-MS)** — The T2D model is trained on blood serum metabolomics data (Ma et al. 2025, Metabolomics Workbench PR002101), using clinical markers including HbA1c, fasting blood glucose, creatinine, and liver enzymes — markers that are only available from blood serum, not saliva. A GLE encoder trained with adversarial subject normalization on LC-MS serum profiles is expected to generalize across new subjects, pending clinical validation. The metabolomic frequency patterns in serum are more consistent across individuals than neural frequency patterns.
 
-**Parkinson's, Alzheimer's, and cancer biomarker detection (saliva Raman)** — Same modality, same encoding pipeline, different prediction heads. The subject-invariance architecture applies identically. Each requires independent clinical validation for its specific intended use.
+**Parkinson's, Alzheimer's, and cancer biomarker detection (saliva Raman)** — These models use saliva-based Raman spectroscopy — a different modality from the serum-based T2D model. Same encoding pipeline architecture, different prediction heads. The subject-invariance architecture applies identically. Each requires independent clinical validation for its specific intended use.
 
 **Breathing health (audio)** — Respiratory frequency patterns are highly consistent across individuals — everyone breathes with the same physics. Subject invariance was achievable here with lower difficulty than EEG because the inter-subject variability is lower.
 
