@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Head from "next/head";
 import { getMDXContent } from "@/lib/api";
+import Link from "next/link";
 import {
   BiTestTube,
   BiShield,
@@ -9,6 +10,7 @@ import {
   BiBrain,
   BiGroup,
   BiDollar,
+  BiRightArrowAlt,
 } from "react-icons/bi";
 
 export default function Home() {
@@ -449,6 +451,43 @@ export default function Home() {
             </button>
           </div>
         </div>
+      </section>
+
+      {/* Latest Post */}
+      <section className="max-w-4xl mx-auto px-4 py-16">
+        <Link
+          href="/updates/why-not-monopoly"
+          className="block rounded-xl overflow-hidden bg-white dark:bg-neutral-800
+            shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]
+            dark:shadow-[0_2px_15px_-3px_rgba(0,0,0,0.2)]
+            border border-neutral-200 dark:border-neutral-700
+            hover:border-primary-500 dark:hover:border-primary-500
+            hover:shadow-lg transition-all duration-300"
+        >
+          <div className="md:flex">
+            <div className="md:w-1/3">
+              <img
+                src="/paragon-frog-breathing.gif"
+                alt="Why Not Just Train All the Models Ourselves?"
+                className="w-full h-48 md:h-full object-cover"
+              />
+            </div>
+            <div className="p-6 md:w-2/3 flex flex-col justify-center">
+              <p className="text-xs font-semibold uppercase tracking-wider text-primary-500 mb-2">
+                Latest Update
+              </p>
+              <h3 className="text-xl font-bold mb-2 text-neutral-800 dark:text-neutral-100">
+                Why Not Just Train All the Models Ourselves?
+              </h3>
+              <p className="text-sm text-neutral-600 dark:text-neutral-400 mb-4">
+                The investment community and partners challenge us on why a health AI model verification network like ParagonDAO needs thousands of builders — why not just train every model ourselves and own the space? The answer reveals why the health economy must be a network, and why this architecture delivers more stable, compounding returns than the monopoly play.
+              </p>
+              <span className="inline-flex items-center text-sm font-medium text-primary-500 hover:text-primary-600">
+                Read the full post <BiRightArrowAlt className="ml-1" />
+              </span>
+            </div>
+          </div>
+        </Link>
       </section>
 
       {/* Demo Request Modal */}
