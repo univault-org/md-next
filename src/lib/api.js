@@ -4,6 +4,7 @@ import matter from 'gray-matter'
 import { serialize } from 'next-mdx-remote/serialize'
 import remarkMath from 'remark-math'
 import rehypeKatex from 'rehype-katex'
+import remarkGfm from 'remark-gfm'
 
 const contentDirectory = path.join(process.cwd(), 'content')
 const postsDirectory = path.join(contentDirectory, 'posts')
@@ -96,7 +97,7 @@ async function serializeContent(content, options = {}) {
 
   return serialize(processedContent, {
     mdxOptions: {
-      remarkPlugins: [remarkMath],
+      remarkPlugins: [remarkGfm, remarkMath],
       rehypePlugins: [[rehypeKatex, { 
         strict: false,
         trust: true,
@@ -177,15 +178,15 @@ export async function getPostBySlug(slug) {
   try {
     const fullPath = path.join(postsDirectory, `${slug}.md`)
     const fileContents = fs.readFileSync(fullPath, 'utf8')
-    
+
     const processedContent = fileContents
       .replace(/\\\[/g, '$$')
       .replace(/\\\]/g, '$$')
       .replace(/\\\(/g, '$')
       .replace(/\\\)/g, '$')
-    
+
     const { data: frontmatter, content } = matter(processedContent)
-    
+
     // Process all images before serialization
     const source = await serializeContent(content, {
       scope: frontmatter,

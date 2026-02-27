@@ -158,18 +158,18 @@ const components = {
     />
   ),
   table: (props) => (
-    <div className="overflow-x-auto my-12">
-      <table
-        {...props}
-        className="min-w-full divide-y divide-neutral-200 dark:divide-neutral-700"
-      />
+    <div className="overflow-x-auto my-12 rounded-lg border border-neutral-200 dark:border-neutral-700">
+      <table {...props} className="min-w-full divide-y divide-neutral-200 dark:divide-neutral-700" />
     </div>
   ),
+  thead: (props) => (
+    <thead {...props} className="bg-neutral-50 dark:bg-neutral-800" />
+  ),
+  tr: (props) => (
+    <tr {...props} className="border-b border-neutral-100 dark:border-neutral-800 last:border-0" />
+  ),
   th: (props) => (
-    <th
-      {...props}
-      className="px-6 py-4 text-left text-lg font-semibold text-neutral-900 dark:text-neutral-100 bg-neutral-50 dark:bg-neutral-800"
-    />
+    <th {...props} className="px-6 py-4 text-left text-lg font-semibold text-neutral-900 dark:text-neutral-100" />
   ),
   td: (props) => (
     <td
@@ -250,43 +250,14 @@ export default function Post({ post }) {
           />
         </Head>
 
-        {/* Hero Section with Image */}
+        {/* Hero Image Banner */}
         {post?.frontmatter?.image && (
-          <div className="relative h-[60vh] min-h-[500px] w-full">
-            <div className="absolute inset-0">
-              <img
-                src={post?.frontmatter?.image}
-                alt={post?.frontmatter?.title}
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-neutral-900/80 to-transparent" />
-            </div>
-            <div className="absolute bottom-0 left-0 right-0 p-12">
-              <div className="max-w-5xl mx-auto">
-                <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
-                  {post?.frontmatter?.title}
-                </h1>
-                <div className="flex flex-wrap items-center gap-6 text-neutral-200 text-xl">
-                  {post?.frontmatter?.date && (
-                    <div className="flex items-center gap-2">
-                      <BiTime className="w-5 h-5" />
-                      <time dateTime={post?.frontmatter?.date}>
-                        {format(
-                          parseISO(post?.frontmatter?.date), // Use parseISO instead of new Date()
-                          "MMMM d, yyyy"
-                        )}
-                      </time>
-                    </div>
-                  )}
-                  {post?.frontmatter?.author && (
-                    <div className="flex items-center gap-2">
-                      <BiUser className="w-5 h-5" />
-                      <span>{post?.frontmatter?.author}</span>
-                    </div>
-                  )}
-                </div>
-              </div>
-            </div>
+          <div className="relative w-full bg-black flex items-center justify-center py-8">
+            <img
+              src={post?.frontmatter?.image}
+              alt={post?.frontmatter?.title}
+              className="max-h-[40vh] w-auto object-contain"
+            />
           </div>
         )}
 
@@ -315,6 +286,24 @@ export default function Post({ post }) {
               ))}
             </div>
           )}
+
+          {/* Date and Author */}
+          <div className="flex flex-wrap items-center gap-6 text-neutral-500 dark:text-neutral-400 text-lg mb-8">
+            {post?.frontmatter?.date && (
+              <div className="flex items-center gap-2">
+                <BiTime className="w-5 h-5" />
+                <time dateTime={post?.frontmatter?.date}>
+                  {format(parseISO(post?.frontmatter?.date), 'MMMM d, yyyy')}
+                </time>
+              </div>
+            )}
+            {post?.frontmatter?.author && (
+              <div className="flex items-center gap-2">
+                <BiUser className="w-5 h-5" />
+                <span>{post?.frontmatter?.author}</span>
+              </div>
+            )}
+          </div>
 
           {/* Main Content */}
           <div className="prose prose-xl dark:prose-invert prose-neutral max-w-none prose-headings:font-bold prose-p:text-xl prose-p:leading-relaxed prose-li:text-xl prose-img:rounded-xl">
