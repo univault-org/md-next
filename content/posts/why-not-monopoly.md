@@ -98,7 +98,7 @@ The network fee applies to the value delivered to the end user — not to each i
 
 **ParagonDAO** (paragondao.org) is the peer review network. It verifies that health models meet the protocol's technical and accuracy standards before they are listed on the network. It certifies builders. It maintains the quality framework that gives hospitals, insurers, and researchers confidence in the models they use. ParagonDAO certification is a protocol compliance standard — it does not replace FDA clearance, CE marking, or any other regulatory authorization required for clinical use. Builders are responsible for obtaining appropriate regulatory clearance for their specific applications and markets.
 
-The builder trains the model. ParagonDAO certifies it against the protocol standard. BAGLE serves it. The patient benefits. Under the current network fee structure, builders keep 90% of what their models generate. The network collects 10%.
+The builder trains the model. ParagonDAO certifies it against the protocol standard. BAGLE serves it. The patient benefits. The network collects a fixed 10% protocol fee, and the remaining 90% is split between the builder and Univault per their partnership agreement.*
 
 ## The Governance Problem No One Has Solved
 
@@ -215,6 +215,8 @@ That is why it must be a network. That is why Univault builds the tools, Paragon
 The next model on the network is yours to build.
 
 ---
+
+*\* Revenue split: "Builders" in this context refers to institutional partners and independent researchers who co-develop models with Univault through the Partner Program. Univault provides the GLE encoder, training infrastructure, and commercialization. The partner provides domain expertise, data access, and clinical validation. Both parties co-train the model, which is then deployed to the ParagonDAO verification network. The 10% protocol fee funds network governance and the mission (crisis prevention, free community health access). The remaining 90% is split between Univault and the partner per their co-development agreement — the specific split is negotiated based on each party's contribution. See the [Univault Partner Revenue Framework](/docs/partner-revenue-framework) for the full structure.*
 
 *Note: Many of the health applications described in this post would require regulatory clearance as software as a medical device (SaMD) in their respective jurisdictions. ParagonDAO's protocol certification is designed to support — not replace — regulatory compliance. Builders are responsible for obtaining appropriate clearances for their specific applications and markets.*
 
