@@ -456,7 +456,7 @@ export default function Home() {
       {/* Latest Post */}
       <section className="max-w-4xl mx-auto px-4 py-16">
         <Link
-          href="/updates/why-not-monopoly"
+          href="/updates/subject-invariance-milestone"
           className="block rounded-xl overflow-hidden bg-white dark:bg-neutral-800
             shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]
             dark:shadow-[0_2px_15px_-3px_rgba(0,0,0,0.2)]
@@ -468,7 +468,7 @@ export default function Home() {
             <div className="md:w-1/3">
               <img
                 src="/paragon-frog-breathing.gif"
-                alt="Why Not Just Train All the Models Ourselves?"
+                alt="Subject Invariance Is Proven. The Verification Network Is Live."
                 className="w-full h-48 md:h-full object-cover"
               />
             </div>
@@ -477,10 +477,10 @@ export default function Home() {
                 Latest Update
               </p>
               <h3 className="text-xl font-bold mb-2 text-neutral-800 dark:text-neutral-100">
-                Why Not Just Train All the Models Ourselves?
+                Subject Invariance Is Proven. The Verification Network Is Live.
               </h3>
               <p className="text-sm text-neutral-600 dark:text-neutral-400 mb-4">
-                The investment community and partners challenge us on why a health AI model verification network like ParagonDAO needs thousands of builders — why not just train every model ourselves and own the space? The answer reveals why the health economy must be a network, and why this architecture delivers more stable, compounding returns than the monopoly play.
+                The hardest problem in biosignal AI — making models that work on people they have never seen — is solved. Our GLE encoder improved 13.5x more than the next best team among 1,183 competitors at the NeurIPS 2025 EEG Foundation Model Challenge. Today we launch the ParagonDAO Verification Network.
               </p>
               <span className="inline-flex items-center text-sm font-medium text-primary-500 hover:text-primary-600">
                 Read the full post <BiRightArrowAlt className="ml-1" />
