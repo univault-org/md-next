@@ -97,7 +97,7 @@ export default function Research({ researchContent }) {
         },
         {
           title: "EEG Foundation Challenge 2025",
-          description: "Verified against competition benchmarks: 93.54% accuracy (Challenge 1, +4.87% over winning solution), 0.70879 normalized error (Challenge 2, 27.5% better than winning solution).",
+          description: "Verified against competition benchmarks: 93.54% accuracy (Challenge 1, +4.87% over winning solution), 0.70879 normalized error (Challenge 2, 29% less error than winning solution).",
           icon: <BiChip className="text-3xl" />,
           link: "#eeg-challenge",
         },
@@ -247,7 +247,7 @@ export default function Research({ researchContent }) {
             </p>
             <ul className="list-disc list-inside space-y-2 text-neutral-600 dark:text-neutral-400 mb-4">
               <li><strong>Challenge 1 (Cross-Task Transfer):</strong> 93.54% accuracy (+4.87% over winning solution)</li>
-              <li><strong>Challenge 2 (Subject Invariant):</strong> 0.70879 normalized error (27.5% better than winning solution, 13.5x better improvement over baseline)</li>
+              <li><strong>Challenge 2 (Subject Invariant):</strong> 0.70879 normalized error (29% less error than winning solution, over 13x more improvement over baseline)</li>
               <li><strong>Consciousness Classification:</strong> 97.65% accuracy (vs. 60-85% typical range)</li>
             </ul>
             <p className="text-sm text-neutral-500 dark:text-neutral-500 mb-4 italic">
