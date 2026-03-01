@@ -147,10 +147,45 @@ export default function Post({ post }) {
     return (
       <>
         <Head>
-          <title>{post?.frontmatter?.title || 'Post'} - Univault</title>
-          <meta 
-            name="description" 
-            content={post?.frontmatter?.excerpt || 'Read our latest updates'} 
+          <title>{`${post?.frontmatter?.title || 'Post'} — Univault Technologies`}</title>
+          <meta name="description" content={post?.frontmatter?.excerpt || 'Read our latest research update from Univault Technologies.'} />
+          <meta property="og:title" content={`${post?.frontmatter?.title} — Univault Technologies`} />
+          <meta property="og:description" content={post?.frontmatter?.excerpt || 'Research update from Univault Technologies.'} />
+          <meta property="og:url" content={`https://univault.org/md-next/updates/${router.query.slug}/`} />
+          <meta property="og:type" content="article" />
+          {post?.frontmatter?.image && <meta property="og:image" content={`https://univault.org/md-next${post.frontmatter.image}`} />}
+          <meta name="twitter:title" content={`${post?.frontmatter?.title} — Univault Technologies`} />
+          <meta name="twitter:description" content={post?.frontmatter?.excerpt || 'Research update from Univault Technologies.'} />
+          {post?.frontmatter?.image && <meta name="twitter:image" content={`https://univault.org/md-next${post.frontmatter.image}`} />}
+          {post?.frontmatter?.date && <meta property="article:published_time" content={post.frontmatter.date} />}
+          <meta property="article:author" content={post?.frontmatter?.author || 'Philip Phuong Tran'} />
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                "@context": "https://schema.org",
+                "@graph": [
+                  {
+                    "@type": "Article",
+                    "headline": post?.frontmatter?.title,
+                    "datePublished": post?.frontmatter?.date,
+                    "author": { "@type": "Person", "name": post?.frontmatter?.author || "Philip Phuong Tran" },
+                    "publisher": { "@type": "Organization", "name": "Univault Technologies", "logo": { "@type": "ImageObject", "url": "https://univault.org/md-next/favicon.svg" } },
+                    "description": post?.frontmatter?.excerpt,
+                    "mainEntityOfPage": `https://univault.org/md-next/updates/${router.query.slug}/`,
+                    "image": post?.frontmatter?.image ? `https://univault.org/md-next${post.frontmatter.image}` : undefined
+                  },
+                  {
+                    "@type": "BreadcrumbList",
+                    "itemListElement": [
+                      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://univault.org/md-next/" },
+                      { "@type": "ListItem", "position": 2, "name": "Publications", "item": "https://univault.org/md-next/updates/" },
+                      { "@type": "ListItem", "position": 3, "name": post?.frontmatter?.title }
+                    ]
+                  }
+                ]
+              })
+            }}
           />
         </Head>
 

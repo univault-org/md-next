@@ -1,0 +1,68 @@
+{
+  "organization": "Univault Technologies LLC",
+  "location": "Salt Lake City, Utah",
+  "encoder": "General Learning Encoder (GLE)",
+  "encoder_output": "128 DCT-II frequency coefficients",
+  "api": "BAGLE (Brain-AI General Learning Encoder)",
+  "api_status": "Opening April 2026",
+  "patent": "US Provisional 63/985,936",
+  "competition": {
+    "name": "NeurIPS 2025 EEG Foundation Model Challenge",
+    "teams": "1000+",
+    "our_score": 0.70879,
+    "top_team_score": 0.97843,
+    "improvement_ratio": "over 13x",
+    "metric": "Normalized root mean square error (lower is better, 1.0 = baseline)"
+  },
+  "models": [
+    {
+      "name": "EEG Consciousness Classification",
+      "accuracy": 0.9765,
+      "samples": 1000,
+      "signal_type": "EEG",
+      "validation": "Subject-invariant, NeurIPS competition benchmark",
+      "status": "flagship"
+    },
+    {
+      "name": "Type 2 Diabetes Screening",
+      "accuracy": 0.9467,
+      "samples": 300,
+      "signal_type": "Serum metabolomics (LC-MS)",
+      "validation": "LOOCV",
+      "status": "research"
+    },
+    {
+      "name": "Parkinson's & Alzheimer's Screening",
+      "accuracy": 0.9145,
+      "samples": 1751,
+      "signal_type": "Saliva Raman spectroscopy",
+      "validation": "5-fold cross-validation",
+      "status": "research"
+    },
+    {
+      "name": "COVID-19 Detection",
+      "accuracy": 0.8635,
+      "samples": 4200,
+      "signal_type": "Saliva Raman spectroscopy",
+      "validation": "Multi-seed ensemble",
+      "status": "research"
+    },
+    {
+      "name": "Breathing Pattern Classification",
+      "accuracy": 0.8897,
+      "samples": 2693,
+      "signal_type": "Audio (breathing)",
+      "validation": "Out-of-sample subjects, real-time",
+      "status": "research"
+    },
+    {
+      "name": "Breathing Biometric Authentication",
+      "accuracy": 0.968,
+      "samples": 97,
+      "signal_type": "Nasal airflow",
+      "validation": "97 participants",
+      "status": "research"
+    }
+  ],
+  "disclaimer": "These models identify statistical patterns in biosignal data. They are not FDA-cleared diagnostic devices. SaMD applications require independent FDA clearance."
+}

@@ -2,8 +2,8 @@ import '../styles/global.css'
 import { IBM_Plex_Mono } from 'next/font/google'
 import { ThemeProvider } from 'next-themes'
 import Head from 'next/head'
-import Navigation from '../components/layout/Navigation' 
-import Footer from '../components/layout/Footer' 
+import Navigation from '../components/layout/Navigation'
+import Footer from '../components/layout/Footer'
 import { useRouter } from 'next/router'
 // Initialize IBM Plex Mono
 const ibmPlexMono = IBM_Plex_Mono({
@@ -12,9 +12,14 @@ const ibmPlexMono = IBM_Plex_Mono({
   variable: '--font-ibm-plex-mono',
 })
 
+const SITE_URL = 'https://univault.org/md-next'
+const DEFAULT_DESCRIPTION = 'Univault Technologies builds the General Learning Encoder (GLE), a subject-invariant biosignal AI foundation model, and ParagonDAO, the verification network for health models.'
+const DEFAULT_IMAGE = `${SITE_URL}/bagle-breathing-ai-video-cover-image.png`
+
 export default function App({ Component, pageProps }) {
   const router = useRouter()
   const isDeclarationRoute = router.pathname.startsWith('/declaration')
+  const canonicalUrl = `${SITE_URL}${router.asPath === '/' ? '/' : router.asPath}`
 
   return (
     <ThemeProvider attribute="class">
@@ -22,23 +27,26 @@ export default function App({ Component, pageProps }) {
         {/* Default meta tags */}
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        
+        <link rel="canonical" href={canonicalUrl} />
+
         {/* Default SEO */}
-        <meta name="description" content={pageProps.description || "Univault - Personal Data Sovereignty in the AI Era"} />
-        <meta name="keywords" content="personal data, digital identity, AI, data sovereignty" />
-        
+        <meta name="description" content={pageProps.description || DEFAULT_DESCRIPTION} />
+        <meta name="keywords" content="biosignal AI, GLE encoder, General Learning Encoder, health signal classification, NeurIPS 2025, BAGLE, ParagonDAO, subject invariance, health economy, breathing biometrics, EEG foundation model" />
+
         {/* Open Graph */}
         <meta property="og:type" content="website" />
-        <meta property="og:site_name" content="Univault" />
-        <meta property="og:title" content={pageProps.title || "Univault"} />
-        <meta property="og:description" content={pageProps.description || "Personal Data Sovereignty in the AI Era"} />
-        
+        <meta property="og:site_name" content="Univault Technologies" />
+        <meta property="og:title" content={pageProps.title || "Univault Technologies"} />
+        <meta property="og:description" content={pageProps.description || DEFAULT_DESCRIPTION} />
+        <meta property="og:url" content={canonicalUrl} />
+        <meta property="og:image" content={DEFAULT_IMAGE} />
+
         {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={pageProps.title || "Univault"} />
-        <meta name="twitter:description" content={pageProps.description || "Personal Data Sovereignty in the AI Era"} />
+        <meta name="twitter:title" content={pageProps.title || "Univault Technologies"} />
+        <meta name="twitter:description" content={pageProps.description || DEFAULT_DESCRIPTION} />
+        <meta name="twitter:image" content={DEFAULT_IMAGE} />
       </Head>
 
       <div className={`min-h-screen flex flex-col ${ibmPlexMono.variable}`}>
