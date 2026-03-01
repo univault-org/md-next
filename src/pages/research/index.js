@@ -149,8 +149,15 @@ export default function Research({ researchContent }) {
   return (
     <>
       <Head>
-        <title>Research - Univault Research Lab</title>
-        <meta name="description" content="Research areas and findings from Univault Research Lab: consciousness-aware AI, data sovereignty, and secure protocols" />
+        <title>Research — GLE Encoder, NeurIPS 2025 EEG Challenge | Univault Technologies</title>
+        <meta name="description" content="GLE encoder: over 13x improvement at NeurIPS 2025 EEG Foundation Model Challenge. Research in biosignal AI, breathing biometrics (96.8%), and subject-invariant health signal encoding." />
+        <meta property="og:title" content="Research — GLE Encoder & NeurIPS 2025 Results | Univault" />
+        <meta property="og:description" content="Over 13x improvement at NeurIPS 2025 EEG Challenge. 97.65% EEG consciousness, 96.8% breathing biometrics. Subject-invariant biosignal AI research." />
+        <meta property="og:url" content="https://univault.org/md-next/research/" />
+        <meta property="og:image" content="https://univault.org/md-next/bagle-breathing-ai-video-cover-image.png" />
+        <meta name="twitter:title" content="Research — GLE Encoder & NeurIPS 2025 Results | Univault" />
+        <meta name="twitter:description" content="Over 13x improvement at NeurIPS 2025 EEG Challenge. Subject-invariant biosignal AI research from Univault Technologies." />
+        <meta name="twitter:image" content="https://univault.org/md-next/bagle-breathing-ai-video-cover-image.png" />
       </Head>
 
       {/* Hero Section */}

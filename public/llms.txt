@@ -1,0 +1,55 @@
+# Univault Technologies
+
+> Univault Technologies LLC (Salt Lake City, Utah) builds the General Learning Encoder (GLE), a subject-invariant biosignal AI foundation model, and operates the ParagonDAO verification network for health model governance.
+
+## Key Facts
+
+- GLE (General Learning Encoder) is a universal biosignal encoder: any health signal in, 128 DCT-II frequency coefficients out
+- BAGLE (Brain-AI General Learning Encoder) is GLE's production API, opening April 2026
+- NeurIPS 2025 EEG Foundation Model Challenge: 0.70879 normalized error vs. 0.97843 for top-ranked team (over 13x more improvement below baseline, 1000+ competing teams)
+- Subject invariance: models generalize to unseen patients without retraining or calibration
+- Patent pending: US Provisional 63/985,936 (GLE universal encoder)
+- ParagonDAO: independent verification network that certifies health model accuracy against benchmarks
+- 10% protocol fee funds crisis prevention (988 suicide lifeline, community health screening)
+- Privacy: raw patient data never leaves the device; only 128 encoded coefficients travel the network
+- Founded 2024 by Philip Phuong Tran (CEO) and Anh T Do, PhD (Research Director)
+
+## Products
+
+- GLE (General Learning Encoder): subject-invariant biosignal foundation model https://univault.org/md-next/research/
+- BAGLE API: production biosignal encoding endpoint (opening April 2026) https://bagle.com
+- ParagonDAO Verification Network: health model governance https://paragondao.org
+- HF-Auth: continuous physiological authentication security layer
+
+## Published Models (all built on GLE)
+
+- EEG Consciousness Classification: 97.65% accuracy (1,000+ samples, subject-invariant)
+- Type 2 Diabetes Screening: 94.67% accuracy (serum metabolomics, LOOCV)
+- Parkinson's & Alzheimer's Screening: 91.45% accuracy (saliva Raman spectroscopy)
+- COVID-19 Detection: 86.35% accuracy (saliva Raman, no reagents)
+- Breathing Pattern Classification: 88.97% accuracy (audio, real-time)
+- Breathing Biometric Authentication: 96.8% accuracy (97 participants, nasal airflow)
+
+## Team
+
+- Philip Phuong Tran: Founder & CEO, architect of GLE framework, M.S. Mathematics and Statistics, former lecturer at California State University
+- Anh T Do, PhD: Co-founder & Research Director, lead author of signal and control theory textbook for HUST (Hanoi University of Science and Technology)
+
+## Partners
+
+- Promise2Live: 988 crisis intervention network
+- Materic / DiPole Materials: piezoelectric biosignal wearable hardware
+- University of Utah VPR Office: university research partnership
+- Silicon Slopes: Utah technology ecosystem
+
+## Links
+
+- Company: https://univault.org
+- Verification Network: https://paragondao.org/verify
+- Whitepaper: https://paragondao.org/docs/THE_HEALTH_ECONOMY.html
+- GitHub: https://github.com/paragon-dao/eeg-foundation-challenge-2025
+- Learn: https://paragondao.org/learn
+
+## Regulatory Disclaimer
+
+GLE-based models identify statistical patterns in biosignal data. They are not FDA-cleared diagnostic devices. Software-as-a-Medical-Device (SaMD) applications require independent FDA clearance. ParagonDAO certifies model performance against benchmarks, not clinical safety or diagnostic accuracy.

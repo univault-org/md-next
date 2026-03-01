@@ -6,11 +6,13 @@ export default function Updates({ posts }) {
   return (
     <>
       <Head>
-        <title>Publications - Univault Research Lab</title>
-        <meta 
-          name="description" 
-          content="Research articles and findings from Univault Research Lab" 
-        />
+        <title>Publications & Updates — Univault Technologies</title>
+        <meta name="description" content="Research articles on biosignal AI, GLE encoder, subject invariance, and health model verification from Univault Technologies." />
+        <meta property="og:title" content="Publications — Univault Technologies" />
+        <meta property="og:description" content="Research articles on biosignal AI, GLE encoder, and health signal classification from Univault Technologies." />
+        <meta property="og:url" content="https://univault.org/md-next/updates/" />
+        <meta name="twitter:title" content="Publications — Univault Technologies" />
+        <meta name="twitter:description" content="Research articles on biosignal AI, GLE encoder, and health signal classification." />
       </Head>
 
       {/* Hero Section */}

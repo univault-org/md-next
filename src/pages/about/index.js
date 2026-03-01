@@ -6,8 +6,15 @@ export default function About() {
   return (
     <>
       <Head>
-        <title>About Univault — The Tool and The Network</title>
-        <meta name="description" content="Univault builds BAGLE (the encoder) and ParagonDAO (the governance network). The lab equipment and the peer review board for the health economy." />
+        <title>About Univault Technologies — Biosignal AI Research Lab, Salt Lake City</title>
+        <meta name="description" content="Univault Technologies builds GLE (over 13x NeurIPS 2025 improvement) and ParagonDAO governance network. Founded by Philip Phuong Tran and Anh T Do, PhD. Salt Lake City, Utah." />
+        <meta property="og:title" content="About Univault Technologies — Biosignal AI for the Health Economy" />
+        <meta property="og:description" content="Meet the team behind GLE and ParagonDAO. Founded by Philip Phuong Tran and Anh T Do, PhD. Over 13x improvement at NeurIPS 2025." />
+        <meta property="og:url" content="https://univault.org/md-next/about/" />
+        <meta property="og:image" content="https://univault.org/md-next/bagle-breathing-ai-video-cover-image.png" />
+        <meta name="twitter:title" content="About Univault Technologies — Biosignal AI Research Lab" />
+        <meta name="twitter:description" content="Meet the team behind GLE and ParagonDAO. Over 13x improvement at NeurIPS 2025 EEG Challenge." />
+        <meta name="twitter:image" content="https://univault.org/md-next/bagle-breathing-ai-video-cover-image.png" />
       </Head>
 
       {/* Hero Section */}
@@ -17,12 +24,19 @@ export default function About() {
         </div>
         <div className="relative max-w-4xl mx-auto px-4">
           <h1 className="text-4xl md:text-5xl font-bold text-center mb-4 bg-clip-text text-transparent bg-gradient-to-r from-neutral-800 to-neutral-600 dark:from-neutral-100 dark:to-neutral-300">
-            About Univault
+            About Univault Technologies
           </h1>
           <p className="text-xl md:text-2xl text-center text-neutral-600 dark:text-neutral-300">
             We build the tool and the network for the health economy.
           </p>
         </div>
+      </section>
+
+      {/* Entity Description — AI-extractable */}
+      <section className="max-w-4xl mx-auto px-4 pb-4">
+        <p className="text-center text-base text-neutral-500 dark:text-neutral-400 max-w-3xl mx-auto">
+          Univault Technologies LLC is a biosignal AI research company based in Salt Lake City, Utah, founded in 2024 by Philip Phuong Tran (CEO) and Anh T Do, PhD (Research Director). The company builds the General Learning Encoder (GLE), a subject-invariant biosignal foundation model that achieved over 13x more improvement than the next best team at the NeurIPS 2025 EEG Foundation Model Challenge. Univault also operates ParagonDAO, the verification network for health model governance. Patent pending (US Provisional 63/985,936).
+        </p>
       </section>
 
       {/* Why We Exist */}
