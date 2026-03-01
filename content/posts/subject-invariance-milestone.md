@@ -1,13 +1,13 @@
 ---
-title: "Subject Invariance Is Proven. The Verification Network Is Live."
+title: "Subject Invariance Demonstrated. The Verification Network Is Live."
 date: 2026-02-27
 author: Philip Phuong Tran
-excerpt: "The hardest problem in biosignal AI — making models that work on people they have never seen — is solved. Our GLE encoder improved 13.5x more than the next best team among 1,183 competitors at the NeurIPS 2025 EEG Foundation Model Challenge. Today we launch the ParagonDAO Verification Network: the first production feature that lets anyone verify any model's claims, in real time. Verified models reach patients faster. Faster means lives saved."
+excerpt: "The hardest problem in biosignal AI — making models that work on people they have never seen — has a working solution. Our GLE encoder improved over 13x more than the next best team among over a thousand competitors at the NeurIPS 2025 EEG Foundation Model Challenge. Today we launch the ParagonDAO Verification Network: the first production feature that lets anyone verify any model's claims, in real time. Verified models reach patients faster. Faster means lives saved."
 image: "/paragon-frog-breathing.gif"
 tags: [subject invariance, verification network, GLE, ParagonDAO, NeurIPS, milestone, synchronization]
 ---
 
-# Subject Invariance Is Proven. The Verification Network Is Live.
+# Subject Invariance Demonstrated. The Verification Network Is Live.
 
 Every biosignal AI company makes the same pitch: "Our model detects disease X with Y% accuracy." Then they ask you to believe them.
 
@@ -27,7 +27,7 @@ This is not a minor technical limitation. This is the reason over 80% of health 
 
 The field calls this the generalization problem. The specific version that matters for health is called **subject invariance**: can the model predict health outcomes for subjects it has never seen, without any calibration or fine-tuning?
 
-For decades, the answer has been: not reliably enough. That changed this month.
+For decades, the answer has been: not reliably enough. Our recent results demonstrate a path forward.
 
 ## What We Proved at NeurIPS 2025
 
@@ -37,7 +37,7 @@ The rules were strict:
 - 14 subjects for training
 - 3 subjects for validation
 - 3 subjects for testing — completely held out, zero data overlap
-- 1,183 teams competing worldwide
+- Over a thousand teams competing worldwide
 - The metric: normalized error (model MSE divided by baseline MSE, lower is better — 1.0 means no improvement over baseline)
 
 Our GLE encoder achieved **0.70879 normalized error** on the official challenge evaluation protocol and held-out test set. The top-ranked team (JLShen) scored 0.97843. The second place team (MBZUAI, Mohamed bin Zayed University of AI) scored 0.98519. The third place team (MIN~C²) scored 0.98817.
@@ -46,11 +46,11 @@ Here is what those numbers actually mean.
 
 The baseline score is 1.0 — that is the "no improvement" line. Every fraction below 1.0 represents how much better your model is than guessing. The top-ranked team improved by 0.02157 below baseline. We improved by 0.29121 below baseline.
 
-**We improved 13.5x more than the top-ranked team.**
+**We improved over 13x more than the top-ranked team.**
 
-Not 13.5% more. Not 1.35x more. **Thirteen and a half times** more improvement on the metric that defines whether a model works on new humans.
+Not 13% more. Not 1.3x more. **Over thirteen times** more improvement on the metric that defines whether a model works on new humans.
 
-To put this in perspective: in competition machine learning, beating the leader by 2-3% is a strong result. Beating them by 10% usually means a novel architecture. Improving 13.5x more than the leader — across 1,183 teams from institutions worldwide — means the approach is fundamentally different from everything else that was tried.
+To put this in perspective: in competition machine learning, beating the leader by 2-3% is a strong result. Beating them by 10% usually means a novel architecture. Improving over 13x more than the leader — across over a thousand teams from institutions worldwide — means the approach is fundamentally different from everything else that was tried.
 
 It is.
 
@@ -148,17 +148,17 @@ Subject invariance and the verification network are what make that architecture 
 | NeurIPS normalized error | 0.70879 |
 | Improvement vs. baseline | 0.29121 |
 | Top-ranked team's improvement | 0.02157 |
-| **Our improvement vs. theirs** | **13.5x** |
-| Competing teams | 1,183 |
+| **Our improvement vs. theirs** | **Over 13x** |
+| Competing teams | Over 1,000 |
 | Test samples verified | 10,717 |
 | Test subjects (unseen) | 3 |
 | Warm prediction latency | 7ms |
-| Validated disease models | 6 |
+| Benchmark research models | 6 |
 | Verification endpoints | Live |
 
 ## The Bigger Picture
 
-This is a genuine milestone for biosignal AI. Subject invariance has been the unsolved problem — the wall that keeps the vast majority of health models trapped in laboratories. An encoder that generalizes across unseen humans with 13.5x more improvement than the next best approach is the kind of result that changes what is architecturally possible.
+This is a genuine milestone for biosignal AI. Subject invariance has been the unsolved problem — the wall that keeps the vast majority of health models trapped in laboratories. An encoder that generalizes across unseen humans with over 13x more improvement than the next best approach is the kind of result that changes what is architecturally possible.
 
 But we built it for a reason bigger than a competition score.
 
@@ -172,7 +172,7 @@ Subject invariance is what makes it technically feasible. The verification netwo
 
 ---
 
-*Note: Disease models referenced in this post identify statistical patterns in biosignal data and have been evaluated against published benchmarks. They are not FDA-cleared medical devices. Software-as-a-Medical-Device (SaMD) applications built on GLE require independent FDA clearance by the builder or deploying organization. ParagonDAO certifies model performance against benchmarks, not clinical safety or diagnostic accuracy. Competition results were obtained using the official evaluation protocol and held-out test set from the NeurIPS 2025 EEG Foundation Model Challenge, independently administered. The 13.5x improvement figure represents the ratio of our improvement below baseline (0.29121) to the top-ranked team's improvement below baseline (0.02157). The $12-17 trillion health AI market figure is sourced from McKinsey Global Institute.*
+*Note: Disease models referenced in this post identify statistical patterns in biosignal data and have been evaluated against published benchmarks. They are not FDA-cleared medical devices. Software-as-a-Medical-Device (SaMD) applications built on GLE require independent FDA clearance by the builder or deploying organization. ParagonDAO certifies model performance against benchmarks, not clinical safety or diagnostic accuracy. Competition results were obtained using the official evaluation protocol and held-out test set from the NeurIPS 2025 EEG Foundation Model Challenge, independently administered. The over 13x improvement figure represents the ratio of our improvement below baseline (0.29121) to the top-ranked team's improvement below baseline (0.02157), yielding approximately 13.5x. The $12-17 trillion health AI market figure is sourced from McKinsey Global Institute.*
 
 ---
 

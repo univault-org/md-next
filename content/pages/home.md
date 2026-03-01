@@ -1,80 +1,60 @@
 ---
-title: "Univault Research Lab - Advancing Personal Data Sovereignty & Consciousness-Aware AI"
-description: "Research lab developing technologies across multiple domains: consciousness research, data sovereignty, hardware-to-AI transformation, and secure protocols"
-headline: "Univault Research Lab"
-subheadline: "Advancing Personal Data Sovereignty & Consciousness-Aware AI"
+title: "Univault Technologies — Biosignal AI for Population Health"
+description: "We built GLE, the biosignal AI that generalizes across patients it has never seen. Proven at NeurIPS 2025. Building health screening infrastructure for resource-constrained settings."
+headline: "The biosignal AI that generalizes across patients."
+subheadline: "Proven at NeurIPS 2025. Building health screening infrastructure for resource-constrained settings."
 ---
 
-# Univault Research Lab
+# Univault Technologies
 
-Univault Research Lab is a research initiative developing technologies that put individuals in control of their digital lives. We research, develop, and publish technologies across multiple domains: consciousness research, data sovereignty, hardware-to-AI transformation, and secure protocols.
+Univault Technologies builds biosignal AI that works on people the model has never seen before — the core unsolved problem in clinical AI. Our General Learning Encoder (GLE) achieved subject invariance: a single trained model that generalizes across a new patient population without retraining.
 
-## Challenges
-- Privacy vulnerabilities
-- Data breaches
-- Loss of control over personal information
-- Limited ability to leverage our own data
+**NeurIPS 2025 EEG Foundation Model Challenge**: Our model improved over 13× more than the next best team among over a thousand competitors. Externally verifiable.
 
-## Features
-- title: Secure
-  description: Built with privacy-first architecture
-  icon: 🔒
-
-- title: Universal
-  description: Works across all platforms and services
-  icon: 🌐
-
-- title: Personal
-  description: Gives you complete control of your digital footprint
-  icon: 👤
-
-- title: Interoperable
-  description: Seamlessly connects with existing systems
-  icon: 🔄
-
-## Vision
-- Every individual owns a personal data vault
-- You control who accesses and how it's used
-- Your digital identity is truly yours
-- Data sharing is transparent and revocable
-
-## Research Areas
-
-### Consciousness & AI Research
-- title: Complete AI Architecture
-  description: Dual-brain system (GPT + Harmonic Frequency - HF Models + Adapter) enabling consciousness-aware AI that understands brain signals directly
-  icon: 🧠
+## What We Build
 
 - title: General Learning Encoder (GLE)
-  description: Pre-trained foundation model for frequency-domain processing, enabling subject-invariant EEG intelligence across multiple applications
+  description: Subject-invariant biosignal AI. One model generalizes across patients it has never seen. Patent pending (Univault Technologies, Utah LLC).
   icon: 🔬
 
-- title: Breathing Authentication
-  description: Research on breathing-based biometric identification with 96.8% accuracy, published in Current Biology (2025)
-  icon: 💨
+- title: BAGLE API
+  description: Production endpoint (opening April 2026). Accepts biosignal input, returns 128 GLE coefficients. Edge-native — designed for a $10 wearable with no cloud dependency.
+  icon: ⚡
 
-### Data Sovereignty Research
-- title: Personal AI Systems
-  description: Research on AI systems that understand individuals personally while maintaining data sovereignty and privacy
-  icon: 🤖
+- title: Community Health Worker Tools (In Development)
+  description: Designed for resource-constrained settings. Offline-first. Cardiac, respiratory, and voice pattern screening support for frontline health workers.
+  icon: 🏥
 
-- title: Privacy Architecture
-  description: Developing robust privacy-preserving systems for personal data management
-  icon: 🔒
+- title: ParagonDAO Verification Network
+  description: Any model's accuracy and privacy claims are independently verifiable. Builders inherit the verification infrastructure.
+  icon: 🔗
 
-- title: Data Standards
-  description: Creating universal data interchange formats for personal data sovereignty
-  icon: 📋
+## The Problem We Solve
 
-### Protocol & Security Research
-- title: Satellite Data Protocol (SRPT)
-  description: Developing SRPT protocol for efficient global transfer of large AI models and datasets via satellite networks
-  icon: 🛰️
+Biosignal AI has a fundamental generalization problem: models trained on one population fail on another. A model trained on hospital EEG data from Boston doesn't work on a patient in Nairobi. This is why clinical AI hasn't reached the people who need it most — community health workers in low-resource settings, operating without specialists, without connectivity, without expensive equipment.
 
-- title: Quantum-Safe Privacy
-  description: Developing post-quantum cryptographic solutions to ensure long-term data protection
-  icon: ⚛️
+GLE's subject invariance breaks this barrier. One trained model works across populations. That is what makes community health worker deployment viable at scale.
 
-- title: Secure Sharing Protocols
-  description: Building secure data sharing protocols that maintain individual control
-  icon: 🔐
+## Validation
+
+- **NeurIPS 2025 EEG Foundation Model Challenge** — Over a thousand teams. Our normalized error: 0.70879. Next best team: 0.97843. Externally verifiable at [paragondao.org/verify](https://paragondao.org/verify).
+- **Breathing pattern classification** — 88.97% accuracy on respiratory biosignals
+- **Patent pending** — General Learning Encoder, filed under Univault Technologies (Utah LLC)
+
+## Current Focus
+
+We are preparing an application for the EVAH initiative (Gates Foundation / Wellcome / Novo Nordisk) — a $60M program for rigorous evaluation of AI clinical decision support in Sub-Saharan Africa and Southeast Asia. Pathway A funds up to $1M for evaluation of AI screening tools in resource-constrained settings. Proposal deadline: April 1, 2026.
+
+We are seeking a Sub-Saharan African lead institution partner. If you are a researcher or clinician at an SSA institution interested in co-applying, contact us.
+
+## Partners
+
+- **Promise2Live** — 988 crisis intervention network
+- **Materic / DiPole Materials** — Piezoelectric biosignal wearable hardware
+- **University of Utah VPR Office** — University research partnership
+- **Silicon Slopes** — Utah technology ecosystem
+- **Florida High Tech Corridor** — Southeast US ecosystem partner (in discussion)
+
+## Vision
+
+Every community health worker, in every resource-constrained setting, with access to validated biosignal AI that works on the patients in front of them — not just the patients it was trained on.

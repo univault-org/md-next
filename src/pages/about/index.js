@@ -2,7 +2,7 @@ import Head from 'next/head'
 import { getMDXContent } from '@/lib/api'
 import { BiTestTube, BiShield, BiHeart, BiWorld } from 'react-icons/bi'
 
-export default function About({ source, frontmatter = {} }) {
+export default function About() {
   return (
     <>
       <Head>
@@ -126,6 +126,70 @@ export default function About({ source, frontmatter = {} }) {
         </div>
       </section>
 
+      {/* Team */}
+      <section className="max-w-4xl mx-auto px-4 py-16">
+        <h2 className="text-3xl font-bold mb-4 text-center text-neutral-800 dark:text-neutral-100">
+          The Team
+        </h2>
+        <p className="text-center mb-12 text-lg text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto">
+          A husband-and-wife research team building the infrastructure for population-scale health AI.
+        </p>
+        <div className="grid md:grid-cols-2 gap-8">
+          {/* Philip */}
+          <div className="p-8 rounded-xl bg-white dark:bg-neutral-800 border-2 border-primary-200 dark:border-primary-800 shadow-md">
+            <div className="mb-4">
+              <h3 className="text-xl font-bold text-neutral-800 dark:text-neutral-100">
+                Philip Phuong Tran
+              </h3>
+              <p className="text-sm font-semibold text-primary-600 dark:text-primary-400 mt-1">
+                Founder &amp; CEO
+              </p>
+            </div>
+            <p className="text-neutral-600 dark:text-neutral-400 mb-4">
+              Architect of the GLE (General Learning Encoder) framework and the subject invariance methodology.
+              Named inventor on the GLE patent application (rights assigned to Univault Technologies LLC).
+              Based in Salt Lake City, Utah.
+            </p>
+            <div className="p-4 rounded-lg bg-neutral-50 dark:bg-neutral-700/50 border border-neutral-200 dark:border-neutral-600">
+              <p className="text-sm font-semibold text-neutral-700 dark:text-neutral-300">
+                Applied Mathematics &amp; Signal Processing
+              </p>
+              <p className="text-sm text-neutral-600 dark:text-neutral-400 mt-1">
+                Master&apos;s in Mathematics and Statistics. Former lecturer at California State University.
+                GLE&apos;s DCT-II frequency-domain architecture is grounded in this mathematical foundation.
+              </p>
+            </div>
+          </div>
+
+          {/* Anh */}
+          <div className="p-8 rounded-xl bg-white dark:bg-neutral-800 border-2 border-neutral-200 dark:border-neutral-700 shadow-md">
+            <div className="mb-4">
+              <h3 className="text-xl font-bold text-neutral-800 dark:text-neutral-100">
+                Anh T Do, PhD
+              </h3>
+              <p className="text-sm font-semibold text-primary-600 dark:text-primary-400 mt-1">
+                Co-founder &amp; Research Director
+              </p>
+            </div>
+            <p className="text-neutral-600 dark:text-neutral-400 mb-4">
+              PhD researcher. Lead author of <em>Tín Hiệu và Hệ Thống</em> (Signals and Systems),
+              a signal and control theory textbook for Hanoi University of Science and Technology (HUST),
+              Vietnam&apos;s leading engineering institution.
+              Based in Salt Lake City, Utah.
+            </p>
+            <div className="p-4 rounded-lg bg-neutral-50 dark:bg-neutral-700/50 border border-neutral-200 dark:border-neutral-600">
+              <p className="text-sm font-semibold text-neutral-700 dark:text-neutral-300">
+                Signal &amp; Control Theory
+              </p>
+              <p className="text-sm text-neutral-600 dark:text-neutral-400 mt-1">
+                Her academic foundation in signal processing directly underpins GLE&apos;s
+                convex optimization methods for subject-invariant biosignal encoding.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Research Foundation */}
       <section className="max-w-4xl mx-auto px-4 py-16 bg-neutral-50 dark:bg-neutral-800/50 rounded-2xl">
         <h2 className="text-3xl font-bold mb-6 text-center text-neutral-800 dark:text-neutral-100">
@@ -138,8 +202,8 @@ export default function About({ source, frontmatter = {} }) {
           {[
             {
               title: "GLE Encoder",
-              stat: "27.5% better",
-              desc: "than competition-winning solutions on subject-invariant health prediction tasks"
+              stat: "Over 13× improvement",
+              desc: "over next best team at NeurIPS 2025 EEG Foundation Model Challenge — over a thousand competing teams"
             },
             {
               title: "Breathing Biometrics",

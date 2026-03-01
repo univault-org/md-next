@@ -1,92 +1,89 @@
 ---
-title: "About Univault Research Lab"
-subtitle: "Advancing Personal Data Sovereignty & Consciousness-Aware AI"
-description: "Research lab developing technologies across multiple domains: consciousness research, data sovereignty, hardware-to-AI transformation, and secure protocols"
+title: "About Univault Technologies"
+subtitle: "Biosignal AI for Population Health"
+description: "Univault Technologies builds subject-invariant biosignal AI designed for community health workers in resource-constrained settings. Patent pending. NeurIPS 2025 validated."
 date: "2024"
-lastUpdated: "2025-01-01"
+lastUpdated: "2026-03-01"
 ---
 
-# About Univault Research Lab
+# About Univault Technologies
 
 ## Our Mission
 
-Univault Research Lab is a research initiative dedicated to advancing personal data sovereignty and consciousness-aware AI technologies. We research, develop, and publish technologies that put individuals in control of their digital lives while enabling breakthrough AI capabilities.
+Univault Technologies develops biosignal AI that generalizes across patient populations — solving the core barrier that has prevented clinical AI from reaching the people who need it most: community health workers in low-resource settings without access to specialists, stable connectivity, or expensive equipment.
 
-## Who We Are
+## The Company
 
-We are a research lab focused on developing technologies across multiple domains:
-- **Consciousness & AI Research** - Exploring consciousness-aware AI, brain-computer interfaces, and advanced learning encoders
-- **Data Sovereignty Research** - Developing technologies for personal data ownership and privacy-preserving AI systems
-- **Protocol & Security Research** - Innovating secure communication protocols and cryptographic solutions
+**Legal entity**: Univault Technologies LLC (Utah)
+**Founded**: 2024
+**Location**: Salt Lake City, Utah
 
-Our research spans from foundational models like the General Learning Encoder (GLE) to practical applications in hardware-to-AI transformation.
+## Team
 
-## What We Do
+### Philip Phuong Tran — Founder & CEO
 
-### Research & Development
+Architect of the GLE (General Learning Encoder) framework and the subject invariance methodology. Named inventor on the patent application (filed under Phuong Tran, Univault Technologies). Leads all research, partnerships, and product development.
 
-We conduct research and publish findings across three main areas:
-
-**Consciousness & AI Research:**
-- Complete AI Architecture (GPT + Harmonic Frequency - HF Models + Adapter)
-- General Learning Encoder (GLE) - Pre-trained foundation model for subject-invariant EEG intelligence
-- Breathing Authentication - 96.8% accuracy biometric identification (Current Biology 2025)
-- EEG Foundation Challenge 2025 - Verified benchmarks exceed winning solutions
-
-**Data Sovereignty Research:**
-- Personal AI Systems that maintain individual data ownership
-- Privacy-preserving architectures for personal data management
-- Data standards for personal data sovereignty
-
-**Protocol & Security Research:**
-- Satellite Relay Package Transfer Protocol (SRPT)
-- Quantum-safe privacy solutions
-- Secure data sharing protocols
-
-### Applications of Our Research
-
-Our research powers several applications:
-- **[Bagle.com](https://bagle.com)** - Hardware-to-AI transformation platform powered by GLE
-- **MirrorAI** - Complete AI applications for mental coaching and personal development
-- **RIIF** - Audio player platform for personalized content delivery
-
-## Our Vision
-
-We envision a future where:
-- Every individual owns and controls their personal data
-- AI systems are consciousness-aware and respect personal data sovereignty
-- Research breakthroughs enable practical applications that benefit individuals
-- Digital identities are preserved and protected across generations
-
-## Core Principles
-
-### 1. Ownership
-We believe personal data belongs to individuals, giving them complete control over how it's used, shared, and preserved.
-
-### 2. Privacy
-Like DNA passed through generations, personal data carries unique information that defines us and must be protected accordingly.
-
-### 3. Security
-We implement robust security measures to protect personal data at every stage—from generation to storage.
-
-### 4. Universal Access
-We ensure personal data can be accessed securely by authorized AI systems and services while maintaining individual control.
-
-## Research Publications
-
-Our research findings are published and verified:
-- **EEG Foundation Challenge 2025** - Verified benchmarks available in our [open-source repository](https://github.com/paragon-dao/eeg-foundation-challenge-2025)
-- **Breathing Authentication** - Published in Current Biology (2025)
-- **GLE Technology** - Foundation model for subject-invariant EEG intelligence
-
-## Contact Us
-
-Interested in collaboration or learning more about our research? [Request a demo](#) to discuss:
-- Research collaboration opportunities
-- Technology partnerships
-- Implementation support
-- Research applications
+**Key result**: Led the NeurIPS 2025 EEG Foundation Model Challenge entry — over 13× improvement over the next best team among over a thousand competitors. External leaderboard verifiable at [paragondao.org/verify](https://paragondao.org/verify).
 
 ---
 
-*Univault.org - Preserving digital identity for generations to come.*
+### Anh T Do, PhD — Co-founder & Research Director
+
+PhD researcher and lead author of a signal and control theory textbook for Hanoi University of Science and Technology (HUST), Vietnam's leading engineering institution. Her academic foundation in signal processing and control systems directly underpins GLE's mathematical framework for subject-invariant biosignal encoding.
+
+Contributes to model training architecture and the convex optimization methods underlying GLE's generalization properties.
+
+## What We Have Built
+
+### General Learning Encoder (GLE)
+
+GLE is a biosignal foundation model that achieves subject invariance — the ability to classify biosignals from patients the model has never seen, without retraining. This is the central unsolved problem in clinical biosignal AI.
+
+**Validation**: NeurIPS 2025 EEG Foundation Model Challenge — over a thousand competing teams. Our model achieved a normalized error of 0.70879. The next best team: 0.97843. That is over 13× more improvement below baseline. The result is externally verifiable at [paragondao.org/verify](https://paragondao.org/verify).
+
+**Patent status**: Pending. Filed under Univault Technologies (Utah LLC).
+
+### BAGLE API
+
+The BAGLE (Brain-AI General Learning Encoder) API is GLE's production implementation for neurological biosignal encoding. Currently in development with a public launch planned for April 2026. It accepts biosignal input and returns 128 GLE coefficients. Designed for commodity edge hardware with no cloud dependency — built for deployment in settings without reliable internet.
+
+### Breathing Pattern Classification
+
+GLE-based respiratory biosignal classification achieves 88.97% accuracy. This is validated on out-of-sample subjects — consistent with the subject invariance claim.
+
+## Research Approach
+
+We publish externally verifiable results on open benchmarks. We do not make unverifiable accuracy claims. Every performance number we cite is tied to a specific dataset, evaluation protocol, and reproducible methodology.
+
+Our current research areas:
+- **Subject-invariant biosignal encoding** — the generalization problem in clinical AI
+- **Edge-native inference** — AI that runs on $10 wearables without connectivity
+- **Privacy-preserving biosignal processing** — raw patient data never leaves the device; only encoded coefficients travel the network
+- **Community health worker screening tools** — applied research for low-resource clinical settings
+
+## Active Partnerships
+
+- **Promise2Live** — 988 crisis intervention network. Application: real-time voice and breathing pattern analysis during crisis calls.
+- **Materic / DiPole Materials** — Piezoelectric yarn biosignal wearable hardware. Integration with GLE encoding pipeline.
+- **University of Utah VPR Office** — University research partnership.
+- **Silicon Slopes** — Utah technology ecosystem and builder network.
+- **Florida High Tech Corridor** — Southeast US ecosystem partner (in discussion).
+
+## EVAH Grant Pursuit
+
+We are preparing an application for the EVAH initiative (Evidence for AI in Health) — a joint $60M program from the Gates Foundation, Wellcome, and Novo Nordisk Foundation, evaluated by J-PAL (MIT). Pathway A funds up to $1M for rigorous evaluation of AI clinical decision support tools in Sub-Saharan Africa and Southeast Asia. Our application proposes GLE-based community health worker screening in an SSA partner institution.
+
+We are seeking a Sub-Saharan African lead institution partner. Proposal deadline: April 1, 2026.
+
+## Data Privacy Principle
+
+Patient data never leaves the patient's device. GLE encodes biosignals on-device. Only the resulting coefficients (128 numbers representing the encoded signal) travel the network. Raw EEG, breathing, cardiac, or voice data is never transmitted or stored by Univault.
+
+## Contact
+
+For research collaboration, technology partnerships, or EVAH grant co-application inquiries, contact us through [univault.org](https://univault.org).
+
+---
+
+*Univault Technologies LLC — Salt Lake City, Utah*

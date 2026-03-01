@@ -160,11 +160,11 @@ export default function Home() {
             <ul className="space-y-2 text-sm text-neutral-600 dark:text-neutral-400">
               <li className="flex items-start">
                 <BiCheckCircle className="text-primary-500 mt-0.5 mr-2 flex-shrink-0" />
-                6 published health models live now
+                6 research models published
               </li>
               <li className="flex items-start">
                 <BiCheckCircle className="text-primary-500 mt-0.5 mr-2 flex-shrink-0" />
-                27.5% better than competition benchmarks
+                29% less error than competition benchmarks
               </li>
               <li className="flex items-start">
                 <BiCheckCircle className="text-primary-500 mt-0.5 mr-2 flex-shrink-0" />
@@ -415,7 +415,7 @@ export default function Home() {
                 GLE: Universal Health Signal Encoder
               </h3>
               <p className="text-neutral-600 dark:text-neutral-400 mb-4">
-                27.5% better than competition-winning solutions on subject-invariant health prediction.
+                29% less error than competition-winning solutions on subject-invariant health prediction.
                 Works on new users immediately — no calibration, no retraining.
               </p>
             </div>
@@ -468,7 +468,7 @@ export default function Home() {
             <div className="md:w-1/3">
               <img
                 src="/paragon-frog-breathing.gif"
-                alt="Subject Invariance Is Proven. The Verification Network Is Live."
+                alt="Subject Invariance Demonstrated. The Verification Network Is Live."
                 className="w-full h-48 md:h-full object-cover"
               />
             </div>
@@ -477,10 +477,10 @@ export default function Home() {
                 Latest Update
               </p>
               <h3 className="text-xl font-bold mb-2 text-neutral-800 dark:text-neutral-100">
-                Subject Invariance Is Proven. The Verification Network Is Live.
+                Subject Invariance Demonstrated. The Verification Network Is Live.
               </h3>
               <p className="text-sm text-neutral-600 dark:text-neutral-400 mb-4">
-                The hardest problem in biosignal AI — making models that work on people they have never seen — is solved. Our GLE encoder improved 13.5x more than the next best team among 1,183 competitors at the NeurIPS 2025 EEG Foundation Model Challenge. Today we launch the ParagonDAO Verification Network.
+                The hardest problem in biosignal AI — making models that work on people they have never seen — has a working solution. Our GLE encoder improved over 13x more than the next best team among over a thousand competitors at the NeurIPS 2025 EEG Foundation Model Challenge. Today we launch the ParagonDAO Verification Network.
               </p>
               <span className="inline-flex items-center text-sm font-medium text-primary-500 hover:text-primary-600">
                 Read the full post <BiRightArrowAlt className="ml-1" />
