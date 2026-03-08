@@ -122,7 +122,7 @@ GLE is our answer to that. Not a better blockchain. Not a better incentive model
 
 512 bytes. 4 terabytes for the planet. Three nodes running today.
 
-The rest is execution.
+We proved the primitive works. How the world executes on it will determine whether the next health crisis is caught early — or catches us unprepared again.
 
 ---
 
