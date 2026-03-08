@@ -72,9 +72,11 @@ Here is what the numbers imply if they hold: 512 bytes is not just small enough 
 
 And critically, the encoding is non-invertible by design. The 128 coefficients capture frequency-domain features while discarding the phase and temporal information needed to reconstruct the original signal. You cannot recover the original EEG or breathing waveform from the coefficients. Privacy is not a policy layered on top — it is a mathematical property of the representation.
 
-## The COVID Lesson We Have Not Learned
+## What COVID Actually Taught Us
 
-COVID proved what happens when health infrastructure cannot keep up. Millions could not get tested. Results took days. Contact tracing failed at scale. The systems we trusted were not built for speed.
+COVID taught us that when the infrastructure exists, we move extraordinarily fast. mRNA vaccines went from sequence to injection in 11 months. Genomic surveillance tracked variants across continents in real time. The science was ready. What broke was the detection and verification layer — millions could not get tested, results took days, contact tracing failed at scale.
+
+The lesson was not that we failed. The lesson was that speed of response is entirely determined by the infrastructure you built before the crisis hit.
 
 That was before the AI boom.
 
