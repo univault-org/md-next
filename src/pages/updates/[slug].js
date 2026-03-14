@@ -151,26 +151,6 @@ const components = {
       {props.children}
     </li>
   ),
-  pre: (props) => (
-    <pre
-      {...props}
-      className="my-8 rounded-2xl bg-[#0d1117] dark:bg-[#1e293b] border border-neutral-200/10 dark:border-[#475d8c]/60 p-6 overflow-x-auto text-[15px] leading-[1.7] font-mono text-[#e6edf3] shadow-2xl dark:shadow-[0_0_40px_rgba(59,130,246,0.06)]"
-    />
-  ),
-  code: (props) => {
-    // Inline code (not inside <pre>)
-    const isInline = typeof props.children === 'string' && !props.className
-    if (isInline) {
-      return (
-        <code
-          {...props}
-          className="px-2 py-1 rounded-lg bg-neutral-100 dark:bg-neutral-800/80 text-[#1a7f37] dark:text-emerald-400 text-[0.88em] font-mono font-semibold border border-neutral-200/60 dark:border-neutral-700/60"
-        />
-      )
-    }
-    // Code block inside <pre> — just pass through
-    return <code {...props} className={`${props.className || ''} font-mono`} />
-  },
   blockquote: (props) => (
     <blockquote
       {...props}
@@ -356,7 +336,7 @@ export default function Post({ post }) {
           </div>
 
           {/* Main Content */}
-          <div className="prose prose-xl dark:prose-invert prose-neutral max-w-none prose-headings:font-bold prose-p:text-xl prose-p:leading-relaxed prose-li:text-xl prose-img:rounded-xl prose-pre:bg-transparent prose-pre:p-0 prose-pre:m-0 prose-pre:border-0 prose-pre:shadow-none prose-code:before:content-none prose-code:after:content-none">
+          <div className="prose prose-xl dark:prose-invert prose-neutral max-w-none prose-headings:font-bold prose-p:text-xl prose-p:leading-relaxed prose-li:text-xl prose-img:rounded-xl prose-pre:bg-transparent prose-pre:p-0 prose-pre:m-0 prose-code:before:content-none prose-code:after:content-none">
             <MDXRemote {...post?.source} components={components} />
           </div>
 
