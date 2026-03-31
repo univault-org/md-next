@@ -47,6 +47,9 @@ export default function App({ Component, pageProps }) {
         <meta name="twitter:title" content={pageProps.title || "Univault Technologies"} />
         <meta name="twitter:description" content={pageProps.description || DEFAULT_DESCRIPTION} />
         <meta name="twitter:image" content={DEFAULT_IMAGE} />
+
+        {/* Analytics */}
+        <script defer src="https://mirrorai-api.amitacompany.workers.dev/t.js" data-site="sb_univault_org_01" />
       </Head>
 
       <div className={`min-h-screen flex flex-col ${ibmPlexMono.variable}`}>
