@@ -12,7 +12,7 @@ const ibmPlexMono = IBM_Plex_Mono({
   variable: '--font-ibm-plex-mono',
 })
 
-const SITE_URL = 'https://univault.org/md-next'
+const SITE_URL = 'https://univault.org'
 const DEFAULT_DESCRIPTION = 'Univault Technologies builds the General Learning Encoder (GLE), a subject-invariant biosignal AI foundation model, and ParagonDAO, the verification network for health models.'
 const DEFAULT_IMAGE = `${SITE_URL}/bagle-breathing-ai-video-cover-image.png`
 

@@ -1,13 +1,17 @@
 ---
-title: "Univault Technologies — Biosignal AI for Population Health"
-description: "We built GLE, the biosignal AI that generalizes across patients it has never seen. Proven at NeurIPS 2025. Building health screening infrastructure for resource-constrained settings."
-headline: "The biosignal AI that generalizes across patients."
-subheadline: "Proven at NeurIPS 2025. Building health screening infrastructure for resource-constrained settings."
+title: "Univault Technologies — Building the Mirror"
+description: "One loop, two halves. We built the intelligence that reads a human body and generalizes to people it has never seen, proven at NeurIPS 2025. We are now building the half that acts in the world: embodied AI for vehicles and machines, and the assurance work that lets it be approved."
+headline: "The eye cannot see the eye. We build the mirror."
+subheadline: "Intelligence built to be compatible with the human body, and now to act in the world. Biosignals first. Embodied AI now."
 ---
 
 # Univault Technologies
 
-Univault Technologies builds biosignal AI that works on people the model has never seen before — the core unsolved problem in clinical AI. Our General Learning Encoder (GLE) achieved subject invariance: a single trained model that generalizes across a new patient population without retraining.
+Univault Technologies builds intelligence with one purpose: to close a loop that cannot be closed from the inside. The mind cannot inspect its own mind. Technology is the mirror, and a mirror is only useful if it reflects a human being accurately.
+
+That is why we started with the human body, and why we are now building the half that acts in the world.
+
+**[Read the reasoning: The Eye Cannot See the Eye](/updates/the-eye-cannot-see-the-eye/)**
 
 **NeurIPS 2025 EEG Foundation Model Challenge**: Our model improved over 13× more than the next best team among over a thousand competitors. Externally verifiable.
 
@@ -18,12 +22,16 @@ Univault Technologies builds biosignal AI that works on people the model has nev
   icon: 🔬
 
 - title: BAGLE API
-  description: Production endpoint (opening April 2026). Accepts biosignal input, returns 128 GLE coefficients. Edge-native — designed for a $10 wearable with no cloud dependency.
+  description: Accepts biosignal input, returns 128 GLE coefficients. Edge-native, designed for a low-cost wearable with no cloud dependency.
   icon: ⚡
 
 - title: Community Health Worker Tools (In Development)
   description: Designed for resource-constrained settings. Offline-first. Cardiac, respiratory, and voice pattern screening support for frontline health workers.
   icon: 🏥
+
+- title: Embodied AI Assurance (Paragon Reflex)
+  description: The half that acts. Perception and reflex components for autonomous vehicles and machines, and the acceptance criterion that lets a learned component be updated in the field without losing its approval.
+  icon: 🚗
 
 - title: ParagonDAO Verification Network
   description: Any model's accuracy and privacy claims are independently verifiable. Builders inherit the verification infrastructure.
@@ -43,9 +51,9 @@ GLE's subject invariance breaks this barrier. One trained model works across pop
 
 ## Current Focus
 
-We are preparing an application for the EVAH initiative (Gates Foundation / Wellcome / Novo Nordisk) — a $60M program for rigorous evaluation of AI clinical decision support in Sub-Saharan Africa and Southeast Asia. Pathway A funds up to $1M for evaluation of AI screening tools in resource-constrained settings. Proposal deadline: April 1, 2026.
+We are moving into the second half of the work: embodied AI that acts in the world under real constraints. The order is deliberate. Autonomous vehicles first, then autonomous machines, then robotics, each inheriting what the last one proved.
 
-We are seeking a Sub-Saharan African lead institution partner. If you are a researcher or clinician at an SSA institution interested in co-applying, contact us.
+Two things stand in the way, and only one of them is understood. The first is invention. The second is governance: a learned component that keeps improving after it has been approved does not fit the way anything gets approved today, and there is no agreed test for whether a change is small enough to let through. Most of our published work this year is aimed at that gap.
 
 ## Partners
 

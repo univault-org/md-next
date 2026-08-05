@@ -80,7 +80,7 @@ export default function Home() {
         <meta name="description" content="Univault builds GLE, the universal biosignal encoder (over 13x NeurIPS 2025 improvement), and ParagonDAO, the governance network that validates health models. Any signal in, 128 numbers out." />
         <meta property="og:title" content="Univault Technologies — Universal Health Signal Encoder" />
         <meta property="og:description" content="GLE encoder: over 13x improvement at NeurIPS 2025 EEG Challenge. Any health signal in, 128 coefficients out. Your research becomes a product." />
-        <meta property="og:url" content="https://univault.org/md-next/" />
+        <meta property="og:url" content="https://univault.org/" />
         <meta property="og:image" content="https://univault.org/md-next/bagle-breathing-ai-video-cover-image.png" />
         <meta name="twitter:title" content="Univault Technologies — Universal Health Signal Encoder" />
         <meta name="twitter:description" content="GLE encoder: over 13x improvement at NeurIPS 2025 EEG Challenge. Any health signal in, 128 coefficients out. Your research becomes a product." />
@@ -113,7 +113,7 @@ export default function Home() {
                   "@type": "FAQPage",
                   "mainEntity": [
                     { "@type": "Question", "name": "What is the General Learning Encoder (GLE)?", "acceptedAnswer": { "@type": "Answer", "text": "GLE is a subject-invariant biosignal foundation model by Univault Technologies. It encodes any health signal into 128 DCT-II frequency coefficients. GLE achieved over 13x more improvement than the next best team at the NeurIPS 2025 EEG Foundation Model Challenge (1000+ teams)." } },
-                    { "@type": "Question", "name": "What is BAGLE?", "acceptedAnswer": { "@type": "Answer", "text": "BAGLE (Brain-AI General Learning Encoder) is GLE's production API, opening April 2026. Accepts biosignal input, returns 128 GLE coefficients. Edge-native, no cloud dependency." } },
+                    { "@type": "Question", "name": "What is BAGLE?", "acceptedAnswer": { "@type": "Answer", "text": "BAGLE (Brain-AI General Learning Encoder) is GLE's production API. Accepts biosignal input, returns 128 GLE coefficients. Edge-native, no cloud dependency." } },
                     { "@type": "Question", "name": "What does subject-invariant mean?", "acceptedAnswer": { "@type": "Answer", "text": "Subject invariance means a model predicts health outcomes for patients it has never seen, without calibration or retraining. GLE uses domain adversarial training to learn universal health patterns while discarding individual-specific noise." } },
                     { "@type": "Question", "name": "What is ParagonDAO?", "acceptedAnswer": { "@type": "Answer", "text": "ParagonDAO is an independent verification network certifying health model accuracy against benchmarks. It certifies model performance, not clinical safety (FDA's domain). 10% of network fees fund crisis prevention." } },
                     { "@type": "Question", "name": "What were Univault's NeurIPS 2025 results?", "acceptedAnswer": { "@type": "Answer", "text": "GLE achieved 0.70879 normalized error vs. 0.97843 for the top-ranked team — over 13x more improvement below baseline, across 1000+ competing teams. Results verifiable at paragondao.org/verify." } },
@@ -137,29 +137,26 @@ export default function Home() {
           <div className="h-full flex flex-col justify-center items-center text-center">
             <div className="space-y-6 max-w-3xl">
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-neutral-800 to-neutral-600 dark:from-neutral-100 dark:to-neutral-300">
-                We Build the Tool and the Network for the Health Economy
+                The eye cannot see the eye. We build the mirror.
               </h1>
               <p className="text-xl md:text-2xl text-neutral-600 dark:text-neutral-300">
-                Any health signal in. 128 numbers out. Your model on the network.<br />
-                Your research becomes a product.
+                Intelligence built to be compatible with the human body,<br />
+                and now to act in the world. Biosignals first. Embodied AI now.
               </p>
-              <div className="flex gap-4 justify-center pt-4">
+              <div className="flex gap-4 justify-center pt-4 flex-wrap">
+                <Link
+                  href="/updates/the-eye-cannot-see-the-eye/"
+                  className="inline-flex items-center px-6 py-3 rounded-lg bg-primary-500 hover:bg-primary-600 text-white font-medium transition-colors"
+                >
+                  Read the reasoning
+                </Link>
                 <a
                   href="https://bagle.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center px-6 py-3 rounded-lg bg-primary-500 hover:bg-primary-600 text-white font-medium transition-colors"
-                >
-                  See the Models
-                  <BiLinkExternal className="ml-2" />
-                </a>
-                <a
-                  href="https://paragondao.org/whitepaper"
-                  target="_blank"
-                  rel="noopener noreferrer"
                   className="inline-flex items-center px-6 py-3 rounded-lg bg-neutral-100 hover:bg-neutral-200 dark:bg-neutral-700 dark:hover:bg-neutral-600 text-neutral-700 dark:text-neutral-100 font-medium transition-colors"
                 >
-                  Read the Whitepaper
+                  See the Models
                   <BiLinkExternal className="ml-2" />
                 </a>
               </div>
