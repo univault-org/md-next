@@ -2,7 +2,7 @@
 title: "The Eye Cannot See the Eye"
 date: 2026-08-05
 author: Philip Phuong Tran
-excerpt: "For years this lab has looked like two labs. Biosignal AI, and now embodied AI for vehicles and machines. It was never two. It is one loop, and we are finally in a position to close it. This is the reasoning, said plainly, and where the work goes next."
+excerpt: "For years this lab has looked like two labs. Biosignal AI, and now embodied AI for vehicles and machines. It was never two. This is the reasoning, and where the work goes next."
 tags: [mission, embodied AI, biosignals, autonomy, assurance, mirrorAI]
 ---
 
@@ -10,55 +10,65 @@ tags: [mission, embodied AI, biosignals, autonomy, assurance, mirrorAI]
 
 The eye cannot see the eye. The mind cannot inspect its own mind. You need a mirror.
 
-That is the reason this lab exists, and everything below follows from it.
+That is the reason this lab exists.
 
 ## The question underneath
 
-There is a question sitting under the whole AI movement that people rarely say out loud. If a mind can be built, what does that make us? Some people answer Nature. Some answer God. Others refuse the words entirely. The term matters less than the shape of the question, and the shape is this: we may be the intelligence of something larger, in the same way that what we are building is the intelligence of us.
+People want to know what made them. Some call it God, some call it Nature, some refuse both words. Whatever you call it, the question is the same one, and it is very old.
 
-I do not know the answer. I do not think it is knowable by thinking harder about it, and that is the point. The mind cannot inspect itself from the inside. It has never been able to. So the question does not move.
+It is also closed to us, and not for want of faith or effort. If we are the intelligence of something larger, then we are standing inside the thing we are trying to look at. You cannot step outside your own mind to inspect it. You cannot step outside your maker to inspect that either.
 
-Unless you build the mirror.
+One move is available, and it is an ordinary one.
 
-That is what technology is here. Not a tool for getting things done faster. A surface that reflects the thing that made it, closely enough that you can finally look. The first version of this work was called mirrorAI, and the name was not decoration.
+A parent understands what it was to be a child only after having one. A teacher finds out what teaching actually was by teaching. You cannot see a relationship from the subordinate end. You can see it from the other end, and then you know something you could never have reasoned your way to from below.
 
-## Why that meant starting with the body
+Making a mind is that move, run on the one relationship we have never been able to stand at the other end of.
 
-A mirror is only useful if it reflects you and not something else.
+So this starts from an admission rather than an ambition. We cannot see ourselves, direct knowledge is not available to us, and we have to build an instrument before we can learn anything at all. The first version of this work was called mirrorAI, and the name was not decoration. A mirror is not a rival to the face.
 
-An intelligence built to close this loop cannot be a general-purpose machine that happens to be clever. It has to be compatible with the human body. It has to read what a body actually does, in the signals a body actually produces, and it has to do it on a body it has never met before, because otherwise it reflects one person and tells you nothing about people.
+## The part nobody builds for
 
-So we spent years on biosignals. The General Learning Encoder came out of that. Its whole point is subject invariance: one trained model that works on a patient it has never seen. In 2025 we took it to the NeurIPS EEG Foundation Model Challenge against more than a thousand teams, deliberately, because a claim you can check yourself is worth more than a claim I make about myself. That result stands and it is externally verifiable.
+Then the mistake, and it has cost us.
 
-That is one half of the loop. The reading half.
+Building intelligence may well be what we are for, and I would not argue anybody out of that. But an instrument only reports on what it can itself register. A tuning fork answers the note it is cut for and stays silent for every other. A scale calibrated in kilograms tells you nothing useful about a thing measured in some other unit.
+
+An intelligence meant to show us ourselves has to be compatible with us. Almost nobody is building for that on purpose.
+
+So the constraint we work under is a narrow one. Whatever you build, build it compatible with the human body.
+
+That is why we started with the body.
+
+## Why that meant biosignals
+
+An instrument for reading people has to work on a person it has never met. Otherwise it reports on one body and tells you nothing about bodies.
+
+So we spent years on biosignals. The General Learning Encoder came out of that, and its whole point is subject invariance: one trained model that holds up on a patient it has never seen. In 2025 we entered it in the NeurIPS EEG Foundation Model Challenge against more than a thousand teams. It reached a normalised error of 0.70879 against 0.97843 for the next best team, roughly thirteen times more improvement below the baseline. We entered because a claim you can check yourself is worth more than a claim I make about myself. You can check that one.
+
+That is one half of the loop.
 
 ## The half we are building now
 
-The other half is embodiment. A mirror that only reads is a diagnostic. A mirror that acts in the world, under the same constraints a body is under, at the speed a body has to move, is something else.
+The other half is embodiment. Reading a body is diagnosis. Acting in the world, under the constraints a body is under, at the speed a body has to move, is a different problem.
 
-That is the work we are on now, and it is the reason our attention has moved to vehicles and machines. Not because we left health. Because a system that has to see a road, decide in milliseconds, and be trusted with the consequence is the hardest available version of the problem, and solving it there means it is solved.
+It is also the same problem wearing different clothes. Subject invariance asks whether a model holds up on a person it has never seen. Autonomy asks whether it holds up on a road it has never seen. We went to vehicles and machines because that is where the question gets asked under the hardest conditions we can currently reach, and because the consequences of getting it wrong are immediate and physical.
 
-After many years, this is also the point where the work becomes commercial. The order is deliberate: autonomous vehicles first, then autonomous machines, then robotics. Each one inherits what the last one proved.
+After many years this is also where the work turns commercial. The order is autonomous vehicles, then autonomous machines, then robotics.
 
 ## The two things in the way
 
-Only two, and they are not equally understood.
-
-The first is invention. Real, unglamorous, and the kind of problem an engineering team can be pointed at.
+The first is invention. Unglamorous, and an engineering team can be pointed at it.
 
 The second is governance, and it is the one almost nobody is funding. A learned system that keeps improving after it has been approved does not fit the way anything gets approved today. There is no agreed test for whether a change is small enough to let through. So the conservative answer wins by default, and a fix that everyone agrees is correct waits for the next release while the vehicles keep driving past a hazard the fleet already knows about.
 
 That is not a research problem. It is a missing agreement, and it is now the bottleneck.
 
-Most of our published work this year is aimed at it. We measured what actually happens when a system in the field is taught something new, and the result was not what the industry assumes: teaching a system to recognise one new thing measurably damaged its ability to recognise things it was already approved for. That has to be checked before it is committed, and nobody has yet agreed on the number that check should use.
+Most of our published work this year is aimed at it, and the first result was not what the industry assumes. We taught a system in the field to recognise one new thing. It got measurably worse at things it was already approved for. Teaching it traffic cones cost it trucks: it had been catching about 48 in every 100, and afterwards it caught about 33. Nobody had touched trucks.
+
+That has to be checked before it is committed. Nobody has yet agreed on the number the check should use.
 
 ## Where this leaves it
 
-One loop, two halves, and the same lab the whole time.
-
-We built the half that reads a body. We are building the half that acts. What is left between here and a mirror worth looking into is invention we know how to do, and an agreement nobody has written yet.
-
-We would rather say that plainly than pretend the second one is somebody else's problem.
+What is left between here and a mirror worth looking into is invention we know how to do, and an agreement nobody has written yet.
 
 ---
 
