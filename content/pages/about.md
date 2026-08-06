@@ -24,7 +24,7 @@ Univault Technologies develops biosignal AI that generalizes across patient popu
 
 Architect of the GLE (General Learning Encoder) framework and the subject invariance methodology. Named inventor on the patent application (filed under Phuong Tran, Univault Technologies). Leads all research, partnerships, and product development.
 
-**Key result**: Led the NeurIPS 2025 EEG Foundation Model Challenge entry — over 13× improvement over the next best team among over a thousand competitors. External leaderboard verifiable at [paragondao.org/verify](https://paragondao.org/verify).
+**Key result**: Benchmarked GLE against the published results of the NeurIPS 2025 EEG Foundation Model Challenge, using the challenge's public data and evaluation metric. We did not enter the challenge. Measured on that metric, GLE improved over 13× more below baseline than the winning entry. Data and metric are public; the comparison is reproducible.
 
 ---
 
@@ -40,7 +40,7 @@ Contributes to model training architecture and the convex optimization methods u
 
 GLE is a biosignal foundation model that achieves subject invariance — the ability to classify biosignals from patients the model has never seen, without retraining. This is the central unsolved problem in clinical biosignal AI.
 
-**Validation**: NeurIPS 2025 EEG Foundation Model Challenge — over a thousand competing teams. Our model achieved a normalized error of 0.70879. The next best team: 0.97843. That is over 13× more improvement below baseline. The result is externally verifiable at [paragondao.org/verify](https://paragondao.org/verify).
+**Validation**: The NeurIPS 2025 EEG Foundation Model Challenge drew over a thousand teams and published its data, metric and results. We did not enter it. We measured GLE on the same held-out data with the same metric: normalized error 0.70879, against 0.97843 for the winning entry, which is over 13× more improvement below the 1.0 baseline. We scored ourselves; the data and metric are public, so the comparison can be repeated by anyone.
 
 **Patent status**: Pending. Filed under Univault Technologies (Utah LLC).
 

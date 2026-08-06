@@ -79,11 +79,11 @@ export default function Home() {
         <title>Univault Technologies — Universal Health Signal Encoder | GLE & ParagonDAO</title>
         <meta name="description" content="Univault builds GLE, the universal biosignal encoder (over 13x NeurIPS 2025 improvement), and ParagonDAO, the governance network that validates health models. Any signal in, 128 numbers out." />
         <meta property="og:title" content="Univault Technologies — Universal Health Signal Encoder" />
-        <meta property="og:description" content="GLE encoder: over 13x improvement at NeurIPS 2025 EEG Challenge. Any health signal in, 128 coefficients out. Your research becomes a product." />
+        <meta property="og:description" content="GLE encoder: benchmarked on the NeurIPS 2025 EEG Challenge data and metric, over 13x more improvement below baseline than the winning entry. Any health signal in, 128 coefficients out." />
         <meta property="og:url" content="https://univault.org/" />
         <meta property="og:image" content="https://univault.org/md-next/bagle-breathing-ai-video-cover-image.png" />
         <meta name="twitter:title" content="Univault Technologies — Universal Health Signal Encoder" />
-        <meta name="twitter:description" content="GLE encoder: over 13x improvement at NeurIPS 2025 EEG Challenge. Any health signal in, 128 coefficients out. Your research becomes a product." />
+        <meta name="twitter:description" content="GLE encoder: benchmarked on the NeurIPS 2025 EEG Challenge data and metric, over 13x more improvement below baseline than the winning entry. Any health signal in, 128 coefficients out." />
         <meta name="twitter:image" content="https://univault.org/md-next/bagle-breathing-ai-video-cover-image.png" />
         <script
           type="application/ld+json"
@@ -98,7 +98,7 @@ export default function Home() {
                   "legalName": "Univault Technologies LLC",
                   "url": "https://univault.org",
                   "logo": "https://univault.org/md-next/favicon.svg",
-                  "description": "Biosignal AI company building the General Learning Encoder (GLE) — a subject-invariant foundation model that achieved over 13x more improvement than the next best team at the NeurIPS 2025 EEG Foundation Model Challenge. Also operates ParagonDAO, the verification network for health models.",
+                  "description": "Biosignal AI company building the General Learning Encoder (GLE), a subject-invariant foundation model. Benchmarked on the public data and metric of the NeurIPS 2025 EEG Foundation Model Challenge, which the company did not enter, GLE improved over 13x more below baseline than the winning entry. Also operates ParagonDAO, the verification network for health models.",
                   "foundingDate": "2024",
                   "foundingLocation": { "@type": "Place", "address": { "@type": "PostalAddress", "addressLocality": "Salt Lake City", "addressRegion": "Utah", "addressCountry": "US" } },
                   "founders": [
@@ -112,11 +112,11 @@ export default function Home() {
                 {
                   "@type": "FAQPage",
                   "mainEntity": [
-                    { "@type": "Question", "name": "What is the General Learning Encoder (GLE)?", "acceptedAnswer": { "@type": "Answer", "text": "GLE is a subject-invariant biosignal foundation model by Univault Technologies. It encodes any health signal into 128 DCT-II frequency coefficients. GLE achieved over 13x more improvement than the next best team at the NeurIPS 2025 EEG Foundation Model Challenge (1000+ teams)." } },
+                    { "@type": "Question", "name": "What is the General Learning Encoder (GLE)?", "acceptedAnswer": { "@type": "Answer", "text": "GLE is a subject-invariant biosignal foundation model by Univault Technologies. It encodes any health signal into 128 DCT-II frequency coefficients. Measured on the public data and metric of the NeurIPS 2025 EEG Foundation Model Challenge, which Univault did not enter, GLE improved over 13x more below baseline than the winning entry." } },
                     { "@type": "Question", "name": "What is BAGLE?", "acceptedAnswer": { "@type": "Answer", "text": "BAGLE (Brain-AI General Learning Encoder) is GLE's production API. Accepts biosignal input, returns 128 GLE coefficients. Edge-native, no cloud dependency." } },
                     { "@type": "Question", "name": "What does subject-invariant mean?", "acceptedAnswer": { "@type": "Answer", "text": "Subject invariance means a model predicts health outcomes for patients it has never seen, without calibration or retraining. GLE uses domain adversarial training to learn universal health patterns while discarding individual-specific noise." } },
                     { "@type": "Question", "name": "What is ParagonDAO?", "acceptedAnswer": { "@type": "Answer", "text": "ParagonDAO is an independent verification network certifying health model accuracy against benchmarks. It certifies model performance, not clinical safety (FDA's domain). 10% of network fees fund crisis prevention." } },
-                    { "@type": "Question", "name": "What were Univault's NeurIPS 2025 results?", "acceptedAnswer": { "@type": "Answer", "text": "GLE achieved 0.70879 normalized error vs. 0.97843 for the top-ranked team — over 13x more improvement below baseline, across 1000+ competing teams. Results verifiable at paragondao.org/verify." } },
+                    { "@type": "Question", "name": "What were Univault's NeurIPS 2025 results?", "acceptedAnswer": { "@type": "Answer", "text": "Univault did not enter the challenge. Using its public held-out data and evaluation metric, GLE scored 0.70879 normalized error against 0.97843 for the winning entry, on a baseline of 1.0 — over 13x more improvement below baseline. The data and metric are public, so the comparison is reproducible." } },
                     { "@type": "Question", "name": "Who founded Univault Technologies?", "acceptedAnswer": { "@type": "Answer", "text": "Founded 2024 by Philip Phuong Tran (CEO, GLE architect) and Anh T Do, PhD (Research Director, lead author of signal/control theory textbook for HUST). Based in Salt Lake City, Utah." } }
                   ]
                 },
@@ -168,9 +168,9 @@ export default function Home() {
       {/* Entity Description — AI-extractable prose */}
       <section className="max-w-4xl mx-auto px-4 pb-8">
         <p className="text-center text-lg text-neutral-600 dark:text-neutral-400 max-w-3xl mx-auto leading-relaxed">
-          Univault Technologies LLC (Salt Lake City, Utah) builds the General Learning Encoder (GLE), a subject-invariant biosignal AI foundation model that achieved over 13x more improvement than the next best team at the{' '}
+          Univault Technologies LLC (Salt Lake City, Utah) builds the General Learning Encoder (GLE), a subject-invariant biosignal AI foundation model. Measured on the public data and metric of the{' '}
           <a href="https://paragondao.org/verify" target="_blank" rel="noopener noreferrer" className="text-primary-500 hover:text-primary-600">NeurIPS 2025 EEG Foundation Model Challenge</a>{' '}
-          across over a thousand competing teams. GLE encodes any health signal — EEG, breathing, cardiac, voice, molecular sensors — into 128 DCT-II frequency coefficients. The company also operates{' '}
+          which we did not enter, it improved over 13x more below baseline than the winning entry. GLE encodes any health signal — EEG, breathing, cardiac, voice, molecular sensors — into 128 DCT-II frequency coefficients. The company also operates{' '}
           <a href="https://paragondao.org" target="_blank" rel="noopener noreferrer" className="text-primary-500 hover:text-primary-600">ParagonDAO</a>, the independent verification network for health models.
         </p>
       </section>

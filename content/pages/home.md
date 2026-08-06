@@ -13,7 +13,7 @@ That is why we started with the human body, and why we are now building the half
 
 **[Read the reasoning: The Eye Cannot See the Eye](/updates/the-eye-cannot-see-the-eye/)**
 
-**NeurIPS 2025 EEG Foundation Model Challenge**: Our model improved over 13× more than the next best team among over a thousand competitors. Externally verifiable.
+**NeurIPS 2025 EEG Foundation Model Challenge**: we did not enter, and measured GLE against the published winning result on the challenge's own public data and metric. Over 13× more improvement below baseline. Reproducible.
 
 ## What We Build
 
@@ -45,7 +45,7 @@ GLE's subject invariance breaks this barrier. One trained model works across pop
 
 ## Validation
 
-- **NeurIPS 2025 EEG Foundation Model Challenge** — Over a thousand teams. Our normalized error: 0.70879. Next best team: 0.97843. Externally verifiable at [paragondao.org/verify](https://paragondao.org/verify).
+- **NeurIPS 2025 EEG Foundation Model Challenge** — we did not enter. Measured on the challenge's public data and metric: our normalized error 0.70879, winning entry 0.97843, baseline 1.0.
 - **Breathing pattern classification** — 88.97% accuracy on respiratory biosignals
 - **Patent pending** — General Learning Encoder, filed under Univault Technologies (Utah LLC)
 

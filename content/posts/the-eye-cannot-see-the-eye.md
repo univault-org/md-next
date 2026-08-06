@@ -42,7 +42,15 @@ That is why we started with the body.
 
 An instrument for reading people has to work on a person it has never met. Otherwise it reports on one body and tells you nothing about bodies.
 
-So we spent years on biosignals. The General Learning Encoder came out of that, and its whole point is subject invariance: one trained model that holds up on a patient it has never seen. In 2025 we entered it in the NeurIPS EEG Foundation Model Challenge against more than a thousand teams. It reached a normalised error of 0.70879 against 0.97843 for the next best team, roughly thirteen times more improvement below the baseline. We entered because a claim you can check yourself is worth more than a claim I make about myself. You can check that one.
+So we spent years on biosignals. The General Learning Encoder came out of that, and its whole point is subject invariance: one trained model that holds up on a patient it has never seen.
+
+Then at the end of 2025 something useful happened to us. The NeurIPS EEG Foundation Model Challenge ran, with more than a thousand teams, a public dataset, a published metric and, when it closed, published results.
+
+We did not enter it. We had the encoder built already, and a placement was not what we were short of. What we were short of was a yardstick somebody else had set, on data we had not chosen, scored by a rule we had no hand in writing.
+
+So we took the challenge's data and its metric, measured what we had built exactly the way the challenge measured it, and put our number next to the winning number. The winning entry scored 0.97843. Ours scored 0.70879. Against the challenge baseline that is roughly thirteen times the improvement.
+
+Then we published it, numbers and method, rather than describing it. A claim you can check yourself is worth more than a claim I make about myself, and this is the weaker kind: we scored ourselves. The data and the metric are public, so anyone who thinks we marked our own homework generously can go and mark it again.
 
 That is one half of the loop.
 
@@ -65,6 +73,38 @@ That is not a research problem. It is a missing agreement, and it is now the bot
 Most of our published work this year is aimed at it, and the first result was not what the industry assumes. We taught a system in the field to recognise one new thing. It got measurably worse at things it was already approved for. Teaching it traffic cones cost it trucks: it had been catching about 48 in every 100, and afterwards it caught about 33. Nobody had touched trucks.
 
 That has to be checked before it is committed. Nobody has yet agreed on the number the check should use.
+
+## Somebody has to write the number down
+
+An agreement is not a discovery. It gets written by people who decide it is worth writing.
+
+We have done this before, for problems that looked worse. The Internet Engineering Task Force agreed how the internet works and has no regulatory power at all. Aviation persuaded competing airlines to pool safety data none of them would hand over commercially. And a volunteer committee sat down and decided where one tennis rating stops and the next one begins, published it on a schedule, left a route to appeal, and hundreds of thousands of people have played under that number ever since without giving it a second thought.
+
+None of those required a breakthrough. Each required a few people to decide the agreement was worth having, and then to do the unglamorous part.
+
+## Why this should matter to you
+
+Because these systems are going to be near your body.
+
+The car you are sitting in. The one in the next lane. The machine on the site you walk past, and eventually the thing that moves around your house while you sleep. Every one of them will be a learned system that keeps changing after somebody approved it.
+
+Somebody is going to decide how far an approved system may drift before a human being has to look at it again. That number gets set one of two ways. Deliberately, by people who argued about it in the open and left a way to be told they got it wrong. Or by default, by whoever ships first and is not contradicted.
+
+We would rather it were the first, and we are not in a position to do it alone. We should not be. A criterion written by the company whose product it measures is not a criterion, it is a moat, and we have said in the paper that we will step back from any standards work that adopts ours.
+
+## What would actually help
+
+Four things, in order of how much they are worth to us.
+
+**Break it.** If you assess these systems for a living, the most valuable thing you can send us is the case where our test fails. We would rather find it now.
+
+**Measure your own.** If you build a component that learns in the field, run the check against the categories you are already approved for and see what number you get. If it is nothing like ours, that is worth knowing and worth publishing.
+
+**Argue about the number.** If you write rules, or sit on a committee that does, the paper is available and the open problems in it are real. We do not know what the tolerance should be. Nobody does yet.
+
+**Pass it on.** If none of the above is you, the longer explainer below is written for anyone, and it will land with somebody you know.
+
+We read everything sent to [contact@univault.org](mailto:contact@univault.org).
 
 ## Where this leaves it
 
