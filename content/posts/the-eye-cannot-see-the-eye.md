@@ -48,7 +48,11 @@ Then at the end of 2025 something useful happened to us. The NeurIPS EEG Foundat
 
 We did not enter it. We had the encoder built already, and a placement was not what we were short of. What we were short of was a yardstick somebody else had set, on data we had not chosen, scored by a rule we had no hand in writing.
 
-So we took the challenge's data and its metric, measured what we had built exactly the way the challenge measured it, and put our number next to the winning number. The winning entry scored 0.97843. Ours scored 0.70879. Against the challenge baseline that is roughly thirteen times the improvement.
+So we took the challenge's data and its metric, measured what we had built exactly the way the challenge measured it, and put our number next to the winning number.
+
+One thing to know before the numbers, because they run the wrong way round from what you would expect. The score is an error rate, so lower is better, and 1.0 is the line where a model has told you nothing you did not already know. Every fraction below 1.0 is how far past that line you got.
+
+The winning entry scored 0.97843, which is 0.02 below the line. Ours scored 0.70879, which is 0.29 below it. Both are improvements. Ours is roughly thirteen times further.
 
 Then we published it, numbers and method, rather than describing it. A claim you can check yourself is worth more than a claim I make about myself, and this is the weaker kind: we scored ourselves. The data and the metric are public, so anyone who thinks we marked our own homework generously can go and mark it again.
 

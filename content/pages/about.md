@@ -40,7 +40,7 @@ Contributes to model training architecture and the convex optimization methods u
 
 GLE is a biosignal foundation model that achieves subject invariance — the ability to classify biosignals from patients the model has never seen, without retraining. This is the central unsolved problem in clinical biosignal AI.
 
-**Validation**: The NeurIPS 2025 EEG Foundation Model Challenge drew over a thousand teams and published its data, metric and results. We did not enter it. We measured GLE on the same held-out data with the same metric: normalized error 0.70879, against 0.97843 for the winning entry, which is over 13× more improvement below the 1.0 baseline. We scored ourselves; the data and metric are public, so the comparison can be repeated by anyone.
+**Validation**: The NeurIPS 2025 EEG Foundation Model Challenge drew over a thousand teams and published its data, metric and results. We did not enter it. We measured GLE on the same held-out data with the same metric. The metric is an error rate, so lower is better, and 1.0 is the baseline where a model has added nothing. The winning entry scored 0.97843, or 0.02 below baseline. GLE scored 0.70879, or 0.29 below it, which is over 13x further. We scored ourselves; the data and metric are public, so the comparison can be repeated by anyone.
 
 **Patent status**: Pending. Filed under Univault Technologies (Utah LLC).
 

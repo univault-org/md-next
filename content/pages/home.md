@@ -45,7 +45,7 @@ GLE's subject invariance breaks this barrier. One trained model works across pop
 
 ## Validation
 
-- **NeurIPS 2025 EEG Foundation Model Challenge** — we did not enter. Measured on the challenge's public data and metric: our normalized error 0.70879, winning entry 0.97843, baseline 1.0.
+- **NeurIPS 2025 EEG Foundation Model Challenge** — we did not enter. Measured on the challenge's public data and metric, where the score is an error rate and lower is better against a 1.0 baseline: winning entry 0.97843 (0.02 below baseline), GLE 0.70879 (0.29 below), over 13x further.
 - **Breathing pattern classification** — 88.97% accuracy on respiratory biosignals
 - **Patent pending** — General Learning Encoder, filed under Univault Technologies (Utah LLC)
 
