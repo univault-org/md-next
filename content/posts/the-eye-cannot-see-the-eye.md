@@ -104,7 +104,7 @@ Four things, in order of how much they are worth to us.
 
 **Pass it on.** If none of the above is you, the longer explainer below is written for anyone, and it will land with somebody you know.
 
-We read everything sent to [contact@univault.org](mailto:contact@univault.org).
+We read everything sent to [hi@paragonreflex.com](mailto:hi@paragonreflex.com).
 
 ## Where this leaves it
 
