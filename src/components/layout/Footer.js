@@ -8,9 +8,7 @@ export default function Footer() {
           <div>
             <h3 className="text-sm font-semibold text-neutral-900 dark:text-neutral-100 uppercase tracking-wider mb-4">Products</h3>
             <ul className="space-y-2">
-              <li><a href="https://bagle.com" target="_blank" rel="noopener noreferrer" className="text-sm text-neutral-600 dark:text-neutral-400 hover:text-primary-500">BAGLE Encoder</a></li>
-              <li><a href="https://paragondao.org" target="_blank" rel="noopener noreferrer" className="text-sm text-neutral-600 dark:text-neutral-400 hover:text-primary-500">ParagonDAO Network</a></li>
-              <li><a href="https://paragondao.org/verify" target="_blank" rel="noopener noreferrer" className="text-sm text-neutral-600 dark:text-neutral-400 hover:text-primary-500">Verification Hub</a></li>
+              <li><a href="https://bees.riif.com" target="_blank" rel="noopener noreferrer" className="text-sm text-neutral-600 dark:text-neutral-400 hover:text-primary-500">Bees (partner access)</a></li>
             </ul>
           </div>
           <div>
@@ -18,22 +16,20 @@ export default function Footer() {
             <ul className="space-y-2">
               <li><Link href="/about" className="text-sm text-neutral-600 dark:text-neutral-400 hover:text-primary-500">About</Link></li>
               <li><Link href="/research" className="text-sm text-neutral-600 dark:text-neutral-400 hover:text-primary-500">Research</Link></li>
-              <li><Link href="/updates" className="text-sm text-neutral-600 dark:text-neutral-400 hover:text-primary-500">Publications</Link></li>
+              <li><Link href="/updates" className="text-sm text-neutral-600 dark:text-neutral-400 hover:text-primary-500">Updates</Link></li>
             </ul>
           </div>
           <div>
             <h3 className="text-sm font-semibold text-neutral-900 dark:text-neutral-100 uppercase tracking-wider mb-4">Research</h3>
             <ul className="space-y-2">
-              <li><a href="https://github.com/paragon-dao/eeg-foundation-challenge-2025" target="_blank" rel="noopener noreferrer" className="text-sm text-neutral-600 dark:text-neutral-400 hover:text-primary-500">EEG Challenge 2025</a></li>
-              <li><a href="https://paragondao.org/docs/THE_HEALTH_ECONOMY.html" target="_blank" rel="noopener noreferrer" className="text-sm text-neutral-600 dark:text-neutral-400 hover:text-primary-500">Whitepaper</a></li>
-              <li><a href="https://paragondao.org/learn" target="_blank" rel="noopener noreferrer" className="text-sm text-neutral-600 dark:text-neutral-400 hover:text-primary-500">Learn</a></li>
+              <li><Link href="/research" className="text-sm text-neutral-600 dark:text-neutral-400 hover:text-primary-500">Research areas</Link></li>
             </ul>
           </div>
           <div>
             <h3 className="text-sm font-semibold text-neutral-900 dark:text-neutral-100 uppercase tracking-wider mb-4">Connect</h3>
             <ul className="space-y-2">
               <li><a href="https://github.com/univault-org" target="_blank" rel="noopener noreferrer" className="text-sm text-neutral-600 dark:text-neutral-400 hover:text-primary-500">GitHub</a></li>
-              <li><a href="mailto:contact@univault.org" className="text-sm text-neutral-600 dark:text-neutral-400 hover:text-primary-500">Contact</a></li>
+              <li><a href="mailto:phil@univault.org" className="text-sm text-neutral-600 dark:text-neutral-400 hover:text-primary-500">Contact</a></li>
             </ul>
           </div>
         </div>

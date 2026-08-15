@@ -15,7 +15,7 @@ export default function Navigation() {
     { href: "/", label: "Home" },
     { href: "/research", label: "Research" },
     { href: "/about", label: "About" },
-    { href: "/updates", label: "Publications" },
+    { href: "/updates", label: "Updates" },
   ];
 
   return (
@@ -109,6 +109,7 @@ export default function Navigation() {
             {mounted && (
               <button
                 onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                aria-label="Switch theme"
                 className="p-2 rounded-md text-neutral-600 dark:text-neutral-400 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors"
               >
                 {theme === "dark" ? (
@@ -149,6 +150,7 @@ export default function Navigation() {
             {mounted && (
               <button
                 onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                aria-label="Switch theme"
                 className="p-2 rounded-md text-neutral-600 dark:text-neutral-400 hover:bg-neutral-100 dark:hover:bg-neutral-800"
               >
                 {theme === "dark" ? (

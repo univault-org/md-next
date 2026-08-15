@@ -15,96 +15,38 @@ import {
 } from "react-icons/bi";
 
 export default function Research({ researchContent }) {
-  const [showDemoForm, setShowDemoForm] = useState(false);
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    company: '',
-    company_size: '',
-    message: ''
-  });
-  const [formLoading, setFormLoading] = useState(false);
-  const [formSubmitted, setFormSubmitted] = useState(false);
-  const [formError, setFormError] = useState('');
-
-  const handleInputChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-    setFormError('');
-  };
-
-  const handleFormSubmit = async (e) => {
-    e.preventDefault();
-    setFormLoading(true);
-    setFormError('');
-
-    try {
-      const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'https://bagle-api.amitacompany.workers.dev';
-      const response = await fetch(`${API_BASE_URL}/api/demo-requests`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          ...formData,
-          source: 'univault-org-research-page'
-        })
-      });
-
-      const data = await response.json();
-
-      if (!response.ok) {
-        throw new Error(data.error || 'Failed to submit request');
-      }
-
-      setFormSubmitted(true);
-      setFormData({
-        name: '',
-        email: '',
-        company: '',
-        company_size: '',
-        message: ''
-      });
-    } catch (err) {
-      setFormError(err instanceof Error ? err.message : 'Failed to submit request. Please try again.');
-    } finally {
-      setFormLoading(false);
-    }
-  };
   const researchAreas = [
     {
-      category: "Consciousness & AI Research",
+      category: "Reliable AI & Measurement Research",
       items: [
         {
-          title: "Complete AI Architecture",
-          description: "Dual-brain system (GPT + Harmonic Frequency - HF Models + Adapter) enabling consciousness-aware AI that understands brain signals directly",
+          title: "Real-Time Reflex Perception",
+          description: "A constant-time perception layer for embodied systems: query measured at 26.86 microsecond p50 over 10,000 queries on NVIDIA Jetson embedded hardware, in a fixed-size store that does not grow with what it learns.",
           icon: <BiChip className="text-3xl" />,
-          link: "#complete-ai",
+          link: "#reflex",
         },
         {
-          title: "General Learning Encoder (GLE)",
-          description: "Pre-trained foundation model for frequency-domain processing, enabling subject-invariant EEG intelligence across multiple applications",
+          title: "Certification-Preserving Field Learning",
+          description: "Learning in the field without touching the certified artifact: the SHA-256 digest of a 941,316-parameter certified model unchanged after 1,000 field enrollments, verifiable by the operator with standard tooling.",
           icon: <BiTestTube className="text-3xl" />,
-          link: "#gle",
+          link: "#certified-learning",
         },
         {
-          title: "Breathing Authentication",
-          description: "Research on breathing-based biometric identification with 96.8% accuracy, published in Current Biology (2025)",
-          icon: <BiCloud className="text-3xl" />,
-          link: "#breathing-auth",
+          title: "Provable De-Identification",
+          description: "Encodings whose transmitted payload is not invertible to the person: speaker identification at 0.00 percent against 1,306 speakers, genomic identification exactly at chance against 2,504 individuals \u2014 independently re-verified, 42 of 42 checks.",
+          icon: <BiLock className="text-3xl" />,
+          link: "#deidentification",
         },
         {
-          title: "EEG Foundation Challenge 2025",
-          description: "Verified against competition benchmarks: 93.54% accuracy (Challenge 1, +4.87% over winning solution), 0.70879 normalized error (Challenge 2, 29% less error than winning solution).",
-          icon: <BiChip className="text-3xl" />,
-          link: "#eeg-challenge",
+          title: "Evaluation Integrity",
+          description: "The discipline under everything we ship: leakage-controlled splits, permutation controls, published null results, and a dated register of retired claims \u2014 run against our own work first.",
+          icon: <BiShield className="text-3xl" />,
+          link: "#evaluation",
         },
       ]
     },
     {
-      category: "Data Sovereignty Research",
+      category: "Earlier and exploratory work",
       items: [
         {
           title: "Personal AI Systems",
@@ -124,11 +66,6 @@ export default function Research({ researchContent }) {
           icon: <BiFile className="text-3xl" />,
           link: "#data-standards",
         },
-      ]
-    },
-    {
-      category: "Protocol & Security Research",
-      items: [
         {
           title: "Satellite Data Protocol (SRPT)",
           description: "Developing SRPT protocol for efficient global transfer of large AI models and datasets via satellite networks",
@@ -149,15 +86,11 @@ export default function Research({ researchContent }) {
   return (
     <>
       <Head>
-        <title>Research — GLE Encoder, NeurIPS 2025 EEG Challenge | Univault Technologies</title>
-        <meta name="description" content="GLE encoder: over 13x improvement at NeurIPS 2025 EEG Foundation Model Challenge. Research in biosignal AI, breathing biometrics (96.8%), and subject-invariant health signal encoding." />
-        <meta property="og:title" content="Research — GLE Encoder & NeurIPS 2025 Results | Univault" />
-        <meta property="og:description" content="Over 13x improvement at NeurIPS 2025 EEG Challenge. 97.65% EEG consciousness, 96.8% breathing biometrics. Subject-invariant biosignal AI research." />
-        <meta property="og:url" content="https://univault.org/md-next/research/" />
-        <meta property="og:image" content="https://univault.org/md-next/bagle-breathing-ai-video-cover-image.png" />
-        <meta name="twitter:title" content="Research — GLE Encoder & NeurIPS 2025 Results | Univault" />
-        <meta name="twitter:description" content="Over 13x improvement at NeurIPS 2025 EEG Challenge. Subject-invariant biosignal AI research from Univault Technologies." />
-        <meta name="twitter:image" content="https://univault.org/md-next/bagle-breathing-ai-video-cover-image.png" />
+        <title>Research | Univault Technologies</title>
+        <meta name="description" content="Reliable AI and measurement research: real-time reflex perception, certification-preserving field learning, provable de-identification, and evaluation integrity." />
+        <meta property="og:title" content="Research | Univault Technologies" />
+        <meta property="og:description" content="Reliable AI and measurement research: real-time reflex perception, certification-preserving field learning, provable de-identification, and evaluation integrity." />
+        <meta property="og:url" content="https://univault.org/research/" />
       </Head>
 
       {/* Hero Section */}
@@ -170,7 +103,7 @@ export default function Research({ researchContent }) {
             Research Areas
           </h1>
           <p className="text-xl md:text-2xl text-neutral-600 dark:text-neutral-300 max-w-3xl mx-auto">
-            We research, develop, and publish technologies across multiple domains: consciousness research, data sovereignty, hardware-to-AI transformation, and secure protocols.
+            We research, develop, and publish across reliable AI, measurement, data sovereignty, and secure protocols &mdash; and we run every claim against our own evaluation discipline first.
           </p>
         </div>
       </section>
@@ -242,32 +175,33 @@ export default function Research({ researchContent }) {
       {/* Publications Section */}
       <section className="max-w-4xl mx-auto px-4 py-16 bg-neutral-50 dark:bg-neutral-900 rounded-2xl">
         <h2 className="text-3xl font-bold mb-8 text-center text-neutral-800 dark:text-neutral-100">
-          Publications & Findings
+          Findings
         </h2>
         <div className="space-y-6">
           <div className="bg-white dark:bg-neutral-800 rounded-lg p-6 border border-neutral-200 dark:border-neutral-700">
             <h3 className="text-xl font-semibold mb-2 text-neutral-800 dark:text-neutral-100">
-              EEG Foundation Challenge 2025
+              A controlled null result, submitted on purpose
             </h3>
             <p className="text-neutral-600 dark:text-neutral-400 mb-4">
-              Our GLE-based models have been verified against the competition benchmarks and exceed the winning solutions from both challenges:
+              Prepared for submission to Stanford Precision Mental Health 2026: a stress
+              detector whose accuracy does not beat its majority baseline, with
+              a permutation control in which 60 percent of label-shuffled runs
+              matched or beat the observed effect &mdash; and a worked demonstration
+              that single-split evaluation of the same data manufactures a
+              spurious 4.9 point gain. Publishing what does not work, with the
+              method that proves it, is the same discipline we sell.
             </p>
-            <ul className="list-disc list-inside space-y-2 text-neutral-600 dark:text-neutral-400 mb-4">
-              <li><strong>Challenge 1 (Cross-Task Transfer):</strong> 93.54% accuracy (+4.87% over winning solution)</li>
-              <li><strong>Challenge 2 (Subject Invariant):</strong> 0.70879 normalized error (29% less error than winning solution, over 13x more improvement over baseline)</li>
-              <li><strong>Consciousness Classification:</strong> 97.65% accuracy (vs. 60-85% typical range)</li>
-            </ul>
-            <p className="text-sm text-neutral-500 dark:text-neutral-500 mb-4 italic">
-              All results are independently verifiable through our open-source repository. We publish these results to demonstrate the scientific rigor and real-world usefulness of our technology.
+          </div>
+          <div className="bg-white dark:bg-neutral-800 rounded-lg p-6 border border-neutral-200 dark:border-neutral-700">
+            <h3 className="text-xl font-semibold mb-2 text-neutral-800 dark:text-neutral-100">
+              Independently re-verified de-identification
+            </h3>
+            <p className="text-neutral-600 dark:text-neutral-400 mb-4">
+              Our privacy-preserving encoding work was re-verified at a
+              different random seed by an independent check suite: 42 of 42
+              checks passed, including recomputing the transform from raw
+              genotype files to a maximum difference of zero.
             </p>
-            <a
-              href="https://github.com/paragon-dao/eeg-foundation-challenge-2025"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center mt-4 text-primary-500 hover:text-primary-600"
-            >
-              View Repository <BiLinkExternal className="ml-2" />
-            </a>
           </div>
 
         </div>
@@ -279,184 +213,16 @@ export default function Research({ researchContent }) {
           Collaborate With Us
         </h2>
         <p className="text-xl text-neutral-600 dark:text-neutral-400 mb-8">
-          Request a demo to see our research in action and discuss collaboration opportunities.
+          If your team runs work where a confident wrong answer costs real
+          money, we should talk.
         </p>
-        <button
-          onClick={() => setShowDemoForm(true)}
+        <a
+          href="/#contact"
           className="inline-flex items-center px-6 py-3 rounded-lg bg-primary-500 hover:bg-primary-600 text-white font-medium transition-colors"
         >
-          Request Demo
-        </button>
+          Talk to us
+        </a>
       </section>
-
-      {/* Demo Request Modal */}
-      {showDemoForm && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black bg-opacity-50">
-          <div className="bg-white dark:bg-neutral-800 rounded-xl shadow-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto" style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}>
-            <div className="p-6">
-              <div className="flex items-center justify-between mb-6">
-                <h2 className="text-2xl font-bold text-neutral-800 dark:text-neutral-100">
-                  Request Demo
-                </h2>
-                <button
-                  onClick={() => {
-                    setShowDemoForm(false);
-                    setFormSubmitted(false);
-                    setFormError('');
-                  }}
-                  className="text-neutral-500 hover:text-neutral-700 dark:text-neutral-400 dark:hover:text-neutral-200"
-                >
-                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                  </svg>
-                </button>
-              </div>
-
-              {formSubmitted ? (
-                <div className="text-center py-8">
-                  <div className="w-16 h-16 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <svg className="w-8 h-8 text-green-600 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                  </div>
-                  <h3 className="text-xl font-semibold text-neutral-800 dark:text-neutral-100 mb-2">
-                    Thank You!
-                  </h3>
-                  <p className="text-neutral-600 dark:text-neutral-400 mb-4">
-                    We've received your demo request. Our team will review it and get back to you soon.
-                  </p>
-                  <button
-                    onClick={() => {
-                      setFormSubmitted(false);
-                      setFormData({
-                        name: '',
-                        email: '',
-                        company: '',
-                        company_size: '',
-                        message: ''
-                      });
-                    }}
-                    className="text-primary-500 hover:text-primary-600 dark:text-primary-400 dark:hover:text-primary-300 font-medium"
-                  >
-                    Submit Another Request
-                  </button>
-                </div>
-              ) : (
-                <form onSubmit={handleFormSubmit} className="space-y-4" style={{ fontFamily: 'system-ui, -apple-system, sans-serif' }}>
-                  <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-1 font-sans">
-                      Name <span className="text-red-500">*</span>
-                    </label>
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      required
-                      value={formData.name}
-                      onChange={handleInputChange}
-                      className="block w-full rounded-md border-neutral-300 dark:border-neutral-600 shadow-sm focus:border-primary-500 focus:ring-primary-500 dark:bg-neutral-700 dark:text-white px-3 py-2 font-sans"
-                      placeholder="Your name"
-                    />
-                  </div>
-
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-1 font-sans">
-                      Email <span className="text-red-500">*</span>
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      required
-                      value={formData.email}
-                      onChange={handleInputChange}
-                      className="block w-full rounded-md border-neutral-300 dark:border-neutral-600 shadow-sm focus:border-primary-500 focus:ring-primary-500 dark:bg-neutral-700 dark:text-white px-3 py-2 font-sans"
-                      placeholder="you@company.com"
-                    />
-                  </div>
-
-                  <div>
-                    <label htmlFor="company" className="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-1 font-sans">
-                      Company/Organization <span className="text-red-500">*</span>
-                    </label>
-                    <input
-                      type="text"
-                      id="company"
-                      name="company"
-                      required
-                      value={formData.company}
-                      onChange={handleInputChange}
-                      className="block w-full rounded-md border-neutral-300 dark:border-neutral-600 shadow-sm focus:border-primary-500 focus:ring-primary-500 dark:bg-neutral-700 dark:text-white px-3 py-2 font-sans"
-                      placeholder="Your company or organization"
-                    />
-                  </div>
-
-                  <div>
-                    <label htmlFor="company_size" className="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-1 font-sans">
-                      Company Size (optional)
-                    </label>
-                    <select
-                      id="company_size"
-                      name="company_size"
-                      value={formData.company_size}
-                      onChange={handleInputChange}
-                      className="block w-full rounded-md border-neutral-300 dark:border-neutral-600 shadow-sm focus:border-primary-500 focus:ring-primary-500 dark:bg-neutral-700 dark:text-white px-3 py-2 font-sans"
-                    >
-                      <option value="">Select company size (optional)</option>
-                      <option value="1-10">1-10 employees</option>
-                      <option value="11-50">11-50 employees</option>
-                      <option value="51-200">51-200 employees</option>
-                      <option value="201-1000">201-1000 employees</option>
-                      <option value="1000+">1000+ employees</option>
-                    </select>
-                  </div>
-
-                  <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-1 font-sans">
-                      Message (optional)
-                    </label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      rows={4}
-                      value={formData.message}
-                      onChange={handleInputChange}
-                      className="block w-full rounded-md border-neutral-300 dark:border-neutral-600 shadow-sm focus:border-primary-500 focus:ring-primary-500 dark:bg-neutral-700 dark:text-white px-3 py-2 font-sans"
-                      placeholder="Tell us about your research interests or collaboration opportunities..."
-                    />
-                  </div>
-
-                  {formError && (
-                    <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-md p-4">
-                      <p className="text-sm text-red-600 dark:text-red-400">{formError}</p>
-                    </div>
-                  )}
-
-                  <div className="flex gap-4 pt-4">
-                    <button
-                      type="button"
-                      onClick={() => {
-                        setShowDemoForm(false);
-                        setFormError('');
-                      }}
-                      className="flex-1 px-4 py-2 border border-neutral-300 dark:border-neutral-600 rounded-md text-neutral-700 dark:text-neutral-300 hover:bg-neutral-50 dark:hover:bg-neutral-700 transition-colors"
-                    >
-                      Cancel
-                    </button>
-                    <button
-                      type="submit"
-                      disabled={formLoading}
-                      className="flex-1 px-4 py-2 bg-primary-500 hover:bg-primary-600 text-white rounded-md font-medium transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-                    >
-                      {formLoading ? 'Submitting...' : 'Submit Request'}
-                    </button>
-                  </div>
-                </form>
-              )}
-            </div>
-          </div>
-      </div>
-      )}
     </>
   );
 }
