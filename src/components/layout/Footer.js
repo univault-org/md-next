@@ -34,6 +34,23 @@ export default function Footer() {
           </div>
         </div>
         <div className="border-t border-neutral-200 dark:border-neutral-800 pt-8">
+          <div className="flex flex-col items-center mb-6">
+            <img
+              src="/nvidia-inception-program-badge.svg"
+              alt="NVIDIA Inception Program"
+              width={500}
+              height={216}
+              className="block w-[140px] h-auto"
+              style={{ margin: '6px 0' }}
+            />
+            <p className="mt-2 text-xs text-neutral-500 dark:text-neutral-400 text-center">
+              Univault Technologies LLC is a member of the NVIDIA Inception program.
+            </p>
+            <p className="mt-2 max-w-2xl text-center text-[10px] leading-relaxed text-neutral-500 dark:text-neutral-400">
+              &copy; 2025 NVIDIA, the NVIDIA logo, and Jetson are trademarks and/or registered
+              trademarks of NVIDIA Corporation in the U.S. and other countries.
+            </p>
+          </div>
           <p className="text-center text-sm text-neutral-500 dark:text-neutral-400">
             &copy; {new Date().getFullYear()} Univault Technologies LLC. All rights reserved. Salt Lake City, Utah.
           </p>
