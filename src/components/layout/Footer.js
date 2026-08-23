@@ -53,6 +53,7 @@ export default function Footer() {
           </div>
           <p className="text-center text-sm text-neutral-500 dark:text-neutral-400">
             &copy; {new Date().getFullYear()} Univault Technologies LLC. All rights reserved. Salt Lake City, Utah.
+            {' '}Founder: Philip Phuong Tran &middot; phil@univault.org
           </p>
         </div>
       </div>
