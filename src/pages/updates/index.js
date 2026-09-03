@@ -6,12 +6,12 @@ export default function Updates({ posts }) {
   return (
     <>
       <Head>
-        <title>Publications & Updates — Univault Technologies</title>
+        <title>Writing — Univault Technologies</title>
         <meta name="description" content="Research articles on biosignal AI, GLE encoder, subject invariance, and health model verification from Univault Technologies." />
-        <meta property="og:title" content="Publications — Univault Technologies" />
+        <meta property="og:title" content="Writing — Univault Technologies" />
         <meta property="og:description" content="Research articles on biosignal AI, GLE encoder, and health signal classification from Univault Technologies." />
         <meta property="og:url" content="https://univault.org/md-next/updates/" />
-        <meta name="twitter:title" content="Publications — Univault Technologies" />
+        <meta name="twitter:title" content="Writing — Univault Technologies" />
         <meta name="twitter:description" content="Research articles on biosignal AI, GLE encoder, and health signal classification." />
       </Head>
 
@@ -25,8 +25,7 @@ export default function Updates({ posts }) {
             Publications
           </h1>
           <p className="text-2xl md:text-3xl text-center text-neutral-600 dark:text-neutral-300">
-            Research articles and findings from Univault Research Lab
-          </p>
+            Long essays by the two people who build Paragon Reflex. Earlier writing from 2024 and 2025 is archived and no longer reflects what we sell.</p>
         </div>
       </section>
 

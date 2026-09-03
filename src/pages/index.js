@@ -15,9 +15,9 @@ const releases = [
     icon: BiServer,
     name: "Reflex Dev Kit",
     href: "https://paragonreflex.com/kit",
-    what: "Two boards, two cameras, the reflex layer already on them. The body on your bench: $449, bring your own boards, built to order.",
+    what: "Bring your own two Jetson boards and two cameras; we flash the reflex layer and ship to order. $449. A full kit with the boards is $999.",
     honest: "What it learns in the field never touches the part that decides. Verifiable by hash with standard tooling.",
-    status: "Buy at paragonreflex.com/kit",
+    status: "Buy the Reflex Dev Kit",
   },
   {
     icon: BiReceipt,
@@ -25,7 +25,7 @@ const releases = [
     href: "https://paragonreflex.com/verdict/",
     what: "Write a rule in plain English. It reads the rule back, then answers allowed, not allowed, or cannot tell, naming the missing fact. Every answer is a record you keep.",
     honest: "$25 for 2,500 verdicts. No subscription. Rules, not advice.",
-    status: "Run one at paragonreflex.com/verdict",
+    status: "Run one verdict free",
   },
   {
     icon: BiUserCheck,
@@ -33,15 +33,15 @@ const releases = [
     href: "https://paragonreflex.com/uas",
     what: "For programs that fly or run machines under written rules: we read your manual, compile the rules that gate a mission, and show you the record.",
     honest: "Twenty minutes, no charge. Seats are invoiced, never carded. The pilot in command decides.",
-    status: "Book a read at paragonreflex.com/uas",
+    status: "Book a 20-minute operator read",
   },
   {
     icon: BiServer,
-    name: "The desk",
+    name: "The proving ground (public)",
     href: "https://paragonreflex.com/verdict/desk/",
-    what: "Our proving ground: one famous trading rule a day, compiled and graded in public, one cent each. Where the rules are strictest and the truth settles daily.",
+    what: "Our proving ground, in public: one famous trading rule a day, compiled and graded, one cent each. Nowhere are the rules stricter, the truth faster, or the cheating more visible than a trading desk.",
     honest: "We grade rule-keeping, never outcomes. No profit figure, ever.",
-    status: "Watch at paragonreflex.com/verdict/desk",
+    status: "Watch the daily desk",
   },
 ];
 
@@ -72,15 +72,10 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Univault Technologies LLC | AI research company, Salt Lake City, Utah</title>
+        <title>Univault Technologies LLC | Builders of Paragon Reflex, Salt Lake City, Utah</title>
         <meta
           name="description"
           content="Univault Technologies is an AI research company in Salt Lake City, Utah. We build AI infrastructure that asks instead of guesses, and help teams apply it to work where 'probably' isn't good enough."
-        />
-        <meta property="og:title" content="Univault Technologies LLC | AI research company, Salt Lake City, Utah" />
-        <meta
-          property="og:description"
-          content="AI infrastructure that asks instead of guesses. Built in Utah, applied help-first to finance, hiring, and operations."
         />
         <script
           type="application/ld+json"
@@ -108,16 +103,18 @@ export default function Home() {
       {/* Hero */}
       <section className="max-w-4xl mx-auto px-4 pt-20 pb-16 text-center">
         <h1 className="text-4xl md:text-6xl font-bold text-neutral-900 dark:text-white leading-tight">
-          We build{" "}
+          Univault Technologies builds{" "}
           <span className="text-primary-500">Paragon Reflex.</span>
         </h1>
         <p className="mt-8 text-lg md:text-xl text-neutral-600 dark:text-neutral-300 leading-relaxed text-left md:text-center">
-          Univault Technologies LLC is an AI research company in Salt Lake City,
-          Utah, and Paragon Reflex is what we make: the body that lets a machine
-          be allowed to act. A reflex that holds when a written rule says hold, a
-          planning layer that reads the rules back and answers, and a record of
-          every decision that leaves with the owner. Built for robots and physical
-          AI; proved in public on the one desk where rules are strictest.
+          Paragon Reflex is a reflex layer, a planning LLM and a decision record
+          for robots and physical AI that must keep written rules. It holds when
+          it cannot tell, names the missing fact, and writes every decision down.
+          We prove the same discipline in public on a trading desk, where a
+          broken rule shows the same day.
+        </p>
+        <p className="mt-4 text-base text-neutral-500 dark:text-neutral-400">
+          Two founders. Salt Lake City, Utah. Univault Technologies LLC is the name on every receipt.
         </p>
         <div className="mt-10">
           <a
@@ -129,10 +126,65 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="max-w-6xl mx-auto px-4 py-16">
+        <h2 className="text-2xl md:text-3xl font-bold text-neutral-900 dark:text-white text-center">
+          What stands, measured
+        </h2>
+        <p className="mt-4 text-center text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto">
+          Every number here comes from a committed script on pinned inputs and
+          was rerun on 2026-09-03. These are robotics measurements. No trading
+          number exists, and none is claimed.
+        </p>
+        <div className="mt-10 grid md:grid-cols-3 gap-6">
+          <div className="rounded-xl border border-neutral-200 dark:border-neutral-700 p-6">
+            <p className="text-2xl font-bold text-primary-500">26.86 &micro;s</p>
+            <p className="mt-2 font-semibold text-neutral-900 dark:text-white">
+              Real-time reflex perception
+            </p>
+            <p className="mt-2 text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
+              Constant-time perception query at p50, measured over 10,000
+              queries on NVIDIA Jetson embedded hardware, in a fixed-size store
+              that does not grow with what it learns.
+            </p>
+          </div>
+          <div className="rounded-xl border border-neutral-200 dark:border-neutral-700 p-6">
+            <p className="text-2xl font-bold text-primary-500">0 bits changed</p>
+            <p className="mt-2 font-semibold text-neutral-900 dark:text-white">
+              Field learning that does not move the model
+            </p>
+            <p className="mt-2 text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
+              The SHA-256 digest of the released 941,316-parameter model,
+              unchanged after 1,000 field enrollments while the learned pattern
+              store changed at every one &mdash; verifiable by the operator
+              with standard tooling.
+            </p>
+          </div>
+          <div className="rounded-xl border border-neutral-200 dark:border-neutral-700 p-6">
+            <p className="text-2xl font-bold text-primary-500">1 paying account</p>
+            <p className="mt-2 font-semibold text-neutral-900 dark:text-white">
+              Revenue is small and real
+            </p>
+            <p className="mt-2 text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
+              One paying account today, with checkout live for the kit and for
+              verdicts. Univault Technologies LLC is the merchant of record; the
+              ledger is available to a serious investor on request.
+            </p>
+          </div>
+        </div>
+        <p className="mt-8 text-center">
+          <a
+            href="/paragon-reflex/"
+            className="inline-flex items-center gap-2 text-primary-500 hover:text-primary-600 font-medium"
+          >
+            The entity page: who is behind Paragon Reflex <BiRightArrowAlt className="text-xl" />
+          </a>
+        </p>
+      </section>
+
       {/* Three releases */}
       <section className="max-w-6xl mx-auto px-4 py-16">
         <h2 className="text-2xl md:text-3xl font-bold text-neutral-900 dark:text-white text-center">
-          What we sell, at paragonreflex.com
+          What we sell, at <a href="https://paragonreflex.com" className="underline underline-offset-4 decoration-primary-500">paragonreflex.com</a>
         </h2>
         <p className="mt-4 text-center text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto">
           One product line, four doors, and the Hive that answers behind every
@@ -276,44 +328,32 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Bees — partner access */}
+      {/* The Hive */}
       <section className="max-w-4xl mx-auto px-4 py-16">
         <div className="rounded-xl border-2 border-primary-500/40 bg-primary-500/5 p-8 md:p-10">
-          <p className="text-sm font-semibold uppercase tracking-wider text-primary-500">
-            Now open to selected partners
-          </p>
-          <h2 className="mt-2 text-2xl md:text-3xl font-bold text-neutral-900 dark:text-white">
-            The gateway has a name: Bees
+          <h2 className="text-2xl md:text-3xl font-bold text-neutral-900 dark:text-white">
+            The Hive answers behind every door
           </h2>
           <p className="mt-4 text-neutral-600 dark:text-neutral-300 leading-relaxed">
-            We have run Bees for a while &mdash; behind our own releases, and
-            behind our first paying customer. It runs the routine parts of an
-            agent&apos;s work on a hive of small models, and calls in the
-            frontier only when the work demands it. For teams whose automation
-            is hungry for tokens, that is real money on the line &mdash; and
-            every request is metered, so the savings are yours to verify, not
-            ours to claim.
+            The Hive is the answering layer inside Paragon Reflex: it runs the
+            routine parts of an agent&apos;s work on a panel of small models and
+            calls in a frontier model only when the work demands it. Every
+            request is metered and recorded. Partners can buy it directly, per
+            named account.
           </p>
           <p className="mt-4 text-neutral-600 dark:text-neutral-300 leading-relaxed">
-            The field is arriving at the same conclusion from the opposite
-            direction: specialists beat one generalist. The difference is where
-            the specialists live. Others keep theirs inside one building. We
-            think they belong spread out &mdash; because the future of
-            automation is not just cheaper tokens. It is accountability: AI
-            that knows its limits, keeps an auditable record of every request,
-            and brings a person in while the automation keeps running.
+            The bees are the local checkers that read an answer against your
+            rules on a computer you trust. They never write the answer.
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-4">
             <a
-              href="https://bees.riif.com"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="https://hive.paragonreflex.com"
               className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-primary-500 hover:bg-primary-600 text-white font-medium transition-colors"
             >
-              Request access at bees.riif.com <BiRightArrowAlt className="text-xl" />
+              The Hive, partner accounts <BiRightArrowAlt className="text-xl" />
             </a>
             <span className="text-sm text-neutral-500 dark:text-neutral-400">
-              Access is by invitation; the{" "}
+              Access is by named account; the{" "}
               <a href="#contact" className="text-primary-500 hover:text-primary-600">
                 contact form
               </a>{" "}
@@ -324,49 +364,6 @@ export default function Home() {
       </section>
 
       {/* Selected research results */}
-      <section className="max-w-6xl mx-auto px-4 pb-20">
-        <h2 className="text-2xl md:text-3xl font-bold text-neutral-900 dark:text-white text-center">
-          What stands, measured
-        </h2>
-        <p className="mt-4 text-center text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto">
-          Every number here comes from a committed script on pinned inputs and
-          was rerun on 2026-09-03. These are robotics measurements. No trading
-          number exists, and none is claimed.
-        </p>
-        <div className="mt-10 grid md:grid-cols-2 gap-6">
-          <div className="rounded-xl border border-neutral-200 dark:border-neutral-700 p-6">
-            <p className="text-2xl font-bold text-primary-500">26.86 &micro;s</p>
-            <p className="mt-2 font-semibold text-neutral-900 dark:text-white">
-              Real-time reflex perception
-            </p>
-            <p className="mt-2 text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
-              Constant-time perception query at p50, measured over 10,000
-              queries on NVIDIA Jetson embedded hardware, in a fixed-size store
-              that does not grow with what it learns.
-            </p>
-          </div>
-          <div className="rounded-xl border border-neutral-200 dark:border-neutral-700 p-6">
-            <p className="text-2xl font-bold text-primary-500">0 bits changed</p>
-            <p className="mt-2 font-semibold text-neutral-900 dark:text-white">
-              Certification-preserving field learning
-            </p>
-            <p className="mt-2 text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
-              The SHA-256 digest of a certified 941,316-parameter model,
-              unchanged after 1,000 field enrollments while the learned pattern
-              store changed at every one &mdash; verifiable by the operator
-              with standard tooling.
-            </p>
-          </div>
-        </div>
-        <p className="mt-8 text-center">
-          <a
-            href="/paragon-reflex/"
-            className="inline-flex items-center gap-2 text-primary-500 hover:text-primary-600 font-medium"
-          >
-            The entity page: who is behind Paragon Reflex <BiRightArrowAlt className="text-xl" />
-          </a>
-        </p>
-      </section>
     </>
   );
 }

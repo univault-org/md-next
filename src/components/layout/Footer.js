@@ -4,11 +4,12 @@ export default function Footer() {
   return (
     <footer className="bg-white dark:bg-neutral-900 border-t border-neutral-200 dark:border-neutral-800">
       <div className="max-w-6xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-8 mb-8">
           <div>
             <h3 className="text-sm font-semibold text-neutral-900 dark:text-neutral-100 uppercase tracking-wider mb-4">Products</h3>
             <ul className="space-y-2">
-              <li><a href="https://bees.riif.com" target="_blank" rel="noopener noreferrer" className="text-sm text-neutral-600 dark:text-neutral-400 hover:text-primary-500">Bees (partner access)</a></li>
+              <li><a href="https://paragonreflex.com" className="text-sm text-neutral-600 dark:text-neutral-400 hover:text-primary-500">Paragon Reflex</a></li>
+              <li><a href="https://hive.paragonreflex.com" className="text-sm text-neutral-600 dark:text-neutral-400 hover:text-primary-500">The Hive (partner accounts)</a></li>
             </ul>
           </div>
           <div>
@@ -20,15 +21,10 @@ export default function Footer() {
             </ul>
           </div>
           <div>
-            <h3 className="text-sm font-semibold text-neutral-900 dark:text-neutral-100 uppercase tracking-wider mb-4">Paragon Reflex</h3>
-            <ul className="space-y-2">
-              <li><Link href="/paragon-reflex/" className="text-sm text-neutral-600 dark:text-neutral-400 hover:text-primary-500">Research areas</Link></li>
-            </ul>
-          </div>
-          <div>
             <h3 className="text-sm font-semibold text-neutral-900 dark:text-neutral-100 uppercase tracking-wider mb-4">Connect</h3>
             <ul className="space-y-2">
-              <li><a href="https://github.com/univault-org" target="_blank" rel="noopener noreferrer" className="text-sm text-neutral-600 dark:text-neutral-400 hover:text-primary-500">GitHub</a></li>
+              <li><a href="https://github.com/paragonreflex" target="_blank" rel="noopener noreferrer" className="text-sm text-neutral-600 dark:text-neutral-400 hover:text-primary-500">GitHub: paragonreflex</a></li>
+              <li><a href="https://github.com/univault-org" target="_blank" rel="noopener noreferrer" className="text-sm text-neutral-600 dark:text-neutral-400 hover:text-primary-500">GitHub: univault-org</a></li>
               <li><a href="mailto:phil@univault.org" className="text-sm text-neutral-600 dark:text-neutral-400 hover:text-primary-500">Contact</a></li>
             </ul>
           </div>

@@ -16,7 +16,7 @@ const SITE_URL = 'https://univault.org'
 // PAI-era residue: kept for history, taken out of the index (entity plan 2026-09-03).
 const NOINDEX_PREFIXES = ['/paiTraining', '/declaration', '/northStar', '/projects', '/whiteboard', '/code-editor-demo'];
 const DEFAULT_DESCRIPTION = 'Univault Technologies is an AI research company in Salt Lake City, Utah. We build AI infrastructure that asks instead of guesses, and help teams apply it to work where "probably" is not good enough.'
-const DEFAULT_IMAGE = `${SITE_URL}/bagle-breathing-ai-video-cover-image.png`
+const DEFAULT_IMAGE = `${SITE_URL}/images/paragon-reflex-bench.jpg`
 
 export default function App({ Component, pageProps }) {
   const router = useRouter()
@@ -60,7 +60,7 @@ export default function App({ Component, pageProps }) {
         {/* Open Graph */}
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="Univault Technologies" />
-        <meta property="og:title" content={pageProps.title || "Univault Technologies"} />
+        <meta property="og:title" content={pageProps.title || "Univault Technologies LLC | Builders of Paragon Reflex"} />
         <meta property="og:description" content={pageProps.description || DEFAULT_DESCRIPTION} />
         <meta property="og:url" content={canonicalUrl} />
         <meta property="og:image" content={DEFAULT_IMAGE} />

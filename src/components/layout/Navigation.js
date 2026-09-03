@@ -13,9 +13,9 @@ export default function Navigation() {
 
   const navItems = [
     { href: "/", label: "Home" },
-    { href: "/research", label: "Research" },
+    { href: "/paragon-reflex", label: "Paragon Reflex" },
     { href: "/about", label: "About" },
-    { href: "/updates", label: "Updates" },
+    { href: "/updates", label: "Writing" },
   ];
 
   return (

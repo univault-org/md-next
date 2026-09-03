@@ -34,13 +34,13 @@ export default function About() {
       <section className="max-w-3xl mx-auto px-4 py-10">
         <p className="text-lg text-neutral-600 dark:text-neutral-300 leading-relaxed">
           Univault Technologies LLC is an AI research company in Salt Lake
-          City, Utah, founded in 2024 by Philip Phuong Tran (CEO) and Anh T Do,
-          PhD (Research Director). Behind it are fifteen years of building
-          distributed systems, a Master&apos;s in mathematics and statistics,
-          eight years of teaching statistics and research methods &mdash; and a
-          conclusion that took all of that to earn: the hard problem in
-          applied AI is not making models answer. It is knowing when an answer
-          deserves to be trusted.
+          City, Utah, founded in 2024. <a href="https://www.linkedin.com/in/philiptranp/" className="underline underline-offset-2">Philip Phuong Tran</a>,
+          CEO, spent fifteen years building distributed systems. Anh T Do, PhD,
+          Research Director, holds a Master&apos;s in mathematics and statistics
+          and taught statistics and research methods for eight years. The
+          conclusion both arrived at: the hard problem in applied AI is not
+          making models answer. It is knowing when an answer deserves to be
+          trusted, and holding when it does not.
         </p>
       </section>
 
@@ -59,7 +59,7 @@ export default function About() {
           under the <a href="https://github.com/paragonreflex" className="underline underline-offset-2">paragonreflex</a> and{" "}
           <a href="https://github.com/univault-org" className="underline underline-offset-2">univault-org</a> GitHub
           organizations, and the company is a registered federal vendor (
-          <a href="https://govtribe.com/vendors/univault-technologies-llc" className="underline underline-offset-2">GovTribe listing</a>).
+          <a href="https://govtribe.com/vendors/univault-technologies-llc" className="underline underline-offset-2">SAM.gov registration, mirrored on GovTribe</a>; no federal awards to date).
           See <Link href="/paragon-reflex/" className="underline underline-offset-2">the Paragon Reflex entity page</Link>.
         </p>
       </section>
@@ -107,9 +107,10 @@ export default function About() {
           <div className="text-center p-6 rounded-xl border border-neutral-200 dark:border-neutral-700">
             <p className="text-2xl font-bold text-primary-500">22 + 1</p>
             <p className="mt-2 text-sm text-neutral-600 dark:text-neutral-400">
-              22 patent-pending US filings (2026) spanning multi-model
-              inference, autonomous-systems safety, federated learning and ML
-              fairness &mdash; and a granted US patent (2016).
+              22 US patent filings in 2026, the load-bearing ones on the
+              reflex layer, field learning that leaves the released model
+              unchanged, and the decision record; application numbers on
+              request under NDA. One granted US patent (2016).
             </p>
           </div>
         </div>
@@ -121,8 +122,8 @@ export default function About() {
           Talk to us
         </h2>
         <p className="mt-4 text-lg text-neutral-600 dark:text-neutral-400">
-          If your team runs work where a confident wrong answer costs real
-          money &mdash; or real trust &mdash; we should talk.
+          If you build, fly or run machines that must keep written rules, we
+          should talk.
         </p>
         <div className="mt-8">
           <Link
