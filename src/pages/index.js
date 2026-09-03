@@ -132,13 +132,15 @@ export default function Home() {
       {/* Three releases */}
       <section className="max-w-6xl mx-auto px-4 py-16">
         <h2 className="text-2xl md:text-3xl font-bold text-neutral-900 dark:text-white text-center">
-          What we sell, all of it at paragonreflex.com
+          What we sell, at paragonreflex.com
         </h2>
         <p className="mt-4 text-center text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto">
-          One product line, four doors. Every one of them keeps the same
-          discipline: when the system cannot tell, it holds, names the missing
-          fact, and writes it down. Univault Technologies LLC is the merchant of
-          record on every receipt.
+          One product line, four doors, and the Hive that answers behind every
+          one of them. Every door keeps the same discipline: when the system
+          cannot tell, it holds, names the missing fact, and writes it down.
+          Partners can buy the Hive directly, per account, at{" "}
+          <a href="https://hive.paragonreflex.com" className="underline underline-offset-2">hive.paragonreflex.com</a>.
+          Univault Technologies LLC is the merchant of record on every receipt.
         </p>
         <div className="mt-12 grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {releases.map((r) => (
