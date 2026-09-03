@@ -22,7 +22,7 @@ export default function Updates({ posts }) {
         </div>
         <div className="relative max-w-4xl mx-auto px-4">
           <h1 className="text-4xl md:text-5xl font-bold text-center mb-4 bg-clip-text text-transparent bg-gradient-to-r from-neutral-800 to-neutral-600 dark:from-neutral-100 dark:to-neutral-300">
-            Publications
+            Writing
           </h1>
           <p className="text-2xl md:text-3xl text-center text-neutral-600 dark:text-neutral-300">
             Long essays by the two people who build Paragon Reflex. Earlier writing from 2024 and 2025 is archived and no longer reflects what we sell.</p>
