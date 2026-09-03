@@ -105,12 +105,12 @@ export default function About() {
         </h2>
         <div className="mt-10 grid md:grid-cols-1 gap-6 max-w-xl mx-auto">
           <div className="text-center p-6 rounded-xl border border-neutral-200 dark:border-neutral-700">
-            <p className="text-2xl font-bold text-primary-500">22 + 1</p>
+            <p className="text-2xl font-bold text-primary-500">22</p>
             <p className="mt-2 text-sm text-neutral-600 dark:text-neutral-400">
               22 US patent filings in 2026, the load-bearing ones on the
               reflex layer, field learning that leaves the released model
               unchanged, and the decision record; application numbers on
-              request under NDA. One granted US patent (2016).
+              request under NDA.
             </p>
           </div>
         </div>
