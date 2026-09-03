@@ -13,6 +13,8 @@ const ibmPlexMono = IBM_Plex_Mono({
 })
 
 const SITE_URL = 'https://univault.org'
+// PAI-era residue: kept for history, taken out of the index (entity plan 2026-09-03).
+const NOINDEX_PREFIXES = ['/paiTraining', '/declaration', '/northStar', '/projects', '/whiteboard', '/code-editor-demo'];
 const DEFAULT_DESCRIPTION = 'Univault Technologies is an AI research company in Salt Lake City, Utah. We build AI infrastructure that asks instead of guesses, and help teams apply it to work where "probably" is not good enough.'
 const DEFAULT_IMAGE = `${SITE_URL}/bagle-breathing-ai-video-cover-image.png`
 
@@ -50,6 +52,7 @@ export default function App({ Component, pageProps }) {
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <link rel="canonical" href={canonicalUrl} />
 
+        {NOINDEX_PREFIXES.some((x) => (router.pathname || "").startsWith(x)) && <meta name="robots" content="noindex,nofollow" />}
         {/* Default SEO */}
         <meta name="description" content={pageProps.description || DEFAULT_DESCRIPTION} />
         <meta name="keywords" content="AI research, AI infrastructure, calibrated abstention, AI evaluation, expense automation, hiring evidence, agent workloads, Salt Lake City, Utah" />

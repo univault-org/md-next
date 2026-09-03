@@ -13,6 +13,15 @@ const CONTACT_ENDPOINT =
 const releases = [
   {
     icon: BiServer,
+    name: "Paragon Reflex",
+    href: "https://paragonreflex.com",
+    what: "Our product line for autonomous machines: a reflex layer that keeps written rules and a planning LLM that reads them back, answers, and records every decision. Sold at paragonreflex.com.",
+    honest:
+      "When it cannot tell, it holds and names the missing fact. Univault Technologies LLC is the merchant of record on every Paragon Reflex receipt.",
+    status: "In production - paragonreflex.com",
+  },
+  {
+    icon: BiServer,
     name: "Inference Gateway",
     what: "A production gateway for AI agent workloads, operated under live traffic for a paying customer.",
     honest:
@@ -64,12 +73,12 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Univault Technologies | AI that admits what it doesn&apos;t know</title>
+        <title>Univault Technologies LLC | AI research company, Salt Lake City, Utah</title>
         <meta
           name="description"
           content="Univault Technologies is an AI research company in Salt Lake City, Utah. We build AI infrastructure that asks instead of guesses, and help teams apply it to work where 'probably' isn't good enough."
         />
-        <meta property="og:title" content="Univault Technologies | AI that admits what it doesn't know" />
+        <meta property="og:title" content="Univault Technologies LLC | AI research company, Salt Lake City, Utah" />
         <meta
           property="og:description"
           content="AI infrastructure that asks instead of guesses. Built in Utah, applied help-first to finance, hiring, and operations."
@@ -94,6 +103,7 @@ export default function Home() {
             }),
           }}
         />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({"@context": "https://schema.org", "@type": "Organization", "name": "Univault Technologies LLC", "legalName": "Univault Technologies LLC", "alternateName": "Univault", "url": "https://univault.org", "address": {"@type": "PostalAddress", "addressLocality": "Salt Lake City", "addressRegion": "UT", "addressCountry": "US"}, "founder": {"@type": "Person", "name": "Philip Luu-Phuong Tran"}, "brand": {"@type": "Brand", "name": "Paragon Reflex", "url": "https://paragonreflex.com"}, "sameAs": ["https://github.com/univault-org", "https://github.com/paragonreflex", "https://govtribe.com/vendors/univault-technologies-llc", "https://www.linkedin.com/in/philiptranp/"]}) }} />
       </Head>
 
       {/* Hero */}
@@ -108,7 +118,8 @@ export default function Home() {
           work: AI that is wrong <em>with confidence</em>. What came out of that
           work is infrastructure that asks instead of guesses &mdash; and we
           help teams put it to work where &quot;probably&quot; isn&apos;t good
-          enough: finance, hiring, operations.
+          enough: finance, hiring, operations &mdash; and autonomous machines,
+          through our product line <a href="https://paragonreflex.com" className="underline underline-offset-2">Paragon Reflex</a>.
         </p>
         <div className="mt-10">
           <a
@@ -123,14 +134,14 @@ export default function Home() {
       {/* Three releases */}
       <section className="max-w-6xl mx-auto px-4 py-16">
         <h2 className="text-2xl md:text-3xl font-bold text-neutral-900 dark:text-white text-center">
-          Three releases, one principle
+          Four releases, one principle
         </h2>
         <p className="mt-4 text-center text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto">
           Everything we ship carries the same discipline: when the system is not
           sure, it says so &mdash; to a person, before anyone relies on the
           answer.
         </p>
-        <div className="mt-12 grid md:grid-cols-3 gap-8">
+        <div className="mt-12 grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {releases.map((r) => (
             <div
               key={r.name}
@@ -147,7 +158,7 @@ export default function Home() {
                 {r.honest}
               </p>
               <p className="mt-auto pt-4 text-sm font-medium text-primary-500">
-                {r.status}
+                {r.href ? <a href={r.href} className="underline underline-offset-2">{r.status}</a> : r.status}
               </p>
             </div>
           ))}

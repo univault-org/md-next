@@ -44,6 +44,26 @@ export default function About() {
         </p>
       </section>
 
+
+      {/* Products and the merchant of record */}
+      <section className="max-w-3xl mx-auto px-4 py-10">
+        <h2 className="text-3xl font-bold text-neutral-900 dark:text-neutral-100">
+          What we sell, and whose name is on the receipt
+        </h2>
+        <p className="mt-6 text-lg text-neutral-600 dark:text-neutral-300 leading-relaxed">
+          Our commercial product line is{" "}
+          <a href="https://paragonreflex.com" className="underline underline-offset-2">Paragon Reflex</a>:
+          a reflex layer and a planning LLM for autonomous machines that keep written rules and record
+          every decision. Univault Technologies LLC is the merchant of record for every Paragon Reflex
+          purchase, so the name on your card statement and your receipt is ours. The product's code lives
+          under the <a href="https://github.com/paragonreflex" className="underline underline-offset-2">paragonreflex</a> and{" "}
+          <a href="https://github.com/univault-org" className="underline underline-offset-2">univault-org</a> GitHub
+          organizations, and the company is a registered federal vendor (
+          <a href="https://govtribe.com/vendors/univault-technologies-llc" className="underline underline-offset-2">GovTribe listing</a>).
+          See <Link href="/paragon-reflex/" className="underline underline-offset-2">the Paragon Reflex entity page</Link>.
+        </p>
+      </section>
+
       {/* Why we exist */}
       <section className="max-w-3xl mx-auto px-4 py-10">
         <h2 className="text-3xl font-bold text-neutral-900 dark:text-neutral-100">
