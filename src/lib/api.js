@@ -156,6 +156,8 @@ export function getAllPosts() {
 
         return {
           slug,
+          archived: !!frontmatter.archived,
+          retired: frontmatter.retired || null,
           title: frontmatter.title || '',
           date,
           excerpt: frontmatter.excerpt || '',
