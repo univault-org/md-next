@@ -5,6 +5,8 @@ author: Philip Phuong Tran
 excerpt: "On January 6, 2026, FDA Commissioner Marty Makary said: 'If their device or software is simply providing information, they can do that without FDA regulation.' That one sentence opens the door for a generation of biosignal wellness apps. A three-role AI evaluation panel deliberated on the GLE builder opportunity space, then we ran each app through SoundbiteTesting simulation. Here is what the evaluation found."
 image: "/paragon-frog-breathing.gif"
 tags: [FDA, wellness, GLE, builders, app ideas, BAGLE, regulatory, biosignal, ParagonDAO]
+archived: true
+retired: "The '13.5x better than the NeurIPS 2025 winner' claim in this post was retired on 2026-09-03 after our own re-run from the official data showed the published score was a training-set evaluation (artifacts: eeg_foundation_challenge_2025/validation_2026-08-13 and validation_2026-08-14_gle_merit)."
 ---
 
 # The FDA Just Made 20 Health Apps Significantly Easier to Build. Here They Are, Ranked.

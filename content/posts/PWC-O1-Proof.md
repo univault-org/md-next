@@ -14,6 +14,7 @@ tags: [
     "technology",
     "innovation"
 ]
+archived: true
 ---
 
 ## Introduction & Historical Context

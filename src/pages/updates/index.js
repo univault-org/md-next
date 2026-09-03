@@ -96,7 +96,8 @@ export default function Updates({ posts }) {
 }
 
 export async function getStaticProps() {
-  const posts = getAllPosts()
+  // Archived posts (pre-Paragon-Reflex era) still resolve, off the index, and are not listed here.
+  const posts = getAllPosts().filter((p) => !(p.frontmatter && p.frontmatter.archived))
 
   return {
     props: { 

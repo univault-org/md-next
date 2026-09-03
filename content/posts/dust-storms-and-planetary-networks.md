@@ -5,6 +5,7 @@ author: Philip Phuong Tran
 excerpt: "We built a system that predicts toxic dust storms 5.7 days in advance using free public data. Then we realized the same architecture generalizes to any oscillating signal on Earth."
 image: "/paragon-frog-breathing.gif"
 tags: [dust prediction, planetary network, GLE, Kuramoto, biosignals, environmental monitoring]
+archived: true
 ---
 
 # How We Taught a Computer to Predict Dust Storms — And What It Taught Us About Monitoring a Planet

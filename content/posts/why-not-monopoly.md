@@ -5,6 +5,7 @@ author: Philip Phuong Tran
 excerpt: The investment community and partners challenge us on why a health AI model verification network needs thousands of builders — why not just train every model ourselves? The answer reveals why the health economy must be a network, and why this architecture delivers more stable, compounding returns than the monopoly play.
 image: "/paragon-frog-breathing.gif"
 tags: [builder economy, health models, GLE, ParagonDAO, strategy]
+archived: true
 ---
 
 # Why Not Just Train All the Models Ourselves?

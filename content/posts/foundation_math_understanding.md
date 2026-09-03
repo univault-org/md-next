@@ -11,6 +11,7 @@ tags: [
   "lesson plan",
   "intuitive math"
 ]
+archived: true
 ---
 
 # Introduction

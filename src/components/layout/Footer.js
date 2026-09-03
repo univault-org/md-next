@@ -15,14 +15,14 @@ export default function Footer() {
             <h3 className="text-sm font-semibold text-neutral-900 dark:text-neutral-100 uppercase tracking-wider mb-4">Company</h3>
             <ul className="space-y-2">
               <li><Link href="/about" className="text-sm text-neutral-600 dark:text-neutral-400 hover:text-primary-500">About</Link></li>
-              <li><Link href="/research" className="text-sm text-neutral-600 dark:text-neutral-400 hover:text-primary-500">Research</Link></li>
+              <li><Link href="/paragon-reflex/" className="text-sm text-neutral-600 dark:text-neutral-400 hover:text-primary-500">Paragon Reflex</Link></li>
               <li><Link href="/updates" className="text-sm text-neutral-600 dark:text-neutral-400 hover:text-primary-500">Updates</Link></li>
             </ul>
           </div>
           <div>
-            <h3 className="text-sm font-semibold text-neutral-900 dark:text-neutral-100 uppercase tracking-wider mb-4">Research</h3>
+            <h3 className="text-sm font-semibold text-neutral-900 dark:text-neutral-100 uppercase tracking-wider mb-4">Paragon Reflex</h3>
             <ul className="space-y-2">
-              <li><Link href="/research" className="text-sm text-neutral-600 dark:text-neutral-400 hover:text-primary-500">Research areas</Link></li>
+              <li><Link href="/paragon-reflex/" className="text-sm text-neutral-600 dark:text-neutral-400 hover:text-primary-500">Research areas</Link></li>
             </ul>
           </div>
           <div>

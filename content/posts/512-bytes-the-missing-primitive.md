@@ -5,6 +5,7 @@ author: Philip Phuong Tran
 excerpt: "Every attempt to build a decentralized health network has failed for the same reason: health data is too large. The General Learning Encoder compresses any biosignal into exactly 512 bytes — making the entire planet's health fingerprint fit on a single hard drive. Three nodes are running today, validating health data every 60 seconds. This is what changes."
 image: "/paragon-frog-breathing.gif"
 tags: [GLE, decentralization, health infrastructure, 512 bytes, ParagonDAO, HFTP, biosignal encoding]
+archived: true
 ---
 
 # 512 Bytes: The Missing Primitive for Decentralized Health Infrastructure

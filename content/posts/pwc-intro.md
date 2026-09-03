@@ -5,6 +5,7 @@ author: "Univault Technologies"
 excerpt: "Introducing a revolutionary computing approach that achieves quantum-like performance at room temperature through wave interference patterns."
 image: "https://images.unsplash.com/photo-1454779132693-e5cd0a216ed3"
 tags: ["wave computing", "quantum computing", "room temperature computing", "computational physics", "future technology"]
+archived: true
 ---
 
 

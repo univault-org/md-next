@@ -13,6 +13,7 @@ tags: [
   "convex optimization",
   "natural computing"
 ]
+archived: true
 ---
 
 

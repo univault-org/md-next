@@ -70,56 +70,32 @@ export default function About() {
           Why we exist
         </h2>
         <p className="mt-6 text-lg text-neutral-600 dark:text-neutral-300 leading-relaxed">
-          Today&apos;s AI tools fail real work in the worst way: not by being
-          wrong, but by being wrong <em>with confidence</em>. A finance record
-          that says &quot;probably&quot; is not a record. A hiring judgment
-          that guesses about a person is not a judgment. Most of the industry
-          answers this with bigger models. We answer it with measurement:
-          infrastructure that evaluates its own answers, refuses the ones it
-          cannot stand behind, and brings a person in &mdash; while the
-          automation keeps running.
+          Machines are handed ever-bigger brains and no body, so nothing can
+          license them to act. The world licenses bodies, not brains. We build
+          the body: a reflex that holds when a written rule says hold, a
+          planning layer that reads the rules back and answers or names the
+          missing fact, and a record of every decision that leaves with the
+          owner. What the body learns in the field never touches the part that
+          decides, and anyone can check that with a hash. We prove it in public
+          on the one desk where rules are strictest, so that a robot, a builder
+          and a trader can trust the same body.
         </p>
       </section>
 
       {/* What we do */}
-      <section className="max-w-5xl mx-auto px-4 py-10">
-        <h2 className="text-3xl font-bold text-center text-neutral-900 dark:text-neutral-100">
+      <section className="max-w-3xl mx-auto px-4 py-10">
+        <h2 className="text-3xl font-bold text-neutral-900 dark:text-neutral-100">
           What we do
         </h2>
-        <div className="mt-10 grid md:grid-cols-3 gap-8">
-          <div className="rounded-xl border border-neutral-200 dark:border-neutral-700 p-6">
-            <h3 className="text-xl font-semibold text-neutral-900 dark:text-white">
-              Run the infrastructure
-            </h3>
-            <p className="mt-3 text-neutral-600 dark:text-neutral-300 leading-relaxed">
-              A multi-model inference platform for AI agent workloads,
-              operated in production for a paying customer &mdash; with
-              evaluation gates deciding what serves traffic, metered cost
-              governance, and an auditable record of every request.
-            </p>
-          </div>
-          <div className="rounded-xl border border-neutral-200 dark:border-neutral-700 p-6">
-            <h3 className="text-xl font-semibold text-neutral-900 dark:text-white">
-              Ship it into real work
-            </h3>
-            <p className="mt-3 text-neutral-600 dark:text-neutral-300 leading-relaxed">
-              Releases for the work where confident wrong answers cost the
-              most &mdash; expenses and hiring &mdash; each carrying the same
-              rule: when the system is not sure, it asks a person instead of
-              guessing.
-            </p>
-          </div>
-          <div className="rounded-xl border border-neutral-200 dark:border-neutral-700 p-6">
-            <h3 className="text-xl font-semibold text-neutral-900 dark:text-white">
-              Help teams first
-            </h3>
-            <p className="mt-3 text-neutral-600 dark:text-neutral-300 leading-relaxed">
-              Before anything is sold, we map where this class of AI holds up
-              in a team&apos;s work and where it fails quietly. A small number
-              of engagements at a time, and you keep the map either way.
-            </p>
-          </div>
-        </div>
+        <p className="mt-6 text-lg text-neutral-600 dark:text-neutral-300 leading-relaxed">
+          One product line, sold at{" "}
+          <a href="https://paragonreflex.com" className="underline underline-offset-2">paragonreflex.com</a>:
+          the Reflex Dev Kit, prepaid verdicts, operator reads for programs that
+          run machines under written rules, and the public desk where we grade one
+          famous trading rule a day. We run our own internal tools on the same
+          discipline. Before anything is sold, we read your rules with you and
+          show you the record.
+        </p>
       </section>
 
       {/* Track record */}
@@ -127,7 +103,7 @@ export default function About() {
         <h2 className="text-3xl font-bold text-center text-neutral-900 dark:text-neutral-100">
           The record behind it
         </h2>
-        <div className="mt-10 grid md:grid-cols-3 gap-6">
+        <div className="mt-10 grid md:grid-cols-1 gap-6 max-w-xl mx-auto">
           <div className="text-center p-6 rounded-xl border border-neutral-200 dark:border-neutral-700">
             <p className="text-2xl font-bold text-primary-500">22 + 1</p>
             <p className="mt-2 text-sm text-neutral-600 dark:text-neutral-400">
@@ -136,27 +112,7 @@ export default function About() {
               fairness &mdash; and a granted US patent (2016).
             </p>
           </div>
-          <div className="text-center p-6 rounded-xl border border-neutral-200 dark:border-neutral-700">
-            <p className="text-2xl font-bold text-primary-500">42 / 42</p>
-            <p className="mt-2 text-sm text-neutral-600 dark:text-neutral-400">
-              Privacy-preserving encoding research independently re-verified,
-              42 of 42 checks passing at a different random seed.
-            </p>
-          </div>
-          <div className="text-center p-6 rounded-xl border border-neutral-200 dark:border-neutral-700">
-            <p className="text-2xl font-bold text-primary-500">Federal</p>
-            <p className="mt-2 text-sm text-neutral-600 dark:text-neutral-400">
-              A Department of Transportation SBIR Phase I proposal under
-              evaluation, built on public data with the evaluation discipline
-              we apply to our own work.
-            </p>
-          </div>
         </div>
-        <p className="mt-8 text-center text-neutral-500 dark:text-neutral-400">
-          Every claim on this site is audited against our own evaluation
-          record before it is published &mdash; including the ones we had to
-          retire.
-        </p>
       </section>
 
       {/* CTA */}

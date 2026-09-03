@@ -13,6 +13,7 @@ tags: [
   "parallel processing",
   "future tech"
 ]
+archived: true
 ---
 
 

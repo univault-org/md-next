@@ -239,15 +239,16 @@ export default function Post({ post }) {
       <>
         <Head>
           <title>{`${post?.frontmatter?.title || 'Post'} — Univault Technologies`}</title>
+          {post?.frontmatter?.archived && <meta name="robots" content="noindex,nofollow" />}
           <meta name="description" content={post?.frontmatter?.excerpt || 'Read our latest research update from Univault Technologies.'} />
           <meta property="og:title" content={`${post?.frontmatter?.title} — Univault Technologies`} />
           <meta property="og:description" content={post?.frontmatter?.excerpt || 'Research update from Univault Technologies.'} />
-          <meta property="og:url" content={`https://univault.org/md-next/updates/${router.query.slug}/`} />
+          <meta property="og:url" content={`https://univault.org/updates/${router.query.slug}/`} />
           <meta property="og:type" content="article" />
-          {post?.frontmatter?.image && <meta property="og:image" content={`https://univault.org/md-next${post.frontmatter.image}`} />}
+          {post?.frontmatter?.image && <meta property="og:image" content={`https://univault.org${post.frontmatter.image}`} />}
           <meta name="twitter:title" content={`${post?.frontmatter?.title} — Univault Technologies`} />
           <meta name="twitter:description" content={post?.frontmatter?.excerpt || 'Research update from Univault Technologies.'} />
-          {post?.frontmatter?.image && <meta name="twitter:image" content={`https://univault.org/md-next${post.frontmatter.image}`} />}
+          {post?.frontmatter?.image && <meta name="twitter:image" content={`https://univault.org${post.frontmatter.image}`} />}
           {post?.frontmatter?.date && <meta property="article:published_time" content={post.frontmatter.date} />}
           <meta property="article:author" content={post?.frontmatter?.author || 'Philip Phuong Tran'} />
           <script
@@ -263,14 +264,14 @@ export default function Post({ post }) {
                     "author": { "@type": "Person", "name": post?.frontmatter?.author || "Philip Phuong Tran" },
                     "publisher": { "@type": "Organization", "name": "Univault Technologies", "logo": { "@type": "ImageObject", "url": "https://univault.org/md-next/favicon.svg" } },
                     "description": post?.frontmatter?.excerpt,
-                    "mainEntityOfPage": `https://univault.org/md-next/updates/${router.query.slug}/`,
-                    "image": post?.frontmatter?.image ? `https://univault.org/md-next${post.frontmatter.image}` : undefined
+                    "mainEntityOfPage": `https://univault.org/updates/${router.query.slug}/`,
+                    "image": post?.frontmatter?.image ? `https://univault.org${post.frontmatter.image}` : undefined
                   },
                   {
                     "@type": "BreadcrumbList",
                     "itemListElement": [
                       { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://univault.org/md-next/" },
-                      { "@type": "ListItem", "position": 2, "name": "Publications", "item": "https://univault.org/md-next/updates/" },
+                      { "@type": "ListItem", "position": 2, "name": "Publications", "item": "https://univault.org/updates/" },
                       { "@type": "ListItem", "position": 3, "name": post?.frontmatter?.title }
                     ]
                   }
@@ -279,6 +280,11 @@ export default function Post({ post }) {
             }}
           />
         </Head>
+        {post?.frontmatter?.archived && (
+          <div style={{background:'#1f2937',color:'#e5e7eb',font:'15px/1.6 Georgia,serif',padding:'14px 20px',borderBottom:'3px solid #9ca3af'}}>
+            <strong>Archived.</strong> This post is from an earlier research line of Univault Technologies and is kept for the record. {post.frontmatter.retired || ''}
+          </div>
+        )}
 
         {/* Hero Image Banner */}
         {post?.frontmatter?.image && (

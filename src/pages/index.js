@@ -13,36 +13,35 @@ const CONTACT_ENDPOINT =
 const releases = [
   {
     icon: BiServer,
-    name: "Paragon Reflex",
-    href: "https://paragonreflex.com",
-    what: "Our product line for autonomous machines: a reflex layer that keeps written rules and a planning LLM that reads them back, answers, and records every decision. Sold at paragonreflex.com.",
-    honest:
-      "When it cannot tell, it holds and names the missing fact. Univault Technologies LLC is the merchant of record on every Paragon Reflex receipt.",
-    status: "In production - paragonreflex.com",
-  },
-  {
-    icon: BiServer,
-    name: "Inference Gateway",
-    what: "A production gateway for AI agent workloads, operated under live traffic for a paying customer.",
-    honest:
-      "When it is not sure enough to stand behind an answer, it refuses and says so explicitly — a signal an integrating team cannot silently ignore.",
-    status: "In production",
+    name: "Reflex Dev Kit",
+    href: "https://paragonreflex.com/kit",
+    what: "Two boards, two cameras, the reflex layer already on them. The body on your bench: $449, bring your own boards, built to order.",
+    honest: "What it learns in the field never touches the part that decides. Verifiable by hash with standard tooling.",
+    status: "Buy at paragonreflex.com/kit",
   },
   {
     icon: BiReceipt,
-    name: "Expenses",
-    what: "Say one sentence about a purchase. It comes back as a determined, filed, defensible record, checked against your own policy.",
-    honest:
-      "When it is not sure which clause applies, it asks a person instead of guessing. A finance record that says \"probably\" is not a record.",
-    status: "Early access, by invitation",
+    name: "Verdicts",
+    href: "https://paragonreflex.com/verdict/",
+    what: "Write a rule in plain English. It reads the rule back, then answers allowed, not allowed, or cannot tell, naming the missing fact. Every answer is a record you keep.",
+    honest: "$25 for 2,500 verdicts. No subscription. Rules, not advice.",
+    status: "Run one at paragonreflex.com/verdict",
   },
   {
     icon: BiUserCheck,
-    name: "Roles",
-    what: "Hiring claims checked against evidence, clause by clause, before anyone acts on them.",
-    honest:
-      "\"Cannot tell\" is a first-class answer. The system would rather admit silence in the evidence than manufacture a judgment about a person.",
-    status: "Early access, by invitation",
+    name: "Operator reads",
+    href: "https://paragonreflex.com/uas",
+    what: "For programs that fly or run machines under written rules: we read your manual, compile the rules that gate a mission, and show you the record.",
+    honest: "Twenty minutes, no charge. Seats are invoiced, never carded. The pilot in command decides.",
+    status: "Book a read at paragonreflex.com/uas",
+  },
+  {
+    icon: BiServer,
+    name: "The desk",
+    href: "https://paragonreflex.com/verdict/desk/",
+    what: "Our proving ground: one famous trading rule a day, compiled and graded in public, one cent each. Where the rules are strictest and the truth settles daily.",
+    honest: "We grade rule-keeping, never outcomes. No profit figure, ever.",
+    status: "Watch at paragonreflex.com/verdict/desk",
   },
 ];
 
@@ -109,17 +108,16 @@ export default function Home() {
       {/* Hero */}
       <section className="max-w-4xl mx-auto px-4 pt-20 pb-16 text-center">
         <h1 className="text-4xl md:text-6xl font-bold text-neutral-900 dark:text-white leading-tight">
-          AI that admits what it{" "}
-          <span className="text-primary-500">doesn&apos;t know.</span>
+          We build{" "}
+          <span className="text-primary-500">Paragon Reflex.</span>
         </h1>
         <p className="mt-8 text-lg md:text-xl text-neutral-600 dark:text-neutral-300 leading-relaxed text-left md:text-center">
-          Univault Technologies is an AI research company in Salt Lake City,
-          Utah. We have spent years on the failure that matters most in real
-          work: AI that is wrong <em>with confidence</em>. What came out of that
-          work is infrastructure that asks instead of guesses &mdash; and we
-          help teams put it to work where &quot;probably&quot; isn&apos;t good
-          enough: finance, hiring, operations &mdash; and autonomous machines,
-          through our product line <a href="https://paragonreflex.com" className="underline underline-offset-2">Paragon Reflex</a>.
+          Univault Technologies LLC is an AI research company in Salt Lake City,
+          Utah, and Paragon Reflex is what we make: the body that lets a machine
+          be allowed to act. A reflex that holds when a written rule says hold, a
+          planning layer that reads the rules back and answers, and a record of
+          every decision that leaves with the owner. Built for robots and physical
+          AI; proved in public on the one desk where rules are strictest.
         </p>
         <div className="mt-10">
           <a
@@ -134,12 +132,13 @@ export default function Home() {
       {/* Three releases */}
       <section className="max-w-6xl mx-auto px-4 py-16">
         <h2 className="text-2xl md:text-3xl font-bold text-neutral-900 dark:text-white text-center">
-          Four releases, one principle
+          What we sell, all of it at paragonreflex.com
         </h2>
         <p className="mt-4 text-center text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto">
-          Everything we ship carries the same discipline: when the system is not
-          sure, it says so &mdash; to a person, before anyone relies on the
-          answer.
+          One product line, four doors. Every one of them keeps the same
+          discipline: when the system cannot tell, it holds, names the missing
+          fact, and writes it down. Univault Technologies LLC is the merchant of
+          record on every receipt.
         </p>
         <div className="mt-12 grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {releases.map((r) => (
@@ -172,14 +171,16 @@ export default function Home() {
             How we work: help first
           </h2>
           <p className="mt-4 text-neutral-600 dark:text-neutral-300 leading-relaxed">
-            Before anything is sold, we sit with your team and map where this
-            class of AI genuinely holds up in your work &mdash; and where it
-            fails quietly. You leave with that map either way. We take on a
-            small number of these engagements at a time.
+            Before anything is sold, we read your rules with you and show you
+            the record. A builder runs one rule for free. An operator gets a
+            twenty-minute read of their manual, no charge. A partner or investor
+            gets the measured numbers and the files behind them, nothing more
+            and nothing less.
           </p>
           <p className="mt-4 text-neutral-600 dark:text-neutral-300 leading-relaxed">
-            If your team runs work where a confident wrong answer costs real
-            money &mdash; or real trust &mdash; we should talk.
+            If you build, fly, or run machines that must keep written rules,
+            or you want to put capital behind the body that lets them, we
+            should talk.
           </p>
           <div id="contact" className="mt-10 scroll-mt-24">
             <h3 className="text-xl font-semibold text-neutral-900 dark:text-white mb-4">
@@ -323,14 +324,14 @@ export default function Home() {
       {/* Selected research results */}
       <section className="max-w-6xl mx-auto px-4 pb-20">
         <h2 className="text-2xl md:text-3xl font-bold text-neutral-900 dark:text-white text-center">
-          The research underneath
+          What stands, measured
         </h2>
         <p className="mt-4 text-center text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto">
-          Measurement research backs every release above. A few results, each
-          one audited against our own evaluation discipline before it was
-          allowed on this page:
+          Every number here comes from a committed script on pinned inputs and
+          was rerun on 2026-09-03. These are robotics measurements. No trading
+          number exists, and none is claimed.
         </p>
-        <div className="mt-10 grid md:grid-cols-3 gap-6">
+        <div className="mt-10 grid md:grid-cols-2 gap-6">
           <div className="rounded-xl border border-neutral-200 dark:border-neutral-700 p-6">
             <p className="text-2xl font-bold text-primary-500">26.86 &micro;s</p>
             <p className="mt-2 font-semibold text-neutral-900 dark:text-white">
@@ -354,25 +355,13 @@ export default function Home() {
               with standard tooling.
             </p>
           </div>
-          <div className="rounded-xl border border-neutral-200 dark:border-neutral-700 p-6">
-            <p className="text-2xl font-bold text-primary-500">42 / 42 checks</p>
-            <p className="mt-2 font-semibold text-neutral-900 dark:text-white">
-              De-identification, independently re-verified
-            </p>
-            <p className="mt-2 text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed">
-              Encodings not invertible to the person: speaker identification at
-              0.00 percent against 1,306 speakers, genomic identification
-              exactly at chance &mdash; re-verified end to end at a different
-              seed.
-            </p>
-          </div>
         </div>
         <p className="mt-8 text-center">
           <a
-            href="/research"
+            href="/paragon-reflex/"
             className="inline-flex items-center gap-2 text-primary-500 hover:text-primary-600 font-medium"
           >
-            More in Research <BiRightArrowAlt className="text-xl" />
+            The entity page: who is behind Paragon Reflex <BiRightArrowAlt className="text-xl" />
           </a>
         </p>
       </section>

@@ -5,6 +5,7 @@ author: Philip Phuong Tran
 excerpt: "The SDK is on npm. The template is on GitHub. The API has been running for weeks. Seven nodes are live across three regions. Here is how to build your first app on the ParagonDAO network — and why this is not a blockchain."
 image: "/paragon-frog-breathing.gif"
 tags: [builders, SDK, GLE, BAGLE, ParagonDAO, developer, tutorial, biosignal]
+archived: true
 ---
 
 # Build on the Network

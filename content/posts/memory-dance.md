@@ -16,6 +16,7 @@ tags:
   - education
   - future tech
   - phase computing
+archived: true
 ---
 
 # The Memory Dance: How Nature and Computers Remember
