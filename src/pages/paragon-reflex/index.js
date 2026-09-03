@@ -47,6 +47,18 @@ export default function ParagonReflexEntity() {
         </ul>
       </section>
 
+      <section className="max-w-3xl mx-auto px-4 py-8">
+        <h2 className="text-2xl font-bold text-neutral-900 dark:text-neutral-100">For an integrator: the facts of the layer</h2>
+        <ul className="mt-4 space-y-2 text-lg text-neutral-600 dark:text-neutral-300">
+          <li><strong className="text-neutral-900 dark:text-white">What it is.</strong> A second detection channel on the same sensor input as your perception stack. It shares no model, no training pipeline and no inference runtime with it, and flags the frames where the two disagree.</li>
+          <li><strong className="text-neutral-900 dark:text-white">What it is not, today.</strong> At its current false-alarm rate it is a monitoring, arming and event-capture channel. It is not a brake authority, and no assessor has given an opinion on it yet.</li>
+          <li><strong className="text-neutral-900 dark:text-white">Decision cost.</strong> p50 26.86 microseconds, p99 31 microseconds, on an NVIDIA Jetson Orin Nano at 25 W over 10,000 queries. Under one percent of a detector already running on the same machine.</li>
+          <li><strong className="text-neutral-900 dark:text-white">Footprint.</strong> The pattern store is 8,192 bytes regardless of how many patterns it holds; one learned pattern moves as a 4,096-byte payload; the released model is 941,316 parameters and its digest does not change when the store does.</li>
+          <li><strong className="text-neutral-900 dark:text-white">Platform.</strong> Measured on JetPack 6.2 (L4T R36.4.3, Cortex-A78AE). The port to a lockstep safety microcontroller is in build and has not been run.</li>
+          <li><strong className="text-neutral-900 dark:text-white">How to buy.</strong> The dev kit and prepaid verdicts by card at paragonreflex.com. Operator and program seats by invoice: purchase orders accepted, W-9 and ACH on request, never a card link. No government-furnished equipment or data is required for any engagement.</li>
+        </ul>
+      </section>
+
       <section className="max-w-3xl mx-auto px-4 py-8 pb-20">
         <h2 className="text-2xl font-bold text-neutral-900 dark:text-neutral-100">What is measured, on the record</h2>
         <p className="mt-4 text-lg text-neutral-600 dark:text-neutral-300 leading-relaxed">
