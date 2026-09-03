@@ -59,7 +59,7 @@ export default function About() {
           under the <a href="https://github.com/paragonreflex" className="underline underline-offset-2">paragonreflex</a> and{" "}
           <a href="https://github.com/univault-org" className="underline underline-offset-2">univault-org</a> GitHub
           organizations, and the company is a registered federal vendor (
-          <a href="https://govtribe.com/vendors/univault-technologies-llc" className="underline underline-offset-2">SAM.gov registration, mirrored on GovTribe</a>; no federal awards to date).
+          <a href="https://govtribe.com/vendors/univault-technologies-llc" className="underline underline-offset-2">SAM.gov, UEI WJG2GXE99VM5, mirrored on GovTribe</a>; no federal awards to date).
           See <Link href="/paragon-reflex/" className="underline underline-offset-2">the Paragon Reflex entity page</Link>.
         </p>
       </section>
@@ -124,6 +124,10 @@ export default function About() {
         <p className="mt-4 text-lg text-neutral-600 dark:text-neutral-400">
           If you build, fly or run machines that must keep written rules, we
           should talk.
+        </p>
+        <p className="mt-4 text-base text-neutral-600 dark:text-neutral-400">
+          Philip Phuong Tran, CEO: phil@univault.org &middot; or book twenty minutes at{" "}
+          <a href="https://paragonreflex.com/read" className="underline underline-offset-2">paragonreflex.com/read</a>.
         </p>
         <div className="mt-8">
           <Link

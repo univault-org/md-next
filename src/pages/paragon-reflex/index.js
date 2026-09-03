@@ -33,8 +33,8 @@ export default function ParagonReflexEntity() {
         <p className="mt-4 text-lg text-neutral-600 dark:text-neutral-300 leading-relaxed">
           Univault Technologies LLC is the merchant of record for every Paragon Reflex purchase: the dev kit,
           the prepaid verdicts, and any invoiced work. The name on your card statement and your receipt is
-          ours. Questions about a charge go to the contact form on this site or to the support address on
-          the receipt.
+          ours: Univault Technologies LLC, 1416 S 500 E, Salt Lake City, UT 84105, UEI WJG2GXE99VM5. Questions
+          about a charge go to phil@univault.org or to the support address on the receipt.
         </p>
       </section>
 
