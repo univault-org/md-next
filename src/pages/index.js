@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Head from "next/head";
+import LeaveNoOneBehind from "../components/LeaveNoOneBehind";
 import {
   BiServer,
   BiReceipt,
@@ -125,6 +126,9 @@ export default function Home() {
           </a>
         </div>
       </section>
+
+      {/* Leave no one behind: the commitment film */}
+      <LeaveNoOneBehind />
 
       <section className="max-w-6xl mx-auto px-4 py-16">
         <h2 className="text-2xl md:text-3xl font-bold text-neutral-900 dark:text-white text-center">
