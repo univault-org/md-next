@@ -126,7 +126,7 @@ export default function About() {
           should talk.
         </p>
         <p className="mt-4 text-base text-neutral-600 dark:text-neutral-400">
-          Philip Phuong Tran, CEO: phil@univault.org &middot; or book twenty minutes at{" "}
+          Philip Phuong Tran, CEO: phil@univault.org &middot; or book a call at{" "}
           <a href="https://paragonreflex.com/read" className="underline underline-offset-2">paragonreflex.com/read</a>.
         </p>
         <div className="mt-8">

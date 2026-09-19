@@ -33,8 +33,8 @@ const releases = [
     name: "Operator reads",
     href: "https://paragonreflex.com/uas",
     what: "For programs that fly or run machines under written rules: we read your manual, compile the rules that gate a mission, and show you the record.",
-    honest: "Twenty minutes, no charge. Seats are invoiced, never carded. The pilot in command decides.",
-    status: "Book a 20-minute operator read",
+    honest: "No charge. Seats are invoiced, never carded. The pilot in command decides.",
+    status: "Book an operator read",
   },
   {
     icon: BiServer,
@@ -231,7 +231,7 @@ export default function Home() {
           <p className="mt-4 text-neutral-600 dark:text-neutral-300 leading-relaxed">
             Before anything is sold, we read your rules with you and show you
             the record. A builder runs one rule for free. An operator gets a
-            twenty-minute read of their manual, no charge. A partner or investor
+            free read of their manual. A partner or investor
             gets the measured numbers and the files behind them, nothing more
             and nothing less.
           </p>
